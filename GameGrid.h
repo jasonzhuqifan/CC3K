@@ -9,5 +9,8 @@
 #ifndef GameGrid_hpp
 #define GameGrid_hpp
 
+class GameGrid {
+    friend std::ostream & operator<<(std::ostream &out, GameGrid &g);
+};
 
 #endif /* GameGrid_hpp */
