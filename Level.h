@@ -15,7 +15,7 @@ struct Level{
 <<<<<<< HEAD
     ~Level();
 =======
-    virtual ~level() = 0;
+    virtual ~Level() = 0;
 >>>>>>> origin/master
 };
 
