@@ -17,16 +17,16 @@ using namespace std;
 
 class Floor : public Level{
 protected:
-    vector<gridObjects *> gO;
+    vector<GridObjects *> gO;
     bool enemyFrozen;
 private:
     Chamber *c;
-    enemy makeEnemy() override;
+    Enemy makeEnemy() override;
     potion makePotion() override;
-    gold makeGold() override;
+    Gold makeGold() override;
     void placeStair() override;
     void placePlayer() override;
-    void place(gridObjects &gO);
+    void place(GridObjects &gO);
 public:
     Floor();
     void init();
