@@ -9,9 +9,9 @@ using namespace std;
 class Floor;
 
 class GameGrid {
-    textDisplay *td;
-    level *l;
-    player *pc;
+    TextDisplay *td;
+    Level *l;
+    Player *pc;
     
 public:
     GameGrid();
