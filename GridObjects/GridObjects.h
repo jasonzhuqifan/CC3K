@@ -9,8 +9,10 @@
 #ifndef GridObjects_hpp
 #define GridObjects_hpp
 
-class gridObjects{
+
+#include "Floor.h"
+class gridObjects : public floor{
+
     
 };
-
 #endif /* GridObjects_hpp */

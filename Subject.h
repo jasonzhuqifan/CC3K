@@ -11,15 +11,18 @@
 #include <vector>
 using namespace std;
 
+class Info;
 class observer;
 
 class subject{
     std::vector<observer *> observers;
-    void attatch(observer *ob);
-    void detach(observer *ob);
+public:
+    subject();
+    void attatch(observer *o);
+    void detach(observer *o);
     void notifyObservers();
+    virtual Info getInfo() = 0;
     virtual ~subject() = 0;
-
 };
 
 #endif /* Subject_hpp */

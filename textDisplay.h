@@ -13,11 +13,15 @@
 #include <vector>
 using namespace std;
 
+
 class textDisplay: public observer{
     vector<vector<char>> theDisplay;
 public:
     textDisplay();
     void notify() override;
+    ~textDisplay();
+    
+    friend ostream &operator<<(ostream &out, const textDisplay &td);
 };
 
 #endif /* textDisplay_hpp */

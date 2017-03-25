@@ -7,3 +7,49 @@
 //
 
 #include "Floor.h"
+
+floor::floor(){}
+
+floor::~floor(){}
+
+enemy floor::makeEnemy(){
+    
+}
+
+potion floor::makePotion(){
+    
+}
+
+gold floor::makeGold(){
+}
+
+
+void floor::place(gridObjects &gO){
+    
+}
+
+void floor::placePlayer(){
+    
+}
+
+void floor::placeStair(){
+    
+}
+
+void floor::init(){
+    
+}
+
+void floor::clearFloor(){
+    
+}
+
+void floor::setFrozen(){
+    
+}
+
+
+
+
+
+

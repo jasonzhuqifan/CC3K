@@ -7,3 +7,16 @@
 //
 
 #include "textDisplay.h"
+
+textDisplay::textDisplay(){
+    
+}
+
+textDisplay::~textDisplay(){
+    
+}
+
+void textDisplay::notify(){
+    
+}
+

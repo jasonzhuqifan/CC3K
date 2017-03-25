@@ -7,3 +7,26 @@
 //
 
 #include "Subject.h"
+
+
+subject::subject(){
+    
+}
+
+
+void subject::attatch(observer *o){
+    
+}
+
+void subject::detach(observer *o){
+    
+}
+
+void subject::notifyObservers(){
+    
+}
+
+
+
+
+
