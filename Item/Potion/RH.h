@@ -12,7 +12,11 @@
 
 #include "Potion.h"
 
+<<<<<<< HEAD
 class rh : public Potion{
+=======
+class RH : public Potion{
+>>>>>>> origin/master
     
 };
 

@@ -11,7 +11,7 @@
 
 #include "Potion.h"
 
-class wa : public potion{
+class WA : public Potion{
     
 };
 

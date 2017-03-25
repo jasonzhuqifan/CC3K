@@ -12,7 +12,10 @@ struct Level{
     virtual Gold makeGold() = 0;
     virtual void placeStair() = 0;
     virtual void placePlayer() = 0;
+<<<<<<< HEAD
     virtual void setFrozen() = 0;
+=======
+>>>>>>> origin/master
     virtual ~Level() = 0;
 };
 

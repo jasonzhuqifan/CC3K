@@ -11,7 +11,7 @@
 
 #include "Potion.h"
 
-class bd : public potion{
+class BD : public Potion{
     
 };
 

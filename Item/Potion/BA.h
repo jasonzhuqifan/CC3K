@@ -13,7 +13,7 @@
 
 #include "Potion.h"
 
-class ba : public potion{
+class BA : public Potion{
     
 };
 
