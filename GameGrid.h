@@ -8,6 +8,8 @@
 
 #ifndef GameGrid_hpp
 #define GameGrid_hpp
+#include <iostream>
+using namespace std;
 
 class GameGrid {
     friend std::ostream & operator<<(std::ostream &out, GameGrid &g);
