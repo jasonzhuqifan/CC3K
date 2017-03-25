@@ -9,10 +9,19 @@
 #ifndef Floor_hpp
 #define Floor_hpp
 
+#include <vector>
+
 #include "Level.h"
 #include "GridObjects.h"
 #include "Chamber.h"
-#include <vector>
+
+#include "Human.h"
+#include "Halfling.h"
+#include "Elf.h"
+#include "Orc.h"
+#include "Merchant.h"
+#include "Dragon.h"
+
 using namespace std;
 
 class Floor : public Level{
@@ -22,7 +31,7 @@ protected:
 private:
     Chamber *c;
     Enemy makeEnemy() override;
-    potion makePotion() override;
+    Potion makePotion() override;
     Gold makeGold() override;
     void placeStair() override;
     void placePlayer() override;

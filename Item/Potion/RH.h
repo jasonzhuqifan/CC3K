@@ -12,7 +12,7 @@
 
 #include "Potion.h"
 
-class rh : public potion{
+class rh : public Potion{
     
 };
 

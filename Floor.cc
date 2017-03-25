@@ -1,14 +1,21 @@
 #include "Floor.h"
+#include <cstdlib>
+#include <ctime>
 
 Floor::Floor(){}
 
 Floor::~Floor(){}
 
 Enemy Floor::makeEnemy(){
+    srand(time(NULL));
+    int spawnRate = rand()%18+1;
+    if(spawnRate >= 1 && spawnRate <= 4){//human
+        
+    }else if(spawnRate )
     
 }
 
-potion Floor::makePotion(){
+Potion Floor::makePotion(){
     
 }
 

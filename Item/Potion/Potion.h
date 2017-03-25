@@ -11,7 +11,7 @@
 
 #include "Item.h"
 
-class potion : public item{
+class Potion : public Item{
     
 };
 
