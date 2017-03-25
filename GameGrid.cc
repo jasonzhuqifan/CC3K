@@ -9,15 +9,17 @@
 #include "GameGrid.h"
 using namespace std;
 
-GameGrid::GameGrid(){
-    
-}
+GameGrid::GameGrid() {}
 
 GameGrid::~GameGrid(){
-    
+    delete td;
+    delete l;
+    delete pc;
 }
 
 void GameGrid::init(){
+    td = new textDisplay();
+    l = new Floor();
     
 }
 
