@@ -10,10 +10,12 @@
 #define Observer_hpp
 
 #include "Subject.h"
+#include "SubscriptionType.h"
 
 class Observer {
 public:
     virtual void notify(Subject &notifier) = 0;
+    virtual SubscriptionType getSubType() const = 0;
     virtual ~Observer()= default;
 };
 

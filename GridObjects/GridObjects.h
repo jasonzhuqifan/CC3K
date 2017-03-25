@@ -3,7 +3,7 @@
 
 #include "Floor.h"
 #include "ObstacleType.h"
-#include "GridObjectType.h"
+
 
 class GridObjects : public Floor{
     int previousRow;
@@ -11,7 +11,6 @@ class GridObjects : public Floor{
     int currentRow;
     int currentCol;
     virtual ObstacleType getObsType() = 0;
-    virtual GridObjectType getObjType() = 0;
 };
 
 #endif
