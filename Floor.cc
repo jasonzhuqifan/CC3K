@@ -4,7 +4,7 @@ Floor::Floor(){}
 
 Floor::~Floor(){}
 
-enemy Floor::makeEnemy(){
+Enemy Floor::makeEnemy(){
     
 }
 
@@ -12,11 +12,11 @@ potion Floor::makePotion(){
     
 }
 
-gold Floor::makeGold(){
+Gold Floor::makeGold(){
 }
 
 
-void Floor::place(gridObjects &gO){
+void Floor::place(GridObjects &gO){
     
 }
 
