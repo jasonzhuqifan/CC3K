@@ -1,50 +1,41 @@
-//
-//  Floor.cpp
-//  CC3KFInalProject
-//
-//  Created by Raymond Tan on 2017-03-23.
-//  Copyright © 2017 Raymond Tan. All rights reserved.
-//
 
 #include "Floor.h"
 
-floor::floor(){}
+Floor::Floor(){}
 
-floor::~floor(){}
+Floor::~Floor(){}
 
-enemy floor::makeEnemy(){
+enemy Floor::makeEnemy(){
+    
     
 }
 
-potion floor::makePotion(){
+potion Floor::makePotion(){
     
 }
 
-gold floor::makeGold(){
+gold Floor::makeGold(){
 }
 
 
-void floor::place(gridObjects &gO){
+
+void Floor::placePlayer(){
     
 }
 
-void floor::placePlayer(){
+void Floor::placeStair(){
     
 }
 
-void floor::placeStair(){
+void Floor::init(){
     
 }
 
-void floor::init(){
+void Floor::clearFloor(){
     
 }
 
-void floor::clearFloor(){
-    
-}
-
-void floor::setFrozen(){
+void Floor::setFrozen(){
     
 }
 

@@ -1,21 +1,13 @@
-//
-//  Floor.hpp
-//  CC3KFInalProject
-//
-//  Created by Raymond Tan on 2017-03-23.
-//  Copyright © 2017 Raymond Tan. All rights reserved.
-//
-
 #ifndef Floor_hpp
 #define Floor_hpp
 
 #include "Level.h"
-#include "GridObjects.h"
 #include "Chamber.h"
+#include "GridObjects.h"
 #include <vector>
 using namespace std;
 
-class floor : public level{
+class Floor : public level{
 protected:
     vector<gridObjects *> gO;
     bool enemyFrozen;
@@ -26,13 +18,13 @@ private:
     gold makeGold() override;
     void placeStair() override;
     void placePlayer() override;
-    void place(gridObjects &gO);
+    //void place(gridObjects &gO);
 public:
-    floor();
+    Floor();
     void init();
     void clearFloor();
     void setFrozen();
-    ~floor();
+    ~Floor();
     
 };
 
