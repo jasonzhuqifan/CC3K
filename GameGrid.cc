@@ -1,11 +1,3 @@
-//
-//  GameGrid.cpp
-//  CC3KFInalProject
-//
-//  Created by Raymond Tan on 2017-03-23.
-//  Copyright © 2017 Raymond Tan. All rights reserved.
-//
-
 #include "GameGrid.h"
 using namespace std;
 
@@ -20,26 +12,35 @@ GameGrid::~GameGrid(){
 void GameGrid::init(){
     td = new TextDisplay();
     l = new Floor();
-    
 }
 
 void GameGrid::move(string dir){
-    
+    pc->move(dir);
 }
 
 void GameGrid::attack(string dir){
-    
+    pc->attack(dir);
 }
 
-void GameGrid::setRace(string race){
-    
+void GameGrid::setRace(char race){
+    switch (race) {
+        case 's': pc = new Shade(); break;
+        case 'd': pc = new Drow(); break;
+        case 'v': pc = new Vampire(); break;
+        case 'b': pc = new Goblin(); break;
+        case 't': pc = new Troll(); break;
+        default: throw "unknown race"; break;
+    }
 }
 
 void GameGrid::freeze(){
-    
+    l->setFrozen();
 }
 
 void GameGrid::clearGrid(){
-    
+    delete td;
+    delete l;
+    td = new TextDisplay();
+    l = new Floor();
 }
 

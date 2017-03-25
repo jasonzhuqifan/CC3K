@@ -1,18 +1,14 @@
-//
-//  Player.hpp
-//  CC3KFInalProject
-//
-//  Created by Raymond Tan on 2017-03-23.
-//  Copyright © 2017 Raymond Tan. All rights reserved.
-//
-
 #ifndef Player_hpp
 #define Player_hpp
 
 #include "Character.h"
 
 class Player : public Character{
-    
+public:
+    virtual void attack(string dir) = 0;
+    void move(string dir);
+    void use(string dir);
+    bool reachStairs();
 };
 
-#endif /* Player_hpp */
+#endif

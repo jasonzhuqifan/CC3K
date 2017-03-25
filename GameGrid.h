@@ -1,12 +1,16 @@
 #ifndef GameGrid_hpp
 #define GameGrid_hpp
+
 #include <iostream>
 #include "Level.h"
 #include "Player.h"
 #include "textDisplay.h"
-using namespace std;
-
-class Floor;
+#include "Floor.h"
+#include "Drow.h"
+#include "Goblin.h"
+#include "Shade.h"
+#include "Troll.h"
+#include "Vampire.h"
 
 class GameGrid {
     TextDisplay *td;
@@ -20,7 +24,7 @@ public:
     void move(string dir);
     void use(string dir);
     void attack(string dir);
-    void setRace(string race);
+    void setRace(char race);
     void freeze();
     void clearGrid();
     

@@ -1,19 +1,23 @@
-//
-//  Character.hpp
-//  CC3KFInalProject
-//
-//  Created by Raymond Tan on 2017-03-23.
-//  Copyright © 2017 Raymond Tan. All rights reserved.
-//
-
 #ifndef Character_hpp
 #define Character_hpp
 
+#include "GridObjects.h"
 
-
-
-class Character{
+class Character : public GridObjects{
+    int maxHP;
+    int HP;
+    int atk;
+    int def;
+    int gold;
     
+public:
+    int getMaxHP();
+    int getHP();
+    int getAttack();
+    int getDefence();
+    int getGold();
+    ObstacleType getObsType();
+    GridObjectType getObjType();
 };
 
-#endif /* Character_hpp */
+#endif
