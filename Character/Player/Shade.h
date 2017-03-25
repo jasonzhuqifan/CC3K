@@ -10,7 +10,7 @@
 #define Shade_hpp
 
 #include "Player.h"
-class shade : public player{
+class Shade : public Player{
     
 };
 

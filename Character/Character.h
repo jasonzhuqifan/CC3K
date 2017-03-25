@@ -12,7 +12,7 @@
 
 
 
-class character{
+class Character{
     
 };
 

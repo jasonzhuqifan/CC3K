@@ -11,7 +11,7 @@
 
 #include "Enemy.h"
 
-class human : public enemy{
+class Human : public Enemy{
     
 };
 

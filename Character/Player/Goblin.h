@@ -11,7 +11,7 @@
 
 #include "Player.h"
 
-class Goblin : public player{
+class Goblin : public Player{
     
 };
 

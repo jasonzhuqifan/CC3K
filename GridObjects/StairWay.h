@@ -11,7 +11,7 @@
 
 #include "Cell.h"
 
-class stairWay : public cell{
+class StairWay : public Cell{
     
 };
 

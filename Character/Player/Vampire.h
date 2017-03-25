@@ -11,7 +11,7 @@
 
 #include "Player.h"
 
-class vampire:public player{
+class Vampire:public Player{
     
 };
 

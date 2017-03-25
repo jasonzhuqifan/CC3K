@@ -12,7 +12,7 @@
 #include "GridObjects.h"
 
 
-class cell : public gridObjects{
+class Cell : public GridObjects{
     
 };
 

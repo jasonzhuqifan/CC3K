@@ -12,7 +12,7 @@
 
 #include "Cell.h"
 
-class wall : public cell{
+class Wall : public Cell{
     
 };
 

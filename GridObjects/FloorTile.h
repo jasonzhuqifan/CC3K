@@ -11,7 +11,7 @@
 
 #include "Cell.h"
 
-class floorTile : public cell{
+class FloorTile : public Cell{
     
 };
 

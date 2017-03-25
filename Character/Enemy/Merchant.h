@@ -12,7 +12,7 @@
 
 #include "Enemy.h"
 
-class merchant : public enemy{
+class Merchant : public Enemy{
     
 };
 

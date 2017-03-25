@@ -11,7 +11,7 @@
 
 #include "Player.h"
 
-class troll: public player{
+class Troll: public Player{
     
 };
 

@@ -11,7 +11,7 @@
 
 #include "Gold.h"
 
-class small : gold{
+class Small : Gold{
     
 };
 

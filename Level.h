@@ -13,7 +13,7 @@
 #include "Potion.h"
 #include "Gold.h"
 
-struct level{
+struct Level{
     level();
     virtual enemy makeEnemy() = 0;
     virtual potion makePotion() = 0;

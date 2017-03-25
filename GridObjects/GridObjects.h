@@ -11,7 +11,7 @@
 
 
 #include "Floor.h"
-class gridObjects : public floor{
+class GridObjects : public Floor{
 
     
 };

@@ -12,7 +12,7 @@
 
 #include "Item.h"
 
-class gold : public item{
+class Gold : public Item{
     
 };
 

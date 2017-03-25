@@ -11,7 +11,7 @@
 
 #include "Cell.h"
 
-class passages : public cell{
+class Passages : public Cell{
     
 };
 

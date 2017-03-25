@@ -11,7 +11,7 @@
 
 #include "Gold.h"
 
-class merchantHoard : public gold{
+class MerchantHoard : public Gold{
     
 };
 

@@ -9,7 +9,7 @@
 #ifndef Item_hpp
 #define Item_hpp
 
-class item{
+class Item{
     
 };
 

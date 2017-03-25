@@ -11,7 +11,7 @@
 #include "Gold.h"
 
 
-class normal : public gold{
+class Normal : public Gold{
     
 };
 
