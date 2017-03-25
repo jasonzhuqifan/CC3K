@@ -15,12 +15,12 @@
 #include <vector>
 using namespace std;
 
-class floor : public level{
+class Floor : public Level{
 protected:
     vector<gridObjects *> gO;
     bool enemyFrozen;
 private:
-    chamber *c;
+    Chamber *c;
     enemy makeEnemy() override;
     potion makePotion() override;
     gold makeGold() override;
@@ -28,11 +28,11 @@ private:
     void placePlayer() override;
     void place(gridObjects &gO);
 public:
-    floor();
+    Floor();
     void init();
     void clearFloor();
     void setFrozen();
-    ~floor();
+    ~Floor();
     
 };
 

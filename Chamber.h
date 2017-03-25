@@ -9,7 +9,7 @@
 #ifndef Chamber_hpp
 #define Chamber_hpp
 
-class chamber{
+class Chamber{
     
 };
 
