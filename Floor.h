@@ -22,7 +22,7 @@ protected:
 private:
     Chamber *c;
     Enemy makeEnemy() override;
-    potion makePotion() override;
+    Potion makePotion() override;
     Gold makeGold() override;
     void placeStair() override;
     void placePlayer() override;
