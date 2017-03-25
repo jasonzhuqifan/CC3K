@@ -1,18 +1,12 @@
-//
-//  textDisplay.cpp
-//  CC3KFInalProject
-//
-//  Created by Raymond Tan on 2017-03-23.
-//  Copyright © 2017 Raymond Tan. All rights reserved.
-//
-
 #include "textDisplay.h"
-
-textDisplay::textDisplay(){
+#include "Info.h"
+#include "iostream"
+#include ""
+TextDisplay::TextDisplay(){
     
 }
 
-textDisplay::~textDisplay(){
+TextDisplay::~TextDisplay(){
     
 }
 

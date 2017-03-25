@@ -9,20 +9,20 @@
 #include "Subject.h"
 
 
-subject::subject(){
+Subject::Subject(){
     
 }
 
 
-void subject::attatch(observer *o){
+void Subject::attatch(Observer *o){
     
 }
 
-void subject::detach(observer *o){
+void Subject::detach(Observer *o){
     
 }
 
-void subject::notifyObservers(){
+void Subject::notifyObservers(){
     
 }
 

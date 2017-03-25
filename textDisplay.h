@@ -1,11 +1,3 @@
-//
-//  textDisplay.hpp
-//  CC3KFInalProject
-//
-//  Created by Raymond Tan on 2017-03-23.
-//  Copyright © 2017 Raymond Tan. All rights reserved.
-//
-
 #ifndef textDisplay_hpp
 #define textDisplay_hpp
 
@@ -14,14 +6,14 @@
 using namespace std;
 
 
-class textDisplay: public observer{
+class TextDisplay: public Observer{
     vector<vector<char>> theDisplay;
 public:
-    textDisplay();
-    void notify() override;
-    ~textDisplay();
+    TextDisplay();
+    void notify(Subject &notifier) override;
+    ~TextDisplay();
     
-    friend ostream &operator<<(ostream &out, const textDisplay &td);
+    friend ostream &operator<<(ostream &out, const TextDisplay &td);
 };
 
 #endif /* textDisplay_hpp */
