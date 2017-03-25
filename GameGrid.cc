@@ -18,7 +18,7 @@ GameGrid::~GameGrid(){
 }
 
 void GameGrid::init(){
-    td = new textDisplay();
+    td = new TextDisplay();
     l = new Floor();
     
 }
