@@ -12,11 +12,8 @@ struct Level{
     virtual Gold makeGold() = 0;
     virtual void placeStair() = 0;
     virtual void placePlayer() = 0;
-<<<<<<< HEAD
     ~Level();
-=======
     virtual ~Level() = 0;
->>>>>>> origin/master
 };
 
 #endif /* Level_hpp */
