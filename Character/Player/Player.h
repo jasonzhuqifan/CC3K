@@ -3,7 +3,7 @@
 
 #include "Character.h"
 
-class Player : public Character{
+class Player : public Character, Subject{
 public:
     virtual void attack(string dir) = 0;
     void move(string dir);

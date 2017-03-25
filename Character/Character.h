@@ -2,8 +2,10 @@
 #define Character_hpp
 
 #include "GridObjects.h"
+#include "Subject.h"
+#include "Observer.h"
 
-class Character : public GridObjects{
+class Character : public GridObjects, Subject{
     int maxHP;
     int HP;
     int atk;
@@ -16,8 +18,8 @@ public:
     int getAttack();
     int getDefence();
     int getGold();
-    ObstacleType getObsType();
-    GridObjectType getObjType();
+    ObstacleType getObsType() override;
+    GridObjectType getObjType() override;
 };
 
 #endif
