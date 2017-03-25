@@ -12,17 +12,17 @@
 using namespace std;
 
 class Info;
-class observer;
+class Observer;
 
-class subject{
-    std::vector<observer *> observers;
+class Subject{
+    std::vector<observer *> Observers;
 public:
-    subject();
-    void attatch(observer *o);
-    void detach(observer *o);
+    Subject();
+    void attatch(Observer *o);
+    void detach(Observer *o);
     void notifyObservers();
     virtual Info getInfo() = 0;
-    virtual ~subject() = 0;
+    virtual ~Subject() = 0;
 };
 
 #endif /* Subject_hpp */

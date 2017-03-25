@@ -11,10 +11,10 @@
 
 #include "Subject.h"
 
-class observer {
+class Observer {
 public:
-    virtual void notify() = 0;
-    virtual ~observer()= default;
+    virtual void notify(Subject &notifier) = 0;
+    virtual ~Observer()= default;
 };
 
 
