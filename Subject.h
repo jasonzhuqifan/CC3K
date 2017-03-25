@@ -15,7 +15,7 @@ class Info;
 class Observer;
 
 class Subject{
-    std::vector<observer *> Observers;
+    std::vector<Observer *> Observers;
 public:
     Subject();
     void attatch(Observer *o);
