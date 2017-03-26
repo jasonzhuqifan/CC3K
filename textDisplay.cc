@@ -28,8 +28,9 @@ SubscriptionType TextDisplay::getSubType() const{
 
 void TextDisplay::notify(Subject &notifier){
     struct Info f = notifier.getInfo();
+    GridObjectType type = f.GOT;
     char tempChar;
-    if(notifier.getObjType() == GridObjectType::Player){ //if notifier is player
+    if(type == GridObjectType::Player){ //if notifier is player
         if(f.currentCol == f.previousCol && f.currentRow == f.previousRow){
             if(theDisplay[f.currentRow][f.currentCol] != '@'){
                 theDisplay[f.currentRow][f.currentCol] = '@';
@@ -44,7 +45,7 @@ void TextDisplay::notify(Subject &notifier){
         theDisplay[f.previousRow][f.previousCol] = tempChar;
         }
         
-    } else if(notifier.getObjType() == GridObjectType::Enemy){ //if notifier is enemy
+    } else if(type == GridObjectType::Enemy){ //if notifier is enemy
          if(f.currentCol != f.previousCol || f.currentRow != f.previousRow){
              tempChar = theDisplay[f.currentRow][f.currentCol];
              theDisplay[f.currentRow][f.currentCol] = theDisplay[f.previousRow][f.previousCol];
@@ -52,13 +53,13 @@ void TextDisplay::notify(Subject &notifier){
          } else if(theDisplay[f.currentRow][f.currentCol] == '.'){ //initiate enemy
              theDisplay[f.currentRow][f.currentCol] = f.EnemyRace;
          }
-    } else if(notifier.getObjType() == GridObjectType::Potion){ //if notifier is potion
+    } else if(type == GridObjectType::Potion){ //if notifier is potion
         if(theDisplay[f.currentRow][f.currentCol] == '.'){
             theDisplay[f.currentRow][f.currentCol] = 'P';
         } else if(theDisplay[f.currentRow][f.currentCol] == 'P'){
             theDisplay[f.currentRow][f.currentCol] = '.';
         }
-    } else if(notifier.getObjType() == GridObjectType::Gold){ //Gold not consider Dragon Hoard yet!
+    } else if(type == GridObjectType::Gold){ //Gold not consider Dragon Hoard yet!
         if(theDisplay[f.currentRow][f.currentCol] == '.'){
             theDisplay[f.currentRow][f.currentCol] = 'G';
         } else if(theDisplay[f.currentRow][f.currentCol] == 'G'){

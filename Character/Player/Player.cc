@@ -1,9 +1,38 @@
-//
-//  Player.cpp
-//  CC3KFInalProject
-//
-//  Created by Raymond Tan on 2017-03-23.
-//  Copyright © 2017 Raymond Tan. All rights reserved.
-//
-
 #include "Player.h"
+#include "Info.h"
+
+
+Info Player::getInfo(){
+    Info f;
+    f.currentCol = currentCol;
+    f.currentRow = currentRow;
+    f.previousCol = previousCol;
+    f.previousRow = previousRow;
+    return f;
+}
+
+
+GridObjectType Player::getObjType(){
+    return GridObjectType::Player;
+}
+
+int Player::getHP(){
+    return HP;
+}
+
+int Player::getDefence(){
+    return Def;
+}
+
+int Player::getAttack(){
+    return Atk;
+}
+
+int Player::getGold(){
+    return Gold;
+}
+
+int Player::getMaxHP(){
+    return MaxHP;
+}
+

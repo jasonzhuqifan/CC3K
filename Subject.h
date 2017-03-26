@@ -9,7 +9,7 @@
 #ifndef Subject_hpp
 #define Subject_hpp
 #include <vector>
-#include "GridObjectType.h"
+
 using namespace std;
 
 class Info;
@@ -24,7 +24,7 @@ public:
     void notifyObservers();
     virtual Info getInfo() = 0;
     virtual ~Subject() = 0;
-    virtual GridObjectType getObjType() = 0;
+    
 };
 
 #endif /* Subject_hpp */
