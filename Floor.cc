@@ -2,7 +2,7 @@
 #include <cstdlib>
 #include <ctime>
 #include <fstream>
-
+#include <utility>
 Floor::Floor(){}
 
 Floor::~Floor(){}
@@ -77,15 +77,20 @@ Potion *Floor::createPotion(){
 
 
 
-bool Floor::isChamber(vector<vector<pair<int, int>>>* chamLst,int row,int col){
+bool Floor::isChamber(vector<vector<pair<int, int>>>* chamLst,int row,int col,int chamNUm){
     for(int i =0; i < chamLst[chamberNum].size() ; i++){
-        
+        if(row == (*chamLst)[chamberNum][i].first &&
+           col == (*chamLst)[chamberNum][i].second){
+            return true;
+        }
     }
+    return false;
+    
 }
 
 void Floor::placePotion(){
     srand(time(NULL));
-    //vector<vector<pair<int, int>>>* chamLst = c->getChamberList();
+    vector<vector<pair<int, int>>>* chamLst = c->getChamberList();
     int num=0;
     
     

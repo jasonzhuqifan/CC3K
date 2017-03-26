@@ -66,7 +66,7 @@ private:
     Gold *createGold() override;
     Cell *createCell(char c) override;
     
-    bool isChamber(vector<vector<pair<int, int>>>* chamLst,int row,int col);
+    bool isChamber(vector<vector<pair<int, int>>>* chamLst,int row,int col,int chamNum);
     void placeEnemy() override;
     void placePotion() override;
     void placeGold() override;
