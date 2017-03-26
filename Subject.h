@@ -1,15 +1,7 @@
-//
-//  Subject.hpp
-//  CC3KFInalProject
-//
-//  Created by Raymond Tan on 2017-03-23.
-//  Copyright © 2017 Raymond Tan. All rights reserved.
-//
-
 #ifndef Subject_hpp
 #define Subject_hpp
 #include <vector>
-
+#include "SubscriptionType.h"
 using namespace std;
 
 class Info;
@@ -21,10 +13,10 @@ public:
     Subject();
     void attatch(Observer *o);
     void detach(Observer *o);
-    void notifyObservers();
+    void notifyObservers(SubscriptionType t);
     virtual Info getInfo() = 0;
     virtual ~Subject() = 0;
     
 };
 
-#endif /* Subject_hpp */
+#endif 

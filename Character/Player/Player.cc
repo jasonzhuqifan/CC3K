@@ -65,7 +65,11 @@ void Player::move(string dir){
         currentRow--;
         currentCol--;
     }
-    if(gO[currentCol][currentRow].){
-        
+    
+    if(gO[currentCol][currentRow]->getObsType() != ObstacleType::BolckAll){
+        GridObjects *g = gO[currentCol][currentRow];
+        gO[currentCol][currentRow] = gO[previousRow][previousCol];
+        gO[previousRow][previousCol] = g;
     }
+    this->notifyObservers(SubscriptionType::All);
 }
