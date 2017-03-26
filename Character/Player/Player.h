@@ -2,7 +2,11 @@
 #define Player_hpp
 
 #include "Character.h"
+<<<<<<< Updated upstream
 #include "string"
+=======
+#include "Subject.h"
+>>>>>>> Stashed changes
 
 class Player : public Character, Subject{
 protected:
