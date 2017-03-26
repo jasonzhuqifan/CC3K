@@ -15,7 +15,7 @@ class Chamber{
     
 public:
     Chamber(); //read Text map and scan chamLst
-    vector<vector<pair<int, int>>> getChamberList(); //return vector of Chambers
+    vector<vector<pair<int, int>>>* getChamberList();//return vector of Chambers
 };
 
 #endif
