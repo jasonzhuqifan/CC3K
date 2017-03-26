@@ -58,7 +58,6 @@ private:
     const int goldNum = 10;
     const int width = 79;
     const int height = 25;
-    const int chamberNum = 5;
     
     Chamber *c;
     Enemy *createEnemy() override;
@@ -66,7 +65,7 @@ private:
     Gold *createGold() override;
     Cell *createCell(char c) override;
     
-    bool isChamber(vector<vector<pair<int, int>>>* chamLst,int row,int col,int chamNum);
+    
     void placeEnemy() override;
     void placePotion() override;
     void placeGold() override;

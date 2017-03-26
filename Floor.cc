@@ -39,11 +39,34 @@ Enemy *Floor::createEnemy(){
 
 void Floor::placeEnemy(){
     srand(time(NULL));
-    int chamNumber = rand()*5+1; //random number from 1 to 5
-    int row = 0;
-    int col = 0;
-    for(int i =0;i < enemyNum ;i++){
-        gO[row][col] = createEnemy();
+    vector<vector<pair<int, int>>>* chamLst = c->getChamberList();
+    int enemiesInCham[5] = {0};
+    
+    for(int i =0;i < enemyNum; i++){
+        int x =0;
+        int y =0;
+        while(true){
+            int chamberNum = rand()%5+1; //random number from 1 to 5
+            int randomPair = rand()%(*chamLst)[chamberNum].size();
+            //randomly choose a pair in chamList
+            x = (*chamLst)[chamberNum][randomPair].first;
+            y = (*chamLst)[chamberNum][randomPair].second;
+            
+            
+            if(enemiesInCham[chamberNum] < 5 &&
+               gO[x][y]->getObjType() == GridObjectType::Others){
+                //if number of enemies in chamber no more than 5
+                //and grid object type is other
+                enemiesInCham[chamberNum]++;
+                break;
+            }
+            
+            
+        }
+        
+        GridObjects *temp = gO[x][y];
+        gO[x][y] = createEnemy();
+        delete temp;
     }
     
 }
@@ -77,29 +100,31 @@ Potion *Floor::createPotion(){
 
 
 
-bool Floor::isChamber(vector<vector<pair<int, int>>>* chamLst,int row,int col,int chamNUm){
-    for(int i =0; i < chamLst[chamberNum].size() ; i++){
-        if(row == (*chamLst)[chamberNum][i].first &&
-           col == (*chamLst)[chamberNum][i].second){
-            return true;
-        }
-    }
-    return false;
-    
-}
-
 void Floor::placePotion(){
     srand(time(NULL));
     vector<vector<pair<int, int>>>* chamLst = c->getChamberList();
-    int num=0;
+    int potionInCham[5] = {0};
     
-    
-    for(int i =0;i < enemyNum; i++){
-        while(true){
-            int row = rand()%width+1; //random number from 1 to width
-            int col = rand()%height+1; //random number from 1 to height
+    for(int i =0; i < potionNum ;i++){
+        int x =0;
+        int y =0;
+        while (true) {
+            int chamberNum = rand()%5+1;//random number from 1 to 5
+            int randomPair = rand()%(*chamLst)[chamberNum].size();
+            
+            x = (*chamLst)[chamberNum][randomPair].first;
+            y = (*chamLst)[chamberNum][randomPair].second;
+            
+            if(potionInCham[chamberNum] < 3 &&
+               gO[x][y]->getObjType() == GridObjectType::Others){
+                potionInCham[chamberNum]++;
+                break;
+            }
             
         }
+        
+        GridObjects *temp = gO[x][y];
+        gO[x][y] = createPotion();
     }
     
     
@@ -115,7 +140,7 @@ Gold Floor::createGold(){
     else if (spawnRate >= 6 && spawnRate <= 7){//dragonHaord
         spawnGold = new DragonHoard();
     }
-    else{
+    else{//small
         spawnGold = new Small();
     }
     return spawnGold;
@@ -124,18 +149,67 @@ Gold Floor::createGold(){
 
 void Floor::placeGold(){
     srand(time(NULL));
+    vector<vector<pair<int, int>>>* chamLst = c->getChamberList();
+    int goldInCham[5] = {0};
+    
+    
+    for(int i =0;i < goldNum ; i++){
+        int x =0;
+        int y = 0
+        ;
+        while (true)) {
+            int chamberNum = rand()% 5+1;//random number from 1 to 5
+            int randomPair = rand()%(*chamLst)[chamberNum].size();
+            //randomly choose a pair in chamLst
+            x = (*chamLst)[chamberNum][randomPair].first;
+            y = (*chamLst)[chamberNum][randomPair].second;
+            
+            
+            if(goldInCham[chamberNum] < 3 &&
+               gO[x][y]->getObjType() == GridObjectType::Others){
+                goldInCham[chamberNum]++;
+                break;
+            }
+        }
+        
+        GridObjectType *temp = gO[x][y];
+        gO[x][y] = createGold();
+        delete temp;
+        
+    }
+    
+    
+    
 }
 
-
-
+void Floor::placeStair(){
+    srand(time(NULL));
+    vector<vector<pair<int, int>>>* chamLst = c->getChamberList();
+    int chamNUm = rand()%5+1;
+    int randomPair = rand()%(*chamLst)[chamNUm].size();
+    int x =0;
+    int y =0;
+    
+    while(true){
+        x = (*chamLst)[chamNUm][randomPair].first;
+        y = (*chamLst)[chamNUm][randomPair].second;
+    }
+    
+    if(gO[x][y]->getObjType() == GridObjectType::Others){
+        break;
+    }
+    
+    GridObjects *temp = gO[x][y];
+    gO[x][y] = new StairWay;
+    delete temp;
+    
+    
+}
 
 void Floor::placePlayer(){
     
 }
 
-void Floor::placeStair(){
-    
-}
 
 Cell Floor::*createCell(char c){
     Cell cell;
