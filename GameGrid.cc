@@ -40,7 +40,5 @@ void GameGrid::freeze(){
 void GameGrid::clearGrid(){
     delete td;
     delete l;
-    td = new TextDisplay();
-    l = new Floor();
 }
 
