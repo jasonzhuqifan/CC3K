@@ -2,19 +2,10 @@
 #define Player_hpp
 
 #include "Character.h"
-<<<<<<< Updated upstream
 #include "string"
-=======
 #include "Subject.h"
->>>>>>> Stashed changes
 
 class Player : public Character, Subject{
-protected:
-    int HP;
-    int Atk;
-    int Def;
-    int MaxHP;
-    int Gold;
 
 public:
     int getHP();

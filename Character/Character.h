@@ -6,11 +6,12 @@
 #include "Observer.h"
 
 class Character : public GridObjects, Subject{
-    int maxHP;
+protected:
+    int MaxHP;
     int HP;
-    int atk;
-    int def;
-    int gold;
+    int Atk;
+    int Def;
+    int Gold;
     
 public:
     int getMaxHP();

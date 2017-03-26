@@ -41,3 +41,31 @@ int Player::getMaxHP(){
     return MaxHP;
 }
 
+void Player::move(string dir){
+    previousRow = currentRow;
+    previousCol = currentCol;
+    if(dir == "no"){
+        currentRow++;
+    }else if(dir == "so"){
+        currentRow--;
+    }else if(dir == "ea"){
+        currentCol++;
+    }else if(dir == "we"){
+        currentCol--;
+    }else if(dir == "ne"){
+        currentRow++;
+        currentCol++;
+    }else if(dir == "nw"){
+        currentRow++;
+        currentCol--;
+    }else if(dir == "se"){
+        currentRow--;
+        currentCol++;
+    }else if(dir == "sw"){
+        currentRow--;
+        currentCol--;
+    }
+    if(gO[currentCol][currentRow].){
+        
+    }
+}
