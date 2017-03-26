@@ -38,3 +38,7 @@ void Chamber::recursiveAdd(int row, int col, int chamId) {
         recursiveAdd(row, col+1, chamId);
     }
 }
+
+vector<vector<pair<int, int>>>* Chamber::getChamberList() {
+    return &chamLst;
+}
