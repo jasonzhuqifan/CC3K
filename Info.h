@@ -1,19 +1,15 @@
-//
-//  Info.hpp
-//  CC3FinalProject
-//
-//  Created by Raymond Tan on 2017-03-25.
-//
-//
-
 #ifndef Info_hpp
 #define Info_hpp
+#include <string>
 
 struct Info {
     int previousRow;
     int previousCol;
     int currentRow;
     int currentCol;
+    int HP, Atk, Def;
+    char EnemyRace;
+    std::string Message;
 };
 
-#endif /* Info_hpp */
+#endif
