@@ -15,7 +15,7 @@ protected:
     int Def;
     int MaxHP;
     int Gold;
-    //player 要不要加x y坐标？ 怎么update info
+
 public:
     int getHP();
     int getAttack();

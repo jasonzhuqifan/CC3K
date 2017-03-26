@@ -8,6 +8,11 @@ Info Player::getInfo(){
     f.currentRow = currentRow;
     f.previousCol = previousCol;
     f.previousRow = previousRow;
+    f.Atk = getAttack();
+    f.Def = getDefence();
+    f.GOT = getObjType();
+    f.HP = getHP();
+    f.MaxHP = getMaxHP();
     return f;
 }
 

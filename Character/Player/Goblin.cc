@@ -1,9 +1,14 @@
-//
-//  Goblin.cpp
-//  CC3KFInalProject
-//
-//  Created by Raymond Tan on 2017-03-23.
-//  Copyright © 2017 Raymond Tan. All rights reserved.
-//
-
 #include "Goblin.h"
+#include "string"
+using namespace std;
+
+Goblin::Goblin(){
+    HP = 110;
+    Atk = 15;
+    Def = 20;
+    MaxHP = 110;
+}
+void Goblin::attack(string dir){
+    
+}
+Goblin::~Goblin(){}

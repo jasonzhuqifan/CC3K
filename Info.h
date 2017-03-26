@@ -7,7 +7,7 @@ struct Info {
     int previousCol;
     int currentRow;
     int currentCol;
-    int HP, Atk, Def;
+    int HP, Atk, Def, MaxHP;
     char EnemyRace;
     std::string Message;
     GridObjectType GOT;

@@ -1,9 +1,15 @@
-//
-//  Drow.cpp
-//  CC3KFInalProject
-//
-//  Created by Raymond Tan on 2017-03-23.
-//  Copyright © 2017 Raymond Tan. All rights reserved.
-//
-
 #include "Drow.h"
+#include "string"
+
+using namespace std;
+
+Drow::Drow(){
+    HP = 150;
+    Atk = 25;
+    Def = 15;
+    MaxHP = 150;
+}
+void Drow::attack(std::string dir){
+    
+}
+Drow::~Drow(){}
