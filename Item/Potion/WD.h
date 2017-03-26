@@ -1,11 +1,3 @@
-//
-//  WD.hpp
-//  CC3KFInalProject
-//
-//  Created by Raymond Tan on 2017-03-23.
-//  Copyright © 2017 Raymond Tan. All rights reserved.
-//
-
 #ifndef WD_hpp
 #define WD_hpp
 
@@ -13,8 +5,9 @@
 
 
 class WD : public Potion{
-
-    
+    WD(Player* pc);
+    int getAttack() override;
+    int getDefence() override;
 };
 
 #endif /* WD_hpp */

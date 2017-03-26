@@ -6,7 +6,6 @@
 class Potion : public Item{
     ObstacleType getObsType() override;
     GridObjectType getObjType() override;
-    
 };
 
 #endif

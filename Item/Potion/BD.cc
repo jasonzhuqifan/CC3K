@@ -1,9 +1,11 @@
-//
-//  BD.cpp
-//  CC3KFInalProject
-//
-//  Created by Raymond Tan on 2017-03-23.
-//  Copyright © 2017 Raymond Tan. All rights reserved.
-//
-
 #include "BD.h"
+
+BD::BD(Player* pc) : Item(pc) {};
+
+int BD::getAttack() {
+    return pc->getAttack();
+}
+
+int BD::getDefence() {
+    return pc->getDefence() + 5;
+}

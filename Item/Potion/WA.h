@@ -1,18 +1,12 @@
-//
-//  WA.hpp
-//  CC3KFInalProject
-//
-//  Created by Raymond Tan on 2017-03-23.
-//  Copyright © 2017 Raymond Tan. All rights reserved.
-//
-
 #ifndef WA_hpp
 #define WA_hpp
 
 #include "Potion.h"
 
 class WA : public Potion{
-    
+    WA(Player* pc);
+    int getAttack() override;
+    int getDefence() override;
 };
 
-#endif /* WA_hpp */
+#endif

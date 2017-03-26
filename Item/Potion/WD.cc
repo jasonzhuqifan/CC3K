@@ -1,9 +1,11 @@
-//
-//  WD.cpp
-//  CC3KFInalProject
-//
-//  Created by Raymond Tan on 2017-03-23.
-//  Copyright © 2017 Raymond Tan. All rights reserved.
-//
-
 #include "WD.h"
+
+WD::WD(Player* pc) : Item(pc) {};
+
+int WD::getAttack() {
+    return pc->getAttack();
+}
+
+int WD::getDefence() {
+    return (pc->getDefence() > 5) ? pc->getDefence()-5 : 0;
+}

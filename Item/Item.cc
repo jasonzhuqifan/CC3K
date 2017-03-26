@@ -1,5 +1,5 @@
 #include "Item.h"
 
-Item::Item() {};
+Item::Item(Player* pc) : pc{pc} {}
 
-~Item::Item() {delete pc};
+Item::~Item() {delete pc;}

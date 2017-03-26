@@ -1,9 +1,11 @@
-//
-//  BA.cpp
-//  CC3KFInalProject
-//
-//  Created by Raymond Tan on 2017-03-23.
-//  Copyright © 2017 Raymond Tan. All rights reserved.
-//
-
 #include "BA.h"
+
+BA::BA(Player* pc) : Item(pc) {};
+
+int BA::getAttack() {
+    return pc->getAttack() + 5;
+}
+
+int BA::getDefence() {
+    return pc->getDefence();
+}

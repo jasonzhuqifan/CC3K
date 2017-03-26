@@ -1,9 +1,9 @@
-//
-//  Potion.cpp
-//  CC3KFInalProject
-//
-//  Created by Raymond Tan on 2017-03-23.
-//  Copyright © 2017 Raymond Tan. All rights reserved.
-//
-
 #include "Potion.h"
+
+ObstacleType Potion::getObsType() {
+    return ObstacleType::BolckAll;
+}
+
+GridObjectType Potion::getObjType(){
+    return GridObjectType::Potion;
+}

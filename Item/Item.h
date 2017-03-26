@@ -6,10 +6,11 @@
 #include "Subject.h"
 
 class Item : public GridObjects, Subject, Player{
+protected:
     Player *pc;
     
 protected:
-    Item();
+    Item(Player* pc);
     ~Item();
     virtual int getAttack();
     virtual int getDefence();
