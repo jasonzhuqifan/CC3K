@@ -67,4 +67,7 @@ void TextDisplay::notify(Subject &notifier){
         }
     }
 }
+void spawn(int x, int y, char type){
+    
+}
 

@@ -70,6 +70,7 @@ void Player::move(string dir){
         GridObjects *g = gO[currentCol][currentRow];
         gO[currentCol][currentRow] = gO[previousRow][previousCol];
         gO[previousRow][previousCol] = g;
+        
     }
     this->notifyObservers(SubscriptionType::All);
 }

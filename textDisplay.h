@@ -16,6 +16,7 @@ class TextDisplay: public Observer{
     int Def;
     std::string Message;
 public:
+    void spawn(int x, int y, char type);
     TextDisplay();
     void notify(Subject &notifier) override;
     SubscriptionType getSubType() const override;
