@@ -90,7 +90,7 @@ void Player::use(string dir){
         x--;
     }
     if(gO[y][x]->getObjType == GridObjectType::Potion){
-        Potion *p = (Potion*) gO[y][x];
-        p->notifyObserver(SubscriptionType::All);
+        
+        gO[y][x]->notifyObserver(SubscriptionType::All);
     }
 }
