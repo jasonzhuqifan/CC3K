@@ -15,7 +15,7 @@ public:
     void attatch(Observer *o);
     void detach(Observer *o);
     void notifyObservers(SubscriptionType t);
-    virtual Info getInfo() = 0;
+    virtual Info getInfo() = 0;;
     virtual ~Subject() = 0;
     
 };

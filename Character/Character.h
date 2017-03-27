@@ -2,9 +2,9 @@
 #define Character_hpp
 
 #include "GridObjects.h"
-#include "Subject.h"
 
-class Character : public GridObjects, public Subject{
+
+class Character : public GridObjects{
 protected:
     int MaxHP;
     int HP;
@@ -18,7 +18,6 @@ public:
     int getAttack();
     int getDefence();
     int getGold();
-    Info getInfo() override;
     ObstacleType getObsType() override; //这里override还是到player和enemy？
 };
 

@@ -7,7 +7,7 @@
 //
 
 #include "Subject.h"
-
+#include "Info.h"
 
 Subject::Subject(){
     
