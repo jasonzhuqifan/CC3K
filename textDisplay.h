@@ -1,6 +1,7 @@
 #ifndef textDisplay_hpp
 #define textDisplay_hpp
 
+#include <iostream>
 #include "observer.h"
 #include <vector>
 #include <string>
@@ -22,7 +23,7 @@ public:
     SubscriptionType getSubType() const override;
     ~TextDisplay();
     
-    friend ostream &operator<<(ostream &out, const TextDisplay &td);
+    friend std::ostream &operator<<(ostream &out, const TextDisplay &td);
 };
 
 #endif /* textDisplay_hpp */

@@ -5,7 +5,8 @@
 #include "string"
 #include "Subject.h"
 
-class Player : public Character, Subject{
+
+class Player : public Character{
 
 public:
     int getHP();

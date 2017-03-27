@@ -29,45 +29,48 @@ SubscriptionType TextDisplay::getSubType() const{
 void TextDisplay::notify(Subject &notifier){
     struct Info f = notifier.getInfo();
     GridObjectType type = f.GOT;
+    int cc = f.currentCol;
+    int cr = f.currentRow;
+    int pc = f.previousCol;
+    int pr = f.previousRow;
     char tempChar;
     if(type == GridObjectType::Player){ //if notifier is player
-        if(f.currentCol == f.previousCol && f.currentRow == f.previousRow){
-            if(theDisplay[f.currentRow][f.currentCol] != '@'){
-                theDisplay[f.currentRow][f.currentCol] = '@';
+        if(cc == pc && cr == pr){ //initiate a player???
+            if(theDisplay[cr][cc] != '@'){
+                theDisplay[cr][cc] = '@';
             }
-            HP = f.HP;
-            Atk = f.Atk;
-            Def = f.Def;
-            Message = f.Message;  //如何pass action message不确定
         } else {
-        tempChar = theDisplay[f.currentRow][f.currentCol];
-        theDisplay[f.currentRow][f.currentCol] = theDisplay[f.previousRow][f.previousCol];
-        theDisplay[f.previousRow][f.previousCol] = tempChar;
+        tempChar = theDisplay[cr][cc];
+        theDisplay[cr][cc] = theDisplay[pr][pc];
+        theDisplay[pr][pc] = tempChar;
         }
         
     } else if(type == GridObjectType::Enemy){ //if notifier is enemy
-         if(f.currentCol != f.previousCol || f.currentRow != f.previousRow){
-             tempChar = theDisplay[f.currentRow][f.currentCol];
-             theDisplay[f.currentRow][f.currentCol] = theDisplay[f.previousRow][f.previousCol];
-             theDisplay[f.previousRow][f.previousCol] = tempChar;
-         } else if(theDisplay[f.currentRow][f.currentCol] == '.'){ //initiate enemy
-             theDisplay[f.currentRow][f.currentCol] = f.EnemyRace;
+         if(cc != pc || cr != pr){
+             tempChar = theDisplay[cr][cc];
+             theDisplay[cr][cc] = theDisplay[pr][pc];
+             theDisplay[pr][pc] = tempChar;
+         } else{
+             theDisplay[cr][pr] = '.';       //enemy is dead
          }
     } else if(type == GridObjectType::Potion){ //if notifier is potion
-        if(theDisplay[f.currentRow][f.currentCol] == '.'){
-            theDisplay[f.currentRow][f.currentCol] = 'P';
-        } else if(theDisplay[f.currentRow][f.currentCol] == 'P'){
-            theDisplay[f.currentRow][f.currentCol] = '.';
-        }
+            theDisplay[cr][cc] = '.';
+        
     } else if(type == GridObjectType::Gold){ //Gold not consider Dragon Hoard yet!
-        if(theDisplay[f.currentRow][f.currentCol] == '.'){
-            theDisplay[f.currentRow][f.currentCol] = 'G';
-        } else if(theDisplay[f.currentRow][f.currentCol] == 'G'){
-            theDisplay[f.currentRow][f.currentCol] = '.';
-        }
+            theDisplay[cr][cc] = '.';
     }
 }
-void spawn(int x, int y, char type){
-    
+
+void TextDisplay::spawn(int x, int y, char type){
+    theDisplay[x][y] = type;
 }
 
+ostream &operator<<(ostream &out, const TextDisplay &td){
+    for(int i = 0; i < 25; ++i){
+        for(int j = 0; j < 79; ++j){
+            out << td.theDisplay[i][j];
+        }
+        out << endl;
+    }
+    return out;
+}

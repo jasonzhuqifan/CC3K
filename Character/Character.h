@@ -5,6 +5,7 @@
 #include "Subject.h"
 #include "Observer.h"
 
+
 class Character : public GridObjects, Subject{
 protected:
     int MaxHP;

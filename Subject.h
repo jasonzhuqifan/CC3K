@@ -2,6 +2,7 @@
 #define Subject_hpp
 #include <vector>
 #include "SubscriptionType.h"
+
 using namespace std;
 
 class Info;

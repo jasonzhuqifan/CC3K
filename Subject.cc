@@ -22,6 +22,7 @@ void Subject::detach(Observer *o){
     
 }
 
+
 void notifyObservers(SubscriptionType t){
     if(t == SubscriptionType::All){
         
