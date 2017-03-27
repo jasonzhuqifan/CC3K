@@ -20,8 +20,7 @@ public:
     int getAttack();
     int getDefence();
     int getGold();
-    ObstacleType getObsType() override;
-    GridObjectType getObjType() override;
+    ObstacleType getObsType() override; //这里override还是到player和enemy？
 };
 
 #endif

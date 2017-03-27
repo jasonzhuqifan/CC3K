@@ -1,6 +1,10 @@
 #include "Player.h"
 #include "Info.h"
+#include <string>
 
+using namespace std;
+
+class Potion; //待定
 
 Info Player::getInfo(){
     Info f;
@@ -69,4 +73,33 @@ void Player::move(string dir){
         
     }
     this->notifyObservers(SubscriptionType::All);
+}
+
+void Player::use(string dir){
+    int y = currentRow;
+    int x = currentCol;
+    if(dir == "no"){
+        y++;
+    }else if(dir == "so"){
+        y--;
+    }else if(dir == "ea"){
+        x++;
+    }else if(dir == "we"){
+        x--;
+    }else if(dir == "ne"){
+        y++;
+        x++;
+    }else if(dir == "nw"){
+        y++;
+        x--;
+    }else if(dir == "se"){
+        y--;
+        x++;
+    }else if(dir == "sw"){
+        y--;
+        x--;
+    }
+    if(gO[y][x]->getObjType == GridObjectType::Potion){
+        
+    }
 }

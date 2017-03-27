@@ -3,7 +3,6 @@
 
 #include "Character.h"
 #include "string"
-#include "Subject.h"
 
 
 class Player : public Character{
@@ -18,8 +17,8 @@ public:
     void move(std::string dir);
     void use(std::string dir);
     bool reachStairs();
-    GridObjectType getObjType();
-    Info getInfo();
+    GridObjectType getObjType() override;
+    Info getInfo() override;
 };
 
 #endif
