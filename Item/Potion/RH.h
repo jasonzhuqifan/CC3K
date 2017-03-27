@@ -3,10 +3,11 @@
 
 
 #include "Potion.h"
+#include "Player.h"
 
 class RH : public Potion{
     RH(Player* pc);
-    use()
+    void use();
 };
 
 #endif

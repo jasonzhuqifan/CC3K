@@ -7,6 +7,8 @@
 #include "Subject.h"
 
 class GridObjects : public Floor, Subject{
+protected:
+    GridObjects();
     int previousRow;
     int previousCol;
     int currentRow;
@@ -16,6 +18,7 @@ public:
     virtual GridObjectType getObjType() = 0;
     Info getInfo() override;
     
-};
+    ~GridObjects();
 
+};
 #endif

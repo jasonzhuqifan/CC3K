@@ -42,7 +42,7 @@ int main() {
         }
     }
     catch (exception &e) {
-        cout << e << endl;
+        cout << &e << endl;
     }
     return 0;
 }

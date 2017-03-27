@@ -4,13 +4,10 @@ using namespace std;
 GameGrid::GameGrid() {}
 
 GameGrid::~GameGrid(){
-    delete td;
-    delete l;
     delete pc;
 }
 
 void GameGrid::init(){
-    td = new TextDisplay();
     l = new Floor();
 }
 
@@ -38,7 +35,6 @@ void GameGrid::freeze(){
 }
 
 void GameGrid::clearGrid(){
-    delete td;
     delete l;
 }
 

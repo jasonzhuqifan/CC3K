@@ -8,7 +8,7 @@
 
 struct Level{
     Level();
-    virtual Enemy *createEnemy()=0;
+    virtual Enemy *createEnemy() = 0;
     virtual Potion *createPotion()=0;
     virtual Gold *createGold()=0;
     virtual Cell *createCell(char c)=0;

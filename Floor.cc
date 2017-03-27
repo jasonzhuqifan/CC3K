@@ -262,10 +262,6 @@ void Floor::setFrozen(){
     
 }
 
-void Floor::place(GridObjects &gO){
-    
-}
-
 
 
 

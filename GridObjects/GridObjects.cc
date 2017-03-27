@@ -1,6 +1,7 @@
 #include "Info.h"
 #include "GridObjects.h"
 
+
 Info GridObjects::getInfo(){
     Info f;
     f.currentCol = currentCol;

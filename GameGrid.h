@@ -13,7 +13,6 @@
 #include "Vampire.h"
 
 class GameGrid {
-    TextDisplay *td;
     Level *l;
     Player *pc;
     

@@ -10,8 +10,9 @@
 #define Floor_hpp
 
 #include <vector>
+#include "textDisplay.h"
 
-#include "GridObjects.h"
+#include "GridObjects/GridObjects.h"
 #include "Level.h"
 #include "Chamber.h"
 
@@ -50,7 +51,8 @@ using namespace std;
 
 class Floor : public Level{
 protected:
-    vector<vector<GridObjects *>> gO;
+    
+    vector<vector<GridObjects *>> gO ;
     bool enemyFrozen;
 private:
     const int enemyNum =20;
@@ -71,7 +73,6 @@ private:
     void placeGold() override;
     void placeStair() override;
     void placePlayer() override;
-    void place(GridObjects &gO);
 public:
     Floor();
     void init();

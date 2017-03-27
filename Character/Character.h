@@ -1,8 +1,12 @@
 #ifndef Character_hpp
 #define Character_hpp
 
-#include "GridObjects.h"
 
+
+#include "GridObjectType.h"
+#include "ObstacleType.h"
+#include "Observer.h"
+#include "GridObjects.h"
 
 class Character : public GridObjects{
 protected:
@@ -18,7 +22,7 @@ public:
     int getAttack();
     int getDefence();
     int getGold();
-    ObstacleType getObsType() override; //这里override还是到player和enemy？
+    ObstacleType getObsType() override;
 };
 
 #endif
