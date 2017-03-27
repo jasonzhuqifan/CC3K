@@ -3,10 +3,8 @@
 
 #include "GridObjects.h"
 #include "Subject.h"
-#include "Observer.h"
 
-
-class Character : public GridObjects, Subject{
+class Character : public GridObjects, public Subject{
 protected:
     int MaxHP;
     int HP;
@@ -20,6 +18,7 @@ public:
     int getAttack();
     int getDefence();
     int getGold();
+    Info getInfo() override;
     ObstacleType getObsType() override; //这里override还是到player和enemy？
 };
 

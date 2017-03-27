@@ -4,9 +4,10 @@
 #include "Item.h"
 #include "Player.h"
 
-class Potion : public Item, Player{
+class Potion : virtual public Item, public Player{
     ObstacleType getObsType() override;
     GridObjectType getObjType() override;
+    
 };
 
 #endif

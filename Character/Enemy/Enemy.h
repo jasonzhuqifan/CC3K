@@ -11,7 +11,6 @@ public:
     void notify(Subject &notifier) override;
     SubscriptionType getSubType() override;
     GridObjectType getObjType() override; 
-    Info getInfo() override;
     bool isDead();
 };
 

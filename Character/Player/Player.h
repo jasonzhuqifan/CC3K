@@ -18,7 +18,6 @@ public:
     void use(std::string dir);
     bool reachStairs();
     GridObjectType getObjType() override;
-    Info getInfo() override;
 };
 
 #endif

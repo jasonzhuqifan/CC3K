@@ -1,20 +1,10 @@
 #include "Player.h"
-#include "Info.h"
+#include "Potion.h" //待定
 #include <string>
 
 using namespace std;
 
-class Potion; //待定
-
-Info Player::getInfo(){
-    Info f;
-    f.currentCol = currentCol;
-    f.currentRow = currentRow;
-    f.previousCol = previousCol;
-    f.previousRow = previousRow;
-    f.GOT = getObjType();
-    return f;
-}
+//class Potion; //待定
 
 
 GridObjectType Player::getObjType(){
@@ -100,6 +90,7 @@ void Player::use(string dir){
         x--;
     }
     if(gO[y][x]->getObjType == GridObjectType::Potion){
-        
+        Potion *p = (Potion*) gO[y][x];
+        p->notifyObserver(SubscriptionType::All);
     }
 }
