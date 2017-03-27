@@ -8,8 +8,6 @@ class Item : public GridObjects, Subject{
 protected:
     Item();
     ~Item();
-    virtual int getAttack();
-    virtual int getDefence();
 };
 
 #endif
