@@ -2,15 +2,11 @@
 #define Item_hpp
 
 #include "GridObjects.h"
-#include "Player.h"
 #include "Subject.h"
 
-class Item : public GridObjects, Subject, Player{
+class Item : public GridObjects, Subject{
 protected:
-    Player *pc;
-    
-protected:
-    Item(Player* pc);
+    Item();
     ~Item();
     virtual int getAttack();
     virtual int getDefence();
