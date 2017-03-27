@@ -51,10 +51,11 @@ using namespace std;
 
 class Floor : public Level{
 protected:
-    
+    TextDisplay td;
     vector<vector<GridObjects *>> gO ;
     bool enemyFrozen;
 private:
+    bool isFirst();//if floor is first floor
     const int enemyNum =20;
     const int potionNum =10;
     const int goldNum = 10;
@@ -72,10 +73,10 @@ private:
     void placePotion() override;
     void placeGold() override;
     void placeStair() override;
-    void placePlayer() override;
+    void placePlayer(Character *pc) override;
 public:
     Floor();
-    void init();
+    void init(Character *pc);
     void clearFloor();
     void setFrozen() override;
     ~Floor();

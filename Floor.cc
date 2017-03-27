@@ -155,8 +155,8 @@ void Floor::placeGold(){
     
     for(int i =0;i < goldNum ; i++){
         int x =0;
-        int y = 0
-        ;
+        int y = 0;
+        
         while (true)) {
             int chamberNum = rand()% 5+1;//random number from 1 to 5
             int randomPair = rand()%(*chamLst)[chamberNum].size();
@@ -185,18 +185,18 @@ void Floor::placeGold(){
 void Floor::placeStair(){
     srand(time(NULL));
     vector<vector<pair<int, int>>>* chamLst = c->getChamberList();
-    int chamNUm = rand()%5+1;
-    int randomPair = rand()%(*chamLst)[chamNUm].size();
+    
     int x =0;
     int y =0;
     
     while(true){
+        int chamNUm = rand()%5+1;
+        int randomPair = rand()%(*chamLst)[chamNUm].size();
         x = (*chamLst)[chamNUm][randomPair].first;
         y = (*chamLst)[chamNUm][randomPair].second;
-    }
-    
-    if(gO[x][y]->getObjType() == GridObjectType::Others){
-        break;
+        if(gO[x][y]->getObjType() == GridObjectType::Others){
+            break;
+        }
     }
     
     GridObjects *temp = gO[x][y];
@@ -206,7 +206,30 @@ void Floor::placeStair(){
     
 }
 
-void Floor::placePlayer(){
+void Floor::placePlayer(Character *pc){
+    
+    srand(time(NULL));
+    vector<vector<pair<int, int>>>* chamLst = c->getChamberList();
+    
+    int x =0;
+    int y =0;
+    
+    while(true){
+        int chamNUm = rand()%5+1;
+        int randomPair = rand()%(*chamLst)[chamNUm].size();
+        x = (*chamLst)[chamNUm][randomPair].first;
+        y = (*chamLst)[chamNUm][randomPair].second;
+        if(gO[x][y]->getObjType() == GridObjectType::Others){
+            break;
+        }
+    }
+    
+    GridObjects *temp = gO[x][y];
+    gO[x][y] = pc;
+    delete temp;
+    
+
+    
     
 }
 
@@ -227,7 +250,9 @@ Cell Floor::*createCell(char c){
     }
     return cell;
 }
-void Floor::init(){
+void Floor::init(Character *pc){
+    
+    td = new TextDisplay();
     
     //Read file floor.txt
     ifstream file("cc3kfloor.txt");
@@ -245,7 +270,7 @@ void Floor::init(){
     }
     
     //Spawning order:
-    placePlayer();
+    placePlayer(pc);
     placeStair();
     placePotion();
     placeGold();
@@ -255,6 +280,7 @@ void Floor::init(){
 
 void Floor::clearFloor(){
     gO.clear();
+    delete  td;
     
 }
 
