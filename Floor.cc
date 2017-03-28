@@ -320,7 +320,6 @@ Player* Floor::use(Player* pc, string dir){
         potionRow++;
         potionCol--;
     }
-    
     switch (gO[potionRow][potionCol]->getObjType()) {
         case GridObjectType::BA:
             return BA(pc);
@@ -335,12 +334,17 @@ Player* Floor::use(Player* pc, string dir){
             return WD(pc);
             break;
         case GridObjectType::RH:
+            pc->setHealth(pc->getHP()+10);
+            return pc;
             break;
         case GridObjectType::PH:
+            pc->setHealth(pc->getHP()-10);
+            return pc;
             break;
         default:
             break;
     }
+    return pc;
 }
 
 
