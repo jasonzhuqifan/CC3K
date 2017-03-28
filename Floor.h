@@ -19,10 +19,7 @@ class Enemy;
 class Potion;
 class Gold;
 class Cell;
-<<<<<<< HEAD
-=======
 class Character;
->>>>>>> origin/master
 
 using namespace std;
 
