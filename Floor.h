@@ -50,7 +50,7 @@ private:
     void placeStair() override;
     void placePlayer(Character *pc) override;
     template <typename T>
-    void spawnItem(T itemType, int amount);
+    void spawnItem(T itemType,vector<vector<pair<int, int>>> *chamLst);
     void setItem(GridObjects *itemType, int x, int y);
     
 public:

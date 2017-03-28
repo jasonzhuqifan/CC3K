@@ -48,15 +48,10 @@ void Floor::setItem(GridObjects *itemType, int x, int y){
 }
 
 template <typename T>
-void Floor::spawnItem(T itemType,int amount){
+void Floor::spawnItem(T itemType,vector<vector<pair<int, int>>> *chamLst){
     srand(time(NULL));
-    vector<vector<pair<int, int>>>* chamLst = c->getChamberList();
-    int itemInCham[amount];
-    
-    for(int i =0;i < amount; i++){
         int x =0;
         int y = 0;
-        
         while (true) {
             int chamberNum = rand()% 5+1;//random number from 1 to 5
             int randomPair = rand()%(*chamLst)[chamberNum].size();
@@ -69,7 +64,6 @@ void Floor::spawnItem(T itemType,int amount){
             }
         }
         setItem(itemType, x,y);
-    }
 }
 
 
@@ -126,7 +120,6 @@ void Floor::placeEnemy(){
                 break;
             }
             
-            
         }
         GridObjects *temp = gO[x][y];
         gO[x][y] = createEnemy();
@@ -169,19 +162,36 @@ Potion *Floor::createPotion(){
 Gold *Floor::createGold(){
     srand(time(NULL));
     int spawnRate = rand()%8+1;
-    Gold *spawnRate = NULL;
+    Gold *spawnGold = NULL;
     
+    if(spawnRate == 1){//Dragon Hoard
+        spawnGold = new DragonHoard();
+    }
+    else if (spawnRate == 2){//small
+        spawnGold = new Small();
+    }
+    else{//Normal
+        spawnGold = new Normal();
+    }
+    return spawnGold;
     
 }
 
 
 void Floor::placePotion(){
+    for (int i =0; i < potionNum; i++) {
+        vector<vector<pair<int, int>>>* chamLst = c->getChamberList();
+        spawnItem(createPotion(),chamLst);
+    }
+
     
 }
 
-
-
 void Floor::placeGold(){
+    for (int i =0;i < goldNum;i++){
+        vector<vector<pair <int,int>>> * chamLst = c->getChamberList();
+        spawnItem(createGold(), chamLst);
+    }
     
 }
 
