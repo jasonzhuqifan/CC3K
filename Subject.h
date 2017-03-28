@@ -9,7 +9,7 @@ class Info;
 class Observer;
 
 class Subject{
-    std::vector<Observer *> Observers;
+    std::vector<Observer *> observers;
 public:
     Subject();
     void attatch(Observer *o);

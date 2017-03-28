@@ -40,18 +40,18 @@ private:
     Chamber *c;
     Enemy *createEnemy() override;
     Potion *createPotion() override;
-    Gold *createGold() override;
     Cell *createCell(char c) override;
     
-    
-    void placeEnemy() override;
+    void placeEnemy(Character *pc) override;
     void placePotion() override;
     void placeGold() override;
     void placeStair() override;
     void placePlayer(Character *pc) override;
     template <typename T>
-    void spawnItem(T itemType,vector<vector<pair<int, int>>> *chamLst);
+    pair<int, int> spawnItem(T itemType,vector<vector<pair<int, int>>> *chamLst);
+    //returns the position of the item when item spawns.
     void setItem(GridObjects *itemType, int x, int y);
+    
     
 public:
     Player* use(Player* pc, string dir) override;
