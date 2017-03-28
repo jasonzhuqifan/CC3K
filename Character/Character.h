@@ -2,10 +2,8 @@
 #define Character_hpp
 
 
-
 #include "GridObjectType.h"
 #include "ObstacleType.h"
-#include "Observer.h"
 #include "GridObjects.h"
 
 class Character : public GridObjects{

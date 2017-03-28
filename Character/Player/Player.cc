@@ -1,5 +1,5 @@
 #include "Player.h"
-#include "Potion.h" //待定
+//#include "Potion.h" //待定
 #include <string>
 
 using namespace std;
@@ -65,6 +65,7 @@ void Player::move(string dir){
     this->notifyObservers(SubscriptionType::All);
 }
 
+
 void Player::use(string dir){
     int y = currentRow;
     int x = currentCol;
@@ -89,8 +90,12 @@ void Player::use(string dir){
         y--;
         x--;
     }
-    if(gO[y][x]->getObjType == GridObjectType::Potion){
+    if(gO[y][x]->getObjType() == GridObjectType::Potion){
         
-        gO[y][x]->notifyObserver(SubscriptionType::All);
+        gO[y][x]->notifyObservers(SubscriptionType::All);
     }
+}
+
+bool Player::reachStairs(){
+    
 }

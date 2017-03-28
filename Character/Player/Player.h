@@ -8,9 +8,9 @@
 class Player : public Character{
 
 public:
-    int getHP();
-    int getAttack();
-    int getDefence();
+    virtual int getHP();
+    virtual int getAttack();
+    virtual int getDefence();
     int getMaxHP();
     int getGold();
     virtual void attack(std::string dir) = 0;
