@@ -13,9 +13,9 @@ public:
     Potion(Player* pc);
     ObstacleType getObsType() override;
     GridObjectType getObjType() override;
-    int getAttack() override;
-    int getDefence() override;
-    int getHP() override;
+    virtual int getAttack() override;
+    virtual int getDefence() override;
+    virtual int getHP() override;
     virtual ~Potion() = 0;
 };
 

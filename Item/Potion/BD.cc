@@ -1,10 +1,6 @@
 #include "BD.h"
 
-BD::BD(Player* pc) : Item(pc) {};
-
-int BD::getAttack() {
-    return pc->getAttack();
-}
+BD::BD(Player* pc) : Potion(pc) {};
 
 int BD::getDefence() {
     return pc->getDefence() + 5;
