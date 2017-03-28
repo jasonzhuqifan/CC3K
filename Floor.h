@@ -14,7 +14,7 @@
 #include "Chamber.h"
 
 class GridObjects;
-
+class Player;
 class Enemy;
 class Potion;
 class Gold;
@@ -81,6 +81,7 @@ private:
 
     
 public:
+    Player* use(Player* pc, string dir);
     Floor();
     void init(Character *pc);
     void clearFloor();
