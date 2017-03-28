@@ -103,6 +103,8 @@ void Floor::placeEnemy(){
     
 }
 
+
+
 Potion *Floor::createPotion(){
     srand(time(NULL));
     int spwanRate =  rand()%6+1;//random numberfrom 1 to 6
@@ -133,33 +135,7 @@ Potion *Floor::createPotion(){
 
 
 void Floor::placePotion(){
-    srand(time(NULL));
-    vector<vector<pair<int, int>>>* chamLst = c->getChamberList();
-    int potionInCham[5] = {0};
-    
-    for(int i =0; i < potionNum ;i++){
-        int x =0;
-        int y =0;
-        while (true) {
-            int chamberNum = rand()%5+1;//random number from 1 to 5
-            int randomPair = rand()%(*chamLst)[chamberNum].size();
-            
-            x = (*chamLst)[chamberNum][randomPair].first;
-            y = (*chamLst)[chamberNum][randomPair].second;
-            
-            if(potionInCham[chamberNum] < 3 &&
-               gO[x][y]->getObjType() == GridObjectType::Others){
-                potionInCham[chamberNum]++;
-                break;
-            }
-            
-        }
         
-        GridObjects *temp = gO[x][y];
-        gO[x][y] = createPotion();
-    }
-    
-    
 }
 
 Gold Floor::createGold(){
@@ -209,8 +185,6 @@ void Floor::placeGold(){
         delete temp;
         
     }
-    
-    
     
 }
 
