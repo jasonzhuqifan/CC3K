@@ -12,7 +12,11 @@
 #include "Enemy.h"
 
 class Orc : public Enemy{
-    
+    void attack(Drow* pc) override;
+    void attack(Goblin* pc) override;
+    void attack(Shade* pc) override;
+    void attack(Troll* pc) override;
+    void attack(Vampire* pc) override;
 };
 
 #endif /* Orc_hpp */
