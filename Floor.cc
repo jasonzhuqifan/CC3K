@@ -41,6 +41,38 @@ Floor::Floor(){}
 Floor::~Floor(){}
 
 
+void Floor::setItem(GridObjects *itemType, int x, int y){
+    GridObjects *temp = gO[x][y];
+    gO[x][y] = itemType;
+    delete temp;
+}
+
+template <typename T>
+void Floor::spawnItem(T itemType,int amount){
+    srand(time(NULL));
+    vector<vector<pair<int, int>>>* chamLst = c->getChamberList();
+    int itemInCham[amount];
+    
+    for(int i =0;i < amount; i++){
+        int x =0;
+        int y = 0;
+        
+        while (true) {
+            int chamberNum = rand()% 5+1;//random number from 1 to 5
+            int randomPair = rand()%(*chamLst)[chamberNum].size();
+            //randomly choose a pair in chamLst
+            x = (*chamLst)[chamberNum][randomPair].first;
+            y = (*chamLst)[chamberNum][randomPair].second;
+            
+            if(gO[x][y]->getObjType() == GridObjectType::Others){
+                break;
+            }
+        }
+        setItem(itemType, x,y);
+    }
+}
+
+
 Enemy *Floor::createEnemy(){
     
     srand(time(NULL));
@@ -96,7 +128,6 @@ void Floor::placeEnemy(){
             
             
         }
-        
         GridObjects *temp = gO[x][y];
         gO[x][y] = createEnemy();
         delete temp;
@@ -135,57 +166,22 @@ Potion *Floor::createPotion(){
 
 
 
-void Floor::placePotion(){
-        
-}
-
-Gold Floor::createGold(){
+Gold *Floor::createGold(){
     srand(time(NULL));
     int spawnRate = rand()%8+1;
-    Gold *spawnGold = NULL;
-    if (spawnRate >= 1 && spawnRate <= 5){//normal
-        spawnGold = new Normal();
-    }
-    else if (spawnRate >= 6 && spawnRate <= 7){//dragonHaord
-        spawnGold = new DragonHoard();
-    }
-    else{//small
-        spawnGold = new Small();
-    }
-    return spawnGold;
+    Gold *spawnRate = NULL;
+    
+    
 }
+
+
+void Floor::placePotion(){
+    
+}
+
 
 
 void Floor::placeGold(){
-    srand(time(NULL));
-    vector<vector<pair<int, int>>>* chamLst = c->getChamberList();
-    int goldInCham[5] = {0};
-    
-    
-    for(int i =0;i < goldNum ; i++){
-        int x =0;
-        int y = 0;
-        
-        while (true)) {
-            int chamberNum = rand()% 5+1;//random number from 1 to 5
-            int randomPair = rand()%(*chamLst)[chamberNum].size();
-            //randomly choose a pair in chamLst
-            x = (*chamLst)[chamberNum][randomPair].first;
-            y = (*chamLst)[chamberNum][randomPair].second;
-            
-            
-            if(goldInCham[chamberNum] < 3 &&
-               gO[x][y]->getObjType() == GridObjectType::Others){
-                goldInCham[chamberNum]++;
-                break;
-            }
-        }
-        
-        GridObjectType *temp = gO[x][y];
-        gO[x][y] = createGold();
-        delete temp;
-        
-    }
     
 }
 
@@ -214,7 +210,6 @@ void Floor::placeStair(){
 }
 
 void Floor::placePlayer(Character *pc){
-    
     srand(time(NULL));
     vector<vector<pair<int, int>>>* chamLst = c->getChamberList();
     
@@ -234,8 +229,6 @@ void Floor::placePlayer(Character *pc){
     GridObjects *temp = gO[x][y];
     gO[x][y] = pc;
     delete temp;
-    
-
     
     
 }
@@ -258,7 +251,6 @@ Cell Floor::*createCell(char c){
     return cell;
 }
 void Floor::init(Character *pc){
-    
     td = new TextDisplay();
     
     //Read file floor.txt
@@ -288,7 +280,6 @@ void Floor::init(Character *pc){
 void Floor::clearFloor(){
     gO.clear();
     delete  td;
-    
 }
 
 void Floor::setFrozen(){

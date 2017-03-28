@@ -1,7 +1,7 @@
 #ifndef Level_hpp
 #define Level_hpp
 
-
+#include <iostream>
 class Character;
 class Player;
 class Enemy;

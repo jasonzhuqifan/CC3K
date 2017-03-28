@@ -23,12 +23,11 @@ class Cell;
 class Character;
 class TextDisplay;
 
-using namespace std;
 
 class Floor : public Level{
 protected:
     TextDisplay *td;
-    vector<vector<GridObjects *>> gO ;
+    std::vector<std::vector<GridObjects *>> gO ;
     bool enemyFrozen;
 private:
     bool isFirst();//if floor is first floor
@@ -50,6 +49,9 @@ private:
     void placeGold() override;
     void placeStair() override;
     void placePlayer(Character *pc) override;
+    template <typename T>
+    void spawnItem(T itemType, int amount);
+    void setItem(GridObjects *itemType, int x, int y);
     
 public:
     Player* use(Player* pc, string dir) override;
