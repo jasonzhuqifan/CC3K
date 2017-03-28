@@ -100,7 +100,12 @@ void Player::use(string dir){
         y++;
         x--;
     }
-    if(gO[y][x]->getObjType() == GridObjectType::Potion){
+    if(gO[y][x]->getObjType() == GridObjectType::BA ||
+       gO[y][x]->getObjType() == GridObjectType::BD ||
+       gO[y][x]->getObjType() == GridObjectType::PH ||
+       gO[y][x]->getObjType() == GridObjectType::RH ||
+       gO[y][x]->getObjType() == GridObjectType::WA ||
+       gO[y][x]->getObjType() == GridObjectType::WD){
         
         gO[y][x]->notifyObservers(SubscriptionType::All);
     }

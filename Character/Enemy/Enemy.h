@@ -6,7 +6,7 @@
 
 class Enemy : public Character, Observer{
     void attack(Character* pc);
-    void move();
+    void move(int r, int c);
 public:
     void updateDamage(double damage);
     void notify(Subject &notifier) override;
