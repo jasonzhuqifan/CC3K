@@ -11,12 +11,8 @@ class Shade;
 class Troll;
 class Vampire;
 
-<<<<<<< HEAD
 class Enemy : public Character, public Observer{
     void attack(Character* pc);
-=======
-class Enemy : public Character, Observer{
->>>>>>> origin/master
     void move(int r, int c);
 public:
     virtual void attack(Player* pc);

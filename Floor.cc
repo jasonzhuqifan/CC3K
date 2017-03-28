@@ -337,7 +337,7 @@ void Floor::clearFloor(){
 }
 
 void Floor::setFrozen(){
-    
+    enemyFrozen = true;
 }
 
 Player* Floor::use(Player* pc, string dir){
