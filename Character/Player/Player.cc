@@ -66,6 +66,15 @@ void Player::move(string dir){
     previousCol = currentCol;
 }
 
+void Player::setHealth(double h){
+    if(MaxHP == -1){
+        HP = h;
+    }else if(h >= MaxHP){
+        HP = MaxHP;
+    }else{
+        HP = h;
+    }
+}
 
 void Player::use(string dir){
     int y = currentRow;

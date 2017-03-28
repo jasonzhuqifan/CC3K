@@ -8,7 +8,7 @@ class Enemy : public Character, Observer{
     void attack(Character* pc);
     void move();
 public:
-    void updateDamage(int damage);
+    void updateDamage(double damage);
     void notify(Subject &notifier) override;
     SubscriptionType getSubType() const override;
     GridObjectType getObjType() override;
