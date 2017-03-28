@@ -1,12 +1,14 @@
 #ifndef Level_hpp
 #define Level_hpp
 
+
 class Character;
 class Enemy;
 class Cell;
 class Potion;
 class Cell;
 class Gold;
+
 
 struct Level{
     Level();

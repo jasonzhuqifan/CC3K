@@ -19,8 +19,7 @@ class Enemy;
 class Potion;
 class Gold;
 class Cell;
-
-
+class Character;
 
 using namespace std;
 
