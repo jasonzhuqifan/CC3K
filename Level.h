@@ -1,8 +1,7 @@
 #ifndef Level_hpp
 #define Level_hpp
 
-#include "Character.h"
-
+class Character;
 class Enemy;
 class Cell;
 class Potion;
