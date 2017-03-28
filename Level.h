@@ -15,9 +15,8 @@ struct Level{
     Level();
     virtual Enemy *createEnemy() = 0;
     virtual Potion *createPotion()=0;
-    virtual Gold *createGold() =0;
     virtual Cell *createCell(char c) =0;
-    virtual void placeEnemy() = 0;
+    virtual void placeEnemy(Character *pc) = 0;
     virtual void placePotion() = 0;
     virtual void placeGold() = 0;
     virtual void placeStair() = 0;

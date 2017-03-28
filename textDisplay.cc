@@ -53,7 +53,12 @@ void TextDisplay::notify(Subject &notifier){
          } else{
              theDisplay[cr][pr] = '.';       //enemy is dead
          }
-    } else if(type == GridObjectType::Potion){ //if notifier is potion
+    } else if(type == GridObjectType::BA ||
+              type == GridObjectType::BD ||
+              type == GridObjectType::PH ||
+              type == GridObjectType::WD ||
+              type == GridObjectType::WA ||
+              type == GridObjectType::RH){ //if notifier is potion
             theDisplay[cr][cc] = '.';
         
     } else if(type == GridObjectType::Gold){ //Gold not consider Dragon Hoard yet!

@@ -5,6 +5,7 @@
 #include <fstream>
 #include <utility>
 
+#include "ObstacleType.h"
 #include "Enemy.h"
 #include "Potion.h"
 #include "Gold.h"
@@ -36,6 +37,8 @@
 #include "Passages.h"
 #include "FloorTile.h"
 
+using namespace std;
+
 Floor::Floor(){}
 
 Floor::~Floor(){}
@@ -48,22 +51,22 @@ void Floor::setItem(GridObjects *itemType, int x, int y){
 }
 
 template <typename T>
-void Floor::spawnItem(T itemType,vector<vector<pair<int, int>>> *chamLst){
+pair<int, int> Floor::spawnItem(T itemType,vector<vector<pair<int, int>>> *chamLst){
     srand(time(NULL));
-        int x =0;
-        int y = 0;
-        while (true) {
-            int chamberNum = rand()% 5+1;//random number from 1 to 5
-            int randomPair = rand()%(*chamLst)[chamberNum].size();
-            //randomly choose a pair in chamLst
-            x = (*chamLst)[chamberNum][randomPair].first;
-            y = (*chamLst)[chamberNum][randomPair].second;
-            
-            if(gO[x][y]->getObjType() == GridObjectType::Others){
-                break;
-            }
+    int x =0;
+    int y = 0;
+    while (true) {
+        int chamberNum = rand()% 5+1;//random number from 1 to 5
+        int randomPair = rand()%(*chamLst)[chamberNum].size();
+        //randomly choose a pair in chamLst
+        x = (*chamLst)[chamberNum][randomPair].first;
+        y = (*chamLst)[chamberNum][randomPair].second;
+        
+        if(gO[x][y]->getObsType() == ObstacleType::BlockNone){
+            break;
         }
-        setItem(itemType, x,y);
+    }
+    setItem(itemType, x,y);
 }
 
 
@@ -96,10 +99,9 @@ Enemy *Floor::createEnemy(){
     
 }
 
-void Floor::placeEnemy(){
+void Floor::placeEnemy(Character *pc){
     srand(time(NULL));
     vector<vector<pair<int, int>>>* chamLst = c->getChamberList();
-    int enemiesInCham[5] = {0};
     
     for(int i =0;i < enemyNum; i++){
         int x =0;
@@ -111,21 +113,19 @@ void Floor::placeEnemy(){
             x = (*chamLst)[chamberNum][randomPair].first;
             y = (*chamLst)[chamberNum][randomPair].second;
             
-            
-            if(enemiesInCham[chamberNum] < 5 &&
-               gO[x][y]->getObjType() == GridObjectType::Others){
+            if(gO[x][y]->getObsType() == ObstacleType::BlockNone){
                 //if number of enemies in chamber no more than 5
                 //and grid object type is other
-                enemiesInCham[chamberNum]++;
                 break;
             }
             
         }
         GridObjects *temp = gO[x][y];
-        gO[x][y] = createEnemy();
+        Enemy *newEnemy = createEnemy();
+        gO[x][y] = newEnemy;
+        pc->attatch(newEnemy);
         delete temp;
     }
-    
 }
 
 
@@ -158,39 +158,85 @@ Potion *Floor::createPotion(){
 }
 
 
-
-Gold *Floor::createGold(){
-    srand(time(NULL));
-    int spawnRate = rand()%8+1;
-    Gold *spawnGold = NULL;
-    
-    if(spawnRate == 1){//Dragon Hoard
-        spawnGold = new DragonHoard();
-    }
-    else if (spawnRate == 2){//small
-        spawnGold = new Small();
-    }
-    else{//Normal
-        spawnGold = new Normal();
-    }
-    return spawnGold;
-    
-}
-
-
 void Floor::placePotion(){
     for (int i =0; i < potionNum; i++) {
         vector<vector<pair<int, int>>>* chamLst = c->getChamberList();
-        spawnItem(createPotion(),chamLst);
+        pair<int,int> pos = spawnItem(createPotion(),chamLst);
     }
-
     
 }
 
 void Floor::placeGold(){
+    pair<int,int> pos;
+    Gold *spawnGold = NULL;
+    Enemy *spawnDragon = NULL;
     for (int i =0;i < goldNum;i++){
         vector<vector<pair <int,int>>> * chamLst = c->getChamberList();
-        spawnItem(createGold(), chamLst);
+        srand(time(NULL));
+        int spawnRate = rand()%8+1;
+        if (spawnRate == 1){//Dragon Hoard
+            spawnGold = new DragonHoard();
+            spawnDragon = new Dragon();
+            pos = spawnItem(spawnGold, chamLst);
+            int x = pos.first;
+            int y = pos.second;
+            //0 1 2
+            //3 G 4
+            //5 6 7
+            for(int i =0; i < 8 ;i++){
+                int spawnPos = rand()%7;
+                switch (i){
+                    case 0:
+                        if (gO[x-1][y+1]->getObsType() == ObstacleType::BlockNone){
+                            gO[x-1][y+1] = spawnDragon;
+                        }
+                        break;
+                    case 1:
+                        if(gO[x][y+1]->getObsType() == ObstacleType::BlockNone){
+                            gO[x][y+1] = spawnDragon;
+                        }
+                        break;
+                    case 2:
+                        if(gO[x+1][y+1]->getObsType() == ObstacleType::BlockNone){
+                            gO[x+1][y+1] = spawnDragon;
+                        }
+                        break;
+                    case 3:
+                        if(gO[x-1][y]->getObsType() == ObstacleType::BlockNone){
+                            gO[x-1][y] = spawnDragon;
+                        }
+                        break;
+                    case 4:
+                        if(gO[x+1][y]->getObsType() == ObstacleType::BlockNone){
+                            gO[x][y] = spawnDragon;
+                        }
+                        break;
+                    case 5:
+                        if(gO[x-1][y-1]->getObsType() == ObstacleType::BlockNone){
+                            gO[x-1][y] = spawnDragon;
+                        }
+                        break;
+                    case 6:
+                        if(gO[x][y-1]->getObsType() == ObstacleType::BlockNone){
+                            gO[x][y-1] = spawnDragon;
+                        }
+                        break;
+                    case 7:
+                        if(gO[x+1][y-1]->getObsType() == ObstacleType::BlockNone){
+                            gO[x+1][y-1] = spawnDragon;
+                        }
+                        break;
+                }
+            }
+        }
+        else if (spawnRate == 2){//Small
+            spawnGold = new Small;
+            pos = spawnItem(spawnGold, chamLst);
+        }
+        else{//Normal
+            spawnGold = new Normal();
+            pos = spawnItem(spawnGold, chamLst);
+        }
     }
     
 }
@@ -207,13 +253,13 @@ void Floor::placeStair(){
         int randomPair = rand()%(*chamLst)[chamNUm].size();
         x = (*chamLst)[chamNUm][randomPair].first;
         y = (*chamLst)[chamNUm][randomPair].second;
-        if(gO[x][y]->getObjType() == GridObjectType::Others){
+        if(gO[x][y]->getObsType() == ObstacleType::BlockNone){
             break;
         }
     }
     
     GridObjects *temp = gO[x][y];
-    gO[x][y] = new StairWay;
+    gO[x][y] = new StairWay();
     delete temp;
     
     
@@ -239,8 +285,6 @@ void Floor::placePlayer(Character *pc){
     GridObjects *temp = gO[x][y];
     gO[x][y] = pc;
     delete temp;
-    
-    
 }
 
 
@@ -283,7 +327,7 @@ void Floor::init(Character *pc){
     placeStair();
     placePotion();
     placeGold();
-    placeEnemy();
+    placeEnemy(pc);
     
 }
 

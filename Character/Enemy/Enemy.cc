@@ -1,6 +1,8 @@
 #include "Enemy.h"
 #include <cstdlib>
 #include "Info.h"
+#include "Player.h"
+
 
 void Enemy::updateDamage(double damage){
     HP = HP - damage;
@@ -14,28 +16,28 @@ void Enemy::notify(Subject &notifier){
     int r = f.currentRow;
     int c = f.currentCol;
     if(gO[r-1][c]->getObjType() == GridObjectType::Player){
-        Character *p = (Character*) gO[r-1][c];
+        Player *p = (Player*) gO[r-1][c];
         attack(p);
     }else if(gO[r+1][c]->getObjType() == GridObjectType::Player){
-        Character *p = (Character*) gO[r+1][c];
+        Player *p = (Player*) gO[r+1][c];
         attack(p);
     }else if(gO[r-1][c+1]->getObjType() == GridObjectType::Player){
-        Character *p = (Character*) gO[r-1][c+1];
+        Player *p = (Player*) gO[r-1][c+1];
         attack(p);
     }else if(gO[r-1][c-1]->getObjType() == GridObjectType::Player){
-        Character *p = (Character*) gO[r-1][c-1];
+        Player *p = (Player*) gO[r-1][c-1];
         attack(p);
     }else if(gO[r+1][c+1]->getObjType() == GridObjectType::Player){
-        Character *p = (Character*) gO[r+1][c+1];
+        Player *p = (Player*) gO[r+1][c+1];
         attack(p);
     }else if(gO[r+1][c-1]->getObjType() == GridObjectType::Player){
-        Character *p = (Character*) gO[r+1][c-1];
+        Player *p = (Player*) gO[r+1][c-1];
         attack(p);
     }else if(gO[r][c+1]->getObjType() == GridObjectType::Player){
-        Character *p = (Character*) gO[r][c+1];
+        Player *p = (Player*) gO[r][c+1];
         attack(p);
     }else if(gO[r][c-1]->getObjType() == GridObjectType::Player){
-        Character *p = (Character*) gO[r][c-1];
+        Player *p = (Player*) gO[r][c-1];
         attack(p);
     }else{
         move(r, c);
@@ -107,6 +109,8 @@ void Enemy::move(int r, int c){
     previousRow = currentRow;
 }
 
-void Enemy::attack(Character *pc){
-    
+void Enemy::attack(Player* pc){
+    double d = pc->getDefence();
+    double damage = ceil((100/100+d) * this->Atk);
+    pc->setHealth(damage);
 }
