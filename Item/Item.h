@@ -4,9 +4,7 @@
 #include "GridObjects.h"
 
 class Item : public GridObjects{
-protected:
-    Item();
-    ~Item();
+public:
     virtual int getAttack() = 0;
     virtual int getDefence() = 0 ;
 };
