@@ -1,4 +1,9 @@
 #include "GameGrid.h"
+#include "Drow.h"
+#include "Goblin.h"
+#include "Shade.h"
+#include "Troll.h"
+#include "Vampire.h"
 using namespace std;
 
 GameGrid::GameGrid() {}
@@ -8,7 +13,7 @@ GameGrid::~GameGrid(){
 }
 
 void GameGrid::init(){
-    l = new Floor();
+    l = new Floor;
 }
 
 void GameGrid::move(string dir){

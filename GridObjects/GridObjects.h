@@ -17,8 +17,6 @@ public:
     virtual ObstacleType getObsType() = 0;
     virtual GridObjectType getObjType() = 0;
     Info getInfo() override;
-    
     ~GridObjects();
-
 };
 #endif

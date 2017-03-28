@@ -6,11 +6,9 @@
 #include "ObstacleType.h"
 #include "GridObjectType.h"
 
-class Potion : virtual public Item, public Player{
+class Potion : public Item, public virtual Player{
     ObstacleType getObsType() override;
     GridObjectType getObjType() override;
-    
-    GridObjectType  getObjType() override;
 };
 
 #endif

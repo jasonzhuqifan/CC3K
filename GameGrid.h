@@ -6,11 +6,6 @@
 #include "Player.h"
 #include "textDisplay.h"
 #include "Floor.h"
-#include "Drow.h"
-#include "Goblin.h"
-#include "Shade.h"
-#include "Troll.h"
-#include "Vampire.h"
 
 class GameGrid {
     Level *l;
