@@ -1,4 +1,5 @@
 #include "Floor.h"
+#include "Info.h"
 #include <cstdlib>
 #include <ctime>
 #include <fstream>
@@ -294,7 +295,53 @@ void Floor::setFrozen(){
     
 }
 
-
+Player* Floor::use(Player* pc, string dir){
+    Info info = pc->getInfo();
+    int potionRow = info.currentRow;
+    int potionCol = info.currentCol;
+    if(dir == "no"){
+        potionRow--;
+    }else if(dir == "so"){
+        potionRow++;
+    }else if(dir == "ea"){
+        potionCol++;
+    }else if(dir == "we"){
+        potionCol--;
+    }else if(dir == "ne"){
+        potionRow--;
+        potionCol++;
+    }else if(dir == "nw"){
+        potionRow--;
+        potionCol--;
+    }else if(dir == "se"){
+        potionRow++;
+        potionCol++;
+    }else if(dir == "sw"){
+        potionRow++;
+        potionCol--;
+    }
+    
+    switch (gO[potionRow][potionCol]->getObjType()) {
+        case GridObjectType::BA:
+            return BA(pc);
+            break;
+        case GridObjectType::BD:
+            return BD(pc);
+            break;
+        case GridObjectType::WA:
+            return WA(pc);
+            break;
+        case GridObjectType::WD:
+            return WD(pc);
+            break;
+        case GridObjectType::RH:
+            break;
+        case GridObjectType::PH:
+            break;
+        default:
+            break;
+    }
+}
 
 
 
