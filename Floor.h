@@ -13,6 +13,7 @@
 #include "Level.h"
 #include "Chamber.h"
 
+
 class GridObjects;
 class Player;
 class Enemy;
@@ -49,36 +50,6 @@ private:
     void placeGold() override;
     void placeStair() override;
     void placePlayer(Character *pc) override;
-    
-    template <typename T>
-    void Item(T itemType) {
-        srand(time(NULL));
-        vector<vector<pair<int, int>>>* chamLst = c->getChamberList();
-        int potionInCham[5] = {0};
-        
-        for(int i =0; i < potionNum ;i++){
-            int x =0;
-            int y =0;
-            while (true) {
-                int chamberNum = rand()%5+1;//random number from 1 to 5
-                int randomPair = rand()%(*chamLst)[chamberNum].size();
-                
-                x = (*chamLst)[chamberNum][randomPair].first;
-                y = (*chamLst)[chamberNum][randomPair].second;
-                
-                if(potionInCham[chamberNum] < 3 &&
-                   gO[x][y]->getObjType() == GridObjectType::Others){
-                   //gO[x][y]->getObjType() ==
-                    potionInCham[chamberNum]++;
-                    break;
-                }
-                
-            }
-            GridObjects *temp = gO[x][y];
-            gO[x][y] = createPotion();
-        }
-    }
-
     
 public:
     Player* use(Player* pc, string dir) override;
