@@ -10,7 +10,7 @@ class Enemy : public Character, Observer{
 public:
     void notify(Subject &notifier) override;
     SubscriptionType getSubType() override;
-    GridObjectType getObjType() override; 
+    GridObjectType getObjType() override;
     bool isDead();
 };
 

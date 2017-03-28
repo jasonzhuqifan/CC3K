@@ -11,39 +11,14 @@
 
 #include <vector>
 #include "textDisplay.h"
-
-#include "GridObjects/GridObjects.h"
 #include "Level.h"
 #include "Chamber.h"
 
-#include "Enemy.h"
-#include "Human.h"
-#include "Halfling.h"
-#include "Elf.h"
-#include "Orc.h"
-#include "Merchant.h"
-#include "Dragon.h"
-#include "Dwarf.h"
-
-#include "Gold.h"
-#include "Small.h"
-#include "Normal.h"
-#include "DragonHoard.h"
-
-#include "Potion.h"
-#include "RH.h"
-#include "BA.h"
-#include "BD.h"
-#include "PH.h"
-#include "WD.h"
-#include "WA.h"
-
-#include "Cell.h"
-#include "Door.h"
-#include "StairWay.h"
-#include "Wall.h"
-#include "Passages.h"
-#include "FloorTile.h"
+class  GridObjects;
+class Enemy;
+class Potion;
+class Gold;
+class Cell;
 
 
 

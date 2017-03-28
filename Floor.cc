@@ -3,6 +3,38 @@
 #include <ctime>
 #include <fstream>
 #include <utility>
+
+#include "Enemy.h"
+#include "Potion.h"
+#include "Gold.h"
+#include "Player.h"
+#include "Cell.h"
+
+#include "Human.h"
+#include "Halfling.h"
+#include "Elf.h"
+#include "Orc.h"
+#include "Merchant.h"
+#include "Dragon.h"
+#include "Dwarf.h"
+
+#include "Small.h"
+#include "Normal.h"
+#include "DragonHoard.h"
+
+#include "RH.h"
+#include "BA.h"
+#include "BD.h"
+#include "PH.h"
+#include "WD.h"
+#include "WA.h"
+
+#include "Door.h"
+#include "StairWay.h"
+#include "Wall.h"
+#include "Passages.h"
+#include "FloorTile.h"
+
 Floor::Floor(){}
 
 Floor::~Floor(){}
