@@ -2,10 +2,12 @@
 #define GameGrid_hpp
 
 #include <iostream>
-#include "Level.h"
-#include "Player.h"
-#include "textDisplay.h"
-#include "Floor.h"
+using namespace std;
+
+class Level;
+class Player;
+class TextDisplay;
+class Floor;
 
 class GameGrid {
     Level *l;

@@ -2,6 +2,10 @@
 
 WD::WD(Player* pc) : Potion(pc) {};
 
-int WD::getDefence() {
+double WD::getDefence() {
     return (pc->getDefence() > 5) ? pc->getDefence()-5 : 0;
+}
+
+GridObjectType WD::getObjType() {
+    return GridObjectType::WD;
 }

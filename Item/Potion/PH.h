@@ -3,8 +3,8 @@
 
 #include "Potion.h"
 
-class PH : public Potion{
-    
+class PH : public Potion {
+    GridObjectType getObjType() override;
 };
 
 #endif

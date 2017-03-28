@@ -5,6 +5,7 @@
 #include "string"
 
 class Vampire:public Player{
+public:
     Vampire();
     void attack(std::string dir) override;
     ~Vampire();

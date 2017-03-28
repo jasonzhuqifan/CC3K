@@ -7,16 +7,17 @@
 #include "GridObjectType.h"
 
 class Potion : public Item, public virtual Player{
+    bool tried;
 protected:
     Player* pc;
 public:
     Potion(Player* pc);
     ObstacleType getObsType() override;
-    GridObjectType getObjType() override;
-    virtual int getAttack() override;
-    virtual int getDefence() override;
-    virtual int getHP() override;
+    virtual double getAttack() override;
+    virtual double getDefence() override;
+    virtual double getHP() override;
     virtual ~Potion() = 0;
+    bool hasTried();
 };
 
 #endif

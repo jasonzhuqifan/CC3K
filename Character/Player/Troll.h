@@ -5,6 +5,7 @@
 #include "string"
 
 class Troll: public Player{
+public:
     Troll();
     void attack(string dir) override;
     ~Troll();

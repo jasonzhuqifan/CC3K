@@ -8,7 +8,8 @@
 class BA : public Potion{
 public:
     BA(Player* pc);
-    int getAttack() override;
+    double getAttack() override;
+    GridObjectType getObjType() override;
 };
 
 #endif

@@ -5,6 +5,7 @@
 #include "string"
 
 class Goblin : public Player{
+public:
     Goblin();
     void attack(std::string dir) override;
     ~Goblin();

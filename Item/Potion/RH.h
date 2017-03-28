@@ -8,6 +8,7 @@
 class RH : public Potion{
     RH(Player* pc);
     void use();
+    GridObjectType getObjType() override;
 };
 
 #endif

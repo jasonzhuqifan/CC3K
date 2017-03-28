@@ -6,18 +6,18 @@ ObstacleType Potion::getObsType() {
     return ObstacleType::BolckAll;
 }
 
-GridObjectType Potion::getObjType(){
-    return GridObjectType::Potion;
-}
-
-int Potion::getAttack() {
+double Potion::getAttack() {
     return pc->getAttack();
 }
 
-int Potion::getDefence() {
+double Potion::getDefence() {
     return pc->getDefence();
 }
 
-int Potion::getHP() {
+double Potion::getHP() {
     return pc->getHP();
+}
+
+bool Potion::hasTried() {
+    return tried;
 }

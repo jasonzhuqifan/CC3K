@@ -5,7 +5,8 @@
 
 class BD : public Potion{
     BD(Player* pc);
-    int getDefence() override;
+    double getDefence() override;
+    GridObjectType getObjType() override;
 };
 
 #endif

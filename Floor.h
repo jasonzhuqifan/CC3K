@@ -81,7 +81,7 @@ private:
 
     
 public:
-    Player* use(Player* pc, string dir);
+    Player* use(Player* pc, string dir) override;
     Floor();
     void init(Character *pc);
     void clearFloor();

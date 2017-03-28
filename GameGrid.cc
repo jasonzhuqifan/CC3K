@@ -4,7 +4,12 @@
 #include "Shade.h"
 #include "Troll.h"
 #include "Vampire.h"
-using namespace std;
+
+#include "Level.h"
+#include "Player.h"
+#include "textDisplay.h"
+#include "Floor.h"
+
 
 GameGrid::GameGrid() {}
 
@@ -18,6 +23,10 @@ void GameGrid::init(){
 
 void GameGrid::move(string dir){
     pc->move(dir);
+}
+
+void GameGrid::use(string dir) {
+    pc = l->use(pc, dir);
 }
 
 void GameGrid::attack(string dir){

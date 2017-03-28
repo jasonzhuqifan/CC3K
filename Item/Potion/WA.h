@@ -5,7 +5,8 @@
 
 class WA : public Potion{
     WA(Player* pc);
-    int getAttack() override;
+    double getAttack() override;
+    GridObjectType getObjType() override;
 };
 
 #endif

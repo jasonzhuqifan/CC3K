@@ -3,6 +3,7 @@
 
 
 class Character;
+class Player;
 class Enemy;
 class Cell;
 class Potion;
@@ -22,7 +23,8 @@ struct Level{
     virtual void placeStair() = 0;
     virtual void placePlayer(Character *pc) = 0;
     virtual void setFrozen() = 0;
+    virtual Player* use(Player* pc, std::string dir) = 0;
     virtual ~Level() = 0;
 };
 
-#endif /* Level_hpp */
+#endif
