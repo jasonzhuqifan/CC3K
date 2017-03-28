@@ -20,8 +20,6 @@ class Potion;
 class Gold;
 class Cell;
 
-
-
 using namespace std;
 
 class Floor : public Level{
