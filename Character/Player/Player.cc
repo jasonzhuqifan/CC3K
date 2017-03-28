@@ -1,61 +1,60 @@
 #include "Player.h"
-//#include "Potion.h" //待定
 #include <string>
-
+#include "Enemy.h"
+#include "math.h"
 using namespace std;
-
-//class Potion; //待定
 
 
 GridObjectType Player::getObjType(){
     return GridObjectType::Player;
 }
 
-int Player::getHP(){
+double Player::getHP(){
     return HP;
 }
 
-int Player::getDefence(){
+double Player::getDefence(){
     return Def;
 }
 
-int Player::getAttack(){
+double Player::getAttack(){
     return Atk;
 }
 
-int Player::getGold(){
+double Player::getGold(){
     return Gold;
 }
 
-int Player::getMaxHP(){
+double Player::getMaxHP(){
     return MaxHP;
 }
 
 void Player::move(string dir){
-    previousRow = currentRow;
-    previousCol = currentCol;
+
     if(dir == "no"){
-        currentRow++;
-    }else if(dir == "so"){
         currentRow--;
+    }else if(dir == "so"){
+        currentRow++;
     }else if(dir == "ea"){
         currentCol++;
     }else if(dir == "we"){
         currentCol--;
     }else if(dir == "ne"){
-        currentRow++;
+        currentRow--;
         currentCol++;
     }else if(dir == "nw"){
-        currentRow++;
+        currentRow--;
         currentCol--;
     }else if(dir == "se"){
-        currentRow--;
+        currentRow++;
         currentCol++;
     }else if(dir == "sw"){
-        currentRow--;
+        currentRow++;
         currentCol--;
     }
-    
+    if(gO[currentCol][currentRow]->getObjType() == GridObjectType::StairWay){
+        reachStairs = true;
+    }
     if(gO[currentCol][currentRow]->getObsType() != ObstacleType::BolckAll){
         GridObjects *g = gO[currentCol][currentRow];
         gO[currentCol][currentRow] = gO[previousRow][previousCol];
@@ -63,6 +62,8 @@ void Player::move(string dir){
         
     }
     this->notifyObservers(SubscriptionType::All);
+    previousRow = currentRow;
+    previousCol = currentCol;
 }
 
 
@@ -70,24 +71,24 @@ void Player::use(string dir){
     int y = currentRow;
     int x = currentCol;
     if(dir == "no"){
-        y++;
-    }else if(dir == "so"){
         y--;
+    }else if(dir == "so"){
+        y++;
     }else if(dir == "ea"){
         x++;
     }else if(dir == "we"){
         x--;
     }else if(dir == "ne"){
-        y++;
+        y--;
         x++;
     }else if(dir == "nw"){
-        y++;
+        y--;
         x--;
     }else if(dir == "se"){
-        y--;
+        y++;
         x++;
     }else if(dir == "sw"){
-        y--;
+        y++;
         x--;
     }
     if(gO[y][x]->getObjType() == GridObjectType::Potion){
@@ -96,6 +97,34 @@ void Player::use(string dir){
     }
 }
 
-bool Player::reachStairs(){
-    
+void Player::attack(std::string dir){
+    int r = currentRow;
+    int c = currentCol;
+    if(dir == "no"){
+        r--;
+    }else if(dir == "so"){
+        r++;
+    }else if(dir == "ea"){
+        c++;
+    }else if(dir == "we"){
+        c--;
+    }else if(dir == "ne"){
+        r--;
+        c++;
+    }else if(dir == "nw"){
+        r--;
+        c--;
+    }else if(dir == "se"){
+        r++;
+        c++;
+    }else if(dir == "sw"){
+        r++;
+        c--;
+    }
+    if(gO[r][c]->getObjType() == GridObjectType::Enemy){
+        Enemy* e = (Enemy*) gO[r][c];
+        double d = e->getDefence();
+        double damage = ceil((100/100+d) * this->Atk);
+        e->updateDamage(damage);
+    }
 }

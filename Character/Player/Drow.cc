@@ -12,4 +12,6 @@ Drow::Drow(){
 void Drow::attack(std::string dir){
     
 }
+
+
 Drow::~Drow(){}

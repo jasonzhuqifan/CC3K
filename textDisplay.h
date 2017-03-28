@@ -11,10 +11,10 @@ class GridObjects;
 class TextDisplay: public Observer{
     std::vector<std::vector<char>> theDisplay;
     std::string Race;
-    int Floor;
-    int HP;
-    int Atk;
-    int Def;
+    double Floor;
+    double HP;
+    double Atk;
+    double Def;
     std::string Message;
 public:
     void spawn(int x, int y, char type);

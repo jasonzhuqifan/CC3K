@@ -8,18 +8,18 @@
 
 class Character : public GridObjects{
 protected:
-    int MaxHP;
-    int HP;
-    int Atk;
-    int Def;
-    int Gold;
+    double MaxHP;
+    double HP;
+    double Atk;
+    double Def;
+    double Gold;
     
 public:
-    int getMaxHP();
-    int getHP();
-    int getAttack();
-    int getDefence();
-    int getGold();
+    double getMaxHP();
+    double getHP();
+    double getAttack();
+    double getDefence();
+    double getGold();
     ObstacleType getObsType() override;
 };
 

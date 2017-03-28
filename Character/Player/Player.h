@@ -6,17 +6,16 @@
 
 
 class Player : public Character{
-
+     bool reachStairs = false;
 public:
-    virtual int getHP();
-    virtual int getAttack();
-    virtual int getDefence();
-    int getMaxHP();
-    int getGold();
-    virtual void attack(std::string dir) = 0;
+    virtual double getHP();
+    virtual double getAttack();
+    virtual double getDefence();
+    double getMaxHP();
+    double getGold();
+    virtual void attack(std::string dir);
     void move(std::string dir);
     void use(std::string dir);
-    bool reachStairs();
     GridObjectType getObjType() override;
 };
 
