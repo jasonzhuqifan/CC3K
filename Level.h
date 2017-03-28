@@ -1,11 +1,13 @@
 #ifndef Level_hpp
 #define Level_hpp
 
-#include "Enemy.h"
-#include "Potion.h"
-#include "Gold.h"
-#include "Cell.h"
 #include "Character.h"
+
+class Enemy;
+class Cell;
+class Potion;
+class Cell;
+class Gold;
 
 struct Level{
     Level();
