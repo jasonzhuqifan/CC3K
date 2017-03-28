@@ -4,7 +4,7 @@
 #include "Character.h"
 #include "Observer.h"
 
-class Enemy : public Character, Observer{
+class Enemy : public Character, public Observer{
     void attack(Character* pc);
     void move(int r, int c);
 public:
