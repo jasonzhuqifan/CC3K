@@ -38,7 +38,7 @@ private:
     const int height = 25;
     
     Chamber *c;
-    Enemy *createEnemy() override;
+    Enemy *createEnemy(char *type) override;
     Potion *createPotion() override;
     Cell *createCell(char c) override;
     
@@ -48,7 +48,7 @@ private:
     void placeStair() override;
     void placePlayer(Character *pc) override;
     template <typename T>
-    pair<int, int> spawnItem(T itemType,vector<vector<pair<int, int>>> *chamLst);
+    pair<int, int> spawnItem(T itemType,vector<vector<pair<int, int>>> *chamLst,char type);
     //returns the position of the item when item spawns.
     void setItem(GridObjects *itemType, int x, int y);
     

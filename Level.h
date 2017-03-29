@@ -13,7 +13,7 @@ class Gold;
 
 struct Level{
     Level();
-    virtual Enemy *createEnemy() = 0;
+    virtual Enemy *createEnemy(char *type) = 0;
     virtual Potion *createPotion()=0;
     virtual Cell *createCell(char c) =0;
     virtual void placeEnemy(Character *pc) = 0;

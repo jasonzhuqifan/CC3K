@@ -5,6 +5,7 @@
 #include <fstream>
 #include <utility>
 
+#include "textDisplay.h"
 #include "ObstacleType.h"
 #include "Enemy.h"
 #include "Potion.h"
@@ -51,7 +52,7 @@ void Floor::setItem(GridObjects *itemType, int x, int y){
 }
 
 template <typename T>
-pair<int, int> Floor::spawnItem(T itemType,vector<vector<pair<int, int>>> *chamLst){
+pair<int, int> Floor::spawnItem(T itemType,vector<vector<pair<int, int>>> *chamLst,char type){
     srand(time(NULL));
     int x =0;
     int y = 0;
@@ -67,32 +68,38 @@ pair<int, int> Floor::spawnItem(T itemType,vector<vector<pair<int, int>>> *chamL
         }
     }
     setItem(itemType, x,y);
+    td->spawn(x, y, type);
 }
 
 
-Enemy *Floor::createEnemy(){
-    
+Enemy *Floor::createEnemy(char *type){
     srand(time(NULL));
     int spawnRate = rand()%18+1; //random number from 1 to 18
     Enemy *spawnEnemy =  NULL;
     
     if(spawnRate >=1 && spawnRate <= 4){//Human
         spawnEnemy = new Human();
+        *type = 'H';
     }
     else if(spawnRate >= 5 && spawnRate <= 7){//Dwarf
         spawnEnemy = new Dwarf();
+        *type = 'D';
     }
     else if(spawnRate >= 8 && spawnRate <= 13){//Halfling
         spawnEnemy = new Halfling();
+        *type = 'L';
     }
     else if (spawnRate >= 14 && spawnRate <= 15){//Elf
         spawnEnemy = new Elf();
+        *type = 'E';
     }
     else if(spawnRate >= 16 && spawnRate <= 17){//Orc
         spawnEnemy = new Orc();
+        *type = 'O';
     }
     else{//Merchant
         spawnEnemy = new Merchant();
+        *type = 'M';
     }
     
     return spawnEnemy;
@@ -102,7 +109,7 @@ Enemy *Floor::createEnemy(){
 void Floor::placeEnemy(Character *pc){
     srand(time(NULL));
     vector<vector<pair<int, int>>>* chamLst = c->getChamberList();
-    
+    char type;
     for(int i =0;i < enemyNum; i++){
         int x =0;
         int y =0;
@@ -121,9 +128,11 @@ void Floor::placeEnemy(Character *pc){
             
         }
         GridObjects *temp = gO[x][y];
-        Enemy *newEnemy = createEnemy();
+        Enemy *newEnemy = createEnemy(&type);
         gO[x][y] = newEnemy;
         pc->attatch(newEnemy);
+        newEnemy->attatch(td);
+        td->spawn(x, y, type);
         delete temp;
     }
 }
@@ -161,7 +170,7 @@ Potion *Floor::createPotion(){
 void Floor::placePotion(){
     for (int i =0; i < potionNum; i++) {
         vector<vector<pair<int, int>>>* chamLst = c->getChamberList();
-        pair<int,int> pos = spawnItem(createPotion(),chamLst);
+        pair<int,int> pos = spawnItem(createPotion(),chamLst,'P');
     }
     
 }
@@ -177,7 +186,7 @@ void Floor::placeGold(){
         if (spawnRate == 1){//Dragon Hoard
             spawnGold = new DragonHoard();
             spawnDragon = new Dragon();
-            pos = spawnItem(spawnGold, chamLst);
+            pos = spawnItem(spawnGold, chamLst,'G');
             int x = pos.first;
             int y = pos.second;
             //0 1 2
@@ -189,41 +198,49 @@ void Floor::placeGold(){
                     case 0:
                         if (gO[x-1][y+1]->getObsType() == ObstacleType::BlockNone){
                             gO[x-1][y+1] = spawnDragon;
+                            td->spawn(x-1, y+1, 'D');
                         }
                         break;
                     case 1:
                         if(gO[x][y+1]->getObsType() == ObstacleType::BlockNone){
                             gO[x][y+1] = spawnDragon;
+                            td->spawn(x, y+1, 'D');
                         }
                         break;
                     case 2:
                         if(gO[x+1][y+1]->getObsType() == ObstacleType::BlockNone){
                             gO[x+1][y+1] = spawnDragon;
+                            td->spawn(x+1, y+1, 'D');
                         }
                         break;
                     case 3:
                         if(gO[x-1][y]->getObsType() == ObstacleType::BlockNone){
                             gO[x-1][y] = spawnDragon;
+                            td->spawn(x-1, y, 'D');
                         }
                         break;
                     case 4:
                         if(gO[x+1][y]->getObsType() == ObstacleType::BlockNone){
-                            gO[x][y] = spawnDragon;
+                            gO[x+1][y] = spawnDragon;
+                            td->spawn(x+1, y+1, 'D');
                         }
                         break;
                     case 5:
                         if(gO[x-1][y-1]->getObsType() == ObstacleType::BlockNone){
                             gO[x-1][y] = spawnDragon;
+                            td->spawn(x-1, y+1, 'D');
                         }
                         break;
                     case 6:
                         if(gO[x][y-1]->getObsType() == ObstacleType::BlockNone){
                             gO[x][y-1] = spawnDragon;
+                            td->spawn(x, y+1, 'D');
                         }
                         break;
                     case 7:
                         if(gO[x+1][y-1]->getObsType() == ObstacleType::BlockNone){
                             gO[x+1][y-1] = spawnDragon;
+                            td->spawn(x+1, y-1, 'D');
                         }
                         break;
                 }
@@ -231,11 +248,11 @@ void Floor::placeGold(){
         }
         else if (spawnRate == 2){//Small
             spawnGold = new Small;
-            pos = spawnItem(spawnGold, chamLst);
+            pos = spawnItem(spawnGold, chamLst,'G');
         }
         else{//Normal
             spawnGold = new Normal();
-            pos = spawnItem(spawnGold, chamLst);
+            pos = spawnItem(spawnGold, chamLst'G');
         }
     }
     
@@ -261,7 +278,7 @@ void Floor::placeStair(){
     GridObjects *temp = gO[x][y];
     gO[x][y] = new StairWay();
     delete temp;
-    
+    td->spawn(x, y, '\\');
     
 }
 
@@ -285,6 +302,7 @@ void Floor::placePlayer(Character *pc){
     GridObjects *temp = gO[x][y];
     gO[x][y] = pc;
     delete temp;
+    td->spawn(x, y, '@');
 }
 
 
@@ -328,6 +346,7 @@ void Floor::init(Character *pc){
     placePotion();
     placeGold();
     placeEnemy(pc);
+    pc->attatch(td);
     
 }
 
