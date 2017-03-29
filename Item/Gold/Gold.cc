@@ -7,3 +7,12 @@
 //
 
 #include "Gold.h"
+
+
+ObstacleType Gold::getObsType(){
+    return ObstacleType::BlockEnemy;
+}
+
+GridObjectType Gold::getObjType(){
+    return GridObjectType::Gold;
+}

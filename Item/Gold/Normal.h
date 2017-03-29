@@ -12,7 +12,7 @@
 
 
 class Normal : public Gold{
-    
+   
 };
 
 #endif /* Normal_hpp */

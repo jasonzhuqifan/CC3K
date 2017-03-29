@@ -7,3 +7,11 @@
 //
 
 #include "FloorTile.h"
+
+ObstacleType FloorTile::getObsType(){
+    return ObstacleType::BlockNone;
+}
+
+GridObjectType FloorTile::getObjType(){
+    return GridObjectType::Others;
+}

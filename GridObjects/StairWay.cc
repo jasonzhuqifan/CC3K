@@ -7,3 +7,12 @@
 //
 
 #include "StairWay.h"
+
+
+ObstacleType StairWay::getObsType(){
+    return ObstacleType::BlockEnemy;//Block Enemy?
+}
+
+GridObjectType StairWay::getObjType(){
+    return  GridObjectType::Others;
+}

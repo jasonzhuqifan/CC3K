@@ -12,7 +12,9 @@
 #include "Cell.h"
 
 class StairWay : public Cell{
-    
+public:
+    ObstacleType getObsType() override;
+    GridObjectType getObjType() override;
 };
 
 #endif /* StairWay_hpp */

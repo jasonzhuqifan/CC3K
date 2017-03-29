@@ -13,7 +13,9 @@
 #include "Cell.h"
 
 class Wall : public Cell{
-    
+public:
+    ObstacleType getObsType() override;
+    GridObjectType getObjType() override;
 };
 
 #endif /* Wall_hpp */

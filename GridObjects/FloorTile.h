@@ -12,7 +12,9 @@
 #include "Cell.h"
 
 class FloorTile : public Cell{
-    
+public:
+    ObstacleType getObsType() override;
+    GridObjectType getObjType() override;
 };
 
 #endif /* FloorTile_hpp */

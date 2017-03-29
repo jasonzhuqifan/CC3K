@@ -21,19 +21,19 @@ void Subject::attatch(Observer *o){
 
 void Subject::detach(Observer *o){
     int pos =0;
+    //find the postion of o and then erase o
     for(int i =0;i< observers.size();i++){
         if(observers[i] == o){
             break;
         }
         pos++;
     }
-    
     observers.erase(observers.begin()+pos);
 }
 
 void Subject::notifyObservers(SubscriptionType t){
     for(int i =0; i < observers.size();i++){
-        observers[i]->notify(*this);//not sure
+        observers[i]->notify(*this);
     }
 }
 

@@ -7,3 +7,12 @@
 //
 
 #include "Wall.h"
+
+
+ObstacleType Wall::getObsType(){
+    return ObstacleType::BolckAll;
+}
+
+GridObjectType Wall::getObjType(){
+    return GridObjectType::Others;
+}

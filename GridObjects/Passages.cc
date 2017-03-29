@@ -7,3 +7,12 @@
 //
 
 #include "Passages.h"
+
+
+ObstacleType Passages::GridObjects::getObsType(){
+    return ObstacleType::BlockEnemy;
+}
+
+GridObjectType Passages::GridObjects::getObjType(){
+    return GridObjectType::Others;
+}

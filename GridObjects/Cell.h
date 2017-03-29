@@ -13,6 +13,9 @@
 
 
 class Cell : public GridObjects{
+public:
+    ObstacleType getObsType() override;
+    GridObjectType getObjType() override;
     
 };
 

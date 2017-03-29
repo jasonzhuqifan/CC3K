@@ -13,7 +13,10 @@
 #include "Item.h"
 
 class Gold : public Item{
-    
+public:
+    ObstacleType getObsType() override;
+    GridObjectType getObjType() override;
+  
 };
 
 #endif /* Gold_hpp */

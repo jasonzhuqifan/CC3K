@@ -7,3 +7,13 @@
 //
 
 #include "Door.h"
+
+
+ObstacleType Door::getObsType(){
+    return ObstacleType::BlockEnemy;
+}
+
+GridObjectType Door::getObjType(){
+    return GridObjectType::Others;
+}
+

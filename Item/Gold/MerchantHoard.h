@@ -12,7 +12,7 @@
 #include "Gold.h"
 
 class MerchantHoard : public Gold{
-    
+   
 };
 
 #endif /* MerchantHoard_hpp */

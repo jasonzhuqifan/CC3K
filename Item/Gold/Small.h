@@ -12,7 +12,7 @@
 #include "Gold.h"
 
 class Small : public Gold{
-    
+   
 };
 
 #endif /* Small_hpp */

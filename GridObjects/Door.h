@@ -12,7 +12,9 @@
 #include "Cell.h"
 
 class Door : public Cell{
-    
+public:
+    ObstacleType getObsType() override;
+    GridObjectType getObjType() override;
 };
 
 #endif /* Door_hpp */
