@@ -13,7 +13,7 @@ Drow::Drow(){
     magnify = true;
 }
 
-void Drow::attackIt(Halfling* e){
+void Drow::attackIt(std::shared_ptr<Halfling> e){
     int miss = rand()%2+1;
     if(miss == 1){
         double d = e->getDefence();
@@ -22,11 +22,10 @@ void Drow::attackIt(Halfling* e){
     }
 }
 
-void Drow::attackIt(Merchant *e){
+void Drow::attackIt(std::shared_ptr<Merchant> e){
     double d = e->getDefence();
     double damage = ceil((100/100+d) * this->Atk);
     e->updateDamage(damage);
     e->setNeutral();
-    HP += 5;
 }
 Drow::~Drow(){}

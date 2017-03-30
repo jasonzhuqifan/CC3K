@@ -5,6 +5,7 @@
 #include "math.h"
 #include "Normal.h"
 #include "MerchantHoard.h"
+#include "FloorTile.h"
 #include "Info.h"
 using namespace std;
 
@@ -26,7 +27,7 @@ double Player::getAttack(){
 }
 
 double Player::getGold(){
-    return Gold;
+    return gold;
 }
 
 double Player::getMaxHP(){
@@ -56,18 +57,25 @@ void Player::move(string dir){
         currentRow++;
         currentCol--;
     }
-    if(gO[currentRow][currentCol]->getObjType() == GridObjectType::StairWay){
+    int r = currentRow;
+    int c = currentCol;
+    if(gO[r][c]->getObjType() == GridObjectType::StairWay){
         reachStairs = true;
     }
-    if(gO[currentRow][currentCol]->getObjType() == GridObjectType::Gold){
-        Gold* g = (Gold*) gO[currentRow][currentCol];
-        
+    if(gO[r][c]->getObjType() == GridObjectType::smallGold ||
+       gO[r][c]->getObjType() == GridObjectType::normalGold ||
+       gO[r][c]->getObjType() == GridObjectType::merchantHoard ||
+       gO[r][c]->getObjType() == GridObjectType::dragonHoard){
+        shared_ptr<Gold> g = dynamic_pointer_cast<Gold>(gO[r][c]);
+        gold += g->getGold();
+        shared_ptr<FloorTile> f = make_shared<FloorTile>();
+        gO[r][c] = f;
+        g->notifyObservers(SubscriptionType::displayOnly);
     }
-    if(gO[currentRow][currentCol]->getObsType() != ObstacleType::BolckAll){
-        GridObjects *g = gO[currentRow][currentCol];
-        gO[currentRow][currentCol] = gO[previousRow][previousCol];
+    if(gO[r][c]->getObsType() != ObstacleType::BolckAll){
+        shared_ptr<GridObjects> g = gO[r][c];
+        gO[r][c] = gO[previousRow][previousCol];
         gO[previousRow][previousCol] = g;
-        
     }
     this->notifyObservers(SubscriptionType::All);
     previousRow = currentRow;
@@ -119,12 +127,13 @@ void Player::attack(std::string dir){
         c--;
     }
     if(gO[r][c]->getObjType() == GridObjectType::Enemy){
-        Enemy* e = (Enemy*) gO[r][c];
+        
+        shared_ptr<Enemy> e = dynamic_pointer_cast<Enemy>(gO[r][c]);
         attackIt(e);
     }
 }
 
-void Player::attackIt(Enemy *e){
+void Player::attackIt(shared_ptr<Enemy> e){
     double d = e->getDefence();
     double damage = ceil((100/100+d) * this->Atk);
     e->updateDamage(damage);
@@ -136,8 +145,14 @@ void Player::attackIt(Enemy *e){
             shared_ptr<Normal> g = make_shared<Normal>(2);
             gO[r][c] = g;
         }else if(e->dropgold() == 4){
-            shared_ptr<MerchantHoard> g = make_shared<MerchantHoard>(2);
-            
+            shared_ptr<MerchantHoard> g = make_shared<MerchantHoard>();
+            gO[r][c] = g;
+        }else{
+            shared_ptr<FloorTile> g = make_shared<FloorTile>();
+            gO[r][c] = g;
+        }
+        if(steal){
+            gold += 5;
         }
     }
 }
@@ -146,9 +161,6 @@ bool Player::ismagnify(){
     return magnify;
 }
 
-bool Player::issteal(){
-    return steal;
-}
 
 bool Player::isautoheal(){
     return autoheal;

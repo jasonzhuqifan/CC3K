@@ -61,7 +61,10 @@ void TextDisplay::notify(Subject &notifier){
               type == GridObjectType::RH){ //if notifier is potion
             theDisplay[cr][cc] = '.';
         
-    } else if(type == GridObjectType::Gold){ //Gold not consider Dragon Hoard yet!
+    } else if(type == GridObjectType::smallGold ||
+              type == GridObjectType::normalGold ||
+              type == GridObjectType::merchantHoard ||
+              type == GridObjectType::dragonHoard){ //Gold not consider Dragon Hoard yet!
             theDisplay[cr][cc] = '.';
     }
 }

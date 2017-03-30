@@ -7,13 +7,13 @@
 class Vampire:public Player{
 public:
     Vampire();
-    void attackIt(Halfling* e) override;
-    void attackIt(Dwarf *e) override;
-    void attackIt(Dragon *e) override;
-    void attackIt(Elf *e) override;
-    void attackIt(Human *e) override;
-    void attackIt(Merchant *e) override;
-    void attackIt(Orc *e) override;
+    void attackIt(std::shared_ptr<Halfling> e) override;
+    void attackIt(std::shared_ptr<Dwarf> e) override;
+    void attackIt(std::shared_ptr<Dragon> e) override;
+    void attackIt(std::shared_ptr<Elf> e) override;
+    void attackIt(std::shared_ptr<Human> e) override;
+    void attackIt(std::shared_ptr<Merchant> e) override;
+    void attackIt(std::shared_ptr<Orc> e) override;
     ~Vampire();
 };
 

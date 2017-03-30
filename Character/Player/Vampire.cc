@@ -16,7 +16,7 @@ Vampire::Vampire(){
     MaxHP = -1;
 }
 
-void Vampire::attackIt(Halfling* e){
+void Vampire::attackIt(std::shared_ptr<Halfling> e){
     int miss = rand()%2+1;
     if(miss == 1){
         double d = e->getDefence();
@@ -26,38 +26,38 @@ void Vampire::attackIt(Halfling* e){
     }
 }
 
-void Vampire::attackIt(Dwarf *e){
+void Vampire::attackIt(std::shared_ptr<Dwarf> e){
         double d = e->getDefence();
         double damage = ceil((100/100+d) * this->Atk);
         e->updateDamage(damage);
         HP += 5;
 }
-void Vampire::attackIt(Dragon *e){
+void Vampire::attackIt(std::shared_ptr<Dragon> e){
     double d = e->getDefence();
     double damage = ceil((100/100+d) * this->Atk);
     e->updateDamage(damage);
     HP += 5;
 }
-void Vampire::attackIt(Elf *e){
+void Vampire::attackIt(std::shared_ptr<Elf> e){
     double d = e->getDefence();
     double damage = ceil((100/100+d) * this->Atk);
     e->updateDamage(damage);
     HP += 5;
 }
-void Vampire::attackIt(Human *e){
+void Vampire::attackIt(std::shared_ptr<Human> e){
     double d = e->getDefence();
     double damage = ceil((100/100+d) * this->Atk);
     e->updateDamage(damage);
     HP += 5;
 }
-void Vampire::attackIt(Merchant *e){
+void Vampire::attackIt(std::shared_ptr<Merchant> e){
     double d = e->getDefence();
     double damage = ceil((100/100+d) * this->Atk);
     e->updateDamage(damage);
     e->setNeutral();
     HP += 5;
 }
-void Vampire::attackIt(Orc *e){
+void Vampire::attackIt(std::shared_ptr<Orc> e){
     double d = e->getDefence();
     double damage = ceil((100/100+d) * this->Atk);
     e->updateDamage(damage);
