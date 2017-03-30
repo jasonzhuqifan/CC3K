@@ -7,6 +7,15 @@
 #include "MerchantHoard.h"
 #include "FloorTile.h"
 #include "Info.h"
+
+#include "Human.h"
+#include "Halfling.h"
+#include "Elf.h"
+#include "Orc.h"
+#include "Merchant.h"
+#include "Dragon.h"
+#include "Dwarf.h"
+
 using namespace std;
 
 
@@ -133,12 +142,40 @@ void Player::attack(std::string dir){
     }
 }
 
-void Player::attackIt(shared_ptr<Enemy> e){
+void Player::attackIt(std::shared_ptr<Enemy> e){
     double d = e->getDefence();
     double damage = ceil((100/100+d) * this->Atk);
     e->updateDamage(damage);
     check_dead(e);
-    }
+}
+
+void Player::attackIt(std::shared_ptr<Dwarf> e) {
+    attackIt(dynamic_pointer_cast<Enemy>(e));
+}
+
+void Player::attackIt(std::shared_ptr<Dragon> e) {
+    attackIt(dynamic_pointer_cast<Enemy>(e));
+}
+
+void Player::attackIt(std::shared_ptr<Elf> e) {
+    attackIt(dynamic_pointer_cast<Enemy>(e));
+}
+
+void Player::attackIt(std::shared_ptr<Halfling> e) {
+    attackIt(dynamic_pointer_cast<Enemy>(e));
+}
+
+void Player::attackIt(std::shared_ptr<Human> e) {
+    attackIt(dynamic_pointer_cast<Enemy>(e));
+}
+
+void Player::attackIt(std::shared_ptr<Merchant> e) {
+    attackIt(dynamic_pointer_cast<Enemy>(e));
+}
+
+void Player::attackIt(std::shared_ptr<Orc> e) {
+    attackIt(dynamic_pointer_cast<Enemy>(e));
+}
 
 void Player::check_dead(shared_ptr<Enemy> e){
     if(e->isDead()){
