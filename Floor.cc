@@ -250,11 +250,7 @@ void Floor::placeGold(){
             }
         }
         else if (spawnRate == 2){//Small
-<<<<<<< HEAD
             spawnGold = make_shared<Small>();
-=======
-            spawnGold = new Small();
->>>>>>> origin/master
             pos = spawnItem(spawnGold, chamLst,'G');
         }
         else{//Normal
