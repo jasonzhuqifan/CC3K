@@ -26,7 +26,7 @@ class TextDisplay;
 
 class Floor : public Level{
 protected:
-    TextDisplay *td;
+    //TextDisplay *td;
     std::vector<std::vector<GridObjects *>> gO ;
     bool enemyFrozen;
 private:
@@ -61,6 +61,7 @@ public:
     void clearFloor();
     void setFrozen() override;
     ~Floor();
+    
     
 };
 
