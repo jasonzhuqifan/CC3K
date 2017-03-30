@@ -304,7 +304,7 @@ void Floor::placePlayer(shared_ptr<Character> pc){
 }
 
 shared_ptr<Cell> Floor::createCell(char c){
-    shared_ptr<Cell> cell = NULL;
+    shared_ptr<Cell> cell;
     if(c == '|' || c == '_'){
         cell = make_shared<Wall>();
     }
@@ -330,7 +330,7 @@ void Floor::init(shared_ptr<Character> pc){
     //construct the basic map store it in GridObjects
     while(getline(file, line)){
         for(int i =0;i < height ;i++){
-            vector<GridObjects *> col;
+            vector<shared_ptr<GridObjects>> col;
             for(int j = 0; j < width; j++){
                 col.emplace_back(createCell(line[j]));
             }

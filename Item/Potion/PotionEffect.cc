@@ -1,6 +1,6 @@
 #include "PotionEffect.h"
 
-PotionEffect::PotionEffect(shared_ptr<Player> pc) : pc{pc} {}
+PotionEffect::PotionEffect(std::shared_ptr<Player> pc) : pc{pc} {}
 
 double PotionEffect::getAttack() {
     return pc->getAttack();
