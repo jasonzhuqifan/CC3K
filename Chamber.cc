@@ -7,7 +7,7 @@ Chamber::Chamber() {
 }
 
 void Chamber::readMap() {
-    ifstream file("cc3kfloor.txt");
+    ifstream file{"cc3kfloor.txt"};
     string line;
     while(getline(file, line)){
         vector<char> c_arr;
@@ -20,9 +20,10 @@ void Chamber::readMap() {
 
 void Chamber::scanChamber() {
     int chamId = 0;
-    for (int row = 0; row < 79; row++) {
-        for (int col = 0; col < 25; col++) {
+    for (int row = 0; row < 25; row++) {
+        for (int col = 0; col < 79; col++) {
             if (textMap[row][col] == '.') {
+                chamLst.emplace_back(vector<pair<int, int>>());
                 recursiveAdd(row, col, chamId++);
             }
         }

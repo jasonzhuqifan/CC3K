@@ -20,6 +20,9 @@ GameGrid::GameGrid() {}
 
 void GameGrid::init(){
     l = make_shared<Floor>();
+    shared_ptr<Floor> f = dynamic_pointer_cast<Floor>(l);
+    f->init(pc);
+    l = f;
 }
 
 void GameGrid::move(string dir){

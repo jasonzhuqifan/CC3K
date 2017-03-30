@@ -285,6 +285,7 @@ void Floor::placeStair(){
 
 void Floor::placePlayer(shared_ptr<Character> pc){
     srand(time(NULL));
+    c = make_shared<Chamber>();
     shared_ptr<vector<vector<pair<int, int>>>> chamLst = c->getChamberList();
     
     int x =0;
