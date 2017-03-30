@@ -12,7 +12,8 @@
 #include "Enemy.h"
 
 class Dragon : public Enemy{
-    
+    Dragon();
+    ~Dragon();
 };
 
 #endif /* Dragon_hpp */

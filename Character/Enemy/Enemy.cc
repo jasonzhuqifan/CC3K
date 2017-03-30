@@ -1,5 +1,4 @@
 #include "Enemy.h"
-#include <cstdlib>
 #include "Info.h"
 #include "Player.h"
 
@@ -7,6 +6,7 @@
 void Enemy::updateDamage(double damage){
     HP = HP - damage;
     if(HP <= 0){
+        isDead = true;
         notifyObservers(SubscriptionType::displayOnly);
     }
 }
@@ -112,5 +112,8 @@ void Enemy::move(int r, int c){
 void Enemy::attack(Player* pc){
     double d = pc->getDefence();
     double damage = ceil((100/100+d) * this->Atk);
+    int miss = rand()%2+1;
+    if (miss == 1){
     pc->setHealth(damage);
+    }
 }

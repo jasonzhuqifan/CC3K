@@ -12,7 +12,8 @@
 #include "Enemy.h"
 
 class Halfling : public Enemy{
-    
+    Halfling();
+    ~Halfling();
 };
 
 #endif /* Halfling_hpp */

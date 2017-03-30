@@ -12,7 +12,8 @@
 #include "Enemy.h"
 
 class Dwarf : public Enemy{
-    
+    Dwarf();
+    ~Dwarf();
 };
 
 #endif /* Dwarf_hpp */

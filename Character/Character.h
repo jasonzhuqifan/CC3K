@@ -13,6 +13,7 @@ protected:
     double Atk;
     double Def;
     double Gold;
+    bool isDead = false;
     
 public:
     double getMaxHP();

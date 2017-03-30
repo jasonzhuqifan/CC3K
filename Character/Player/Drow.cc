@@ -1,5 +1,6 @@
 #include "Drow.h"
 #include "string"
+#include "Halfling.h"
 
 using namespace std;
 
@@ -9,9 +10,14 @@ Drow::Drow(){
     Def = 15;
     MaxHP = 150;
 }
-void Drow::attack(std::string dir){
-    
-}
 
+void Drow::attackIt(Halfling* e){
+    int miss = rand()%2+1;
+    if(miss == 1){
+        double d = e->getDefence();
+        double damage = ceil((100/100+d) * this->Atk);
+        e->updateDamage(damage);
+    }
+}
 
 Drow::~Drow(){}

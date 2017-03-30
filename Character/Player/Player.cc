@@ -1,6 +1,7 @@
 #include "Player.h"
 #include <string>
 #include "Enemy.h"
+#include "Gold.h"
 #include "math.h"
 using namespace std;
 
@@ -52,12 +53,16 @@ void Player::move(string dir){
         currentRow++;
         currentCol--;
     }
-    if(gO[currentCol][currentRow]->getObjType() == GridObjectType::StairWay){
+    if(gO[currentRow][currentCol]->getObjType() == GridObjectType::StairWay){
         reachStairs = true;
     }
-    if(gO[currentCol][currentRow]->getObsType() != ObstacleType::BolckAll){
-        GridObjects *g = gO[currentCol][currentRow];
-        gO[currentCol][currentRow] = gO[previousRow][previousCol];
+    if(gO[currentRow][currentCol]->getObjType() == GridObjectType::Gold){
+        Gold* g = (Gold*) gO[currentRow][currentCol];
+        
+    }
+    if(gO[currentRow][currentCol]->getObsType() != ObstacleType::BolckAll){
+        GridObjects *g = gO[currentRow][currentCol];
+        gO[currentRow][currentCol] = gO[previousRow][previousCol];
         gO[previousRow][previousCol] = g;
         
     }
@@ -73,6 +78,12 @@ void Player::setHealth(double h){
         HP = MaxHP;
     }else{
         HP = h;
+    }
+}
+void Player::getDamage(double damage){
+    HP -= damage;
+    if(HP <= 0){
+        isDead = true;
     }
 }
 
@@ -137,8 +148,12 @@ void Player::attack(std::string dir){
     }
     if(gO[r][c]->getObjType() == GridObjectType::Enemy){
         Enemy* e = (Enemy*) gO[r][c];
-        double d = e->getDefence();
-        double damage = ceil((100/100+d) * this->Atk);
-        e->updateDamage(damage);
+        attackIt(e);
     }
+}
+
+void Player::attackIt(Enemy *e){
+    double d = e->getDefence();
+    double damage = ceil((100/100+d) * this->Atk);
+    e->updateDamage(damage);
 }

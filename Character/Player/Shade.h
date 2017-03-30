@@ -7,7 +7,7 @@
 class Shade : public Player{
 public:
     Shade();
-    void attack(string dir) override;
+    void attackIt(Halfling* e) override;
     ~Shade();
 };
 
