@@ -255,7 +255,7 @@ void Floor::placeGold(){
             }
         }
         else if (spawnRate == 2){//Small
-            spawnGold = new Small;
+            spawnGold = new Small();
             pos = spawnItem(spawnGold, chamLst,'G');
         }
         else{//Normal

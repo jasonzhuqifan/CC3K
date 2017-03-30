@@ -1,18 +1,12 @@
-//
-//  DragonHoard.hpp
-//  CC3KFInalProject
-//
-//  Created by Raymond Tan on 2017-03-23.
-//  Copyright © 2017 Raymond Tan. All rights reserved.
-//
-
 #ifndef DragonHoard_hpp
 #define DragonHoard_hpp
 
 #include "Gold.h"
 
 class DragonHoard : public Gold{
-    
+public:
+    DragonHoard(int count = 1);
+    GridObjectType getObjType() override;
 };
 
-#endif /* DragonHoard_hpp */
+#endif
