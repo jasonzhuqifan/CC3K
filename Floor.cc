@@ -309,7 +309,7 @@ shared_ptr<Cell> Floor::createCell(char c){
         cell = make_shared<Wall>();
     }
     else if (c == '#'){
-        cell = make_shared<Passages>();
+        cell = make_shared<FloorTile>();
     }
     else if (c == '+'){
         cell = make_shared<Door>();

@@ -33,17 +33,18 @@ void Subject::detach(shared_ptr<Observer> o){
 }
 
 void Subject::notifyObservers(SubscriptionType t){
-    if(t ==SubscriptionType::All){
-        observers[observers.size()-1]->notify(*this);
-    }
-    else{
+    if(t == SubscriptionType::All){
         for(int i =0; i < observers.size();i++){
             observers[i]->notify(*this);
         }
     }
+    else{
+        for(int i =0; i < observers.size();i++){
+            if (observers[i]->getSubType() == SubscriptionType::displayOnly) {
+                observers[i]->notify(*this);
+            }
+        }
+    }
 }
-
-
-
 
 
