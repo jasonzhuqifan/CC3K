@@ -8,7 +8,6 @@
 class Potion : public Item{
     bool tried;
 public:
-    Potion();
     ObstacleType getObsType() override;
     virtual ~Potion() = 0;
     bool hasTried();

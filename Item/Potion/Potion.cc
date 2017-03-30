@@ -1,7 +1,5 @@
 #include "Potion.h"
 
-Potion::Potion() {}
-
 ObstacleType Potion::getObsType() {
     return ObstacleType::BolckAll;
 }
@@ -13,3 +11,5 @@ bool Potion::hasTried() {
 void Potion::setTried() {
     tried = true;
 }
+
+Potion::~Potion() {}

@@ -8,7 +8,6 @@
 
 class GridObjects : public Floor, public Subject{
 protected:
-    GridObjects();
     int previousRow;
     int previousCol;
     int currentRow;
@@ -17,6 +16,5 @@ public:
     virtual ObstacleType getObsType() = 0;
     virtual GridObjectType getObjType() = 0;
     Info getInfo() override;
-    ~GridObjects();
 };
 #endif

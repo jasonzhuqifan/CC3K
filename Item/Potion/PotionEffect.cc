@@ -13,3 +13,5 @@ double PotionEffect::getDefence() {
 double PotionEffect::getHP() {
     return pc->getHP();
 }
+
+PotionEffect::~PotionEffect() {}
