@@ -7,6 +7,7 @@ struct Info {
     int previousCol;
     int currentRow;
     int currentCol;
+    GridObjectType GOT;
 };
 
 #endif
