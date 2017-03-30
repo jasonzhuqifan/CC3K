@@ -36,7 +36,6 @@ int main() {
             else if (cmd == "r") {
                 g.clearGrid();
                 g.init();
-                cout <<g;
             }
             else if (cmd == "q") {
                 break;
