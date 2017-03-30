@@ -10,7 +10,6 @@ class Potion;
 class Cell;
 class Gold;
 
-
 struct Level{
     Level();
     virtual Enemy *createEnemy(char *type) = 0;
@@ -22,7 +21,7 @@ struct Level{
     virtual void placeStair() = 0;
     virtual void placePlayer(Character *pc) = 0;
     virtual void setFrozen() = 0;
-    virtual Player* use(Player* pc, std::string dir) = 0;
+    virtual std::shared_ptr<Player> use(shared_ptr<Player> pc, std::string dir) = 0;
     virtual ~Level() = 0;
 };
 
