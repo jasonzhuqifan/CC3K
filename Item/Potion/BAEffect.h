@@ -5,7 +5,7 @@
 
 class BAEffect : public PotionEffect {
 public:
-    BAEffect(shared_ptr<Player> pc);
+    BAEffect(std::shared_ptr<Player> pc);
     double getAttack() override;
 };
 

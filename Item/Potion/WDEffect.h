@@ -13,7 +13,7 @@
 
 class WDEffect : public PotionEffect{
 public:
-    WDEffect(shared_ptr<Player> pc);
+    WDEffect(std::shared_ptr<Player> pc);
     double getDefence() override;
 };
 

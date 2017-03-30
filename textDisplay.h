@@ -23,7 +23,7 @@ public:
     SubscriptionType getSubType() const override;
     ~TextDisplay();
     
-    friend std::ostream &operator<<(ostream &out, const TextDisplay &td);
+    friend std::ostream &operator<<(std::ostream &out, const TextDisplay &td);
 };
 
 #endif /* textDisplay_hpp */

@@ -9,17 +9,18 @@
 #include "Subject.h"
 #include "Observer.h"
 #include "Info.h"
+using namespace std;
 
 Subject::Subject(){
     
 }
 
 
-void Subject::attatch(Observer *o){
+void Subject::attatch(shared_ptr<Observer> o){
     observers.emplace_back(o);
 }
 
-void Subject::detach(Observer *o){
+void Subject::detach(shared_ptr<Observer> o){
     int pos =0;
     //find the postion of o and then erase o
     for(int i =0;i< observers.size();i++){

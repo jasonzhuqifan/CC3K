@@ -12,6 +12,7 @@ class GameGrid {
     Level *l;
     Player *pc;
     
+    
 public:
     GameGrid();
     void init();
