@@ -66,7 +66,7 @@ void TextDisplay::notify(Subject &notifier){
 }
 
 void TextDisplay::spawn(int x, int y, char type){
-    theDisplay[x][y] = type;
+    theDisplay[y][x] = type;
 }
 
 ostream &operator<<(ostream &out, const TextDisplay &td){

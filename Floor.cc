@@ -308,7 +308,7 @@ void Floor::placePlayer(shared_ptr<Character> pc){
 
 shared_ptr<Cell> Floor::createCell(char c){
     shared_ptr<Cell> cell;
-    if(c == '|' || c == '_'){
+    if(c == '|' || c == '-' || c == ' '){
         cell = make_shared<Wall>();
     }
     else if (c == '#'){
@@ -342,6 +342,7 @@ void Floor::init(shared_ptr<Character> pc){
             gO.emplace_back(col);
         }
     
+
     //Spawning order:
     placePlayer(pc);
     placeStair();

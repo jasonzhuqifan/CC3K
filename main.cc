@@ -7,6 +7,7 @@ int main() {
     string cmd, aux;
     GameGrid g;
     g.init();
+    cout << g;
 
     try {
         while (true) {
