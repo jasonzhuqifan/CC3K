@@ -26,8 +26,13 @@ class TextDisplay;
 
 class Floor : public Level{
 protected:
+<<<<<<< HEAD
     //TextDisplay *td;
     std::vector<std::vector<GridObjects *>> gO ;
+=======
+    TextDisplay *td;
+    std::vector<std::vector<GridObjects *>> gO;
+>>>>>>> origin/master
     bool enemyFrozen;
 private:
     bool isFirst();//if floor is first floor
@@ -55,7 +60,7 @@ private:
     
     
 public:
-    Player* use(Player* pc, string dir) override;
+    shared_ptr<Player> use(shared_ptr<Player> pc, string dir) override;
     Floor();
     void init(Character *pc);
     void clearFloor();

@@ -1,9 +1,9 @@
-//
-//  Halfling.cpp
-//  CC3KFInalProject
-//
-//  Created by Raymond Tan on 2017-03-23.
-//  Copyright © 2017 Raymond Tan. All rights reserved.
-//
-
 #include "Halfling.h"
+Halfling::Halfling(){
+    HP = 100;
+    Atk = 15;
+    Def = 20;
+    MaxHP = 100;
+}
+
+Halfling::~Halfling(){}

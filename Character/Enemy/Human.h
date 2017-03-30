@@ -4,7 +4,9 @@
 #include "Enemy.h"
 
 class Human : public Enemy{
-    void attack(Player* pc) override;
+public:
+    Human();
+    ~Human();
 };
 
 #endif /* Human_hpp */

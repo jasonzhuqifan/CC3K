@@ -33,6 +33,11 @@
 #include "WD.h"
 #include "WA.h"
 
+#include "BAEffect.h"
+#include "BDEffect.h"
+#include "WDEffect.h"
+#include "WAEffect.h"
+
 #include "Door.h"
 #include "StairWay.h"
 #include "Wall.h"
@@ -358,7 +363,7 @@ void Floor::setFrozen(){
     enemyFrozen = true;
 }
 
-Player* Floor::use(Player* pc, string dir){
+Player* Floor::use(shared_ptr<Player> pc, string dir){
     Info info = pc->getInfo();
     int potionRow = info.currentRow;
     int potionCol = info.currentCol;
@@ -385,16 +390,16 @@ Player* Floor::use(Player* pc, string dir){
     }
     switch (gO[potionRow][potionCol]->getObjType()) {
         case GridObjectType::BA:
-            pc = BA(pc);
+            auto pc = make_shared<BAEffect>(pc);
             break;
         case GridObjectType::BD:
-            pc = BD(pc);
+            auto pc = make_shared<BDEffect>(pc);
             break;
         case GridObjectType::WA:
-            pc = WA(pc);
+            auto pc = make_shared<WAEffect>(pc);
             break;
         case GridObjectType::WD:
-            pc = WD(pc);
+            auto pc = make_shared<WDEffect>(pc);
             break;
         case GridObjectType::RH:
             pc->setHealth(pc->getHP()+10);

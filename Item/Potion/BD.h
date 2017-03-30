@@ -4,8 +4,6 @@
 #include "Potion.h"
 
 class BD : public Potion{
-    BD(Player* pc);
-    double getDefence() override;
     GridObjectType getObjType() override;
 };
 

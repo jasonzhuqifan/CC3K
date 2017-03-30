@@ -7,7 +7,7 @@
 class Troll: public Player{
 public:
     Troll();
-    void attack(string dir) override;
+    void attackIt(Halfling* e) override;
     ~Troll();
 };
 

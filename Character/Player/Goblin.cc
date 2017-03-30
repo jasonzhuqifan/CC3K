@@ -1,5 +1,7 @@
 #include "Goblin.h"
 #include "string"
+#include "Halfling.h"
+
 using namespace std;
 
 Goblin::Goblin(){
@@ -8,7 +10,14 @@ Goblin::Goblin(){
     Def = 20;
     MaxHP = 110;
 }
-void Goblin::attack(string dir){
-    
+
+void Goblin::attackIt(Halfling* e){
+    int miss = rand()%2+1;
+    if(miss == 1){
+        double d = e->getDefence();
+        double damage = ceil((100/100+d) * this->Atk);
+        e->updateDamage(damage);
+    }
 }
+
 Goblin::~Goblin(){}

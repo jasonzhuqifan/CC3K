@@ -7,7 +7,7 @@
 class Drow : public Player{
 public:
     Drow();
-    void attack(std::string dir) override;
+    void attackIt(Halfling* e) override;
     ~Drow();
 };
 
