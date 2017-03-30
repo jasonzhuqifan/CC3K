@@ -76,6 +76,10 @@ pair<int, int> Floor::spawnItem(T itemType,vector<vector<pair<int, int>>> *chamL
 
     setItem(itemType, x, y);
     td->spawn(x, y, type);
+    pair<int,int> pos;
+    pos.first=x;
+    pos.second=y;
+    return pos;
 }
 
 
