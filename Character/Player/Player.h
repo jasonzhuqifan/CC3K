@@ -21,11 +21,6 @@ protected:
     bool steal = false;
     bool autoheal = false;
 public:
-    virtual double getHP();
-    virtual double getAttack();
-    virtual double getDefence();
-    double getMaxHP();
-    double getGold();
     virtual void attack(std::string dir);
     virtual void attackIt(std::shared_ptr<Enemy> e);
     virtual void attackIt(std::shared_ptr<Dwarf> e);

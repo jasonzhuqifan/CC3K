@@ -15,11 +15,11 @@ protected:
     int gold;
     
 public:
-    double getMaxHP();
-    double getHP();
-    double getAttack();
-    double getDefence();
-    double getGold();
+    virtual double getMaxHP();
+    virtual double getHP();
+    virtual double getAttack();
+    virtual double getDefence();
+    virtual double getGold();
     ObstacleType getObsType() override;
 };
 

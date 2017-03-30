@@ -23,26 +23,6 @@ GridObjectType Player::getObjType(){
     return GridObjectType::Player;
 }
 
-double Player::getHP(){
-    return HP;
-}
-
-double Player::getDefence(){
-    return Def;
-}
-
-double Player::getAttack(){
-    return Atk;
-}
-
-double Player::getGold(){
-    return gold;
-}
-
-double Player::getMaxHP(){
-    return MaxHP;
-}
-
 void Player::move(string dir){
 
     if(dir == "no"){
