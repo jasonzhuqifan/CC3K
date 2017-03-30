@@ -33,8 +33,13 @@ void Subject::detach(shared_ptr<Observer> o){
 }
 
 void Subject::notifyObservers(SubscriptionType t){
-    for(int i =0; i < observers.size();i++){
-        observers[i]->notify(*this);
+    if(t ==SubscriptionType::All){
+        observers[observers.size()-1]->notify(*this);
+    }
+    else{
+        for(int i =0; i < observers.size();i++){
+            observers[i]->notify(*this);
+        }
     }
 }
 
