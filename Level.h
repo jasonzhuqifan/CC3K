@@ -26,7 +26,7 @@ public:
     virtual void placeStair() = 0;
     virtual void placePlayer(Character *pc) = 0;
     virtual void setFrozen() = 0;
-    virtual Player* use(Player* pc, std::string dir) = 0;
+    virtual Player* use(std::shared_ptr<Player> pc, std::string dir) = 0;
     virtual ~Level() = 0;
     friend std::ostream &operator<<(std::ostream &out, const Level &l);
 };
