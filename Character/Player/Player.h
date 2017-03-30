@@ -15,7 +15,11 @@ class Orc;
 
 
 class Player : public Character{
-     bool reachStairs = false;
+    bool reachStairs = false;
+protected:
+    bool magnify = false;
+    bool steal = false;
+    bool autoheal = false;
 public:
     virtual double getHP();
     virtual double getAttack();
@@ -31,10 +35,12 @@ public:
     virtual void attackIt(Human *e);
     virtual void attackIt(Merchant *e);
     virtual void attackIt(Orc *e);
+    bool ismagnify();
+    bool issteal();
+    bool isautoheal();
     void setHealth(double h);
     void getDamage(double damage);
     void move(std::string dir);
-    void use(std::string dir);
     GridObjectType getObjType() override;
 };
 

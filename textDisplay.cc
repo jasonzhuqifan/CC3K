@@ -46,7 +46,7 @@ void TextDisplay::notify(Subject &notifier){
         }
         
     } else if(type == GridObjectType::Enemy){ //if notifier is enemy
-         if(cc != pc || cr != pr){
+         if(cc != pc || cr != pr){ 
              tempChar = theDisplay[cr][cc];
              theDisplay[cr][cc] = theDisplay[pr][pc];
              theDisplay[pr][pc] = tempChar;

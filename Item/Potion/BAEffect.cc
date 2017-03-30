@@ -1,7 +1,7 @@
 #include "BAEffect.h"
 
-BAEffect::BAEffect(Player* pc) : PotionEffect(pc) {}
+BAEffect::BAEffect(shared_ptr<Player> pc) : PotionEffect(pc) {}
 
 double BAEffect::getAttack() {
-    return pc->getAttack() + 5;
+    return pc->getAttack() + ((pc) ? 7.5 : 5);
 }

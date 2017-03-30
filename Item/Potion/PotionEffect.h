@@ -5,9 +5,9 @@
 
 class PotionEffect : public Player{
 protected:
-    Player* pc;
+    shared_ptr<Player> pc;
 public:
-    PotionEffect(Player* pc);
+    PotionEffect(shared_ptr<Player> pc);
     virtual double getAttack() override;
     virtual double getDefence() override;
     virtual double getHP() override;

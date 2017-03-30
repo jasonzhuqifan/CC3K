@@ -6,7 +6,9 @@
 void Enemy::updateDamage(double damage){
     HP = HP - damage;
     if(HP <= 0){
-        isDead = true;
+        Dead = true;
+        
+        
         notifyObservers(SubscriptionType::displayOnly);
     }
 }
@@ -46,7 +48,7 @@ void Enemy::notify(Subject &notifier){
 }
 
 
-void Enemy::move(int r, int c){
+void Enemy::move(int r, int c){  //if enemy is stuck, you fucked up!
     int direction;
     while(true){
         srand(time(NULL));

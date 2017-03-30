@@ -8,6 +8,7 @@ Goblin::Goblin(){
     Atk = 15;
     Def = 20;
     MaxHP = 110;
+    steal = true;
 }
 
 void Goblin::attackIt(Halfling* e){

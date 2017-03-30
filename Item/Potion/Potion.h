@@ -12,6 +12,7 @@ public:
     ObstacleType getObsType() override;
     virtual ~Potion() = 0;
     bool hasTried();
+    void setTried();
 };
 
 #endif

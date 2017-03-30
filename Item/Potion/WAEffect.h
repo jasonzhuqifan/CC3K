@@ -4,7 +4,8 @@
 #include "PotionEffect.h"
 
 class WAEffect : public PotionEffect{
-    WAEffect(Player* pc);
+public:
+    WAEffect(shared_ptr<Player> pc);
     double getAttack() override;
 };
 

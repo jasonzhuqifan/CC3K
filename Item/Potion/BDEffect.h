@@ -4,7 +4,8 @@
 #include "PotionEffect.h"
 
 class BDEffect : public PotionEffect{
-    BDEffect(Player* pc);
+public:
+    BDEffect(shared_ptr<Player> pc);
     double getDefence() override;
 };
 

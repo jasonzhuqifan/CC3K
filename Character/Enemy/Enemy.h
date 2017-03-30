@@ -15,6 +15,7 @@ class Enemy : public Character, public Observer{
 private:
     void attack(Character* pc);
     void move(int r, int c);
+    int dropgold = 0;
 protected:
     bool isneutral = false;
     bool stationary = false;
