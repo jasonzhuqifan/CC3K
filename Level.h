@@ -27,7 +27,7 @@ public:
     virtual void placePlayer(std::shared_ptr<Character> pc) = 0;
     virtual void setFrozen() = 0;
     virtual std::shared_ptr<Player> use(std::shared_ptr<Player> pc, std::string dir) = 0;
-    virtual ~Level() = 0;
+    virtual ~Level() = default;
     friend std::ostream &operator<<(std::ostream &out, const Level &l);
 };
 
