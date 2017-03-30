@@ -8,6 +8,7 @@ class Shade : public Player{
 public:
     Shade();
     void attackIt(Halfling* e) override;
+     void attackIt(Merchant *e) override;
     ~Shade();
 };
 

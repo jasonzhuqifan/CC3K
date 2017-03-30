@@ -1,6 +1,6 @@
 #include "Troll.h"
 #include "Halfling.h"
-
+#include "Merchant.h"
 
 using namespace std;
 
@@ -19,6 +19,13 @@ void Troll::attackIt(Halfling* e){
         double damage = ceil((100/100+d) * this->Atk);
         e->updateDamage(damage);
     }
+}
+void Troll::attackIt(Merchant *e){
+    double d = e->getDefence();
+    double damage = ceil((100/100+d) * this->Atk);
+    e->updateDamage(damage);
+    e->setNeutral();
+    HP += 5;
 }
 
 

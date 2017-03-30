@@ -54,7 +54,7 @@ private:
     
     
 public:
-    shared_ptr<Player> use(shared_ptr<Player> pc, string dir) override;
+    shared_ptr<Player> use(shared_ptr<Player> pc, std::string dir) override;
     Floor();
     void init(Character *pc);
     void clearFloor();

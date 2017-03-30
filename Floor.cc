@@ -363,7 +363,7 @@ void Floor::setFrozen(){
     enemyFrozen = true;
 }
 
-Player* Floor::use(shared_ptr<Player> pc, string dir){
+shared_ptr<Player> Floor::use(shared_ptr<Player> pc, std::string dir){
     Info info = pc->getInfo();
     int potionRow = info.currentRow;
     int potionCol = info.currentCol;
@@ -388,18 +388,19 @@ Player* Floor::use(shared_ptr<Player> pc, string dir){
         potionRow++;
         potionCol--;
     }
+    shared_ptr<Player> tempPc = pc;
     switch (gO[potionRow][potionCol]->getObjType()) {
         case GridObjectType::BA:
-            auto pc = make_shared<BAEffect>(pc);
+            pc = make_shared<BAEffect>(tempPc);
             break;
         case GridObjectType::BD:
-            auto pc = make_shared<BDEffect>(pc);
+            pc = make_shared<BDEffect>(tempPc);
             break;
         case GridObjectType::WA:
-            auto pc = make_shared<WAEffect>(pc);
+            pc = make_shared<WAEffect>(tempPc);
             break;
         case GridObjectType::WD:
-            auto pc = make_shared<WDEffect>(pc);
+            pc = make_shared<WDEffect>(tempPc);
             break;
         case GridObjectType::RH:
             pc->setHealth(pc->getHP()+10);

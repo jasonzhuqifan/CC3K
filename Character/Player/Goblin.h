@@ -8,6 +8,7 @@ class Goblin : public Player{
 public:
     Goblin();
     void attackIt(Halfling* e) override;
+     void attackIt(Merchant *e) override;
     ~Goblin();
 };
 

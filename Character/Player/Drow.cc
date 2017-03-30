@@ -1,6 +1,7 @@
 #include "Drow.h"
-#include "string"
+#include "Merchant.h"
 #include "Halfling.h"
+
 
 using namespace std;
 
@@ -20,4 +21,11 @@ void Drow::attackIt(Halfling* e){
     }
 }
 
+void Drow::attackIt(Merchant *e){
+    double d = e->getDefence();
+    double damage = ceil((100/100+d) * this->Atk);
+    e->updateDamage(damage);
+    e->setNeutral();
+    HP += 5;
+}
 Drow::~Drow(){}
