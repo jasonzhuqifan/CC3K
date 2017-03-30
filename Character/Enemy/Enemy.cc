@@ -117,3 +117,6 @@ void Enemy::attack(Player* pc){
     pc->setHealth(damage);
     }
 }
+void Enemy::setNeutral(){
+    isneutral = false;
+}

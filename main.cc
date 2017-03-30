@@ -7,6 +7,7 @@ int main() {
     string cmd, aux;
     GameGrid g;
     g.init();
+
     try {
         while (true) {
             cin >> cmd;
@@ -35,6 +36,7 @@ int main() {
             else if (cmd == "r") {
                 g.clearGrid();
                 g.init();
+                cout <<g;
             }
             else if (cmd == "q") {
                 break;

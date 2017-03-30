@@ -6,7 +6,6 @@ using namespace std;
 
 class Level;
 class Player;
-class TextDisplay;
 class Floor;
 
 class GameGrid {
@@ -26,7 +25,6 @@ public:
     
     ~GameGrid();
     
-    friend ostream & operator<<(std::ostream &out, GameGrid &g);
 };
 
 #endif

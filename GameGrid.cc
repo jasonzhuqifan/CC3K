@@ -10,6 +10,7 @@
 #include "textDisplay.h"
 #include "Floor.h"
 
+using namespace std;
 
 GameGrid::GameGrid() {}
 
@@ -19,6 +20,7 @@ GameGrid::~GameGrid(){
 
 void GameGrid::init(){
     l = new Floor;
+
 }
 
 void GameGrid::move(string dir){

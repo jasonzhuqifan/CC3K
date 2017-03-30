@@ -6,6 +6,7 @@
 #include "Enemy.h"
 
 class Elf : public Enemy{
+public:
     Elf();
     void attack(Goblin* pc) override;
     void attack(Shade* pc) override;

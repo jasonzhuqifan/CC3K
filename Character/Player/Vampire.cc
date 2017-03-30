@@ -54,7 +54,7 @@ void Vampire::attackIt(Merchant *e){
     double d = e->getDefence();
     double damage = ceil((100/100+d) * this->Atk);
     e->updateDamage(damage);
-    e->isneutral = false;
+    e->setNeutral();
     HP += 5;
 }
 void Vampire::attackIt(Orc *e){

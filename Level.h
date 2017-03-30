@@ -9,8 +9,17 @@ class Cell;
 class Potion;
 class Cell;
 class Gold;
+class Floor;
+class TextDisplay;
 
+<<<<<<< HEAD
 struct Level{
+=======
+class Level{
+protected:
+    TextDisplay *td;
+public:
+>>>>>>> origin/master
     Level();
     virtual Enemy *createEnemy(char *type) = 0;
     virtual Potion *createPotion()=0;
@@ -23,6 +32,7 @@ struct Level{
     virtual void setFrozen() = 0;
     virtual std::shared_ptr<Player> use(shared_ptr<Player> pc, std::string dir) = 0;
     virtual ~Level() = 0;
+    friend std::ostream &operator<<(std::ostream &out, const Level &l);
 };
 
 #endif
