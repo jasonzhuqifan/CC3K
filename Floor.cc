@@ -58,8 +58,7 @@ void Floor::setItem(shared_ptr<GridObjects> itemType, int x, int y){
 }
 
 template <typename T>
-pair<int, int> Floor::spawnItem(T itemType,std::shared_ptr<vector<vector<pair<int, int>>>>chamLst,char type){
-    srand(time(NULL));
+pair<int, int> Floor::spawnItem(T itemType,char type){
     int x =0;
     int y = 0;
     while (true) {
@@ -84,7 +83,6 @@ pair<int, int> Floor::spawnItem(T itemType,std::shared_ptr<vector<vector<pair<in
 
 
 shared_ptr<Enemy> Floor::createEnemy(char *type){
-    srand(time(NULL));
     int spawnRate = rand()%18+1; //random number from 1 to 18
     shared_ptr<Enemy> spawnEnemy = NULL;
     if(spawnRate >=1 && spawnRate <= 4){//Human
@@ -117,10 +115,6 @@ shared_ptr<Enemy> Floor::createEnemy(char *type){
 }
 
 void Floor::placeEnemy(shared_ptr<Character> pc){
-    srand(time(NULL));
-    //vector<vector<pair<int, int>>>* chamLst = c->getChamberList();
-    shared_ptr<vector<vector<pair<int, int>>>> chamLst = NULL;
-    chamLst = c->getChamberList();
     char type;
     
     for(int i =0;i < enemyNum; i++){
@@ -142,11 +136,12 @@ void Floor::placeEnemy(shared_ptr<Character> pc){
         }
         
         shared_ptr<Enemy> newEnemy = createEnemy(&type);
+        gO[y][x] = newEnemy;
+        td->spawn(x, y, type);
     }
 }
 
 shared_ptr<Potion> Floor::createPotion(){
-    srand(time(NULL));
     int spwanRate =  rand()%6+1;//random numberfrom 1 to 6
     shared_ptr<Potion> spawnPotion = NULL;
     
@@ -174,9 +169,8 @@ shared_ptr<Potion> Floor::createPotion(){
 
 void Floor::placePotion(){
     for (int i =0; i < potionNum; i++) {
-        shared_ptr<vector<vector<pair<int, int>>>> chamLst = c->getChamberList();
         shared_ptr<Potion> newPotion = createPotion();
-        spawnItem(newPotion,chamLst,'P');
+        spawnItem(newPotion,'P');
     }
 }
 
@@ -185,13 +179,12 @@ void Floor::placeGold(){
     shared_ptr<Gold> spawnGold = NULL;
     shared_ptr<Dragon> spawnDragon = NULL;
     for (int i =0;i < goldNum;i++){
-        shared_ptr <vector<vector<pair <int,int>>>>chamLst = c->getChamberList();
-        srand(time(NULL));
+
         int spawnRate = rand()%8+1;
         if (spawnRate == 1){//Dragon Hoard
             spawnGold = make_shared<DragonHoard>();
             spawnDragon = make_shared<Dragon>();
-            pos = spawnItem(spawnGold, chamLst,'G');
+            pos = spawnItem(spawnGold,'G');
             int y = pos.first;
             int x = pos.second;
             //0 1 2
@@ -253,20 +246,18 @@ void Floor::placeGold(){
         }
         else if (spawnRate == 2){//Small
             spawnGold = make_shared<Small>();
-            pos = spawnItem(spawnGold, chamLst,'G');
+            pos = spawnItem(spawnGold,'G');
         }
         else{//Normal
             spawnGold = make_shared<Normal>();
-            pos = spawnItem(spawnGold, chamLst,'G');
+            pos = spawnItem(spawnGold,'G');
         }
     }
     
 }
 
 void Floor::placeStair(){
-    srand(time(NULL));
-    shared_ptr<vector<vector<pair<int, int>>>> chamLst = c->getChamberList();
-    
+
     int x =0;
     int y =0;
     
@@ -286,10 +277,7 @@ void Floor::placeStair(){
 }
 
 void Floor::placePlayer(shared_ptr<Character> pc){
-    srand(time(NULL));
-    c = make_shared<Chamber>();
-    shared_ptr<vector<vector<pair<int, int>>>> chamLst = c->getChamberList();
-    
+   
     int x =0;
     int y =0;
     
@@ -324,6 +312,7 @@ shared_ptr<Cell> Floor::createCell(char c){
 }
 
 void Floor::init(shared_ptr<Character> pc){
+    srand(time(NULL));
     td = make_shared<TextDisplay>();
     
     //Read file floor.txt
@@ -342,12 +331,14 @@ void Floor::init(shared_ptr<Character> pc){
             gO.emplace_back(col);
         }
     
-
+    c = make_shared<Chamber>();
+    chamLst = c->getChamberList();
+    
     //Spawning order:
     placePlayer(pc);
-    placeStair();
-    placePotion();
-    placeGold();
+    //placeStair();
+    //placePotion();
+    //placeGold();
     placeEnemy(pc);
     pc->attatch(td);
 }

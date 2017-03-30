@@ -30,6 +30,7 @@ protected:
     bool enemyFrozen;
 private:
     std::shared_ptr<Chamber> c;
+    std::shared_ptr<std::vector<std::vector<std::pair<int, int>>>>chamLst;
     bool isFirst();//if floor is first floor
     const int enemyNum =20;
     const int potionNum =10;
@@ -47,7 +48,7 @@ private:
     void placeStair() override;
     void placePlayer(std::shared_ptr<Character> pc) override;
     template <typename T>
-    std::pair<int, int> spawnItem(T itemType,std::shared_ptr<std::vector<std::vector<std::pair<int, int>>>> chamLst,char type);
+    std::pair<int, int> spawnItem(T itemType,char type);
     //returns the position of the item when item spawns.
     
     void setItem(std::shared_ptr<GridObjects> itemType, int x, int y);
@@ -60,8 +61,6 @@ public:
     void clearFloor();
     void setFrozen() override;
     ~Floor();
-    
-    
 };
 
 

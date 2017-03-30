@@ -21,7 +21,6 @@ Elf::Elf(){
 void Elf::attack(shared_ptr<Goblin> pc){
     double d = pc->getDefence();
     int damage = 0;
-    srand(time(NULL));
     int miss = rand()%2+1;
     if (miss == 1){
         damage += ceil((100/100+d) * this->Atk);
@@ -35,7 +34,6 @@ void Elf::attack(shared_ptr<Goblin> pc){
 void Elf::attack(shared_ptr<Shade> pc){
     double d = pc->getDefence();
     int damage = 0;
-    srand(time(NULL));
     int miss = rand()%2+1;
     if (miss == 1){
         damage += ceil((100/100+d) * this->Atk);
@@ -48,7 +46,6 @@ void Elf::attack(shared_ptr<Shade> pc){
 
 }
 void Elf::attack(shared_ptr<Troll> pc){
-    srand(time(NULL));
     double d = pc->getDefence();
     int damage = 0;
     int miss = rand()%2+1;
@@ -63,7 +60,6 @@ void Elf::attack(shared_ptr<Troll> pc){
 
 }
 void Elf::attack(shared_ptr<Vampire> pc){
-    srand(time(NULL));
     double d = pc->getDefence();
     int damage = 0;
     int miss = rand()%2+1;

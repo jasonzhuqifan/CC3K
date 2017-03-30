@@ -58,6 +58,6 @@ void GameGrid::freeze(){
 //}
 
 ostream &operator<<(std::ostream &out, const GameGrid &g){
-    out << *g.l;
+    out << *(g.l);
     return out;
 }

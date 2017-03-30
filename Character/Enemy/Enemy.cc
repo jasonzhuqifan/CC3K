@@ -54,7 +54,6 @@ void Enemy::notify(Subject &notifier){
 void Enemy::move(int r, int c){  //if enemy is stuck, you fucked up!
     int direction;
     while(true){
-        srand(time(NULL));
         direction = rand()%8+1;
         if(direction == 1 && gO[r-1][c]->getObsType() == ObstacleType::BlockNone){ // north
             shared_ptr<GridObjects> g = gO[r][c];
@@ -116,7 +115,6 @@ void Enemy::move(int r, int c){  //if enemy is stuck, you fucked up!
 }
 
 void Enemy::attack(shared_ptr<Player> pc){
-    srand(time(NULL));
     double d = pc->getDefence();
     double damage = ceil((100/100+d) * this->Atk);
     int miss = rand()%2+1;
@@ -125,7 +123,6 @@ void Enemy::attack(shared_ptr<Player> pc){
     }
 }
 void Enemy::attack(std::shared_ptr<Drow> pc){
-    srand(time(NULL));
     double d = pc->getDefence();
     double damage = ceil((100/100+d) * this->Atk);
     int miss = rand()%2+1;
@@ -135,7 +132,6 @@ void Enemy::attack(std::shared_ptr<Drow> pc){
 
 }
 void Enemy::attack(std::shared_ptr<Goblin> pc){
-    srand(time(NULL));
     double d = pc->getDefence();
     double damage = ceil((100/100+d) * this->Atk);
     int miss = rand()%2+1;
@@ -145,7 +141,6 @@ void Enemy::attack(std::shared_ptr<Goblin> pc){
 
 }
 void Enemy::attack(std::shared_ptr<Shade> pc){
-    srand(time(NULL));
     double d = pc->getDefence();
     double damage = ceil((100/100+d) * this->Atk);
     int miss = rand()%2+1;
@@ -155,7 +150,6 @@ void Enemy::attack(std::shared_ptr<Shade> pc){
 
 }
 void Enemy::attack(std::shared_ptr<Troll> pc){
-    srand(time(NULL));
     double d = pc->getDefence();
     double damage = ceil((100/100+d) * this->Atk);
     int miss = rand()%2+1;
@@ -165,7 +159,6 @@ void Enemy::attack(std::shared_ptr<Troll> pc){
 
 }
 void Enemy::attack(std::shared_ptr<Vampire> pc){
-    srand(time(NULL));
     double d = pc->getDefence();
     double damage = ceil((100/100+d) * this->Atk);
     int miss = rand()%2+1;
