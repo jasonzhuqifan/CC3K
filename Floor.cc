@@ -46,13 +46,15 @@
 
 using namespace std;
 
-Floor::Floor(){}
+Floor::Floor(){
+
+}
 
 Floor::~Floor(){}
 
 
 void Floor::setItem(shared_ptr<GridObjects> itemType, int x, int y){
-    gO[x][y] = itemType;
+    gO[y][x] = itemType;
 }
 
 template <typename T>
@@ -64,10 +66,10 @@ pair<int, int> Floor::spawnItem(T itemType,std::shared_ptr<vector<vector<pair<in
         int chamberNum = rand()% 5+1;//random number from 1 to 5
         int randomPair = rand()%(*chamLst)[chamberNum].size();
         //randomly choose a pair in chamLst
-        x = (*chamLst)[chamberNum][randomPair].first;
-        y = (*chamLst)[chamberNum][randomPair].second;
+        y = (*chamLst)[chamberNum][randomPair].first;
+        x = (*chamLst)[chamberNum][randomPair].second;
         
-        if(gO[x][y]->getObjType() == GridObjectType::Others){
+        if(gO[y][x]->getObjType() == GridObjectType::Others){
             break;
         }
     }
@@ -128,10 +130,10 @@ void Floor::placeEnemy(shared_ptr<Character> pc){
             int chamberNum = rand()%5+1; //random number from 1 to 5
             int randomPair = rand()%(*chamLst)[chamberNum].size();
             //randomly choose a pair in chamList
-            x = (*chamLst)[chamberNum][randomPair].first;
-            y = (*chamLst)[chamberNum][randomPair].second;
+            y = (*chamLst)[chamberNum][randomPair].first;
+            x = (*chamLst)[chamberNum][randomPair].second;
             
-            if(gO[x][y]->getObsType() == ObstacleType::BlockNone){
+            if(gO[y][x]->getObsType() == ObstacleType::BlockNone){
                 //if number of enemies in chamber no more than 5
                 //and grid object type is other
                 break;
@@ -190,8 +192,8 @@ void Floor::placeGold(){
             spawnGold = make_shared<DragonHoard>();
             spawnDragon = make_shared<Dragon>();
             pos = spawnItem(spawnGold, chamLst,'G');
-            int x = pos.first;
-            int y = pos.second;
+            int y = pos.first;
+            int x = pos.second;
             //0 1 2
             //3 G 4
             //5 6 7
@@ -199,50 +201,50 @@ void Floor::placeGold(){
                 int spawnPos = rand()%7;
                 switch (i){
                     case 0:
-                        if (gO[x-1][y+1]->getObjType() == GridObjectType::Others){
-                            gO[x-1][y+1] = spawnDragon;
+                        if (gO[y+1][x-1]->getObjType() == GridObjectType::Others){
+                            gO[y+1][x-1] = spawnDragon;
                             td->spawn(x-1, y+1, 'D');
                         }
                         break;
                     case 1:
-                        if(gO[x][y+1]->getObjType() == GridObjectType::Others){
-                            gO[x][y+1] = spawnDragon;
+                        if(gO[y+1][x]->getObjType() == GridObjectType::Others){
+                            gO[y+1][x] = spawnDragon;
                             td->spawn(x, y+1, 'D');
                         }
                         break;
                     case 2:
-                        if(gO[x+1][y+1]->getObjType() == GridObjectType::Others){
-                            gO[x+1][y+1] = spawnDragon;
+                        if(gO[y+1][x+1]->getObjType() == GridObjectType::Others){
+                            gO[y+1][x+1] = spawnDragon;
                             td->spawn(x+1, y+1, 'D');
                         }
                         break;
                     case 3:
-                        if(gO[x-1][y]->getObjType() == GridObjectType::Others){
-                            gO[x-1][y] = spawnDragon;
+                        if(gO[y-1][x]->getObjType() == GridObjectType::Others){
+                            gO[y-1][x] = spawnDragon;
                             td->spawn(x-1, y, 'D');
                         }
                         break;
                     case 4:
-                        if(gO[x+1][y]->getObjType() == GridObjectType::Others){
-                            gO[x+1][y] = spawnDragon;
+                        if(gO[y+1][x]->getObjType() == GridObjectType::Others){
+                            gO[y+1][x] = spawnDragon;
                             td->spawn(x+1, y+1, 'D');
                         }
                         break;
                     case 5:
-                        if(gO[x-1][y-1]->getObjType() == GridObjectType::Others){
-                            gO[x-1][y] = spawnDragon;
+                        if(gO[y][x-1]->getObjType() == GridObjectType::Others){
+                            gO[y][x-1] = spawnDragon;
                             td->spawn(x-1, y+1, 'D');
                         }
                         break;
                     case 6:
-                        if(gO[x][y-1]->getObjType() == GridObjectType::Others){
-                            gO[x][y-1] = spawnDragon;
+                        if(gO[y-1][x]->getObjType() == GridObjectType::Others){
+                            gO[y-1][x] = spawnDragon;
                             td->spawn(x, y+1, 'D');
                         }
                         break;
                     case 7:
-                        if(gO[x+1][y-1]->getObjType() == GridObjectType::Others){
-                            gO[x+1][y-1] = spawnDragon;
+                        if(gO[y-1][x+1]->getObjType() == GridObjectType::Others){
+                            gO[y-1][x+1] = spawnDragon;
                             td->spawn(x+1, y-1, 'D');
                         }
                         break;
@@ -271,14 +273,14 @@ void Floor::placeStair(){
     while(true){
         int chamNUm = rand()%5+1;
         int randomPair = rand()%(*chamLst)[chamNUm].size();
-        x = (*chamLst)[chamNUm][randomPair].first;
-        y = (*chamLst)[chamNUm][randomPair].second;
-        if(gO[x][y]->getObjType() == GridObjectType::Others){
+        y = (*chamLst)[chamNUm][randomPair].first;
+        x = (*chamLst)[chamNUm][randomPair].second;
+        if(gO[y][x]->getObjType() == GridObjectType::Others){
             break;
         }
     }
     
-    gO[x][y] = make_shared<StairWay>();
+    gO[y][x] = make_shared<StairWay>();
     td->spawn(x, y, '\\');
     
 }
@@ -294,13 +296,13 @@ void Floor::placePlayer(shared_ptr<Character> pc){
     while(true){
         int chamNUm = rand()%5+1;
         int randomPair = rand()%(*chamLst)[chamNUm].size();
-        x = (*chamLst)[chamNUm][randomPair].first;
-        y = (*chamLst)[chamNUm][randomPair].second;
-        if(gO[x][y]->getObjType() == GridObjectType::Others){
+        y = (*chamLst)[chamNUm][randomPair].first;
+        x = (*chamLst)[chamNUm][randomPair].second;
+        if(gO[y][x]->getObjType() == GridObjectType::Others){
             break;
         }
     }
-    gO[x][y] = pc;
+    gO[y][x] = pc;
     td->spawn(x, y, '@');
 }
 
@@ -310,7 +312,7 @@ shared_ptr<Cell> Floor::createCell(char c){
         cell = make_shared<Wall>();
     }
     else if (c == '#'){
-        cell = make_shared<FloorTile>();
+        cell = make_shared<Passages>();
     }
     else if (c == '+'){
         cell = make_shared<Door>();
@@ -329,15 +331,16 @@ void Floor::init(shared_ptr<Character> pc){
     string line;
     
     //construct the basic map store it in GridObjects
-    while(getline(file, line)){
         for(int i =0;i < height ;i++){
+            if(!(getline(file, line))){
+                break;
+            }
             vector<shared_ptr<GridObjects>> col;
             for(int j = 0; j < width; j++){
                 col.emplace_back(createCell(line[j]));
             }
             gO.emplace_back(col);
         }
-    }
     
     //Spawning order:
     placePlayer(pc);

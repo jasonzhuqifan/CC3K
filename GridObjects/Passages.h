@@ -15,6 +15,7 @@ class Passages : public Cell{
 public:
     ObstacleType getObsType() override;
     GridObjectType getObjType() override;
+    
 };
 
 #endif /* Passages_hpp */

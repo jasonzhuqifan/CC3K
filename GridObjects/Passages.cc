@@ -10,10 +10,11 @@
 #include "Passages.h"
 
 
-ObstacleType Passages::GridObjects::getObsType(){
+
+ObstacleType Passages::getObsType(){
     return ObstacleType::BlockEnemy;
 }
 
-GridObjectType Passages::GridObjects::getObjType(){
+GridObjectType Passages::getObjType(){
     return GridObjectType::Others;
 }
