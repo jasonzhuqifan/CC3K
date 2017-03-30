@@ -40,6 +40,7 @@ public:
     void setHealth(double h);
     void getDamage(double damage);
     void move(std::string dir);
+    void check_dead(std::shared_ptr<Enemy> e);
     GridObjectType getObjType() override;
 };
 

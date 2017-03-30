@@ -16,6 +16,7 @@ void Shade::attackIt(std::shared_ptr<Halfling> e){
         double damage = ceil((100/100+d) * this->Atk);
         e->updateDamage(damage);
     }
+    check_dead(e);
 }
 
 void Shade::attackIt(std::shared_ptr<Merchant> e){
@@ -23,5 +24,6 @@ void Shade::attackIt(std::shared_ptr<Merchant> e){
     double damage = ceil((100/100+d) * this->Atk);
     e->updateDamage(damage);
     e->setNeutral();
+    check_dead(e);
 }
 Shade::~Shade(){}

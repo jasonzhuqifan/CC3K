@@ -24,6 +24,7 @@ void Vampire::attackIt(std::shared_ptr<Halfling> e){
         e->updateDamage(damage);
         HP += 5;
     }
+    check_dead(e);
 }
 
 void Vampire::attackIt(std::shared_ptr<Dwarf> e){
@@ -31,24 +32,28 @@ void Vampire::attackIt(std::shared_ptr<Dwarf> e){
         double damage = ceil((100/100+d) * this->Atk);
         e->updateDamage(damage);
         HP += 5;
+    check_dead(e);
 }
 void Vampire::attackIt(std::shared_ptr<Dragon> e){
     double d = e->getDefence();
     double damage = ceil((100/100+d) * this->Atk);
     e->updateDamage(damage);
     HP += 5;
+    check_dead(e);
 }
 void Vampire::attackIt(std::shared_ptr<Elf> e){
     double d = e->getDefence();
     double damage = ceil((100/100+d) * this->Atk);
     e->updateDamage(damage);
     HP += 5;
+    check_dead(e);
 }
 void Vampire::attackIt(std::shared_ptr<Human> e){
     double d = e->getDefence();
     double damage = ceil((100/100+d) * this->Atk);
     e->updateDamage(damage);
     HP += 5;
+    check_dead(e);
 }
 void Vampire::attackIt(std::shared_ptr<Merchant> e){
     double d = e->getDefence();
@@ -56,12 +61,14 @@ void Vampire::attackIt(std::shared_ptr<Merchant> e){
     e->updateDamage(damage);
     e->setNeutral();
     HP += 5;
+    check_dead(e);
 }
 void Vampire::attackIt(std::shared_ptr<Orc> e){
     double d = e->getDefence();
     double damage = ceil((100/100+d) * this->Atk);
     e->updateDamage(damage);
     HP += 5;
+    check_dead(e);
 }
 
 

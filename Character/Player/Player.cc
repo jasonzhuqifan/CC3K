@@ -137,6 +137,10 @@ void Player::attackIt(shared_ptr<Enemy> e){
     double d = e->getDefence();
     double damage = ceil((100/100+d) * this->Atk);
     e->updateDamage(damage);
+    check_dead(e);
+    }
+
+void Player::check_dead(shared_ptr<Enemy> e){
     if(e->isDead()){
         Info f = e->getInfo();
         int c = f.currentCol;
@@ -155,6 +159,7 @@ void Player::attackIt(shared_ptr<Enemy> e){
             gold += 5;
         }
     }
+
 }
 
 bool Player::ismagnify(){
