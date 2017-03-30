@@ -403,10 +403,9 @@ shared_ptr<Player> Floor::use(shared_ptr<Player> pc, std::string dir){
         default:
             break;
     }
-    //insert notify here
+    gO[potionRow][potionCol]->notifyObservers(SubscriptionType::displayOnly);
+    shared_ptr<FloorTile> g = make_shared<FloorTile>();
+    gO[potionRow][potionCol] = g;
     return pc;
 }
-
-
-
 
