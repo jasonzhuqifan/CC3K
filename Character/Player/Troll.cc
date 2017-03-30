@@ -14,6 +14,7 @@ Troll::Troll(){
 }
 
 void Troll::attackIt(std::shared_ptr<Halfling> e){
+    srand(time(NULL));
     int miss = rand()%2+1;
     if(miss == 1){
         double d = e->getDefence();

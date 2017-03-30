@@ -112,6 +112,7 @@ void Enemy::move(int r, int c){  //if enemy is stuck, you fucked up!
 }
 
 void Enemy::attack(shared_ptr<Player> pc){
+    srand(time(NULL));
     double d = pc->getDefence();
     double damage = ceil((100/100+d) * this->Atk);
     int miss = rand()%2+1;
