@@ -13,6 +13,7 @@
 #include "Enemy.h"
 
 class Merchant : public Enemy{
+public:
     Merchant();
     ~Merchant();
 };

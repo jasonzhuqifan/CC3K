@@ -24,7 +24,8 @@ public:
     virtual void attack(Goblin* pc);
     virtual void attack(Shade* pc);
     virtual void attack(Troll* pc);
-    virtual void attack(Vampire* pc) ;
+    virtual void attack(Vampire* pc);
+    void setNeutral();
     void updateDamage(double damage);
     void notify(Subject &notifier) override;
     SubscriptionType getSubType() const override;

@@ -12,6 +12,7 @@
 #include "Enemy.h"
 
 class Halfling : public Enemy{
+public:
     Halfling();
     ~Halfling();
 };

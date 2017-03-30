@@ -12,6 +12,7 @@
 #include "Enemy.h"
 
 class Orc : public Enemy{
+public:
     Orc();
     void attack(Goblin* pc) override;
     ~Orc();
