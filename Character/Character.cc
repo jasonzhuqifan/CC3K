@@ -19,3 +19,7 @@ double Character::getGold(){
 double Character::getMaxHP(){
     return MaxHP;
 }
+
+ObstacleType Character::getObsType(){
+    return ObstacleType::BolckAll;
+}
