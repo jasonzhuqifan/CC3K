@@ -12,7 +12,8 @@
 #include "PotionEffect.h"
 
 class WDEffect : public PotionEffect{
-    WDEffect(Player* pc);
+public:
+    WDEffect(shared_ptr<Player> pc);
     double getDefence() override;
 };
 

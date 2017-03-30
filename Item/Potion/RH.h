@@ -6,6 +6,7 @@
 #include "Player.h"
 
 class RH : public Potion{
+public:
     GridObjectType getObjType() override;
 };
 

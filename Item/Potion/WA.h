@@ -4,6 +4,7 @@
 #include "Potion.h"
 
 class WA : public Potion{
+public:
     GridObjectType getObjType() override;
 };
 

@@ -5,7 +5,7 @@
 
 class BAEffect : public PotionEffect {
 public:
-    BAEffect(Player* pc);
+    BAEffect(shared_ptr<Player> pc);
     double getAttack() override;
 };
 

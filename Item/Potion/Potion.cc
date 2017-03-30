@@ -9,3 +9,7 @@ ObstacleType Potion::getObsType() {
 bool Potion::hasTried() {
     return tried;
 }
+
+void Potion::setTried() {
+    tried = true;
+}
