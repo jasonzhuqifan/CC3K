@@ -14,13 +14,12 @@ using namespace std;
 
 GameGrid::GameGrid() {}
 
-GameGrid::~GameGrid(){
-    delete pc;
-}
+//GameGrid::~GameGrid(){
+//    delete pc;
+//}
 
 void GameGrid::init(){
-    l = new Floor;
-
+    l = make_shared<Floor>();
 }
 
 void GameGrid::move(string dir){
@@ -37,11 +36,11 @@ void GameGrid::attack(string dir){
 
 void GameGrid::setRace(char race){
     switch (race) {
-        case 's': pc = new Shade(); break;
-        case 'd': pc = new Drow(); break;
-        case 'v': pc = new Vampire(); break;
-        case 'b': pc = new Goblin(); break;
-        case 't': pc = new Troll(); break;
+        case 's': pc = make_shared<Shade>(); break;
+        case 'd': pc = make_shared<Drow>(); break;
+        case 'v': pc = make_shared<Vampire>(); break;
+        case 'b': pc = make_shared<Goblin>(); break;
+        case 't': pc = make_shared<Troll>(); break;
         default: throw "unknown race"; break;
     }
 }
@@ -50,7 +49,7 @@ void GameGrid::freeze(){
     l->setFrozen();
 }
 
-void GameGrid::clearGrid(){
-    delete l;
-}
+//void GameGrid::clearGrid(){
+//    delete l;
+//}
 

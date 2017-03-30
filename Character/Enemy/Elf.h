@@ -8,10 +8,10 @@
 class Elf : public Enemy{
 public:
     Elf();
-    void attack(Goblin* pc) override;
-    void attack(Shade* pc) override;
-    void attack(Troll* pc) override;
-    void attack(Vampire* pc) override;
+    void attack(std::shared_ptr<Goblin> pc) override;
+    void attack(std::shared_ptr<Shade> pc) override;
+    void attack(std::shared_ptr<Troll> pc) override;
+    void attack(std::shared_ptr<Vampire> pc) override;
     ~Elf();
 };
 

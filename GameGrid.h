@@ -2,29 +2,27 @@
 #define GameGrid_hpp
 
 #include <iostream>
-using namespace std;
 
 class Level;
 class Player;
 class Floor;
 
 class GameGrid {
-    Level *l;
-    Player *pc;
+    std::shared_ptr<Level> l;
+    std::shared_ptr<Player> pc;
     
     
 public:
     GameGrid();
     void init();
     void isWon();
-    void move(string dir);
-    void use(string dir);
-    void attack(string dir);
+    void move(std::string dir);
+    void use(std::string dir);
+    void attack(std::string dir);
     void setRace(char race);
     void freeze();
-    void clearGrid();
-    
-    ~GameGrid();
+//    void clearGrid();
+//    ~GameGrid();
     
 };
 

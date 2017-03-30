@@ -2,6 +2,7 @@
 #include "Info.h"
 #include "Player.h"
 
+using namespace std;
 
 void Enemy::updateDamage(double damage){
     HP = HP - damage;
@@ -17,28 +18,28 @@ void Enemy::notify(Subject &notifier){
     int c = f.currentCol;
     
     if(gO[r-1][c]->getObjType() == GridObjectType::Player){
-        Player *p = (Player*) gO[r-1][c];
+        shared_ptr<Player> p = dynamic_pointer_cast<Player>(gO[r-1][c]);
         attack(p);
     }else if(gO[r+1][c]->getObjType() == GridObjectType::Player){
-        Player *p = (Player*) gO[r+1][c];
+        shared_ptr<Player> p = dynamic_pointer_cast<Player>(gO[r+1][c]);
         attack(p);
     }else if(gO[r-1][c+1]->getObjType() == GridObjectType::Player){
-        Player *p = (Player*) gO[r-1][c+1];
+        shared_ptr<Player> p = dynamic_pointer_cast<Player>(gO[r-1][c+1]);
         attack(p);
     }else if(gO[r-1][c-1]->getObjType() == GridObjectType::Player){
-        Player *p = (Player*) gO[r-1][c-1];
+        shared_ptr<Player> p = dynamic_pointer_cast<Player>(gO[r-1][c-1]);
         attack(p);
     }else if(gO[r+1][c+1]->getObjType() == GridObjectType::Player){
-        Player *p = (Player*) gO[r+1][c+1];
+        shared_ptr<Player> p = dynamic_pointer_cast<Player>(gO[r+1][c+1]);
         attack(p);
     }else if(gO[r+1][c-1]->getObjType() == GridObjectType::Player){
-        Player *p = (Player*) gO[r+1][c-1];
+        shared_ptr<Player> p = dynamic_pointer_cast<Player>(gO[r+1][c-1]);
         attack(p);
     }else if(gO[r][c+1]->getObjType() == GridObjectType::Player){
-        Player *p = (Player*) gO[r][c+1];
+        shared_ptr<Player> p = dynamic_pointer_cast<Player>(gO[r][c+1]);
         attack(p);
     }else if(gO[r][c-1]->getObjType() == GridObjectType::Player){
-        Player *p = (Player*) gO[r][c-1];
+        shared_ptr<Player> p = dynamic_pointer_cast<Player>(gO[r][c-1]);
         attack(p);
     }else if(!stationary){
         move(r, c);
@@ -52,53 +53,53 @@ void Enemy::move(int r, int c){  //if enemy is stuck, you fucked up!
         srand(time(NULL));
         direction = rand()%8+1;
         if(direction == 1 && gO[r-1][c]->getObsType() == ObstacleType::BlockNone){ // north
-            GridObjects *g = gO[r][c];
+            shared_ptr<GridObjects> g = gO[r][c];
             gO[r][c] = gO[r-1][c];
             gO[r-1][c] = g;
             currentRow -= 1;
             break;
         } else if(direction == 2 && gO[r+1][c]->getObsType() == ObstacleType::BlockNone){ //south
-            GridObjects *g = gO[r][c];
+            shared_ptr<GridObjects> g = gO[r][c];
             gO[r][c] = gO[r+1][c];
             gO[r+1][c] = g;
             currentRow += 1;
             break;
         } else if(direction == 3 && gO[r-1][c+1]->getObsType() == ObstacleType::BlockNone){ //northeast
-            GridObjects *g = gO[r][c];
+            shared_ptr<GridObjects> g = gO[r][c];
             gO[r][c] = gO[r-1][c+1];
             gO[r-1][c+1] = g;
             currentRow -= 1;
             currentCol += 1;
             break;
         } else if(direction == 4 && gO[r-1][c-1]->getObsType() == ObstacleType::BlockNone){ //northwest
-            GridObjects *g = gO[r][c];
+            shared_ptr<GridObjects> g = gO[r][c];
             gO[r][c] = gO[r-1][c-1];
             gO[r-1][c-1] = g;
             currentRow -= 1;
             currentCol -= 1;
             break;
         } else if(direction == 5 && gO[r+1][c+1]->getObsType() == ObstacleType::BlockNone){//southeast
-            GridObjects *g = gO[r][c];
+            shared_ptr<GridObjects> g = gO[r][c];
             gO[r][c] = gO[r+1][c+1];
             gO[r+1][c+1] = g;
             currentRow += 1;
             currentCol += 1;
             break;
         } else if(direction == 6 && gO[r+1][c-1]->getObsType() == ObstacleType::BlockNone){//southwest
-            GridObjects *g = gO[r][c];
+            shared_ptr<GridObjects> g = gO[r][c];
             gO[r][c] = gO[r+1][c-1];
             gO[r+1][c-1] = g;
             currentRow += 1;
             currentCol -= 1;
             break;
         } else if(direction == 7 && gO[r][c+1]->getObsType() == ObstacleType::BlockNone){//east
-            GridObjects *g = gO[r][c];
+            shared_ptr<GridObjects>g = gO[r][c];
             gO[r][c] = gO[r][c+1];
             gO[r][c+1] = g;
             currentCol += 1;
             break;
         } else if(direction == 8 && gO[r][c-1]->getObsType() == ObstacleType::BlockNone){//west
-            GridObjects *g = gO[r][c];
+            shared_ptr<GridObjects>g = gO[r][c];
             gO[r][c] = gO[r][c-1];
             gO[r][c-1] = g;
             currentCol -= 1;
@@ -110,7 +111,7 @@ void Enemy::move(int r, int c){  //if enemy is stuck, you fucked up!
     previousRow = currentRow;
 }
 
-void Enemy::attack(Player* pc){
+void Enemy::attack(shared_ptr<Player> pc){
     double d = pc->getDefence();
     double damage = ceil((100/100+d) * this->Atk);
     int miss = rand()%2+1;
