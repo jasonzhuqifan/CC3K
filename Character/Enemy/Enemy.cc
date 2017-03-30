@@ -7,8 +7,6 @@ void Enemy::updateDamage(double damage){
     HP = HP - damage;
     if(HP <= 0){
         Dead = true;
-        
-        
         notifyObservers(SubscriptionType::displayOnly);
     }
 }
@@ -122,4 +120,12 @@ void Enemy::attack(Player* pc){
 }
 void Enemy::setNeutral(){
     isneutral = false;
+}
+
+bool Enemy::isDead(){
+    return Dead;
+}
+
+int Enemy::dropgold(){
+    return gold;
 }

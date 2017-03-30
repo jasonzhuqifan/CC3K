@@ -3,6 +3,9 @@
 #include "Enemy.h"
 #include "Gold.h"
 #include "math.h"
+#include "Normal.h"
+#include "MerchantHoard.h"
+#include "Info.h"
 using namespace std;
 
 
@@ -79,48 +82,17 @@ void Player::setHealth(double h){
     }else{
         HP = h;
     }
+    if(HP <= 0){
+        //THROW SOMETHING! YOU FUCKED UP!
+    }
 }
 void Player::getDamage(double damage){
     HP -= damage;
     if(HP <= 0){
-        isDead = true;
+        // THROW SOMETHING! YOU FUCKED UP!
     }
 }
 
-void Player::use(string dir){
-    int y = currentRow;
-    int x = currentCol;
-    if(dir == "no"){
-        y--;
-    }else if(dir == "so"){
-        y++;
-    }else if(dir == "ea"){
-        x++;
-    }else if(dir == "we"){
-        x--;
-    }else if(dir == "ne"){
-        y--;
-        x++;
-    }else if(dir == "nw"){
-        y--;
-        x--;
-    }else if(dir == "se"){
-        y++;
-        x++;
-    }else if(dir == "sw"){
-        y++;
-        x--;
-    }
-    if(gO[y][x]->getObjType() == GridObjectType::BA ||
-       gO[y][x]->getObjType() == GridObjectType::BD ||
-       gO[y][x]->getObjType() == GridObjectType::PH ||
-       gO[y][x]->getObjType() == GridObjectType::RH ||
-       gO[y][x]->getObjType() == GridObjectType::WA ||
-       gO[y][x]->getObjType() == GridObjectType::WD){
-        
-        gO[y][x]->notifyObservers(SubscriptionType::All);
-    }
-}
 
 void Player::attack(std::string dir){
     int r = currentRow;
@@ -156,6 +128,18 @@ void Player::attackIt(Enemy *e){
     double d = e->getDefence();
     double damage = ceil((100/100+d) * this->Atk);
     e->updateDamage(damage);
+    if(e->isDead()){
+        Info f = e->getInfo();
+        int c = f.currentCol;
+        int r = f.currentRow;
+        if(e->dropgold() == 2){
+            shared_ptr<Normal> g = make_shared<Normal>(2);
+            gO[r][c] = g;
+        }else if(e->dropgold() == 4){
+            shared_ptr<MerchantHoard> g = make_shared<MerchantHoard>(2);
+            
+        }
+    }
 }
 
 bool Player::ismagnify(){

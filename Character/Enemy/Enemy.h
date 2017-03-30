@@ -15,8 +15,8 @@ class Enemy : public Character, public Observer{
 private:
     void attack(Character* pc);
     void move(int r, int c);
-    int dropgold = 0;
 protected:
+    bool Dead = false;
     bool isneutral = false;
     bool stationary = false;
 public:
@@ -27,6 +27,8 @@ public:
     virtual void attack(Troll* pc);
     virtual void attack(Vampire* pc);
     void setNeutral();
+    bool isDead();
+    int dropgold();
     void updateDamage(double damage);
     void notify(Subject &notifier) override;
     SubscriptionType getSubType() const override;

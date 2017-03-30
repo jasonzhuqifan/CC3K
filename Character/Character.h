@@ -12,8 +12,7 @@ protected:
     double HP;
     double Atk;
     double Def;
-    double Gold;
-    bool Dead = false;
+    int gold;
     
 public:
     double getMaxHP();

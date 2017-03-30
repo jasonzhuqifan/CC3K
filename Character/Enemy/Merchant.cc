@@ -6,6 +6,7 @@ Merchant::Merchant(){
     Def = 5;
     MaxHP = 30;
     isneutral = true;
+    gold = 4;
 }
 
 Merchant::~Merchant(){}
