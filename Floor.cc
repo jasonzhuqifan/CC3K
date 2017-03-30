@@ -334,7 +334,7 @@ void Floor::init(shared_ptr<Character> pc){
             for(int j = 0; j < width; j++){
                 col.emplace_back(createCell(line[j]));
             }
-            gO[i].emplace_back(col);
+            gO.emplace_back(col);
         }
     }
     
