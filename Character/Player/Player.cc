@@ -24,7 +24,9 @@ GridObjectType Player::getObjType(){
 }
 
 void Player::move(string dir){
-
+    if(autoheal){
+        HP += 5;
+    }
     if(dir == "no"){
         currentRow--;
     }else if(dir == "so"){
@@ -49,7 +51,7 @@ void Player::move(string dir){
     int r = currentRow;
     int c = currentCol;
     if(gO[r][c]->getObjType() == GridObjectType::StairWay){
-        reachStairs = true;
+        reachStairs = true; //HOW TO REACH NEWXT FLOOR
     }
     if(gO[r][c]->getObjType() == GridObjectType::smallGold ||
        gO[r][c]->getObjType() == GridObjectType::normalGold ||
@@ -94,6 +96,9 @@ void Player::getDamage(double damage){
 void Player::attack(std::string dir){
     int r = currentRow;
     int c = currentCol;
+    if(autoheal){
+        HP += 5;
+    }
     if(dir == "no"){
         r--;
     }else if(dir == "so"){
