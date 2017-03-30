@@ -175,9 +175,8 @@ void Floor::placePotion(){
     for (int i =0; i < potionNum; i++) {
         vector<vector<pair<int, int>>>* chamLst = c->getChamberList();
         Potion *newPotion = createPotion();
-        pair<int,int> pos = spawnItem(newPotion,chamLst,'P');
+        spawnItem(newPotion,chamLst,'P');
     }
-    
 }
 
 void Floor::placeGold(){
