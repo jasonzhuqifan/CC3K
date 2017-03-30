@@ -8,6 +8,7 @@ class Troll: public Player{
 public:
     Troll();
     void attackIt(Halfling* e) override;
+     void attackIt(Merchant *e) override;
     ~Troll();
 };
 

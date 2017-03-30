@@ -1,7 +1,6 @@
 #include "Goblin.h"
-#include "string"
 #include "Halfling.h"
-
+#include "Merchant.h"
 using namespace std;
 
 Goblin::Goblin(){
@@ -20,4 +19,11 @@ void Goblin::attackIt(Halfling* e){
     }
 }
 
+void Goblin::attackIt(Merchant *e){
+    double d = e->getDefence();
+    double damage = ceil((100/100+d) * this->Atk);
+    e->updateDamage(damage);
+    e->setNeutral();
+    HP += 5;
+}
 Goblin::~Goblin(){}

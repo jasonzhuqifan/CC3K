@@ -15,6 +15,7 @@ void Enemy::notify(Subject &notifier){
     Info f = getInfo();
     int r = f.currentRow;
     int c = f.currentCol;
+    
     if(gO[r-1][c]->getObjType() == GridObjectType::Player){
         Player *p = (Player*) gO[r-1][c];
         attack(p);
@@ -39,10 +40,10 @@ void Enemy::notify(Subject &notifier){
     }else if(gO[r][c-1]->getObjType() == GridObjectType::Player){
         Player *p = (Player*) gO[r][c-1];
         attack(p);
-    }else{
+    }else if(!stationary){
         move(r, c);
-        }
     }
+}
 
 
 void Enemy::move(int r, int c){

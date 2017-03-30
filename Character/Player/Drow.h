@@ -8,6 +8,7 @@ class Drow : public Player{
 public:
     Drow();
     void attackIt(Halfling* e) override;
+    void attackIt(Merchant *e) override;
     ~Drow();
 };
 

@@ -1,5 +1,6 @@
 #include "Shade.h"
 #include "Halfling.h"
+#include "Merchant.h"
 
 Shade::Shade(){
     HP = 125;
@@ -17,4 +18,11 @@ void Shade::attackIt(Halfling* e){
     }
 }
 
+void Shade::attackIt(Merchant *e){
+    double d = e->getDefence();
+    double damage = ceil((100/100+d) * this->Atk);
+    e->updateDamage(damage);
+    e->setNeutral();
+    HP += 5;
+}
 Shade::~Shade(){}

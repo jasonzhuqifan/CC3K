@@ -16,8 +16,8 @@ private:
     void attack(Character* pc);
     void move(int r, int c);
 protected:
-     bool isneutral = false;
-   
+    bool isneutral = false;
+    bool stationary = false;
 public:
     virtual void attack(Player* pc);
     virtual void attack(Drow* pc);
