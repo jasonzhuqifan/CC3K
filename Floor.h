@@ -26,9 +26,11 @@ class TextDisplay;
 
 class Floor : public Level{
 protected:
-    std::vector<std::vector<GridObjects *>> gO ;
+    
+    std::vector<std::vector<std::shared_ptr<GridObjects>>> gO;
     bool enemyFrozen;
 private:
+    std::shared_ptr<Chamber> c;
     bool isFirst();//if floor is first floor
     const int enemyNum =20;
     const int potionNum =10;
@@ -36,27 +38,26 @@ private:
     const int width = 79;
     const int height = 25;
     
-    Chamber *c;
-    Enemy *createEnemy(char *type) override;
-    Potion *createPotion() override;
-    Cell *createCell(char c) override;
+    std::shared_ptr<Enemy> createEnemy(char *type) override;
+    std::shared_ptr<Potion> createPotion() override;
+    std::shared_ptr<Cell> createCell(char c) override;
     
-    void placeEnemy(Character *pc) override;
+    void placeEnemy(std::shared_ptr<Character> pc) override;
     void placePotion() override;
     void placeGold() override;
     void placeStair() override;
-    void placePlayer(Character *pc) override;
+    void placePlayer(std::shared_ptr<Character> pc) override;
     template <typename T>
-    pair<int, int> spawnItem(T itemType,vector<vector<pair<int, int>>> *chamLst,char type);
+    std::pair<int, int> spawnItem(T itemType,std::shared_ptr<std::vector<std::vector<std::pair<int, int>>>> chamLst,char type);
     //returns the position of the item when item spawns.
     
-    void setItem(GridObjects *itemType, int x, int y);
+    void setItem(std::shared_ptr<GridObjects> itemType, int x, int y);
     
     
 public:
-    shared_ptr<Player> use(shared_ptr<Player> pc, std::string dir) override;
+    std::shared_ptr<Player> use(std::shared_ptr<Player> pc, std::string dir) override;
     Floor();
-    void init(Character *pc);
+    void init(std::shared_ptr<Character> pc);
     void clearFloor();
     void setFrozen() override;
     ~Floor();

@@ -1,5 +1,6 @@
 #include "Chamber.h"
 
+using namespace std;
 Chamber::Chamber() {
     readMap();
     scanChamber();
@@ -39,6 +40,6 @@ void Chamber::recursiveAdd(int row, int col, int chamId) {
     }
 }
 
-vector<vector<pair<int, int>>>* Chamber::getChamberList() {
+shared_ptr<vector<vector<pair<int, int>>>> Chamber::getChamberList() {
     return &chamLst;
 }
