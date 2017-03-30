@@ -111,7 +111,7 @@ void Enemy::move(int r, int c){  //if enemy is stuck, you fucked up!
     previousRow = currentRow;
 }
 
-void Enemy::attack(shared_ptr<Player> pc){
+void Enemy::general_attack(shared_ptr<Player> pc){
     srand(time(NULL));
     double d = pc->getDefence();
     double damage = ceil((100/100+d) * this->Atk);
@@ -119,6 +119,26 @@ void Enemy::attack(shared_ptr<Player> pc){
     if (miss == 1){
     pc->setHealth(damage);
     }
+}
+void Enemy::attack(std::shared_ptr<Drow> pc){
+    shared_ptr<Player> p = dynamic_pointer_cast<Player>(pc);
+    general_attack(p);
+}
+void Enemy::attack(std::shared_ptr<Goblin> pc){
+    shared_ptr<Player> p = dynamic_pointer_cast<Player>(pc);
+    general_attack(p);
+}
+void Enemy::attack(std::shared_ptr<Shade> pc){
+    shared_ptr<Player> p = dynamic_pointer_cast<Player>(pc);
+    general_attack(p);
+}
+void Enemy::attack(std::shared_ptr<Troll> pc){
+    shared_ptr<Player> p = dynamic_pointer_cast<Player>(pc);
+    general_attack(p);
+}
+void Enemy::attack(std::shared_ptr<Vampire> pc){
+    shared_ptr<Player> p = dynamic_pointer_cast<Player>(pc);
+    general_attack(p);
 }
 void Enemy::setNeutral(){
     isneutral = false;

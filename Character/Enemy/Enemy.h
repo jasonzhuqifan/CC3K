@@ -13,14 +13,13 @@ class Vampire;
 
 class Enemy : public Character, public Observer{
 private:
-    void attack(std::shared_ptr<Character> pc);
+    void general_attack(std::shared_ptr<Player> pc);
     void move(int r, int c);
 protected:
     bool Dead = false;
     bool isneutral = false;
     bool stationary = false;
 public:
-    virtual void attack(std::shared_ptr<Player> pc);
     virtual void attack(std::shared_ptr<Drow> pc);
     virtual void attack(std::shared_ptr<Goblin> pc);
     virtual void attack(std::shared_ptr<Shade> pc);
