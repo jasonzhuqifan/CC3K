@@ -23,7 +23,7 @@ public:
     void freeze();
 //    void clearGrid();
 //    ~GameGrid();
-    
+    friend std::ostream &operator<<(std::ostream &out, const GameGrid &g);
 };
 
 #endif

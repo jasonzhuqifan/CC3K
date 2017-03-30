@@ -14,16 +14,19 @@ int main() {
             if (cmd == "no" || cmd == "so" || cmd == "ea" || cmd == "we" ||
                 cmd == "ne" || cmd == "nw" || cmd == "se" || cmd == "sw" ) {
                 g.move(cmd);
+                cout << g;
             }
             else if (cmd == "u") {
                 string dir;
                 cin >> dir;
                 g.use(dir);
+                cout << g;
             }
             else if (cmd == "a") {
                 string dir;
                 cin >> dir;
                 g.attack(dir);
+                cout << g;
             }
             else if (cmd.front() == 's' || cmd.front() == 'd' ||
                      cmd.front() == 'v' || cmd.front() == 'g' ||
