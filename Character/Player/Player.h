@@ -15,7 +15,9 @@ class Orc;
 
 
 class Player : public Character{
-     bool reachStairs = false;
+    bool reachStairs = false;
+protected:
+    bool magnify = false;
 public:
     virtual double getHP();
     virtual double getAttack();
@@ -34,7 +36,6 @@ public:
     void setHealth(double h);
     void getDamage(double damage);
     void move(std::string dir);
-    void use(std::string dir);
     GridObjectType getObjType() override;
 };
 

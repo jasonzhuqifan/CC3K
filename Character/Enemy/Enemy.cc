@@ -46,7 +46,7 @@ void Enemy::notify(Subject &notifier){
 }
 
 
-void Enemy::move(int r, int c){
+void Enemy::move(int r, int c){  //if enemy is stuck, you fucked up!
     int direction;
     while(true){
         srand(time(NULL));

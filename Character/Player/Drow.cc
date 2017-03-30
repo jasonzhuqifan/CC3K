@@ -10,6 +10,7 @@ Drow::Drow(){
     Atk = 25;
     Def = 15;
     MaxHP = 150;
+    magnify = true;
 }
 
 void Drow::attackIt(Halfling* e){
