@@ -5,7 +5,7 @@
 
 class BDEffect : public PotionEffect{
 public:
-    BDEffect(shared_ptr<Player> pc);
+    BDEffect(std::shared_ptr<Player> pc);
     double getDefence() override;
 };
 

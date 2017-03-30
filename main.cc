@@ -34,7 +34,7 @@ int main() {
                 g.freeze();
             }
             else if (cmd == "r") {
-                g.clearGrid();
+//                g.clearGrid();
                 g.init();
             }
             else if (cmd == "q") {

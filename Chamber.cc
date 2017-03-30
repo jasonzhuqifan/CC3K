@@ -41,5 +41,5 @@ void Chamber::recursiveAdd(int row, int col, int chamId) {
 }
 
 shared_ptr<vector<vector<pair<int, int>>>> Chamber::getChamberList() {
-    return &chamLst;
+    return make_shared<vector<vector<pair<int, int>>>>(chamLst);
 }
