@@ -17,7 +17,6 @@ class Level{
 protected:
     std::shared_ptr<TextDisplay> td;
 public:
-    Level();
     virtual std::shared_ptr<Enemy> createEnemy(char *type) = 0;
     virtual std::shared_ptr<Potion> createPotion()=0;
     virtual std::shared_ptr<Cell> createCell(char type) =0;
