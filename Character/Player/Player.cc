@@ -157,3 +157,15 @@ void Player::attackIt(Enemy *e){
     double damage = ceil((100/100+d) * this->Atk);
     e->updateDamage(damage);
 }
+
+bool Player::ismagnify(){
+    return magnify;
+}
+
+bool Player::issteal(){
+    return steal;
+}
+
+bool Player::isautoheal(){
+    return autoheal;
+}

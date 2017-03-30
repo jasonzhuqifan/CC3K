@@ -10,6 +10,7 @@ Troll::Troll(){
     Atk = 25;
     Def = 15;
     MaxHP = 120;
+    autoheal = true;
 }
 
 void Troll::attackIt(Halfling* e){
