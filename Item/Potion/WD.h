@@ -4,8 +4,6 @@
 #include "Potion.h"
 
 class WD : public Potion{
-    WD(Player* pc);
-    double getDefence() override;
     GridObjectType getObjType() override;
 };
 

@@ -9,10 +9,11 @@
 #ifndef WDEffect_hpp
 #define WDEffect_hpp
 
-class WD : public Potion{
-    WD(Player* pc);
+#include "PotionEffect.h"
+
+class WDEffect : public PotionEffect{
+    WDEffect(Player* pc);
     double getDefence() override;
-    GridObjectType getObjType() override;
 };
 
 #endif /* WDEffect_hpp */

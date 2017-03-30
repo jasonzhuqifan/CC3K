@@ -1,31 +1,15 @@
-//
-//  PotionEffect.cpp
-//  CC3K
-//
-//  Created by Yinong Wang on 2017-03-29.
-//  Copyright © 2017 Yinong Wang. All rights reserved.
-//
+#include "PotionEffect.h"
 
-#include "PotionEffect.hpp"
+PotionEffect::PotionEffect(Player* pc) : pc{pc} {}
 
-Potion::Potion(Player* pc) : pc{pc} {}
-
-ObstacleType Potion::getObsType() {
-    return ObstacleType::BolckAll;
-}
-
-double Potion::getAttack() {
+double PotionEffect::getAttack() {
     return pc->getAttack();
 }
 
-double Potion::getDefence() {
+double PotionEffect::getDefence() {
     return pc->getDefence();
 }
 
-double Potion::getHP() {
+double PotionEffect::getHP() {
     return pc->getHP();
-}
-
-bool Potion::hasTried() {
-    return tried;
 }
