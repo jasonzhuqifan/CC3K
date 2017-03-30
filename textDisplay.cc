@@ -35,11 +35,7 @@ void TextDisplay::notify(Subject &notifier){
     int pr = f.previousRow;
     char tempChar;
     if(type == GridObjectType::Player){ //if notifier is player
-        if(cc == pc && cr == pr){ //initiate a player???
-            if(theDisplay[cr][cc] != '@'){
-                theDisplay[cr][cc] = '@';
-            }
-        } else {
+        if(cc != pc || cr != pr){
         tempChar = theDisplay[cr][cc];
         theDisplay[cr][cc] = theDisplay[pr][pc];
         theDisplay[pr][pc] = tempChar;
