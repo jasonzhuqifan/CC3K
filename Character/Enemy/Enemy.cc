@@ -185,3 +185,11 @@ bool Enemy::isDead(){
 int Enemy::dropgold(){
     return gold;
 }
+
+GridObjectType Enemy::getObjType(){
+    return GridObjectType::Enemy;
+}
+
+SubscriptionType Enemy::getSubType() const{
+    return SubscriptionType::All;
+}
