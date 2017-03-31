@@ -193,6 +193,7 @@ bool Player::ismagnify(){
 
 
 bool Player::isautoheal(){
+   
     return autoheal;
 }
 

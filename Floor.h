@@ -29,6 +29,7 @@ protected:
     std::vector<std::vector<std::shared_ptr<GridObjects>>> gO;
     bool enemyFrozen;
 private:
+    int playerInRoom;
     std::shared_ptr<Chamber> c;
     std::shared_ptr<std::vector<std::vector<std::pair<int, int>>>>chamLst;
     bool isFirst();//if floor is first floor
