@@ -37,7 +37,10 @@ void Chamber::recursiveAdd(int row, int col, int chamId) {
         recursiveAdd(row, col+1, chamId);
     }
     if(textMap[row+1][col] == '.') {
-        recursiveAdd(row, col+1, chamId);
+        recursiveAdd(row+1, col, chamId);
+    }
+    if(textMap[row][col-1] == '.') {
+        recursiveAdd(row, col-1, chamId);
     }
 }
 
