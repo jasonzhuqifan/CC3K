@@ -9,8 +9,6 @@
 
 #include "Passages.h"
 
-
-
 ObstacleType Passages::getObsType(){
     return ObstacleType::BlockEnemy;
 }
