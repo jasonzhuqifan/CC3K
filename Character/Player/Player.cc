@@ -1,5 +1,6 @@
 #include "Player.h"
 #include <string>
+#include <iostream>
 #include "Enemy.h"
 #include "Gold.h"
 #include "math.h"
@@ -196,9 +197,13 @@ bool Player::isautoheal(){
 }
 
 void Player::PrintMessages(){
-    cout << "Race: ";
-    if(Shade pl = dynamic_pointer_cast<Shade>(this)){
-        
-    }
+    cout << "Race: " << playerRace << " ";
+    cout << "Gold: " << getGold();
+    cout << "                                             ";
+    cout << "Floor: " << floorNum << endl;
+    cout << "HP: " << getHP() << endl;
+    cout << "Atk: " << getAttack() << endl;
+    cout << "Def: " << getDefence() << endl;
+    cout << "Action: ";
     
 }

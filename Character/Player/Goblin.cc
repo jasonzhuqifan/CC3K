@@ -9,6 +9,7 @@ Goblin::Goblin(){
     Def = 20;
     MaxHP = 110;
     steal = true;
+    playerRace = "Goblin";
 }
 
 void Goblin::attackIt(std::shared_ptr<Halfling> e){

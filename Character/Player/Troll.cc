@@ -11,6 +11,7 @@ Troll::Troll(){
     Def = 15;
     MaxHP = 120;
     autoheal = true;
+    playerRace = "Troll";
 }
 
 void Troll::attackIt(std::shared_ptr<Halfling> e){

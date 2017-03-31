@@ -17,6 +17,8 @@ class Orc;
 class Player : public Character{
     bool reachStairs = false;
 protected:
+    int floorNum = 1;
+    std::string playerRace;
     bool magnify = false;
     bool steal = false;
     bool autoheal = false;

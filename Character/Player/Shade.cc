@@ -7,6 +7,7 @@ Shade::Shade(){
     Atk = 25;
     Def = 25;
     MaxHP = 125;
+    playerRace = "Shade";
 }
 
 void Shade::attackIt(std::shared_ptr<Halfling> e){

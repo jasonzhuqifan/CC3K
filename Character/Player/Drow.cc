@@ -11,6 +11,7 @@ Drow::Drow(){
     Def = 15;
     MaxHP = 150;
     magnify = true;
+    playerRace = "Drow";
 }
 
 void Drow::attackIt(std::shared_ptr<Halfling> e){

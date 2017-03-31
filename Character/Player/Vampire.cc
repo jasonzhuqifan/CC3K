@@ -14,6 +14,7 @@ Vampire::Vampire(){
     Atk = 25;
     Def = 25;
     MaxHP = -1;
+    playerRace = "Vampire";
 }
 
 void Vampire::attackIt(std::shared_ptr<Halfling> e){
