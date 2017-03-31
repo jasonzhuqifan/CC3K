@@ -59,5 +59,6 @@ void GameGrid::freeze(){
 
 ostream &operator<<(std::ostream &out, const GameGrid &g){
     out << *(g.l);
+    g.pc->PrintMessages();
     return out;
 }
