@@ -25,31 +25,39 @@ GridObjectType Player::getObjType(){
 }
 
 void Player::move(string dir){
-    
+    ActionMessage = "";
     if(autoheal){
         HP += 5;
     }
     
     if(dir == "no"){
         currentRow--;
+        ActionMessage.append("Player moves North");
     }else if(dir == "so"){
         currentRow++;
+        ActionMessage.append("Player moves South");
     }else if(dir == "ea"){
         currentCol++;
+        ActionMessage.append("Player moves East");
     }else if(dir == "we"){
         currentCol--;
+        ActionMessage.append("Player moves West");
     }else if(dir == "ne"){
         currentRow--;
         currentCol++;
+        ActionMessage.append("Player moves NorthEast");
     }else if(dir == "nw"){
         currentRow--;
         currentCol--;
+        ActionMessage.append("Player moves NorthWest");
     }else if(dir == "se"){
         currentRow++;
         currentCol++;
+        ActionMessage.append("Player moves SouthEast");
     }else if(dir == "sw"){
         currentRow++;
         currentCol--;
+        ActionMessage.append("Player moves SouthWest");
     }
     int r = currentRow;
     int c = currentCol;
@@ -64,12 +72,30 @@ void Player::move(string dir){
         gold += g->getGold();
         shared_ptr<FloorTile> f = make_shared<FloorTile>();
         gO[r][c] = f;
+        ActionMessage.append("and picks up ");
+        ActionMessage.append(to_string(g->getGoldCount()));
+        if(gO[r][c]->getObjType() == GridObjectType::smallGold){
+            ActionMessage.append(" small Gold");
+            
+        } else if(gO[r][c]->getObjType() == GridObjectType::normalGold){
+            ActionMessage.append(" normal Gold");
+        }else if(gO[r][c]->getObjType() == GridObjectType::merchantHoard){
+            ActionMessage.append(" merchant Hoard");
+        }else if(gO[r][c]->getObjType() == GridObjectType::dragonHoard){
+            ActionMessage.append(" dragon Hoard");
+        }
         g->notifyObservers(SubscriptionType::displayOnly);
+    }
+    //if potion insertion hasTried/setTried
+    if(gO[r][c]->getObjType() == GridObjectType::smallGold){
+        
     }
     if(gO[r][c]->getObsType() != ObstacleType::BolckAll){
         shared_ptr<GridObjects> g = gO[r][c];
         gO[r][c] = gO[previousRow][previousCol];
         gO[previousRow][previousCol] = g;
+    }else{
+        ActionMessage="";
     }
     this->notifyObservers(SubscriptionType::All);
     previousRow = currentRow;
