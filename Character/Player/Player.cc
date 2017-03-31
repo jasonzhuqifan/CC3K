@@ -194,3 +194,11 @@ bool Player::ismagnify(){
 bool Player::isautoheal(){
     return autoheal;
 }
+
+void Player::PrintMessages(){
+    cout << "Race: ";
+    if(Shade pl = dynamic_pointer_cast<Shade>(this)){
+        
+    }
+    
+}

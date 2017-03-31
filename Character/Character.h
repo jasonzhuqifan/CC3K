@@ -20,6 +20,7 @@ public:
     virtual double getAttack();
     virtual double getDefence();
     virtual double getGold();
+    void setPos(int r, int c);
     ObstacleType getObsType() override;
 };
 

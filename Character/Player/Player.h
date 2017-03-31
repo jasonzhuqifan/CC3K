@@ -36,6 +36,7 @@ public:
     void getDamage(double damage);
     void move(std::string dir);
     void check_dead(std::shared_ptr<Enemy> e);
+    void PrintMessages();
     GridObjectType getObjType() override;
 };
 
