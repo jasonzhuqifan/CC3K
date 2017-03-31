@@ -6,6 +6,8 @@
 class Gold : public Item{
     int amount;
     int count;
+protected:
+    bool isGuarded;
 public:
     Gold(int amount, int count);
     int getGold();
