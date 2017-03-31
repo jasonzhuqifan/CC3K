@@ -10,8 +10,9 @@ protected:
     bool isGuarded;
 public:
     Gold(int amount, int count);
-    int getGold();
     ObstacleType getObsType() override;
+    int getGold();
+    int getGoldCount();
 };
 
 #endif 

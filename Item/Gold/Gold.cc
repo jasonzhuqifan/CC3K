@@ -6,6 +6,10 @@ int Gold::getGold() {
     return amount * count;
 }
 
+int Gold::getGoldCount() {
+    return count;
+}
+
 ObstacleType Gold::getObsType(){
     return ObstacleType::BlockEnemy;
 }

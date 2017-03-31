@@ -21,7 +21,6 @@ GameGrid::GameGrid() {}
 void GameGrid::init(){
     l = make_shared<Floor>();
     shared_ptr<Floor> f = dynamic_pointer_cast<Floor>(l);
-    pc = make_shared<Shade>();
     f->init(pc);
     l = f;
 }
