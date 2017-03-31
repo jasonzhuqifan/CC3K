@@ -121,13 +121,8 @@ void Floor::placeEnemy(shared_ptr<Character> pc){
         int x =0;
         int y =0;
         while(true){
-<<<<<<< HEAD
             int chamberNum = rand()%5; //random number from 1 to 5
             int randomPair = rand()%(*chamLst)[chamberNum].size()-1;
-=======
-            int chamberNum = rand()%4; //random number from 1 to 5
-            int randomPair = rand()%((*chamLst)[chamberNum].size()-1);
->>>>>>> origin/master
             //randomly choose a pair in chamList
             y = (*chamLst)[chamberNum][randomPair].first;
             x = (*chamLst)[chamberNum][randomPair].second;
