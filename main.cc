@@ -6,9 +6,8 @@ using namespace std;
 int main() {
     string cmd, aux;
     GameGrid g;
-    g.init();
-    cout << g;
-
+    bool raceSet = false;
+    
     try {
         while (true) {
             cin >> cmd;
@@ -32,13 +31,21 @@ int main() {
             else if (cmd.front() == 's' || cmd.front() == 'd' ||
                      cmd.front() == 'v' || cmd.front() == 'g' ||
                      cmd.front() == 't') {
-                g.setRace(cmd.front());
+                if (raceSet) {
+                    cout << "Race has been set. Restart to play with new race";
+                }
+                else {
+                    g.setRace(cmd.front());
+                    raceSet = true;
+                    g.init();
+                    cout << g;
+                }
             }
             else if (cmd == "f") {
                 g.freeze();
             }
             else if (cmd == "r") {
-//                g.clearGrid();
+                raceSet = false;
                 g.init();
             }
             else if (cmd == "q") {
