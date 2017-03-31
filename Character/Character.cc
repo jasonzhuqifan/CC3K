@@ -23,3 +23,10 @@ double Character::getMaxHP(){
 ObstacleType Character::getObsType(){
     return ObstacleType::BolckAll;
 }
+
+void Character::setPos(int r, int c){
+    currentRow = r;
+    currentCol = c;
+    previousCol = c;
+    previousRow = r;
+}
