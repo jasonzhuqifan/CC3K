@@ -62,8 +62,8 @@ pair<int, int> Floor::spawnItem(T itemType,char type){
     int x =0;
     int y = 0;
     while (true) {
-        int chamberNum = rand()%4;//random number from 1 to 5
-        int randomPair = rand()%((*chamLst)[chamberNum].size()-1);
+        int chamberNum = rand()%5;//random number from 1 to 5
+        int randomPair = rand()%((*chamLst)[chamberNum].size());
         //randomly choose a pair in chamLst
         y = (*chamLst)[chamberNum][randomPair].first;
         x = (*chamLst)[chamberNum][randomPair].second;
@@ -122,7 +122,7 @@ void Floor::placeEnemy(shared_ptr<Character> pc){
         int y =0;
         while(true){
             int chamberNum = rand()%5; //random number from 1 to 5
-            int randomPair = rand()%(*chamLst)[chamberNum].size()-1;
+            int randomPair = rand()%(*chamLst)[chamberNum].size();
             //randomly choose a pair in chamList
             y = (*chamLst)[chamberNum][randomPair].first;
             x = (*chamLst)[chamberNum][randomPair].second;
@@ -191,7 +191,7 @@ void Floor::placeGold(){
             //3 G 4
             //5 6 7
             for(int i =0; i < 8 ;i++){
-                int spawnPos = rand()%7;
+                int spawnPos = rand()%8;
                 switch (i){
                     case 0:
                         if (gO[y+1][x-1]->getObjType() == GridObjectType::Others){
@@ -262,8 +262,8 @@ void Floor::placeStair(){
     int y =0;
     
     while(true){
-        int chamNUm = rand()%4;
-        int randomPair = rand()%((*chamLst)[chamNUm].size()-1);
+        int chamNUm = rand()%5;
+        int randomPair = rand()%((*chamLst)[chamNUm].size());
         y = (*chamLst)[chamNUm][randomPair].first;
         x = (*chamLst)[chamNUm][randomPair].second;
         if(gO[y][x]->getObjType() == GridObjectType::Others){
@@ -282,8 +282,8 @@ void Floor::placePlayer(shared_ptr<Character> pc){
     int y =0;
     
     while(true){
-        int chamNUm = rand()%4;
-        int randomPair = rand()%((*chamLst)[chamNUm].size()-1);
+        int chamNUm = rand()%5;
+        int randomPair = rand()%((*chamLst)[chamNUm].size());
         y = (*chamLst)[chamNUm][randomPair].first;
         x = (*chamLst)[chamNUm][randomPair].second;
         if(gO[y][x]->getObjType() == GridObjectType::Others){
