@@ -62,7 +62,7 @@ pair<int, int> Floor::spawnItem(T itemType,char type){
     int x =0;
     int y = 0;
     while (true) {
-        int chamberNum = rand()% 5+1;//random number from 1 to 5
+        int chamberNum = rand()%4;//random number from 1 to 5
         int randomPair = rand()%(*chamLst)[chamberNum].size();
         //randomly choose a pair in chamLst
         y = (*chamLst)[chamberNum][randomPair].first;
@@ -121,7 +121,7 @@ void Floor::placeEnemy(shared_ptr<Character> pc){
         int x =0;
         int y =0;
         while(true){
-            int chamberNum = rand()%5+1; //random number from 1 to 5
+            int chamberNum = rand()%4; //random number from 1 to 5
             int randomPair = rand()%(*chamLst)[chamberNum].size();
             //randomly choose a pair in chamList
             y = (*chamLst)[chamberNum][randomPair].first;
@@ -262,7 +262,7 @@ void Floor::placeStair(){
     int y =0;
     
     while(true){
-        int chamNUm = rand()%5+1;
+        int chamNUm = rand()%4;
         int randomPair = rand()%(*chamLst)[chamNUm].size();
         y = (*chamLst)[chamNUm][randomPair].first;
         x = (*chamLst)[chamNUm][randomPair].second;
@@ -282,7 +282,7 @@ void Floor::placePlayer(shared_ptr<Character> pc){
     int y =0;
     
     while(true){
-        int chamNUm = rand()%5+1;
+        int chamNUm = rand()%4;
         int randomPair = rand()%(*chamLst)[chamNUm].size();
         y = (*chamLst)[chamNUm][randomPair].first;
         x = (*chamLst)[chamNUm][randomPair].second;
@@ -336,9 +336,9 @@ void Floor::init(shared_ptr<Character> pc){
     
     //Spawning order:
     placePlayer(pc);
-    //placeStair();
-    //placePotion();
-    //placeGold();
+    placeStair();
+    placePotion();
+    placeGold();
     placeEnemy(pc);
     pc->attatch(td);
 }

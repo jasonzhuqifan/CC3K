@@ -24,9 +24,11 @@ GridObjectType Player::getObjType(){
 }
 
 void Player::move(string dir){
+    
     if(autoheal){
         HP += 5;
     }
+    
     if(dir == "no"){
         currentRow--;
     }else if(dir == "so"){
