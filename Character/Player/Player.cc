@@ -10,6 +10,7 @@
 #include "Door.h"
 #include "Passages.h"
 #include "Info.h"
+#include "TextDisplay.h"
 
 #include "Human.h"
 #include "Halfling.h"
@@ -118,7 +119,15 @@ void Player::move(string dir){
             }
             onDoor = true;
             onPassage = false;
-        }else {
+        }else if(onDoor){
+            shared_ptr<Door> d = make_shared<Door>();
+            (*gO)[r][c] = d;
+            d->setPos(r, c);
+            d->attatch(dynamic_pointer_cast<Observer>(TD));
+            d->notifyObservers(SubscriptionType::displayOnly);
+            onPassage = false;
+            onDoor = false;
+        } else {
             onPassage = false;
             onDoor = false;
         }
