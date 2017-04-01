@@ -30,3 +30,7 @@ void Character::setPos(int r, int c){
     previousCol = c;
     previousRow = r;
 }
+
+void Character::setMap(std::vector<std::vector<std::shared_ptr<GridObjects>>> &g){
+    gO = g;
+}
