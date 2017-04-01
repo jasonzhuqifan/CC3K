@@ -61,18 +61,18 @@ void Player::move(string dir){
     }
     
     
-    if(gO[r][c]->getObjType() == GridObjectType::StairWay){
+    if((*gO)[r][c]->getObjType() == GridObjectType::StairWay){
         reachStairs = true; //HOW TO REACH NEWXT FLOOR
     }
     cout << endl << r << " " << c << endl;
-    if(gO[r][c]->getObjType() == GridObjectType::smallGold ||
-       gO[r][c]->getObjType() == GridObjectType::normalGold ||
-       gO[r][c]->getObjType() == GridObjectType::merchantHoard ||
-       gO[r][c]->getObjType() == GridObjectType::dragonHoard){
-        shared_ptr<Gold> g = dynamic_pointer_cast<Gold>(gO[r][c]);
+    if((*gO)[r][c]->getObjType() == GridObjectType::smallGold ||
+       (*gO)[r][c]->getObjType() == GridObjectType::normalGold ||
+       (*gO)[r][c]->getObjType() == GridObjectType::merchantHoard ||
+       (*gO)[r][c]->getObjType() == GridObjectType::dragonHoard){
+        shared_ptr<Gold> g = dynamic_pointer_cast<Gold>((*gO)[r][c]);
         gold += g->getGold();
         shared_ptr<FloorTile> f = make_shared<FloorTile>();
-        gO[r][c] = f;
+        (*gO)[r][c] = f;
         ActionMessage.append("and picks up ");
         ActionMessage.append(to_string(g->getGoldCount()));
         if(g->getObjType() == GridObjectType::smallGold){
@@ -87,10 +87,10 @@ void Player::move(string dir){
         g->notifyObservers(SubscriptionType::displayOnly);
     }
     
-    if(gO[r][c]->getObsType() != ObstacleType::BolckAll){
-        shared_ptr<GridObjects> g = gO[r][c];
-        gO[r][c] = gO[previousRow][previousCol];
-        gO[previousRow][previousCol] = g;
+    if((*gO)[r][c]->getObsType() != ObstacleType::BolckAll){
+        shared_ptr<GridObjects> g = (*gO)[r][c];
+        (*gO)[r][c] = (*gO)[previousRow][previousCol];
+        (*gO)[previousRow][previousCol] = g;
         currentRow = r;
         currentCol = c;
     }else{
@@ -148,9 +148,9 @@ void Player::attack(std::string dir){
         r++;
         c--;
     }
-    if(gO[r][c]->getObjType() == GridObjectType::Enemy){
+    if((*gO)[r][c]->getObjType() == GridObjectType::Enemy){
         
-        shared_ptr<Enemy> e = dynamic_pointer_cast<Enemy>(gO[r][c]);
+        shared_ptr<Enemy> e = dynamic_pointer_cast<Enemy>((*gO)[r][c]);
         attackIt(e);
     }
 }
@@ -197,13 +197,13 @@ void Player::check_dead(shared_ptr<Enemy> e){
         int r = f.currentRow;
         if(e->dropgold() == 2){
             shared_ptr<Normal> g = make_shared<Normal>(2);
-            gO[r][c] = g;
+            (*gO)[r][c] = g;
         }else if(e->dropgold() == 4){
             shared_ptr<MerchantHoard> g = make_shared<MerchantHoard>();
-            gO[r][c] = g;
+            (*gO)[r][c] = g;
         }else{
             shared_ptr<FloorTile> g = make_shared<FloorTile>();
-            gO[r][c] = g;
+            (*gO)[r][c] = g;
         }
         if(steal){
             gold += 5;
