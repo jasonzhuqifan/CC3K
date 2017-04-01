@@ -58,7 +58,6 @@ void TextDisplay::notify(Subject &notifier){
               type == GridObjectType::normalGold ||
               type == GridObjectType::merchantHoard ||
               type == GridObjectType::dragonHoard){ //Gold not consider Dragon Hoard yet!
-        cout << "thi sis  it !!! ????" << endl;
             theDisplay[cr][cc] = '.';
     }
 }
@@ -68,7 +67,14 @@ void TextDisplay::spawn(int x, int y, char type){
 }
 
 ostream &operator<<(ostream &out, const TextDisplay &td){
+    out << "  ";
+    for (int i = 0; i < 79; i++) {
+        out << i%10;
+    }
+    out << endl;
     for(int i = 0; i < 25; ++i){
+        if (i < 10) out << i << " ";
+        else out << i;
         for(int j = 0; j < 79; ++j){
             out << td.theDisplay[i][j];
         }

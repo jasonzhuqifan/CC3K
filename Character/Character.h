@@ -8,7 +8,7 @@
 
 class Character : public GridObjects{
 protected:
-    std::vector<std::vector<std::shared_ptr<GridObjects>>> gO;
+    std::shared_ptr<std::vector<std::vector<std::shared_ptr<GridObjects>>>> gO;
     double MaxHP;
     double HP;
     double Atk;
@@ -21,7 +21,7 @@ public:
     virtual double getAttack();
     virtual double getDefence();
     virtual double getGold();
-    void setMap(std::vector<std::vector<std::shared_ptr<GridObjects>>> &g);
+    void setMap(std::shared_ptr<std::vector<std::vector<std::shared_ptr<GridObjects>>>> &g);
     ObstacleType getObsType() override;
 };
 
