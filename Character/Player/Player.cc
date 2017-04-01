@@ -257,6 +257,10 @@ bool Player::isautoheal(){
     return autoheal;
 }
 
+std::string Player::getActionMessage() {
+    return ActionMessage;
+}
+
 void Player::PrintMessages(){
     cout << "Race: " << getRace() << " ";
     cout << "Gold: " << getGold();
@@ -265,5 +269,5 @@ void Player::PrintMessages(){
     cout << "HP: " << getHP() << endl;
     cout << "Atk: " << getAttack() << endl;
     cout << "Def: " << getDefence() << endl;
-    cout << "Action: " << ActionMessage <<endl;
+    cout << "Action: " << getActionMessage() <<endl;
 }

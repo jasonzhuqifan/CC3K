@@ -41,6 +41,7 @@ public:
     void getDamage(double damage);
     virtual void move(std::string dir);
     virtual std::string getRace();
+    virtual std::string getActionMessage();
     void check_dead(std::shared_ptr<Enemy> e);
     void PrintMessages();
     GridObjectType getObjType() override;

@@ -15,7 +15,8 @@ public:
     void move(std::string dir) override;
     std::string getRace() override;
     int getGold() override;
-    
+    Info getInfo() override;
+    std::string getActionMessage() override;
 };
 
 
