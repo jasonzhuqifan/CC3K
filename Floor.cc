@@ -394,9 +394,14 @@ shared_ptr<Player> Floor::use(shared_ptr<Player> pc, std::string dir){
         default:
             break;
     }
-    gO[potionRow][potionCol]->notifyObservers(SubscriptionType::displayOnly);
-    shared_ptr<FloorTile> g = make_shared<FloorTile>();
-    gO[potionRow][potionCol] = g;
+    try {
+        shared_ptr<Potion> p = dynamic_pointer_cast<Potion>(gO[potionRow][potionCol]);
+        if(!p->hasTried()) p->setTried();
+        p->notifyObservers(SubscriptionType::displayOnly);
+        shared_ptr<FloorTile> g = make_shared<FloorTile>();
+        gO[potionRow][potionCol] = g;
+    }
+    catch (exception e) {}
     return pc;
 }
 
