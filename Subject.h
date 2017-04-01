@@ -11,10 +11,8 @@ class Observer;
 class Subject{
     std::vector<std::shared_ptr<Observer>> observers;
 protected:
-    char cell_char;
 public:
     Subject();
-    char theChar();
     void attatch(std::shared_ptr<Observer> o);
     void detach(std::shared_ptr<Observer> o);
     void notifyObservers(SubscriptionType t);

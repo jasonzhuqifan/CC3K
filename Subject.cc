@@ -47,7 +47,5 @@ void Subject::notifyObservers(SubscriptionType t){
     }
 }
 
-char Subject::theChar(){
-    return cell_char;
-}
+
 

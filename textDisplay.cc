@@ -37,8 +37,6 @@ void TextDisplay::notify(Subject &notifier){
         tempChar = theDisplay[cr][cc];
         theDisplay[cr][cc] = theDisplay[pr][pc];
         theDisplay[pr][pc] = tempChar;
-        }else {
-            theDisplay[cr][cc] = notifier.theChar();
         }
     } else if(type == GridObjectType::Enemy){ //if notifier is enemy
          if(cc != pc || cr != pr){ 
@@ -60,6 +58,12 @@ void TextDisplay::notify(Subject &notifier){
               type == GridObjectType::normalGold ||
               type == GridObjectType::merchantHoard ||
               type == GridObjectType::dragonHoard){ //Gold not consider Dragon Hoard yet!
+        theDisplay[cr][cc] = '.';
+    } else if(type == GridObjectType::Door){
+        theDisplay[cr][cc] = '+';
+    } else if(type == GridObjectType::Passage){
+        theDisplay[cr][cc] = '#';
+    } else if(type == GridObjectType::FloorTiles){
         theDisplay[cr][cc] = '.';
     }
 }

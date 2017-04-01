@@ -97,8 +97,7 @@ void Player::move(string dir){
                 shared_ptr<Door> d = make_shared<Door>();
                 (*gO)[r][c] = d;
                 d->setPos(r, c);
-                cell_char = '+';
-                this->notifyObservers(SubscriptionType::displayOnly);
+                d->notifyObservers(SubscriptionType::displayOnly);
             }
             onPassage = true;
             onDoor = false;
@@ -107,14 +106,12 @@ void Player::move(string dir){
                 shared_ptr<Passages> p = make_shared<Passages>();
                 (*gO)[r][c] = p;
                 p->setPos(r, c);
-                cell_char = '#';
-                this->notifyObservers(SubscriptionType::displayOnly);
+                p->notifyObservers(SubscriptionType::displayOnly);
             }else{
                 shared_ptr<FloorTile> f = make_shared<FloorTile>();
                 (*gO)[r][c] = f;
                 f->setPos(r, c);
-                cell_char = '.';
-                this->notifyObservers(SubscriptionType::displayOnly);
+                f->notifyObservers(SubscriptionType::displayOnly);
             }
             onDoor = true;
             onPassage = false;
