@@ -306,6 +306,7 @@ shared_ptr<Cell> Floor::createCell(char c){
     else{
         cell =make_shared<FloorTile>();
     }
+    cell->attatch(td);
     return cell;
 }
 
@@ -334,7 +335,6 @@ void Floor::init(shared_ptr<Character> pc){
     
     //Spawning order:
     placePlayer(pc);
-   // pc->attatch(td);
     placeStair();
     placePotion();
     placeGold();
