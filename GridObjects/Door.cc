@@ -14,6 +14,6 @@ ObstacleType Door::getObsType(){
 }
 
 GridObjectType Door::getObjType(){
-    return GridObjectType::Others;
+    return GridObjectType::Door;
 }
 

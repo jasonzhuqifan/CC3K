@@ -14,5 +14,5 @@ ObstacleType Wall::getObsType(){
 }
 
 GridObjectType Wall::getObjType(){
-    return GridObjectType::Others;
+    return GridObjectType::Wall;
 }

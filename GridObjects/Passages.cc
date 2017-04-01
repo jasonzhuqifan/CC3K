@@ -14,5 +14,5 @@ ObstacleType Passages::getObsType(){
 }
 
 GridObjectType Passages::getObjType(){
-    return GridObjectType::Others;
+    return GridObjectType::Passage;
 }

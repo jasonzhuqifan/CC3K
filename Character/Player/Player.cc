@@ -7,6 +7,8 @@
 #include "Normal.h"
 #include "MerchantHoard.h"
 #include "FloorTile.h"
+#include "Door.h"
+#include "Passages.h"
 #include "Info.h"
 
 #include "Human.h"
@@ -87,7 +89,34 @@ void Player::move(string dir){
         g->notifyObservers(SubscriptionType::displayOnly);
     }
     
+    
     if((*gO)[r][c]->getObsType() != ObstacleType::BolckAll){
+        shared_ptr<GridObjects> origin = (*gO)[r][c];
+        if(origin->getObjType() == GridObjectType::Passage){
+            if(onDoor){
+                shared_ptr<Door> d = make_shared<Door>();
+                (*gO)[r][c] = d;
+                d->notifyObservers(SubscriptionType::displayOnly);
+            }
+            onPassage = true;
+            onDoor = false;
+        }else if(origin->getObjType() == GridObjectType::Door){
+            if(onPassage){
+                shared_ptr<Passages> p = make_shared<Passages>();
+                (*gO)[r][c] = p;
+                p->notifyObservers(SubscriptionType::displayOnly);
+            }else{
+                shared_ptr<FloorTile> f = make_shared<FloorTile>();
+                (*gO)[r][c] = f;
+                f->notifyObservers(SubscriptionType::displayOnly);
+            }
+            onDoor = true;
+            onPassage = false;
+        }else {
+            onPassage = false;
+            onDoor = false;
+        }
+        
         shared_ptr<GridObjects> g = (*gO)[r][c];
         (*gO)[r][c] = (*gO)[previousRow][previousCol];
         (*gO)[previousRow][previousCol] = g;

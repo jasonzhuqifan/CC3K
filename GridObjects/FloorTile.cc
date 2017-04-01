@@ -13,5 +13,5 @@ ObstacleType FloorTile::getObsType(){
 }
 
 GridObjectType FloorTile::getObjType(){
-    return GridObjectType::Others;
+    return GridObjectType::FloorTiles;
 }

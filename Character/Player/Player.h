@@ -16,6 +16,8 @@ class Orc;
 
 class Player : public Character{
     bool reachStairs = false;
+    bool onDoor = false;
+    bool onPassage = false;
 protected:
     std::string ActionMessage;
     int floorNum = 1;
