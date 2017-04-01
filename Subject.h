@@ -11,7 +11,7 @@ class Observer;
 class Subject{
     std::vector<std::shared_ptr<Observer>> observers;
 protected:
-    std::string cell_char;
+    char cell_char;
 public:
     Subject();
     char theChar();
