@@ -75,7 +75,7 @@ void Player::move(string dir){
         gold += g->getGold();
         shared_ptr<FloorTile> f = make_shared<FloorTile>();
         (*gO)[r][c] = f;
-        ActionMessage.append(" and picks up");
+        ActionMessage.append(" and picks up ");
         ActionMessage.append(to_string(g->getGoldCount()));
         if(g->getObjType() == GridObjectType::smallGold){
             ActionMessage.append(" small Gold");
