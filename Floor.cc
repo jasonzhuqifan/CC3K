@@ -307,7 +307,6 @@ shared_ptr<Cell> Floor::createCell(char c){
 void Floor::init(shared_ptr<Character> pc){
     srand(time(NULL));
     td = make_shared<TextDisplay>();
-    pc->setMap(gO);
     
     //Read file floor.txt
     ifstream file("cc3kfloor.txt");
@@ -324,6 +323,8 @@ void Floor::init(shared_ptr<Character> pc){
         }
         gO.emplace_back(col);
     }
+    
+    pc->setMap(gO);
     
     //get chamber coordinates list for each chamber
     chamLst = c->getChamberList();
