@@ -233,5 +233,5 @@ void Player::PrintMessages(){
     cout << "HP: " << getHP() << endl;
     cout << "Atk: " << getAttack() << endl;
     cout << "Def: " << getDefence() << endl;
-    cout << "Action: " << ActionMessage;
+    cout << "Action: " << ActionMessage <<endl;
 }
