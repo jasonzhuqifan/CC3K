@@ -324,8 +324,6 @@ void Floor::init(shared_ptr<Character> pc){
         gO.emplace_back(col);
     }
     
-    pc->setMap(gO);
-    
     //get chamber coordinates list for each chamber
     chamLst = c->getChamberList();
     
@@ -336,6 +334,7 @@ void Floor::init(shared_ptr<Character> pc){
     placeGold();
     placeEnemy(pc);
     pc->attatch(td);
+    pc->setMap(gO);
 }
 
 void Floor::clearFloor(){

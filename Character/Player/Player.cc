@@ -64,11 +64,12 @@ void Player::move(string dir){
     if(gO[r][c]->getObjType() == GridObjectType::StairWay){
         reachStairs = true; //HOW TO REACH NEWXT FLOOR
     }
-    
+    cout << endl << r << " " << c << endl;
     if(gO[r][c]->getObjType() == GridObjectType::smallGold ||
        gO[r][c]->getObjType() == GridObjectType::normalGold ||
        gO[r][c]->getObjType() == GridObjectType::merchantHoard ||
        gO[r][c]->getObjType() == GridObjectType::dragonHoard){
+        cout << " on Gold ";
         shared_ptr<Gold> g = dynamic_pointer_cast<Gold>(gO[r][c]);
         gold += g->getGold();
         shared_ptr<FloorTile> f = make_shared<FloorTile>();
@@ -88,10 +89,6 @@ void Player::move(string dir){
         g->notifyObservers(SubscriptionType::displayOnly);
     }
     
-    
-    if(gO[r][c]->getObjType() == GridObjectType::smallGold){
-        
-    }
     if(gO[r][c]->getObsType() != ObstacleType::BolckAll){
         shared_ptr<GridObjects> g = gO[r][c];
         gO[r][c] = gO[previousRow][previousCol];
