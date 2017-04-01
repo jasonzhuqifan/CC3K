@@ -402,7 +402,7 @@ shared_ptr<Player> Floor::use(shared_ptr<Player> pc, std::string dir){
     try {
         shared_ptr<Potion> p = dynamic_pointer_cast<Potion>(gO[potionRow][potionCol]);
         if(!p->hasTried()) p->setTried();
-        p->notifyObservers(SubscriptionType::displayOnly);
+        p->notifyObservers(SubscriptionType::All);
         shared_ptr<FloorTile> g = make_shared<FloorTile>();
         gO[potionRow][potionCol] = g;
     }

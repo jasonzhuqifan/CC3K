@@ -12,7 +12,7 @@ double Character::getAttack(){
     return Atk;
 }
 
-double Character::getGold(){
+int Character::getGold(){
     return gold;
 }
 

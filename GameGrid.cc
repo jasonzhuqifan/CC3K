@@ -34,7 +34,7 @@ void GameGrid::use(string dir) {
 }
 
 void GameGrid::attack(string dir){
-    pc->attack(dir);
+    pc->attack(dir,pc);
 }
 
 void GameGrid::setRace(char race){

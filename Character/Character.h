@@ -20,7 +20,7 @@ public:
     virtual double getHP();
     virtual double getAttack();
     virtual double getDefence();
-    virtual double getGold();
+    virtual int getGold();
     void setMap(std::vector<std::vector<std::shared_ptr<GridObjects>>> *g);
     ObstacleType getObsType() override;
 };

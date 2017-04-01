@@ -133,6 +133,10 @@ void Player::move(string dir){
     previousCol = currentCol;
 }
 
+string Player::getRace() {
+    return playerRace;
+}
+
 void Player::setHealth(double h){
     if(MaxHP == -1){
         HP = h;
@@ -153,7 +157,7 @@ void Player::getDamage(double damage){
 }
 
 
-void Player::attack(std::string dir){
+void Player::attack(std::string dir, std::shared_ptr<Player>pc){
     int r = currentRow;
     int c = currentCol;
     if(autoheal){
@@ -181,7 +185,6 @@ void Player::attack(std::string dir){
         c--;
     }
     if((*gO)[r][c]->getObjType() == GridObjectType::Enemy){
-        
         shared_ptr<Enemy> e = dynamic_pointer_cast<Enemy>((*gO)[r][c]);
         attackIt(e);
     }
@@ -255,7 +258,7 @@ bool Player::isautoheal(){
 }
 
 void Player::PrintMessages(){
-    cout << "Race: " << playerRace << " ";
+    cout << "Race: " << getRace() << " ";
     cout << "Gold: " << getGold();
     cout << "                                             ";
     cout << "Floor: " << floorNum << endl;

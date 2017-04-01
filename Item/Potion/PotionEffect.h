@@ -12,6 +12,10 @@ public:
     virtual double getDefence() override;
     virtual double getHP() override;
     virtual ~PotionEffect() = 0;
+    void move(std::string dir) override;
+    std::string getRace() override;
+    int getGold() override;
+    
 };
 
 

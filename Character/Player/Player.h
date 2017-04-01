@@ -26,7 +26,7 @@ protected:
     bool steal = false;
     bool autoheal = false;
 public:
-    virtual void attack(std::string dir);
+    virtual void attack(std::string dir, std::shared_ptr<Player>pc);
     virtual void attackIt(std::shared_ptr<Enemy> e);
     virtual void attackIt(std::shared_ptr<Dwarf> e);
     virtual void attackIt(std::shared_ptr<Dragon> e);
@@ -39,7 +39,8 @@ public:
     bool isautoheal();
     void setHealth(double h);
     void getDamage(double damage);
-    void move(std::string dir);
+    virtual void move(std::string dir);
+    virtual std::string getRace();
     void check_dead(std::shared_ptr<Enemy> e);
     void PrintMessages();
     GridObjectType getObjType() override;
