@@ -264,10 +264,6 @@ std::string Player::getActionMessage() {
     return ActionMessage;
 }
 
-void Player::setTD(TextDisplay *t){
-    TD = t;
-}
-
 void Player::PrintMessages(){
     cout << "Race: " << getRace() << " ";
     cout << "Gold: " << getGold();

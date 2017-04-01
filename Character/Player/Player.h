@@ -38,7 +38,6 @@ public:
     virtual void attackIt(std::shared_ptr<Orc> e);
     bool ismagnify();
     bool isautoheal();
-    void setTD(TextDisplay *t);
     void setHealth(double h);
     void getDamage(double damage);
     virtual void move(std::string dir);

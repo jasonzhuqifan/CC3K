@@ -25,6 +25,9 @@ ObstacleType Character::getObsType(){
 }
 
 
+void Character::setTD(TextDisplay *t){
+    TD = t;
+}
 
 void Character::setMap(std::vector<std::vector<std::shared_ptr<GridObjects>>> *g){
     gO = g;
