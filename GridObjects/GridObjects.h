@@ -6,7 +6,7 @@
 #include "GridObjectType.h"
 #include "Subject.h"
 
-class GridObjects : public Floor, public Subject{
+class GridObjects : public Subject{
 protected:
     int previousRow;
     int previousCol;
