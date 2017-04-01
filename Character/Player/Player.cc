@@ -96,6 +96,7 @@ void Player::move(string dir){
             if(onDoor){
                 shared_ptr<Door> d = make_shared<Door>();
                 (*gO)[r][c] = d;
+                d->setPos(r, c);
                 d->notifyObservers(SubscriptionType::displayOnly);
             }
             onPassage = true;
@@ -104,10 +105,12 @@ void Player::move(string dir){
             if(onPassage){
                 shared_ptr<Passages> p = make_shared<Passages>();
                 (*gO)[r][c] = p;
+                p->setPos(r, c);
                 p->notifyObservers(SubscriptionType::displayOnly);
             }else{
                 shared_ptr<FloorTile> f = make_shared<FloorTile>();
                 (*gO)[r][c] = f;
+                f->setPos(r, c);
                 f->notifyObservers(SubscriptionType::displayOnly);
             }
             onDoor = true;
