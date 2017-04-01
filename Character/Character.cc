@@ -26,6 +26,6 @@ ObstacleType Character::getObsType(){
 
 
 
-void Character::setMap(std::shared_ptr<std::vector<std::vector<std::shared_ptr<GridObjects>>>> &g){
+void Character::setMap(std::vector<std::vector<std::shared_ptr<GridObjects>>> *g){
     gO = g;
 }

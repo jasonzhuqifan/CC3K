@@ -108,7 +108,8 @@ shared_ptr<Enemy> Floor::createEnemy(char *type){
         spawnEnemy = make_shared<Merchant>();
         *type = 'M';
     }
-    spawnEnemy->setMap(gO);;
+    //shared_ptr<vector<vector<shared_ptr<GridObjects>>>> map = make_shared<vector<vector<shared_ptr<GridObjects>>>>(gO);
+    spawnEnemy->setMap(&gO);
     return spawnEnemy;
 }
 
@@ -337,7 +338,8 @@ void Floor::init(shared_ptr<Character> pc){
     placeGold();
     placeEnemy(pc);
     pc->attatch(td);
-    pc->setMap(gO);
+    //shared_ptr<vector<vector<shared_ptr<GridObjects>>>> map = make_shared<vector<vector<shared_ptr<GridObjects>>>>(gO);
+    pc->setMap(&gO);
 }
 
 void Floor::clearFloor(){
