@@ -289,6 +289,7 @@ void Floor::placePlayer(shared_ptr<Character> pc){
     gO[y][x] = pc;
     pc->setPos(y, x);
     td->spawn(x, y, '@');
+    pc->attatch(td);
 }
 
 shared_ptr<Cell> Floor::createCell(char c){
@@ -333,12 +334,12 @@ void Floor::init(shared_ptr<Character> pc){
     
     //Spawning order:
     placePlayer(pc);
+   // pc->attatch(td);
     placeStair();
     placePotion();
     placeGold();
     placeEnemy(pc);
-    pc->attatch(td);
-    //shared_ptr<vector<vector<shared_ptr<GridObjects>>>> map = make_shared<vector<vector<shared_ptr<GridObjects>>>>(gO);
+       //shared_ptr<vector<vector<shared_ptr<GridObjects>>>> map = make_shared<vector<vector<shared_ptr<GridObjects>>>>(gO);
     pc->setMap(&gO);
 }
 
