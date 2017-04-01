@@ -18,6 +18,7 @@ class Player : public Character{
     bool reachStairs = false;
     bool onDoor = false;
     bool onPassage = false;
+    TextDisplay *TD;
 protected:
     std::string ActionMessage;
     int floorNum = 1;
@@ -37,6 +38,7 @@ public:
     virtual void attackIt(std::shared_ptr<Orc> e);
     bool ismagnify();
     bool isautoheal();
+    void setTD(TextDisplay *t);
     void setHealth(double h);
     void getDamage(double damage);
     virtual void move(std::string dir);
