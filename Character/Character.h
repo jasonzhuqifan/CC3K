@@ -7,7 +7,7 @@
 #include "GridObjects.h"
 
 class Character : public GridObjects{
-    TextDisplay *TD;
+    std::shared_ptr<TextDisplay> TD;
 protected:
     std::vector<std::vector<std::shared_ptr<GridObjects>>> *gO;
     double MaxHP;
@@ -22,7 +22,7 @@ public:
     virtual double getAttack();
     virtual double getDefence();
     virtual int getGold();
-    void setTD(TextDisplay *t);
+    void setTD(std::shared_ptr<TextDisplay> t);
     void setMap(std::vector<std::vector<std::shared_ptr<GridObjects>>> *g);
     ObstacleType getObsType() override;
 };

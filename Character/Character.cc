@@ -25,7 +25,7 @@ ObstacleType Character::getObsType(){
 }
 
 
-void Character::setTD(TextDisplay *t){
+void Character::setTD(std::shared_ptr<TextDisplay> t){
     TD = t;
 }
 

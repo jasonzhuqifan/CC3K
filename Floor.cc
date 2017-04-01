@@ -341,6 +341,7 @@ void Floor::init(shared_ptr<Character> pc){
     placeEnemy(pc);
        //shared_ptr<vector<vector<shared_ptr<GridObjects>>>> map = make_shared<vector<vector<shared_ptr<GridObjects>>>>(gO);
     pc->setMap(&gO);
+    pc->setTD(td);
 }
 
 void Floor::clearFloor(){
