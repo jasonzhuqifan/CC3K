@@ -75,7 +75,7 @@ void Player::move(string dir){
         gold += g->getGold();
         shared_ptr<FloorTile> f = make_shared<FloorTile>();
         (*gO)[r][c] = f;
-        ActionMessage.append("and picks up ");
+        ActionMessage.append(" and picks up");
         ActionMessage.append(to_string(g->getGoldCount()));
         if(g->getObjType() == GridObjectType::smallGold){
             ActionMessage.append(" small Gold");
@@ -97,7 +97,8 @@ void Player::move(string dir){
                 shared_ptr<Door> d = make_shared<Door>();
                 (*gO)[r][c] = d;
                 d->setPos(r, c);
-                d->notifyObservers(SubscriptionType::displayOnly);
+                cell_char = '+';
+                this->notifyObservers(SubscriptionType::displayOnly);
             }
             onPassage = true;
             onDoor = false;
@@ -106,12 +107,14 @@ void Player::move(string dir){
                 shared_ptr<Passages> p = make_shared<Passages>();
                 (*gO)[r][c] = p;
                 p->setPos(r, c);
-                p->notifyObservers(SubscriptionType::displayOnly);
+                cell_char = '#';
+                this->notifyObservers(SubscriptionType::displayOnly);
             }else{
                 shared_ptr<FloorTile> f = make_shared<FloorTile>();
                 (*gO)[r][c] = f;
                 f->setPos(r, c);
-                f->notifyObservers(SubscriptionType::displayOnly);
+                cell_char = '.';
+                this->notifyObservers(SubscriptionType::displayOnly);
             }
             onDoor = true;
             onPassage = false;
