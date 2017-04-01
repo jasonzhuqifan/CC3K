@@ -106,9 +106,8 @@ shared_ptr<Enemy> Floor::createEnemy(char *type){
         spawnEnemy = make_shared<Merchant>();
         *type = 'M';
     }
-    
+    spawnEnemy->setMap(gO);;
     return spawnEnemy;
-    
 }
 
 void Floor::placeEnemy(shared_ptr<Character> pc){
@@ -137,6 +136,7 @@ void Floor::placeEnemy(shared_ptr<Character> pc){
         pc->attatch(newEnemy);
         newEnemy->attatch(td);
         td->spawn(x, y, type);
+        newEnemy->setPos(y, x);
     }
 }
 
