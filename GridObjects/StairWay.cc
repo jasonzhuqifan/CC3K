@@ -10,7 +10,7 @@
 
 
 ObstacleType StairWay::getObsType(){
-    return ObstacleType::BlockEnemy;//Block Enemy?
+    return ObstacleType::BlockEnemy;
 }
 
 GridObjectType StairWay::getObjType(){

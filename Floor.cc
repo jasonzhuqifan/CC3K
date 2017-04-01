@@ -54,10 +54,6 @@ Floor::Floor(){
 Floor::~Floor(){}
 
 
-void Floor::setItem(shared_ptr<GridObjects> itemType, int x, int y){
-    gO[y][x] = itemType;
-}
-
 template <typename T>
 pair<int, int> Floor::spawnItem(T itemType,char type){
     int x =0;
@@ -74,7 +70,7 @@ pair<int, int> Floor::spawnItem(T itemType,char type){
         }
     }
     
-    setItem(itemType, x, y);
+    gO[y][x] = itemType;
     td->spawn(x, y, type);
     pair<int,int> pos;
     pos.first=y;
@@ -138,6 +134,8 @@ void Floor::placeEnemy(shared_ptr<Character> pc){
         
         shared_ptr<Enemy> newEnemy = createEnemy(&type);
         gO[y][x] = newEnemy;
+        pc->attatch(newEnemy);
+        newEnemy->attatch(td);
         td->spawn(x, y, type);
     }
 }
@@ -194,44 +192,44 @@ void Floor::placeGold(){
             for(int i =0; i < 8 ;i++){
                 int spawnPos = rand()%8;
                 
-                if (gO[y+1][x-1]->getObsType() == ObstacleType::BlockNone){
+                if (gO[y-1][x-1]->getObsType() == ObstacleType::BlockNone){//0
+                    gO[y-1][x-1] = spawnDragon;
+                    td->spawn(x-1, y-1, 'D');
+                    break;
+                }
+                else if (gO[y-1][x]->getObsType() == ObstacleType::BlockNone){//1
+                    gO[y-1][x] = spawnDragon;
+                    td->spawn(x, y-1, 'D');
+                    break;
+                }
+                else if(gO[y-1][x+1]->getObsType() == ObstacleType::BlockNone){//2
+                    gO[y-1][x+1] = spawnDragon;
+                    td->spawn(x+1, y-1, 'D');
+                    break;
+                }
+                else if (gO[y][x-1]->getObsType() == ObstacleType::BlockNone){//3
+                    gO[y][x-1] = spawnDragon;
+                    td->spawn(x-1, y, 'D');
+                    break;
+                }
+                else if (gO[y][x+1]->getObsType() == ObstacleType::BlockNone){//4
+                    gO[y][x+1] = spawnDragon;
+                    td->spawn(x+1, y, 'D');
+                    break;
+                }
+                else if(gO[y+1][x-1]->getObsType() == ObstacleType::BlockNone){//5
                     gO[y+1][x-1] = spawnDragon;
                     td->spawn(x-1, y+1, 'D');
                     break;
                 }
-                else if (gO[y+1][x]->getObsType() == ObstacleType::BlockNone){
+                else if(gO[y+1][x]->getObsType() == ObstacleType::BlockNone){//6
                     gO[y+1][x] = spawnDragon;
                     td->spawn(x, y+1, 'D');
                     break;
                 }
-                else if(gO[y+1][x+1]->getObsType() == ObstacleType::BlockNone){
+                else if (gO[y+1][x+1]->getObsType() == ObstacleType::BlockNone){//7
                     gO[y+1][x+1] = spawnDragon;
                     td->spawn(x+1, y+1, 'D');
-                    break;
-                }
-                else if (gO[y-1][x]->getObsType() == ObstacleType::BlockNone){
-                    gO[y-1][x] = spawnDragon;
-                    td->spawn(x-1, y, 'D');
-                    break;
-                }
-                else if (gO[y+1][x]->getObsType() == ObstacleType::BlockNone){
-                    gO[y+1][x] = spawnDragon;
-                    td->spawn(x+1, y+1, 'D');
-                    break;
-                }
-                else if(gO[y][x-1]->getObsType() == ObstacleType::BlockNone){
-                    gO[y][x-1] = spawnDragon;
-                    td->spawn(x-1, y+1, 'D');
-                    break;
-                }
-                else if(gO[y-1][x]->getObsType() == ObstacleType::BlockNone){
-                    gO[y-1][x] = spawnDragon;
-                    td->spawn(x, y+1, 'D');
-                    break;
-                }
-                else if (gO[y-1][x+1]->getObsType() == ObstacleType::BlockNone){
-                    gO[y-1][x+1] = spawnDragon;
-                    td->spawn(x+1, y-1, 'D');
                     break;
                 }
             }
@@ -249,7 +247,6 @@ void Floor::placeGold(){
 }
 
 void Floor::placeStair(){
-    
     int x =0;
     int y =0;
     
@@ -286,6 +283,7 @@ void Floor::placePlayer(shared_ptr<Character> pc){
     }
     playerInRoom = chamNum;
     gO[y][x] = pc;
+    pc->setPos(y, x);
     td->spawn(x, y, '@');
 }
 
@@ -326,7 +324,7 @@ void Floor::init(shared_ptr<Character> pc){
         gO.emplace_back(col);
     }
     
-    
+    //get chamber coordinates list for each chamber
     chamLst = c->getChamberList();
     
     //Spawning order:
@@ -404,4 +402,5 @@ shared_ptr<Player> Floor::use(shared_ptr<Player> pc, std::string dir){
     catch (exception e) {}
     return pc;
 }
+
 

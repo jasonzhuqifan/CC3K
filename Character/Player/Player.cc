@@ -19,7 +19,6 @@
 
 using namespace std;
 
-
 GridObjectType Player::getObjType(){
     return GridObjectType::Player;
 }
@@ -29,7 +28,7 @@ void Player::move(string dir){
     if(autoheal){
         HP += 5;
     }
-    
+
     if(dir == "no"){
         currentRow--;
         ActionMessage.append("Player moves North");
@@ -235,5 +234,4 @@ void Player::PrintMessages(){
     cout << "Atk: " << getAttack() << endl;
     cout << "Def: " << getDefence() << endl;
     cout << "Action: ";
-    
 }

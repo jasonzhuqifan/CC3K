@@ -42,7 +42,7 @@ void GameGrid::setRace(char race){
         case 's': pc = make_shared<Shade>(); break;
         case 'd': pc = make_shared<Drow>(); break;
         case 'v': pc = make_shared<Vampire>(); break;
-        case 'b': pc = make_shared<Goblin>(); break;
+        case 'g': pc = make_shared<Goblin>(); break;
         case 't': pc = make_shared<Troll>(); break;
         default: throw "unknown race"; break;
     }

@@ -27,7 +27,7 @@ class TextDisplay;
 class Floor : public Level{
 protected:
     std::vector<std::vector<std::shared_ptr<GridObjects>>> gO;
-    bool enemyFrozen;
+    int enemyFrozen;
 private:
     int playerInRoom;
     std::shared_ptr<Chamber> c;
@@ -52,7 +52,6 @@ private:
     std::pair<int, int> spawnItem(T itemType,char type);
     //returns the position of the item when item spawns.
     
-    void setItem(std::shared_ptr<GridObjects> itemType, int x, int y);
     
     
 public:
