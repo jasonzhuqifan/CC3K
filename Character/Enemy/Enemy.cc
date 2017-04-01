@@ -20,8 +20,9 @@ void Enemy::notify(Subject &notifier){
 //    Info f = getInfo();
     int r = currentRow;
     int c = currentCol;
-    
-    if((*gO)[r-1][c]->getObjType() == GridObjectType::Player){
+    if(isneutral){
+        move();
+    }else if((*gO)[r-1][c]->getObjType() == GridObjectType::Player){
         shared_ptr<Player> p = dynamic_pointer_cast<Player>((*gO)[r-1][c]);
         attack(p);
     }else if((*gO)[r+1][c]->getObjType() == GridObjectType::Player){
