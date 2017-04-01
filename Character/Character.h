@@ -7,9 +7,9 @@
 #include "GridObjects.h"
 
 class Character : public GridObjects{
-    std::shared_ptr<TextDisplay> TD;
 protected:
     std::vector<std::vector<std::shared_ptr<GridObjects>>> *gO;
+    std::shared_ptr<TextDisplay> TD;
     double MaxHP;
     double HP;
     double Atk;
