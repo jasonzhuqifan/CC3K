@@ -65,7 +65,7 @@ pair<int, int> Floor::spawnItem(T itemType,char type){
         y = (*chamLst)[chamberNum][randomPair].first;
         x = (*chamLst)[chamberNum][randomPair].second;
         
-        if(gO[y][x]->getObjType() == GridObjectType::Others){
+        if(gO[y][x]->getObjType() == GridObjectType::FloorTiles){
             break;
         }
     }
@@ -260,7 +260,7 @@ void Floor::placeStair(){
         int randomPair = rand()%((*chamLst)[chamNum].size());
         y = (*chamLst)[chamNum][randomPair].first;
         x = (*chamLst)[chamNum][randomPair].second;
-        if(gO[y][x]->getObjType() == GridObjectType::Others && playerInRoom != chamNum){
+        if(gO[y][x]->getObjType() == GridObjectType::FloorTiles && playerInRoom != chamNum){
             break;
         }
     }

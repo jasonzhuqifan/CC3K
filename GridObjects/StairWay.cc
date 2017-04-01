@@ -14,5 +14,5 @@ ObstacleType StairWay::getObsType(){
 }
 
 GridObjectType StairWay::getObjType(){
-    return  GridObjectType::Others;
+    return  GridObjectType::StairWay;
 }
