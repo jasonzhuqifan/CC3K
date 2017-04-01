@@ -281,7 +281,7 @@ void Floor::placePlayer(shared_ptr<Character> pc){
         int randomPair = rand()%((*chamLst)[chamNum].size());
         y = (*chamLst)[chamNum][randomPair].first;
         x = (*chamLst)[chamNum][randomPair].second;
-        if(gO[y][x]->getObjType() == GridObjectType::Others){
+        if(gO[y][x]->getObjType() == GridObjectType::FloorTiles){
             break;
         }
     }
