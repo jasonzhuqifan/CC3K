@@ -18,7 +18,6 @@ class Player : public Character{
     bool reachStairs = false;
     bool onDoor = false;
     bool onPassage = false;
-    TextDisplay *TD;
 protected:
     std::string ActionMessage;
     int floorNum = 1;
