@@ -61,6 +61,7 @@ void TextDisplay::notify(Subject &notifier){
               type == GridObjectType::normalGold ||
               type == GridObjectType::merchantHoard ||
               type == GridObjectType::dragonHoard){ //Gold not consider Dragon Hoard yet!
+        cout << "thi sis  it !!! ????" << endl;
             theDisplay[cr][cc] = '.';
     }
 }

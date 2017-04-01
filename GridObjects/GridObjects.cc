@@ -11,3 +11,10 @@ Info GridObjects::getInfo(){
     f.GOT = getObjType();
     return f;
 }
+
+void GridObjects::setPos(int r, int c){
+    currentRow = r;
+    currentCol = c;
+    previousCol = c;
+    previousRow = r;
+}

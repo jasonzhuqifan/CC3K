@@ -15,6 +15,7 @@ protected:
 public:
     virtual ObstacleType getObsType() = 0;
     virtual GridObjectType getObjType() = 0;
+    void setPos(int r, int c);
     Info getInfo() override;
 };
 #endif
