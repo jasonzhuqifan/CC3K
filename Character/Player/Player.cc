@@ -28,38 +28,38 @@ void Player::move(string dir){
     if(autoheal){
         HP += 5;
     }
-
-    if(dir == "no"){
-        currentRow--;
-        ActionMessage.append("Player moves North");
-    }else if(dir == "so"){
-        currentRow++;
-        ActionMessage.append("Player moves South");
-    }else if(dir == "ea"){
-        currentCol++;
-        ActionMessage.append("Player moves East");
-    }else if(dir == "we"){
-        currentCol--;
-        ActionMessage.append("Player moves West");
-    }else if(dir == "ne"){
-        currentRow--;
-        currentCol++;
-        ActionMessage.append("Player moves NorthEast");
-    }else if(dir == "nw"){
-        currentRow--;
-        currentCol--;
-        ActionMessage.append("Player moves NorthWest");
-    }else if(dir == "se"){
-        currentRow++;
-        currentCol++;
-        ActionMessage.append("Player moves SouthEast");
-    }else if(dir == "sw"){
-        currentRow++;
-        currentCol--;
-        ActionMessage.append("Player moves SouthWest");
-    }
     int r = currentRow;
     int c = currentCol;
+    if(dir == "no"){
+        r--;
+        ActionMessage.append("Player moves North");
+    }else if(dir == "so"){
+        r++;
+        ActionMessage.append("Player moves South");
+    }else if(dir == "ea"){
+        c++;
+        ActionMessage.append("Player moves East");
+    }else if(dir == "we"){
+        c--;
+        ActionMessage.append("Player moves West");
+    }else if(dir == "ne"){
+        r--;
+        c++;
+        ActionMessage.append("Player moves NorthEast");
+    }else if(dir == "nw"){
+        r--;
+        c--;
+        ActionMessage.append("Player moves NorthWest");
+    }else if(dir == "se"){
+        r++;
+        c++;
+        ActionMessage.append("Player moves SouthEast");
+    }else if(dir == "sw"){
+        r++;
+        c--;
+        ActionMessage.append("Player moves SouthWest");
+    }
+    
     
     if(gO[r][c]->getObjType() == GridObjectType::StairWay){
         reachStairs = true; //HOW TO REACH NEWXT FLOOR
@@ -69,21 +69,19 @@ void Player::move(string dir){
        gO[r][c]->getObjType() == GridObjectType::normalGold ||
        gO[r][c]->getObjType() == GridObjectType::merchantHoard ||
        gO[r][c]->getObjType() == GridObjectType::dragonHoard){
-        cout << " on Gold ";
         shared_ptr<Gold> g = dynamic_pointer_cast<Gold>(gO[r][c]);
         gold += g->getGold();
         shared_ptr<FloorTile> f = make_shared<FloorTile>();
         gO[r][c] = f;
         ActionMessage.append("and picks up ");
         ActionMessage.append(to_string(g->getGoldCount()));
-        if(gO[r][c]->getObjType() == GridObjectType::smallGold){
+        if(g->getObjType() == GridObjectType::smallGold){
             ActionMessage.append(" small Gold");
-            
-        } else if(gO[r][c]->getObjType() == GridObjectType::normalGold){
+        } else if(g->getObjType() == GridObjectType::normalGold){
             ActionMessage.append(" normal Gold");
-        }else if(gO[r][c]->getObjType() == GridObjectType::merchantHoard){
+        }else if(g->getObjType() == GridObjectType::merchantHoard){
             ActionMessage.append(" merchant Hoard");
-        }else if(gO[r][c]->getObjType() == GridObjectType::dragonHoard){
+        }else if(g->getObjType() == GridObjectType::dragonHoard){
             ActionMessage.append(" dragon Hoard");
         }
         g->notifyObservers(SubscriptionType::displayOnly);
@@ -93,6 +91,8 @@ void Player::move(string dir){
         shared_ptr<GridObjects> g = gO[r][c];
         gO[r][c] = gO[previousRow][previousCol];
         gO[previousRow][previousCol] = g;
+        currentRow = r;
+        currentCol = c;
     }else{
         ActionMessage="";
     }

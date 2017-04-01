@@ -18,9 +18,7 @@ TextDisplay::TextDisplay(){
     
 }
 
-TextDisplay::~TextDisplay(){
-    
-}
+TextDisplay::~TextDisplay() {}
 
 SubscriptionType TextDisplay::getSubType() const{
     return SubscriptionType::displayOnly;
@@ -40,13 +38,12 @@ void TextDisplay::notify(Subject &notifier){
         theDisplay[cr][cc] = theDisplay[pr][pc];
         theDisplay[pr][pc] = tempChar;
         }
-        
     } else if(type == GridObjectType::Enemy){ //if notifier is enemy
          if(cc != pc || cr != pr){ 
              tempChar = theDisplay[cr][cc];
              theDisplay[cr][cc] = theDisplay[pr][pc];
              theDisplay[pr][pc] = tempChar;
-         } else{
+         } else {
              theDisplay[cr][pr] = '.';       //enemy is dead
          }
     } else if(type == GridObjectType::BA ||

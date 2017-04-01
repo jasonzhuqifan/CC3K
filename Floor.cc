@@ -71,6 +71,8 @@ pair<int, int> Floor::spawnItem(T itemType,char type){
     }
     
     gO[y][x] = itemType;
+    gO[y][x]->setPos(y, x);
+    gO[y][x]->attatch(td);
     td->spawn(x, y, type);
     pair<int,int> pos;
     pos.first=y;
@@ -232,6 +234,7 @@ void Floor::placeGold(){
                     td->spawn(x+1, y+1, 'D');
                     break;
                 }
+                spawnGold->setPos(y, x);
             }
         }
         else if (spawnRate == 2){//Small
@@ -263,7 +266,7 @@ void Floor::placeStair(){
     
     gO[y][x] = make_shared<StairWay>();
     td->spawn(x, y, '\\');
-    
+    gO[y][x]->setPos(y, x);
 }
 
 void Floor::placePlayer(shared_ptr<Character> pc){

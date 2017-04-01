@@ -40,7 +40,7 @@ void Subject::notifyObservers(SubscriptionType t){
     }
     else{
         for(int i =0; i < observers.size();i++){
-            if (observers[i]->getSubType() == SubscriptionType::displayOnly) {
+            if (t == SubscriptionType::displayOnly) {
                 observers[i]->notify(*this);
             }
         }

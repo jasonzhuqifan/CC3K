@@ -13,7 +13,7 @@ class Vampire;
 
 class Enemy : public Character, public Observer{
 private:
-    void move(int r, int c);
+    void move();
 protected:
     bool Dead = false;
     bool isneutral = false;

@@ -17,9 +17,9 @@ void Enemy::updateDamage(double damage){
 }
 
 void Enemy::notify(Subject &notifier){
-    Info f = getInfo();
-    int r = f.currentRow;
-    int c = f.currentCol;
+//    Info f = getInfo();
+    int r = currentRow;
+    int c = currentCol;
     
     if(gO[r-1][c]->getObjType() == GridObjectType::Player){
         shared_ptr<Player> p = dynamic_pointer_cast<Player>(gO[r-1][c]);
@@ -46,12 +46,13 @@ void Enemy::notify(Subject &notifier){
         shared_ptr<Player> p = dynamic_pointer_cast<Player>(gO[r][c-1]);
         attack(p);
     }else if(!stationary){
-        move(r, c);
+        move();
     }
 }
 
-
-void Enemy::move(int r, int c){  //if enemy is stuck, you fucked up!
+void Enemy::move(){  //if enemy is stuck, you fucked up!
+    int r = currentRow;
+    int c = currentCol;
     int direction;
     while(true){
         direction = rand()%8+1;
