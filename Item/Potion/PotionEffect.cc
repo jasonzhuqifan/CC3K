@@ -35,7 +35,3 @@ int PotionEffect::getGold() {
 Info PotionEffect::getInfo() {
     return pc->getInfo();
 }
-
-std::string PotionEffect::getActionMessage() {
-    return pc->getActionMessage();
-}

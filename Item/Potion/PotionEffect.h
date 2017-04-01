@@ -16,7 +16,6 @@ public:
     std::string getRace() override;
     int getGold() override;
     Info getInfo() override;
-    std::string getActionMessage() override;
 };
 
 

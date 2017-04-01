@@ -15,6 +15,7 @@ class WDEffect : public PotionEffect{
 public:
     WDEffect(std::shared_ptr<Player> pc);
     double getDefence() override;
+    std::string getActionMessage() override;
 };
 
 #endif /* WDEffect_hpp */

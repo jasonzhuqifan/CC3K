@@ -143,10 +143,13 @@ string Player::getRace() {
 void Player::setHealth(double h){
     if(MaxHP == -1){
         HP = h;
+        ActionMessage.append("Player uses potion. Heal "+to_string(h)+" HP");
     }else if(h >= MaxHP){
         HP = MaxHP;
+        ActionMessage.append("Player uses potion. Heal "+to_string(MaxHP-h)+" HP");
     }else{
         HP = h;
+        ActionMessage.append("Player uses potion. Heal "+to_string(h)+" HP");
     }
     if(HP <= 0){
         //THROW SOMETHING! YOU FUCKED UP!
