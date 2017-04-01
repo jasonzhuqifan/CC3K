@@ -33,6 +33,7 @@ public:
     virtual void attackIt(std::shared_ptr<Human> e);
     virtual void attackIt(std::shared_ptr<Merchant> e);
     virtual void attackIt(std::shared_ptr<Orc> e);
+    void setMap(std::vector<std::vector<GridObjects>>);
     bool ismagnify();
     bool isautoheal();
     void setHealth(double h);

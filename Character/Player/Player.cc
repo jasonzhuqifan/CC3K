@@ -61,9 +61,11 @@ void Player::move(string dir){
     }
     int r = currentRow;
     int c = currentCol;
+    
     if(gO[r][c]->getObjType() == GridObjectType::StairWay){
         reachStairs = true; //HOW TO REACH NEWXT FLOOR
     }
+    
     if(gO[r][c]->getObjType() == GridObjectType::smallGold ||
        gO[r][c]->getObjType() == GridObjectType::normalGold ||
        gO[r][c]->getObjType() == GridObjectType::merchantHoard ||
@@ -86,7 +88,8 @@ void Player::move(string dir){
         }
         g->notifyObservers(SubscriptionType::displayOnly);
     }
-    //if potion insertion hasTried/setTried
+    
+    
     if(gO[r][c]->getObjType() == GridObjectType::smallGold){
         
     }
