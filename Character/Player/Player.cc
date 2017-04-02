@@ -379,10 +379,10 @@ void Player::move(string dir){
     if((*gO)[r][c]->getObjType() == GridObjectType::smallGold ||
        (*gO)[r][c]->getObjType() == GridObjectType::normalGold ||
        (*gO)[r][c]->getObjType() == GridObjectType::merchantHoard ||
-       (*gO)[r][c]->getObjType() == GridObjectType::smallGold){
+       (*gO)[r][c]->getObjType() == GridObjectType::dragonHoard){
         shared_ptr<Gold> g = dynamic_pointer_cast<Gold>((*gO)[r][c]);
         g->notifyObservers(SubscriptionType::displayOnly);
-        if(!g->canPickUp()){
+        if(g->canPickUp()){
             onDragonHoard = true;
             shared_ptr<FloorTile> f = make_shared<FloorTile>();
             (*gO)[r][c] = f;
