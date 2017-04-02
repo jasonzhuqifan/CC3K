@@ -37,7 +37,8 @@ void GameGrid::move(string dir){
         lose();
     }
     else {
-        cout << l;
+        cout << *l;
+        pc->PrintMessages();
     }
 }
 
@@ -47,7 +48,8 @@ void GameGrid::use(string dir) {
         lose();
     }
     else {
-        cout << l;
+        cout << *l;
+        pc->PrintMessages();
     }
 }
 
@@ -57,7 +59,8 @@ void GameGrid::attack(string dir){
         lose();
     }
     else {
-        cout << l;
+        cout << *l;
+        pc->PrintMessages();
     }
 }
 
@@ -70,6 +73,9 @@ void GameGrid::setRace(char race){
         case 't': pc = make_shared<Troll>(); break;
         default: throw "unknown race"; break;
     }
+    init();
+    cout << *l;
+    pc->PrintMessages();
 }
 
 void GameGrid::freeze(){

@@ -6,6 +6,6 @@ using namespace std;
 
 
 ostream &operator<<(std::ostream &out, const Level &l){
-    out << *l.td;
+    out << *(l.td);
     return out;
 }

@@ -35,7 +35,6 @@ int main() {
                 else {
                     g.setRace(cmd.front());
                     raceSet = true;
-                    g.init();
                 }
             }
             else if (cmd == "f") {
