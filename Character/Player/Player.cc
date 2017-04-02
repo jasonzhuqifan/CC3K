@@ -331,14 +331,17 @@ void Player::check_dead(shared_ptr<Enemy> e){
         int r = f.currentRow;
         if(e->dropgold() == 2){
             shared_ptr<Normal> g = make_shared<Normal>(2);
+            g->attatch(TD);
             (*gO)[r][c] = g;
             g->notifyObservers(SubscriptionType::displayOnly);
         }else if(e->dropgold() == 4){
             shared_ptr<MerchantHoard> g = make_shared<MerchantHoard>();
+            g->attatch(TD);
             (*gO)[r][c] = g;
             g->notifyObservers(SubscriptionType::displayOnly);
         }else{
             shared_ptr<FloorTile> g = make_shared<FloorTile>();
+            g->attatch(TD);
             (*gO)[r][c] = g;
             g->notifyObservers(SubscriptionType::displayOnly);
         }
