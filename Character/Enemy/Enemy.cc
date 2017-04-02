@@ -120,19 +120,19 @@ void Enemy::attack(shared_ptr<Player> pc){
     pc->update_enemy(this);
     double def = pc->getDefence();
     if(dynamic_pointer_cast<Drow>(pc->getTrue())){
-        attack(dynamic_pointer_cast<Drow>(pc->getTrue(),def));
+        attack(dynamic_pointer_cast<Drow>(pc->getTrue()),def);
     }
     else if(dynamic_pointer_cast<Goblin>(pc->getTrue())){
-        attack(dynamic_pointer_cast<Goblin>(pc->getTrue(),def));
+        attack(dynamic_pointer_cast<Goblin>(pc->getTrue()),def);
     }
     else if(dynamic_pointer_cast<Shade>(pc->getTrue())){
-        attack(dynamic_pointer_cast<Shade>(pc->getTrue(),def));
+        attack(dynamic_pointer_cast<Shade>(pc->getTrue()),def);
     }
     else if(dynamic_pointer_cast<Troll>(pc->getTrue())){
-        attack(dynamic_pointer_cast<Troll>(pc->getTrue(),def));
+        attack(dynamic_pointer_cast<Troll>(pc->getTrue()),def);
     }
     else if(dynamic_pointer_cast<Vampire>(pc->getTrue())){
-        attack(dynamic_pointer_cast<Vampire>(pc->getTrue(),def));
+        attack(dynamic_pointer_cast<Vampire>(pc->getTrue()),def);
     }
 }
 void Enemy::attack(std::shared_ptr<Drow> pc, double def){
