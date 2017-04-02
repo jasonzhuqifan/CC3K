@@ -186,7 +186,7 @@ void Floor::placeGold(shared_ptr<Character> pc){
         if (spawnRate == 1){//Dragon Hoard
             spawnGold = make_shared<DragonHoard>();
             spawnDragon = make_shared<Dragon>();
-            pc->attatch(newEnemy);
+            pc->attatch(spawnDragon);
             pos = spawnItem(spawnGold,'G');
             int y = pos.first;
             int x = pos.second;
