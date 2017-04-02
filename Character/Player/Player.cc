@@ -167,9 +167,9 @@ void Player::setHealth(double h){
 void Player::getDamage(double damage){
     HP = HP - damage;
     if(damage !=0){
-        ActionMessage.append(" deals ");
-        ActionMessage.append(to_string(damage));
-        ActionMessage.append(" to PC. ");
+        update_message(" deals ");
+        update_message(to_string(static_cast<int>(damage)));
+        update_message(" to PC. ");
     } else{
         update_message(" Miss an attack");
     }
@@ -237,11 +237,11 @@ void Player::attackIt(std::shared_ptr<Dwarf> e) {
     double d = e->getDefence();
     double damage = ceil((100/(100+d)) * getAttack());
     update_message("PC deals ");
-    update_message(to_string(damage));
+    update_message(to_string(static_cast<int>(damage)));
     update_message(" damage to Dwarf ");
     e->updateDamage(static_cast<int>(damage));
     update_message("(");
-    update_message(std::to_string(e->getHP()));
+    update_message(std::to_string(static_cast<int>(e->getHP())));
     update_message("/");
     update_message(std::to_string(e->getMaxHP()));
     update_message(")");
@@ -252,11 +252,11 @@ void Player::attackIt(std::shared_ptr<Dragon> e) {
     double d = e->getDefence();
     double damage = ceil((100/(100+d)) * getAttack());
     update_message("PC deals ");
-    update_message(to_string(damage));
+    update_message(to_string(static_cast<int>(damage)));
     update_message(" damage to Dragon");
      e->updateDamage(damage);
     update_message("(");
-    update_message(std::to_string(e->getHP()));
+    update_message(std::to_string(static_cast<int>(e->getHP())));
     update_message("/");
     update_message(std::to_string(e->getMaxHP()));
     update_message(")");
@@ -267,11 +267,11 @@ void Player::attackIt(std::shared_ptr<Elf> e) {
     double d = e->getDefence();
     double damage = ceil((100/(100+d)) * getAttack());
     update_message("PC deals ");
-    update_message(to_string(damage));
+    update_message(to_string(static_cast<int>(damage)));
     update_message(" damage to Elf");
     e->updateDamage(damage);
     update_message("(");
-    update_message(std::to_string(e->getHP()));
+    update_message(std::to_string(static_cast<int>(e->getHP())));
     update_message("/");
     update_message(std::to_string(e->getMaxHP()));
     update_message(")");
@@ -282,11 +282,11 @@ void Player::attackIt(std::shared_ptr<Halfling> e) {
     double d = e->getDefence();
     double damage = ceil((100/(100+d)) * getAttack());
     update_message("PC deals ");
-    update_message(to_string(damage));
+    update_message(to_string(static_cast<int>(damage)));
     update_message(" damage to Hafling");
      e->updateDamage(damage);
     update_message("(");
-    update_message(std::to_string(e->getHP()));
+    update_message(std::to_string(static_cast<int>(e->getHP())));
     update_message("/");
     update_message(std::to_string(e->getMaxHP()));
     update_message(")");
@@ -297,11 +297,11 @@ void Player::attackIt(std::shared_ptr<Human> e) {
     double d = e->getDefence();
     double damage = ceil((100/(100+d)) * getAttack());
     update_message("PC deals ");
-    update_message(to_string(damage));
+    update_message(to_string(static_cast<int>(damage)));
     update_message(" damage to Human");
     e->updateDamage(damage);
     update_message("(");
-    update_message(std::to_string(e->getHP()));
+    update_message(std::to_string(static_cast<int>(e->getHP())));
     update_message("/");
     update_message(std::to_string(e->getMaxHP()));
     update_message(")");
@@ -312,11 +312,11 @@ void Player::attackIt(std::shared_ptr<Merchant> e) {
     double d = e->getDefence();
     double damage = ceil((100/(100+d)) * getAttack());
     update_message("PC deals ");
-    update_message(to_string(damage));
+    update_message(to_string(static_cast<int>(damage)));
     update_message(" damage to Merchant");
      e->updateDamage(damage);
     update_message("(");
-    update_message(std::to_string(e->getHP()));
+    update_message(std::to_string(static_cast<int>(e->getHP())));
     update_message("/");
     update_message(std::to_string(e->getMaxHP()));
     update_message(")");
@@ -327,11 +327,11 @@ void Player::attackIt(std::shared_ptr<Orc> e) {
     double d = e->getDefence();
     double damage = ceil((100/(100+d)) * getAttack());
     update_message("PC deals ");
-    update_message(to_string(damage));
+    update_message(to_string(static_cast<int>(damage)));
     update_message(" damage to Orc");
      e->updateDamage(damage);
     update_message("(");
-    update_message(std::to_string(e->getHP()));
+    update_message(std::to_string(static_cast<int>(e->getHP())));
     update_message("/");
     update_message(std::to_string(e->getMaxHP()));
     update_message(")");

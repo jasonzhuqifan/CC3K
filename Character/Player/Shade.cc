@@ -17,14 +17,14 @@ void Shade::attackIt(std::shared_ptr<Halfling> e){
         double d = e->getDefence();
         double damage = ceil((100/(100+d)) * getAttack());
         update_message("PC deals ");
-        update_message(std::to_string(damage));
+        update_message(std::to_string(static_cast<int>(damage)));
         update_message(" damage to Halfling");
+         e->updateDamage(damage);
         update_message("(");
-        update_message(std::to_string(e->getHP()));
+        update_message(std::to_string(static_cast<int>(e->getHP())));
         update_message("/");
         update_message(std::to_string(e->getMaxHP()));
         update_message(").");
-        e->updateDamage(damage);
     }else{
         update_message("PC misses attack to Halfing. ");
     }
@@ -36,14 +36,14 @@ void Shade::attackIt(std::shared_ptr<Merchant> e){
     double d = e->getDefence();
     double damage = ceil((100/(100+d)) * getAttack());
     update_message("PC deals ");
-    update_message(std::to_string(damage));
+    update_message(std::to_string(static_cast<int>(damage)));
     update_message(" damage to Merchant. ");
+    e->updateDamage(damage);
     update_message("(");
-    update_message(std::to_string(e->getHP()));
+    update_message(std::to_string(static_cast<int>(e->getHP())));
     update_message("/");
     update_message(std::to_string(e->getMaxHP()));
     update_message(")");
-    e->updateDamage(damage);
     e->setNeutral();
     check_dead(e);
 }

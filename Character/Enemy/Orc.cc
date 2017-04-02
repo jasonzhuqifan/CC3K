@@ -12,10 +12,10 @@ Orc::Orc(){
 
 void Orc::attack(shared_ptr<Goblin> pc){
     double d = pc->getDefence();
-    double damage = ceil((100/(100+d)) * this->Atk * 1.5);
+    double damage = 0;
     int miss = rand()%2+1;
     if (miss == 1){
-        pc->getDamage(damage);
+        damage = ceil((100/(100+d)) * this->Atk * 1.5);
     }
     pc->getDamage(damage);
 }

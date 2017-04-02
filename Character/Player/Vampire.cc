@@ -54,7 +54,7 @@ void Vampire::attackIt(std::shared_ptr<Dragon> e){
     update_message(std::to_string(damage));
     update_message(" damage to Dragon and gains 5 HP");
     update_message("(");
-    update_message(std::to_string(e->getHP()));
+    update_message(std::to_string(static_cast<int>(e->getHP())));
     update_message(")");
     e->updateDamage(damage);
      HP = HP + 5;
@@ -67,7 +67,7 @@ void Vampire::attackIt(std::shared_ptr<Elf> e){
     update_message(std::to_string(damage));
     update_message(" damage to Elf and gains 5 HP");
     update_message("(");
-    update_message(std::to_string(e->getHP()));
+    update_message(std::to_string(static_cast<int>(e->getHP())));
     update_message(")");
     e->updateDamage(damage);
     HP = HP + 5;
@@ -80,7 +80,7 @@ void Vampire::attackIt(std::shared_ptr<Human> e){
     update_message(std::to_string(damage));
     update_message(" damage to Human and gains 5 HP");
     update_message("(");
-    update_message(std::to_string(e->getHP()));
+    update_message(std::to_string(static_cast<int>(e->getHP())));
     update_message(")");
     e->updateDamage(damage);
      HP = HP + 5;
@@ -94,7 +94,7 @@ void Vampire::attackIt(std::shared_ptr<Merchant> e){
     update_message(" damage to Merchant and gains 5 HP");
     e->updateDamage(damage);
     update_message("(");
-    update_message(std::to_string(e->getHP()));
+    update_message(std::to_string(static_cast<int>(e->getHP())));
     update_message("/");
     update_message(std::to_string(e->getMaxHP()));
     update_message(")");
@@ -110,7 +110,7 @@ void Vampire::attackIt(std::shared_ptr<Orc> e){
     update_message(" damage to Orc and gains 5 HP");
     e->updateDamage(damage);
     update_message("(");
-    update_message(std::to_string(e->getHP()));
+    update_message(std::to_string(static_cast<int>(e->getHP())));
     update_message("/");
     update_message(std::to_string(e->getMaxHP()));
     update_message(")");

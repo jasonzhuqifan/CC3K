@@ -20,11 +20,11 @@ void Troll::attackIt(std::shared_ptr<Halfling> e){
         double d = e->getDefence();
         double damage = ceil((100/(100+d)) * getAttack());
         update_message("PC deals ");
-        update_message(std::to_string(damage));
+        update_message(std::to_string(static_cast<int>(damage)));
         update_message(" damage to Halfling");
         e->updateDamage(damage);
         update_message("(");
-        update_message(std::to_string(e->getHP()));
+        update_message(std::to_string(static_cast<int>(e->getHP())));
         update_message("/");
         update_message(std::to_string(e->getMaxHP()));
         update_message(")");
@@ -39,10 +39,10 @@ void Troll::attackIt(std::shared_ptr<Merchant> e){
     double damage = ceil((100/(100+d)) * getAttack());
     e->updateDamage(damage);
     update_message("PC deals ");
-    update_message(std::to_string(damage));
+    update_message(std::to_string(static_cast<int>(damage)));
     update_message(" damage to Merchant");
     update_message("(");
-    update_message(std::to_string(e->getHP()));
+    update_message(std::to_string(static_cast<int>(e->getHP())));
     update_message("/");
     update_message(std::to_string(e->getMaxHP()));
     update_message(")");

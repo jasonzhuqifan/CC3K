@@ -29,7 +29,6 @@ void Elf::attack(shared_ptr<Goblin> pc){
     if (miss == 1){
         damage = damage + ceil((100/(100+d)) * this->Atk);
     }
-    pc->update_message("Elf");
     pc->getDamage(damage);
 }
 void Elf::attack(shared_ptr<Shade> pc){
@@ -43,7 +42,6 @@ void Elf::attack(shared_ptr<Shade> pc){
     if (miss == 1){
         damage = damage + ceil((100/(100+d)) * getAttack());
     }
-    pc->update_message("Elf");
     pc->getDamage(damage);
 
 }
@@ -58,7 +56,6 @@ void Elf::attack(shared_ptr<Troll> pc){
     if (miss == 1){
         damage = damage + ceil((100/(100+d)) * this->Atk);
     }
-    pc->update_message("Elf");
     pc->getDamage(damage);
 
 }
@@ -73,7 +70,6 @@ void Elf::attack(shared_ptr<Vampire> pc){
     if (miss == 1){
         damage = damage + ceil((100/(100+d)) * this->Atk);
     }
-    pc->update_message("Elf");
     pc->getDamage(damage);
 
 }
