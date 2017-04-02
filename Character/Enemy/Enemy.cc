@@ -117,7 +117,6 @@ void Enemy::move(){  //if enemy is stuck, you fucked up!
 }
 
 void Enemy::attack(shared_ptr<Player> pc){
-<<<<<<< HEAD
     pc->update_enemy(this);
     if(dynamic_pointer_cast<Drow>(pc)){
         attack(dynamic_pointer_cast<Drow>(pc));
@@ -134,13 +133,6 @@ void Enemy::attack(shared_ptr<Player> pc){
         attack(dynamic_pointer_cast<Troll>(pc));
     }else if(dynamic_pointer_cast<Vampire>(pc)){
         attack(dynamic_pointer_cast<Vampire>(pc));
-=======
-    double d = pc->getDefence();
-    double damage = ceil((100/(100+d)) * this->Atk);
-    int miss = rand()%2+1;
-    if (miss == 1){
-    pc->getDamage(damage);
->>>>>>> origin/master
     }
 }
 void Enemy::attack(std::shared_ptr<Drow> pc){
