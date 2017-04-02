@@ -27,21 +27,21 @@ protected:
     bool autoheal = false;
 public:
     virtual void attack(std::string dir, std::shared_ptr<Player>pc);
-    virtual void attackIt(std::shared_ptr<Enemy> e);
-    virtual void attackIt(std::shared_ptr<Dwarf> e);
-    virtual void attackIt(std::shared_ptr<Dragon> e);
-    virtual void attackIt(std::shared_ptr<Elf> e);
-    virtual void attackIt(std::shared_ptr<Halfling> e);
-    virtual void attackIt(std::shared_ptr<Human> e);
-    virtual void attackIt(std::shared_ptr<Merchant> e);
-    virtual void attackIt(std::shared_ptr<Orc> e);
+    virtual void attackIt(std::shared_ptr<Enemy> e, std::shared_ptr<Player>pc);
+    virtual void attackIt(std::shared_ptr<Dwarf> e, std::shared_ptr<Player>pc);
+    virtual void attackIt(std::shared_ptr<Dragon> e, std::shared_ptr<Player>pc);
+    virtual void attackIt(std::shared_ptr<Elf> e, std::shared_ptr<Player>pc);
+    virtual void attackIt(std::shared_ptr<Halfling> e, std::shared_ptr<Player>pc);
+    virtual void attackIt(std::shared_ptr<Human> e, std::shared_ptr<Player>pc);
+    virtual void attackIt(std::shared_ptr<Merchant> e, std::shared_ptr<Player>pc);
+    virtual void attackIt(std::shared_ptr<Orc> e, std::shared_ptr<Player>pc);
     
     void update_message(std::string s);
     void update_enemy(Enemy *e);
     bool ismagnify();
     bool isautoheal();
     void setHealth(double h);
-    void getDamage(double damage);
+    virtual void getDamage(double damage);
     virtual void move(std::string dir);
     virtual std::string getRace();
     virtual std::string getActionMessage();

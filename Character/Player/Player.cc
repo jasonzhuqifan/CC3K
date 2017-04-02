@@ -209,33 +209,33 @@ void Player::attack(std::string dir, std::shared_ptr<Player>pc){
     }
     if((*gO)[r][c]->getObjType() == GridObjectType::Enemy){
         shared_ptr<Enemy> e = dynamic_pointer_cast<Enemy>((*gO)[r][c]);
-        attackIt(e);
+        attackIt(e, pc);
     }
 }
 
-void Player::attackIt(std::shared_ptr<Enemy> e){
+void Player::attackIt(std::shared_ptr<Enemy> e, std::shared_ptr<Player>pc){
     if(dynamic_pointer_cast<Elf>(e)){
-        attackIt(dynamic_pointer_cast<Elf>(e));
+        attackIt(dynamic_pointer_cast<Elf>(e), pc);
     }else if(dynamic_pointer_cast<Dwarf>(e)){
-        attackIt(dynamic_pointer_cast<Dwarf>(e));
+        attackIt(dynamic_pointer_cast<Dwarf>(e),pc);
     }else if(dynamic_pointer_cast<Dragon>(e)){
-        attackIt(dynamic_pointer_cast<Dragon>(e));
+        attackIt(dynamic_pointer_cast<Dragon>(e),pc);
     }else if(dynamic_pointer_cast<Halfling>(e)){
-        attackIt(dynamic_pointer_cast<Halfling>(e));
+        attackIt(dynamic_pointer_cast<Halfling>(e),pc);
     }else if(dynamic_pointer_cast<Human>(e)){
-        attackIt(dynamic_pointer_cast<Human>(e));
+        attackIt(dynamic_pointer_cast<Human>(e),pc);
     }else if(dynamic_pointer_cast<Merchant>(e)){
-        attackIt(dynamic_pointer_cast<Merchant>(e));
+        attackIt(dynamic_pointer_cast<Merchant>(e), pc);
     }else if(dynamic_pointer_cast<Orc>(e)){
-        attackIt(dynamic_pointer_cast<Orc>(e));
+        attackIt(dynamic_pointer_cast<Orc>(e), pc);
     }
     update_message(". ");
     this->notifyObservers(SubscriptionType::All);
 }
 
-void Player::attackIt(std::shared_ptr<Dwarf> e) {
+void Player::attackIt(std::shared_ptr<Dwarf> e, std::shared_ptr<Player>pc) {
     double d = e->getDefence();
-    double damage = ceil((100/(100+d)) * getAttack());
+    double damage = ceil((100/(100+d)) * pc->getAttack());
     update_message("PC deals ");
     update_message(to_string(static_cast<int>(damage)));
     update_message(" damage to Dwarf ");
@@ -248,9 +248,9 @@ void Player::attackIt(std::shared_ptr<Dwarf> e) {
     check_dead(e);
 }
 
-void Player::attackIt(std::shared_ptr<Dragon> e) {
+void Player::attackIt(std::shared_ptr<Dragon> e, std::shared_ptr<Player>pc) {
     double d = e->getDefence();
-    double damage = ceil((100/(100+d)) * getAttack());
+    double damage = ceil((100/(100+d)) * pc->getAttack());
     update_message("PC deals ");
     update_message(to_string(static_cast<int>(damage)));
     update_message(" damage to Dragon");
@@ -263,9 +263,9 @@ void Player::attackIt(std::shared_ptr<Dragon> e) {
     check_dead(e);
 }
 
-void Player::attackIt(std::shared_ptr<Elf> e) {
+void Player::attackIt(std::shared_ptr<Elf> e, std::shared_ptr<Player>pc) {
     double d = e->getDefence();
-    double damage = ceil((100/(100+d)) * getAttack());
+    double damage = ceil((100/(100+d)) * pc->getAttack());
     update_message("PC deals ");
     update_message(to_string(static_cast<int>(damage)));
     update_message(" damage to Elf");
@@ -278,9 +278,9 @@ void Player::attackIt(std::shared_ptr<Elf> e) {
     check_dead(e);
 }
 
-void Player::attackIt(std::shared_ptr<Halfling> e) {
+void Player::attackIt(std::shared_ptr<Halfling> e, std::shared_ptr<Player>pc) {
     double d = e->getDefence();
-    double damage = ceil((100/(100+d)) * getAttack());
+    double damage = ceil((100/(100+d)) * pc->getAttack());
     update_message("PC deals ");
     update_message(to_string(static_cast<int>(damage)));
     update_message(" damage to Hafling");
@@ -293,9 +293,9 @@ void Player::attackIt(std::shared_ptr<Halfling> e) {
     check_dead(e);
 }
 
-void Player::attackIt(std::shared_ptr<Human> e) {
+void Player::attackIt(std::shared_ptr<Human> e, std::shared_ptr<Player>pc) {
     double d = e->getDefence();
-    double damage = ceil((100/(100+d)) * getAttack());
+    double damage = ceil((100/(100+d)) * pc->getAttack());
     update_message("PC deals ");
     update_message(to_string(static_cast<int>(damage)));
     update_message(" damage to Human");
@@ -308,9 +308,9 @@ void Player::attackIt(std::shared_ptr<Human> e) {
     check_dead(e);
 }
 
-void Player::attackIt(std::shared_ptr<Merchant> e) {
+void Player::attackIt(std::shared_ptr<Merchant> e, std::shared_ptr<Player>pc) {
     double d = e->getDefence();
-    double damage = ceil((100/(100+d)) * getAttack());
+    double damage = ceil((100/(100+d)) * pc->getAttack());
     update_message("PC deals ");
     update_message(to_string(static_cast<int>(damage)));
     update_message(" damage to Merchant");
@@ -323,9 +323,9 @@ void Player::attackIt(std::shared_ptr<Merchant> e) {
     check_dead(e);
 }
 
-void Player::attackIt(std::shared_ptr<Orc> e) {
+void Player::attackIt(std::shared_ptr<Orc> e, std::shared_ptr<Player>pc) {
     double d = e->getDefence();
-    double damage = ceil((100/(100+d)) * getAttack());
+    double damage = ceil((100/(100+d)) * pc->getAttack());
     update_message("PC deals ");
     update_message(to_string(static_cast<int>(damage)));
     update_message(" damage to Orc");
