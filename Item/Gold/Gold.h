@@ -9,6 +9,7 @@ class Gold : public Item{
 protected:
     bool isGuarded;
 public:
+    bool canPickUp();
     Gold(int amount, int count);
     ObstacleType getObsType() override;
     int getGold();

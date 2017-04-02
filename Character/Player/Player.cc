@@ -11,6 +11,7 @@
 #include "Passages.h"
 #include "Info.h"
 #include "TextDisplay.h"
+#include "Potion.h"
 
 #include "Human.h"
 #include "Halfling.h"
@@ -68,7 +69,297 @@ void Player::move(string dir){
         reachStairs = true;
         return;
     }
+    
     cout << endl << r << " " << c << endl;
+    
+    //*********************************************************************************************************************************
+    //detect POTION
+    if((*gO)[r+1][c]->getObjType() == GridObjectType::BA ||
+       (*gO)[r+1][c]->getObjType() == GridObjectType::BD ||
+       (*gO)[r+1][c]->getObjType() == GridObjectType::PH ||
+       (*gO)[r+1][c]->getObjType() == GridObjectType::WD ||
+       (*gO)[r+1][c]->getObjType() == GridObjectType::WA ||
+       (*gO)[r+1][c]->getObjType() == GridObjectType::RH){
+        shared_ptr<Potion> p = dynamic_pointer_cast<Potion>((*gO)[r+1][c]);
+        if(p->hasTried()){
+            update_message("and see a ");
+            switch(p->getObjType()){
+                case GridObjectType::BA:
+                    update_message("BA, a potion that will increase attack");
+                    break;
+                case GridObjectType::BD:
+                    update_message("BD, a potion that will increase defence");
+                    break;
+                case GridObjectType::PH:
+                    update_message("PH, a potion that will decrease health");
+                    break;
+                case GridObjectType::RH:
+                    update_message("RH, a potion that will increase health");
+                    break;
+                case GridObjectType::WA:
+                    update_message("WA, a potion that will decrease attack");
+                    break;
+                case GridObjectType::WD:
+                    update_message("WD, a potion that will decrease defence");
+                    break;
+                default:
+                    break;
+            }
+            update_message(" potion");
+        }else{
+            update_message("and see an unknown potion");
+        }
+    }else if((*gO)[r-1][c]->getObjType() == GridObjectType::BA ||
+            (*gO)[r-1][c]->getObjType() == GridObjectType::BD ||
+            (*gO)[r-1][c]->getObjType() == GridObjectType::PH ||
+            (*gO)[r-1][c]->getObjType() == GridObjectType::WD ||
+            (*gO)[r-1][c]->getObjType() == GridObjectType::WA ||
+            (*gO)[r-1][c]->getObjType() == GridObjectType::RH){
+        shared_ptr<Potion> p = dynamic_pointer_cast<Potion>((*gO)[r-1][c]);
+        if(p->hasTried()){
+            update_message("and see a ");
+            switch(p->getObjType()){
+                case GridObjectType::BA:
+                    update_message("BA, a potion that will increase attack");
+                    break;
+                case GridObjectType::BD:
+                    update_message("BD, a potion that will increase defence");
+                    break;
+                case GridObjectType::PH:
+                    update_message("PH, a potion that will decrease health");
+                    break;
+                case GridObjectType::RH:
+                    update_message("RH, a potion that will increase health");
+                    break;
+                case GridObjectType::WA:
+                    update_message("WA, a potion that will decrease attack");
+                    break;
+                case GridObjectType::WD:
+                    update_message("WD, a potion that will decrease defence");
+                    break;
+                default:
+                    break;
+            }
+            update_message(" potion");
+        }else{
+            update_message("and see an unknown potion");
+        }
+    }else if((*gO)[r][c+1]->getObjType() == GridObjectType::BA ||
+             (*gO)[r][c+1]->getObjType() == GridObjectType::BD ||
+             (*gO)[r][c+1]->getObjType() == GridObjectType::PH ||
+             (*gO)[r][c+1]->getObjType() == GridObjectType::WD ||
+             (*gO)[r][c+1]->getObjType() == GridObjectType::WA ||
+             (*gO)[r][c+1]->getObjType() == GridObjectType::RH){
+        shared_ptr<Potion> p = dynamic_pointer_cast<Potion>((*gO)[r][c+1]);
+        if(p->hasTried()){
+            update_message("and see a ");
+            switch(p->getObjType()){
+                case GridObjectType::BA:
+                    update_message("BA, a potion that will increase attack");
+                    break;
+                case GridObjectType::BD:
+                    update_message("BD, a potion that will increase defence");
+                    break;
+                case GridObjectType::PH:
+                    update_message("PH, a potion that will decrease health");
+                    break;
+                case GridObjectType::RH:
+                    update_message("RH, a potion that will increase health");
+                    break;
+                case GridObjectType::WA:
+                    update_message("WA, a potion that will decrease attack");
+                    break;
+                case GridObjectType::WD:
+                    update_message("WD, a potion that will decrease defence");
+                    break;
+                default:
+                    break;
+            }
+            update_message(" potion");
+        }else{
+            update_message("and see an unknown potion");
+        }
+    }else if((*gO)[r][c-1]->getObjType() == GridObjectType::BA ||
+             (*gO)[r][c-1]->getObjType() == GridObjectType::BD ||
+             (*gO)[r][c-1]->getObjType() == GridObjectType::PH ||
+             (*gO)[r][c-1]->getObjType() == GridObjectType::WD ||
+             (*gO)[r][c-1]->getObjType() == GridObjectType::WA ||
+             (*gO)[r][c-1]->getObjType() == GridObjectType::RH){
+        shared_ptr<Potion> p = dynamic_pointer_cast<Potion>((*gO)[r][c-1]);
+        if(p->hasTried()){
+            update_message("and see a ");
+            switch(p->getObjType()){
+                case GridObjectType::BA:
+                    update_message("BA, a potion that will increase attack");
+                    break;
+                case GridObjectType::BD:
+                    update_message("BD, a potion that will increase defence");
+                    break;
+                case GridObjectType::PH:
+                    update_message("PH, a potion that will decrease health");
+                    break;
+                case GridObjectType::RH:
+                    update_message("RH, a potion that will increase health");
+                    break;
+                case GridObjectType::WA:
+                    update_message("WA, a potion that will decrease attack");
+                    break;
+                case GridObjectType::WD:
+                    update_message("WD, a potion that will decrease defence");
+                    break;
+                default:
+                    break;
+            }
+            update_message(" potion");
+        }else{
+            update_message("and see an unknown potion");
+        }
+    }else if((*gO)[r+1][c+1]->getObjType() == GridObjectType::BA ||
+             (*gO)[r+1][c+1]->getObjType() == GridObjectType::BD ||
+             (*gO)[r+1][c+1]->getObjType() == GridObjectType::PH ||
+             (*gO)[r+1][c+1]->getObjType() == GridObjectType::WD ||
+             (*gO)[r+1][c+1]->getObjType() == GridObjectType::WA ||
+             (*gO)[r+1][c+1]->getObjType() == GridObjectType::RH){
+        shared_ptr<Potion> p = dynamic_pointer_cast<Potion>((*gO)[r+1][c+1]);
+        if(p->hasTried()){
+            update_message("and see a ");
+            switch(p->getObjType()){
+                case GridObjectType::BA:
+                    update_message("BA, a potion that will increase attack");
+                    break;
+                case GridObjectType::BD:
+                    update_message("BD, a potion that will increase defence");
+                    break;
+                case GridObjectType::PH:
+                    update_message("PH, a potion that will decrease health");
+                    break;
+                case GridObjectType::RH:
+                    update_message("RH, a potion that will increase health");
+                    break;
+                case GridObjectType::WA:
+                    update_message("WA, a potion that will decrease attack");
+                    break;
+                case GridObjectType::WD:
+                    update_message("WD, a potion that will decrease defence");
+                    break;
+                default:
+                    break;
+            }
+            update_message(" potion");
+        }else{
+            update_message("and see an unknown potion");
+        }
+    }else if((*gO)[r-1][c+1]->getObjType() == GridObjectType::BA ||
+             (*gO)[r-1][c+1]->getObjType() == GridObjectType::BD ||
+             (*gO)[r-1][c+1]->getObjType() == GridObjectType::PH ||
+             (*gO)[r-1][c+1]->getObjType() == GridObjectType::WD ||
+             (*gO)[r-1][c+1]->getObjType() == GridObjectType::WA ||
+             (*gO)[r-1][c+1]->getObjType() == GridObjectType::RH){
+        shared_ptr<Potion> p = dynamic_pointer_cast<Potion>((*gO)[r-1][c+1]);
+        if(p->hasTried()){
+            update_message("and see a ");
+            switch(p->getObjType()){
+                case GridObjectType::BA:
+                    update_message("BA, a potion that will increase attack");
+                    break;
+                case GridObjectType::BD:
+                    update_message("BD, a potion that will increase defence");
+                    break;
+                case GridObjectType::PH:
+                    update_message("PH, a potion that will decrease health");
+                    break;
+                case GridObjectType::RH:
+                    update_message("RH, a potion that will increase health");
+                    break;
+                case GridObjectType::WA:
+                    update_message("WA, a potion that will decrease attack");
+                    break;
+                case GridObjectType::WD:
+                    update_message("WD, a potion that will decrease defence");
+                    break;
+                default:
+                    break;
+            }
+            update_message(" potion");
+        }else{
+            update_message("and see an unknown potion");
+        }
+    }else if((*gO)[r-1][c-1]->getObjType() == GridObjectType::BA ||
+             (*gO)[r-1][c-1]->getObjType() == GridObjectType::BD ||
+             (*gO)[r-1][c-1]->getObjType() == GridObjectType::PH ||
+             (*gO)[r-1][c-1]->getObjType() == GridObjectType::WD ||
+             (*gO)[r-1][c-1]->getObjType() == GridObjectType::WA ||
+             (*gO)[r-1][c-1]->getObjType() == GridObjectType::RH){
+        shared_ptr<Potion> p = dynamic_pointer_cast<Potion>((*gO)[r-1][c-1]);
+        if(p->hasTried()){
+            update_message("and see a ");
+            switch(p->getObjType()){
+                case GridObjectType::BA:
+                    update_message("BA, a potion that will increase attack");
+                    break;
+                case GridObjectType::BD:
+                    update_message("BD, a potion that will increase defence");
+                    break;
+                case GridObjectType::PH:
+                    update_message("PH, a potion that will decrease health");
+                    break;
+                case GridObjectType::RH:
+                    update_message("RH, a potion that will increase health");
+                    break;
+                case GridObjectType::WA:
+                    update_message("WA, a potion that will decrease attack");
+                    break;
+                case GridObjectType::WD:
+                    update_message("WD, a potion that will decrease defence");
+                    break;
+                default:
+                    break;
+            }
+            update_message(" potion");
+        }else{
+            update_message("and see an unknown potion");
+        }
+    }else if((*gO)[r+1][c-1]->getObjType() == GridObjectType::BA ||
+             (*gO)[r+1][c-1]->getObjType() == GridObjectType::BD ||
+             (*gO)[r+1][c-1]->getObjType() == GridObjectType::PH ||
+             (*gO)[r+1][c-1]->getObjType() == GridObjectType::WD ||
+             (*gO)[r+1][c-1]->getObjType() == GridObjectType::WA ||
+             (*gO)[r+1][c-1]->getObjType() == GridObjectType::RH){
+        shared_ptr<Potion> p = dynamic_pointer_cast<Potion>((*gO)[r+1][c-1]);
+        if(p->hasTried()){
+            update_message("and see a ");
+            switch(p->getObjType()){
+                case GridObjectType::BA:
+                    update_message("BA, a potion that will increase attack");
+                    break;
+                case GridObjectType::BD:
+                    update_message("BD, a potion that will increase defence");
+                    break;
+                case GridObjectType::PH:
+                    update_message("PH, a potion that will decrease health");
+                    break;
+                case GridObjectType::RH:
+                    update_message("RH, a potion that will increase health");
+                    break;
+                case GridObjectType::WA:
+                    update_message("WA, a potion that will decrease attack");
+                    break;
+                case GridObjectType::WD:
+                    update_message("WD, a potion that will decrease defence");
+                    break;
+                default:
+                    break;
+            }
+            update_message(" potion");
+        }else{
+            update_message("and see an unknown potion");
+        }
+    }
+    
+//*********************************************************************************************************************************
+
+    
+    
     if((*gO)[r][c]->getObjType() == GridObjectType::smallGold ||
        (*gO)[r][c]->getObjType() == GridObjectType::normalGold ||
        (*gO)[r][c]->getObjType() == GridObjectType::merchantHoard ||

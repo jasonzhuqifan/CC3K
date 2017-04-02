@@ -13,3 +13,7 @@ int Gold::getGoldCount() {
 ObstacleType Gold::getObsType(){
     return ObstacleType::BlockEnemy;
 }
+
+bool Gold::canPickUp(){
+    return isGuarded;
+}
