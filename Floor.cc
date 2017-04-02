@@ -188,6 +188,7 @@ void Floor::placeGold(shared_ptr<Character> pc){
             spawnDragon = make_shared<Dragon>();
             pc->attatch(spawnDragon);
             pos = spawnItem(spawnGold,'G');
+            spawnDragon->setMap(&gO);
             int y = pos.first;
             int x = pos.second;
             //0 1 2
@@ -199,41 +200,49 @@ void Floor::placeGold(shared_ptr<Character> pc){
                 if (gO[y-1][x-1]->getObsType() == ObstacleType::BlockNone){//0
                     gO[y-1][x-1] = spawnDragon;
                     td->spawn(x-1, y-1, 'D');
+                    spawnDragon->setPos(y-1, x-1);
                     break;
                 }
                 else if (gO[y-1][x]->getObsType() == ObstacleType::BlockNone){//1
                     gO[y-1][x] = spawnDragon;
                     td->spawn(x, y-1, 'D');
+                    spawnDragon->setPos(y-1, x);
                     break;
                 }
                 else if(gO[y-1][x+1]->getObsType() == ObstacleType::BlockNone){//2
                     gO[y-1][x+1] = spawnDragon;
                     td->spawn(x+1, y-1, 'D');
+                    spawnDragon->setPos(y-1, x+1);
                     break;
                 }
                 else if (gO[y][x-1]->getObsType() == ObstacleType::BlockNone){//3
                     gO[y][x-1] = spawnDragon;
                     td->spawn(x-1, y, 'D');
+                    spawnDragon->setPos(y, x-1);
                     break;
                 }
                 else if (gO[y][x+1]->getObsType() == ObstacleType::BlockNone){//4
                     gO[y][x+1] = spawnDragon;
                     td->spawn(x+1, y, 'D');
+                    spawnDragon->setPos(y, x+1);
                     break;
                 }
                 else if(gO[y+1][x-1]->getObsType() == ObstacleType::BlockNone){//5
                     gO[y+1][x-1] = spawnDragon;
                     td->spawn(x-1, y+1, 'D');
+                    spawnDragon->setPos(y+1, x-1);
                     break;
                 }
                 else if(gO[y+1][x]->getObsType() == ObstacleType::BlockNone){//6
                     gO[y+1][x] = spawnDragon;
                     td->spawn(x, y+1, 'D');
+                    spawnDragon->setPos(y+1, x);
                     break;
                 }
                 else if (gO[y+1][x+1]->getObsType() == ObstacleType::BlockNone){//7
                     gO[y+1][x+1] = spawnDragon;
                     td->spawn(x+1, y+1, 'D');
+                    spawnDragon->setPos(y+1, x+1);
                     break;
                 }
                 spawnGold->setPos(y, x);
