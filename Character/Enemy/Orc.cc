@@ -15,9 +15,9 @@ void Orc::attack(shared_ptr<Goblin> pc){
     double damage = ceil((100/100+d) * this->Atk * 1.5);
     int miss = rand()%2+1;
     if (miss == 1){
-        pc->setHealth(damage);
+        pc->getDamage(damage);
     }
-    pc->setHealth(damage);
+    pc->getDamage(damage);
 }
 
 Orc::~Orc(){}

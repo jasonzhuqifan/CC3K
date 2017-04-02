@@ -117,11 +117,22 @@ void Enemy::move(){  //if enemy is stuck, you fucked up!
 }
 
 void Enemy::attack(shared_ptr<Player> pc){
-    double d = pc->getDefence();
-    double damage = ceil((100/100+d) * this->Atk);
-    int miss = rand()%2+1;
-    if (miss == 1){
-    pc->setHealth(damage);
+    pc->update_enemy(this);
+    if(dynamic_pointer_cast<Drow>(pc)){
+        attack(dynamic_pointer_cast<Drow>(pc));
+    }else if(dynamic_pointer_cast<Goblin>(pc)){
+        attack(dynamic_pointer_cast<Goblin>(pc));
+    }
+    else if(dynamic_pointer_cast<Drow>(pc)){
+        attack(dynamic_pointer_cast<Drow>(pc));
+    }
+    else if(dynamic_pointer_cast<Shade>(pc)){
+        attack(dynamic_pointer_cast<Shade>(pc));
+    }
+    else if(dynamic_pointer_cast<Troll>(pc)){
+        attack(dynamic_pointer_cast<Troll>(pc));
+    }else if(dynamic_pointer_cast<Vampire>(pc)){
+        attack(dynamic_pointer_cast<Vampire>(pc));
     }
 }
 void Enemy::attack(std::shared_ptr<Drow> pc){
@@ -129,43 +140,43 @@ void Enemy::attack(std::shared_ptr<Drow> pc){
     double damage = ceil((100/100+d) * this->Atk);
     int miss = rand()%2+1;
     if (miss == 1){
-        pc->setHealth(damage);
+        pc->getDamage(damage);
     }
 
 }
 void Enemy::attack(std::shared_ptr<Goblin> pc){
     double d = pc->getDefence();
-    double damage = ceil((100/100+d) * this->Atk);
+    double damage = ceil((100/(100+d)) * this->Atk);
     int miss = rand()%2+1;
     if (miss == 1){
-        pc->setHealth(damage);
+        pc->getDamage(damage);
     }
 
 }
 void Enemy::attack(std::shared_ptr<Shade> pc){
     double d = pc->getDefence();
-    double damage = ceil((100/100+d) * this->Atk);
+    double damage = ceil((100/(100+d)) * this->Atk);
     int miss = rand()%2+1;
     if (miss == 1){
-        pc->setHealth(damage);
+        pc->getDamage(damage);
     }
 
 }
 void Enemy::attack(std::shared_ptr<Troll> pc){
     double d = pc->getDefence();
-    double damage = ceil((100/100+d) * this->Atk);
+    double damage = ceil((100/(100+d)) * this->Atk);
     int miss = rand()%2+1;
     if (miss == 1){
-        pc->setHealth(damage);
+        pc->getDamage(damage);
     }
 
 }
 void Enemy::attack(std::shared_ptr<Vampire> pc){
     double d = pc->getDefence();
-    double damage = ceil((100/100+d) * this->Atk);
+    double damage = ceil((100/(100+d)) * this->Atk);
     int miss = rand()%2+1;
     if (miss == 1){
-        pc->setHealth(damage);
+        pc->getDamage(damage);
     }
 
 }

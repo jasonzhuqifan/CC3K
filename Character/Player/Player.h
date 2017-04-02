@@ -35,6 +35,9 @@ public:
     virtual void attackIt(std::shared_ptr<Human> e);
     virtual void attackIt(std::shared_ptr<Merchant> e);
     virtual void attackIt(std::shared_ptr<Orc> e);
+    
+    void update_message(std::string s);
+    void update_enemy(Enemy *e);
     bool ismagnify();
     bool isautoheal();
     void setHealth(double h);

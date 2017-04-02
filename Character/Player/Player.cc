@@ -35,32 +35,32 @@ void Player::move(string dir){
     int c = currentCol;
     if(dir == "no"){
         r--;
-        ActionMessage.append("Player moves North");
+        update_message("Player moves North");
     }else if(dir == "so"){
         r++;
-        ActionMessage.append("Player moves South");
+        update_message("Player moves South");
     }else if(dir == "ea"){
         c++;
-        ActionMessage.append("Player moves East");
+        update_message("Player moves East");
     }else if(dir == "we"){
         c--;
-        ActionMessage.append("Player moves West");
+        update_message("Player moves West");
     }else if(dir == "ne"){
         r--;
         c++;
-        ActionMessage.append("Player moves NorthEast");
+        update_message("Player moves NorthEast");
     }else if(dir == "nw"){
         r--;
         c--;
-        ActionMessage.append("Player moves NorthWest");
+        update_message("Player moves NorthWest");
     }else if(dir == "se"){
         r++;
         c++;
-        ActionMessage.append("Player moves SouthEast");
+        update_message("Player moves SouthEast");
     }else if(dir == "sw"){
         r++;
         c--;
-        ActionMessage.append("Player moves SouthWest");
+        update_message("Player moves SouthWest");
     }
     
     
@@ -166,6 +166,9 @@ void Player::setHealth(double h){
 }
 void Player::getDamage(double damage){
     HP -= damage;
+    ActionMessage.append(" deals ");
+    ActionMessage.append(to_string(damage));
+    ActionMessage.append(" to PC. ");
     if(HP <= 0){
         // THROW SOMETHING! YOU FUCKED UP!
     }
@@ -173,6 +176,7 @@ void Player::getDamage(double damage){
 
 
 void Player::attack(std::string dir, std::shared_ptr<Player>pc){
+    ActionMessage = "";
     int r = currentRow;
     int c = currentCol;
     if(autoheal){
@@ -206,38 +210,92 @@ void Player::attack(std::string dir, std::shared_ptr<Player>pc){
 }
 
 void Player::attackIt(std::shared_ptr<Enemy> e){
+    if(dynamic_pointer_cast<Elf>(e)){
+        attackIt(dynamic_pointer_cast<Elf>(e));
+    }else if(dynamic_pointer_cast<Dwarf>(e)){
+        attackIt(dynamic_pointer_cast<Dwarf>(e));
+    }else if(dynamic_pointer_cast<Dragon>(e)){
+        attackIt(dynamic_pointer_cast<Dragon>(e));
+    }else if(dynamic_pointer_cast<Halfling>(e)){
+        attackIt(dynamic_pointer_cast<Halfling>(e));
+    }else if(dynamic_pointer_cast<Human>(e)){
+        attackIt(dynamic_pointer_cast<Human>(e));
+    }else if(dynamic_pointer_cast<Merchant>(e)){
+        attackIt(dynamic_pointer_cast<Merchant>(e));
+    }else if(dynamic_pointer_cast<Orc>(e)){
+        attackIt(dynamic_pointer_cast<Orc>(e));
+    }
+    this->notifyObservers(SubscriptionType::All);
+}
+
+void Player::attackIt(std::shared_ptr<Dwarf> e) {
     double d = e->getDefence();
-    double damage = ceil((100/100+d) * this->Atk);
+    double damage = ceil((100/(100+d)) * getAttack());
+    update_message("PC deals ");
+    update_message(to_string(damage));
+    update_message(" damage to Dwarf");
     e->updateDamage(damage);
     check_dead(e);
 }
 
-void Player::attackIt(std::shared_ptr<Dwarf> e) {
-    attackIt(dynamic_pointer_cast<Enemy>(e));
-}
-
 void Player::attackIt(std::shared_ptr<Dragon> e) {
-    attackIt(dynamic_pointer_cast<Enemy>(e));
+    double d = e->getDefence();
+    double damage = ceil((100/(100+d)) * getAttack());
+    update_message("PC deals ");
+    update_message(to_string(damage));
+    update_message(" damage to Dragon");
+    e->updateDamage(damage);
+    check_dead(e);
 }
 
 void Player::attackIt(std::shared_ptr<Elf> e) {
-    attackIt(dynamic_pointer_cast<Enemy>(e));
+    double d = e->getDefence();
+    double damage = ceil((100/(100+d)) * getAttack());
+    update_message("PC deals ");
+    update_message(to_string(damage));
+    update_message(" damage to Elf");
+    e->updateDamage(damage);
+    check_dead(e);
 }
 
 void Player::attackIt(std::shared_ptr<Halfling> e) {
-    attackIt(dynamic_pointer_cast<Enemy>(e));
+    double d = e->getDefence();
+    double damage = ceil((100/(100+d)) * getAttack());
+    update_message("PC deals ");
+    update_message(to_string(damage));
+    update_message(" damage to Hafling");
+    e->updateDamage(damage);
+    check_dead(e);
 }
 
 void Player::attackIt(std::shared_ptr<Human> e) {
-    attackIt(dynamic_pointer_cast<Enemy>(e));
+    double d = e->getDefence();
+    double damage = ceil((100/(100+d)) * getAttack());
+    update_message("PC deals ");
+    update_message(to_string(damage));
+    update_message(" damage to Human");
+    e->updateDamage(damage);
+    check_dead(e);
 }
 
 void Player::attackIt(std::shared_ptr<Merchant> e) {
-    attackIt(dynamic_pointer_cast<Enemy>(e));
+    double d = e->getDefence();
+    double damage = ceil((100/(100+d)) * getAttack());
+    update_message("PC deals ");
+    update_message(to_string(damage));
+    update_message(" damage to Merchant");
+    e->updateDamage(damage);
+    check_dead(e);
 }
 
 void Player::attackIt(std::shared_ptr<Orc> e) {
-    attackIt(dynamic_pointer_cast<Enemy>(e));
+    double d = e->getDefence();
+    double damage = ceil((100/(100+d)) * getAttack());
+    update_message("PC deals ");
+    update_message(to_string(damage));
+    update_message(" damage to Orc");
+    e->updateDamage(damage);
+    check_dead(e);
 }
 
 void Player::check_dead(shared_ptr<Enemy> e){
@@ -248,15 +306,18 @@ void Player::check_dead(shared_ptr<Enemy> e){
         if(e->dropgold() == 2){
             shared_ptr<Normal> g = make_shared<Normal>(2);
             (*gO)[r][c] = g;
+            g->notifyObservers(SubscriptionType::displayOnly);
         }else if(e->dropgold() == 4){
             shared_ptr<MerchantHoard> g = make_shared<MerchantHoard>();
             (*gO)[r][c] = g;
+            g->notifyObservers(SubscriptionType::displayOnly);
         }else{
             shared_ptr<FloorTile> g = make_shared<FloorTile>();
             (*gO)[r][c] = g;
+            g->notifyObservers(SubscriptionType::displayOnly);
         }
         if(steal){
-            gold += 5;
+            gold = gold + 5;
         }
     }
 
@@ -276,6 +337,27 @@ std::string Player::getActionMessage() {
     return ActionMessage;
 }
 
+void Player::update_enemy(Enemy *e){
+    if(dynamic_cast<Dwarf*>(e)){
+        update_message("Dwarf");
+    } else if(dynamic_cast<Dragon*>(e)){
+        update_message("Dragon");
+    } else if(dynamic_cast<Elf*>(e)){
+        update_message("Elf");
+    }else if(dynamic_cast<Halfling*>(e)){
+        update_message("Halfling");
+    }else if(dynamic_cast<Human*>(e)){
+        update_message("Human");
+    }else if(dynamic_cast<Merchant*>(e)){
+        update_message("Merchant");
+    }else if(dynamic_cast<Orc*>(e)){
+        update_message("Orc");
+    }
+}
+
+void Player::update_message(string s){
+    ActionMessage.append(s);
+}
 void Player::PrintMessages(){
     cout << "Race: " << getRace() << " ";
     cout << "Gold: " << getGold();

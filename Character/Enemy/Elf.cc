@@ -20,57 +20,61 @@ Elf::Elf(){
 }
 void Elf::attack(shared_ptr<Goblin> pc){
     double d = pc->getDefence();
-    int damage = 0;
+    double damage = 0;
     int miss = rand()%2+1;
     if (miss == 1){
-        damage += ceil((100/100+d) * this->Atk);
+        damage = damage + ceil((100/(100+d)) * this->Atk);
     }
     miss = rand()%2 + 1;
     if (miss == 1){
-        damage += ceil((100/100+d) * this->Atk);
+        damage = damage + ceil((100/(100+d)) * this->Atk);
     }
-    pc->setHealth(damage);
+    pc->update_message("Elf");
+    pc->getDamage(damage);
 }
 void Elf::attack(shared_ptr<Shade> pc){
     double d = pc->getDefence();
-    int damage = 0;
+    double damage = 0;
     int miss = rand()%2+1;
     if (miss == 1){
-        damage += ceil((100/100+d) * this->Atk);
+        damage = ceil((100/(100+d)) * getAttack());
     }
     miss = rand()%2 + 1;
     if (miss == 1){
-        damage += ceil((100/100+d) * this->Atk);
+        damage = damage + ceil((100/(100+d)) * getAttack());
     }
-    pc->setHealth(damage);
+    pc->update_message("Elf");
+    pc->getDamage(damage);
 
 }
 void Elf::attack(shared_ptr<Troll> pc){
     double d = pc->getDefence();
-    int damage = 0;
+    double damage = 0;
     int miss = rand()%2+1;
     if (miss == 1){
-        damage += ceil((100/100+d) * this->Atk);
+        damage = ceil((100/(100+d)) * this->Atk);
     }
     miss = rand()%2 + 1;
     if (miss == 1){
-        damage += ceil((100/100+d) * this->Atk);
+        damage = damage + ceil((100/(100+d)) * this->Atk);
     }
-    pc->setHealth(damage);
+    pc->update_message("Elf");
+    pc->getDamage(damage);
 
 }
 void Elf::attack(shared_ptr<Vampire> pc){
     double d = pc->getDefence();
-    int damage = 0;
+    double damage = 0;
     int miss = rand()%2+1;
     if (miss == 1){
-        damage += ceil((100/100+d) * this->Atk);
+        damage = ceil((100/(100+d)) * this->Atk);
     }
     miss = rand()%2 + 1;
     if (miss == 1){
-        damage += ceil((100/100+d) * this->Atk);
+        damage = damage + ceil((100/(100+d)) * this->Atk);
     }
-    pc->setHealth(damage);
+    pc->update_message("Elf");
+    pc->getDamage(damage);
 
 }
 Elf::~Elf(){
