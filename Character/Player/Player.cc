@@ -362,8 +362,12 @@ void Player::move(string dir){
     
     if((*gO)[r][c]->getObjType() == GridObjectType::smallGold ||
        (*gO)[r][c]->getObjType() == GridObjectType::normalGold ||
-       (*gO)[r][c]->getObjType() == GridObjectType::merchantHoard){
+       (*gO)[r][c]->getObjType() == GridObjectType::merchantHoard ||
+       (*gO)[r][c]->getObjType() == GridObjectType::smallGold){
         shared_ptr<Gold> g = dynamic_pointer_cast<Gold>((*gO)[r][c]);
+        if(!g->canPickUp()){
+            //on dragon
+        }
         gold += g->getGold();
         shared_ptr<FloorTile> f = make_shared<FloorTile>();
         (*gO)[r][c] = f;
@@ -375,13 +379,11 @@ void Player::move(string dir){
             ActionMessage.append(" normal Gold");
         }else if(g->getObjType() == GridObjectType::merchantHoard){
             ActionMessage.append(" merchant Hoard");
+        }else if(g->getObjType() == GridObjectType::dragonHoard){
+            ActionMessage.append(" dragon Hoard");
         }
         g->notifyObservers(SubscriptionType::displayOnly);
-    }else if((*gO)[r][c]->getObjType() == GridObjectType::dragonHoard){
-        shared_ptr<Gold> g = dynamic_pointer_cast<Gold>((*gO)[r][c]);
-        if(!g->canPickUp()){
-            
-        }
+        
     }
     
     
@@ -722,6 +724,7 @@ bool Player::hasReachedShairs() {
     return reachStairs;
 }
 
-void Player::goUpstairs() {
+int Player::goUpstairs() {
     floorNum++;
+    return floorNum;
 }
