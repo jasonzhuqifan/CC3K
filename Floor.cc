@@ -388,18 +388,23 @@ shared_ptr<Player> Floor::use(shared_ptr<Player> pc, std::string dir){
         potionCol--;
     }
     shared_ptr<Player> tempPc = pc;
+    pc->ActionMessage = "";
     switch (gO[potionRow][potionCol]->getObjType()) {
         case GridObjectType::BA:
             pc = make_shared<BAEffect>(tempPc);
+            pc->update_message("Player uses potion. Atk increases.");
             break;
         case GridObjectType::BD:
             pc = make_shared<BDEffect>(tempPc);
+            pc->update_message("Player uses potion. Def increases.");
             break;
         case GridObjectType::WA:
             pc = make_shared<WAEffect>(tempPc);
+            pc->update_message("Player uses potion. Atk decreases.");
             break;
         case GridObjectType::WD:
             pc = make_shared<WDEffect>(tempPc);
+            pc->update_message("Player uses potion. Def decreases.");
             break;
         case GridObjectType::RH:
             pc->setHealth(pc->getHP()+10);

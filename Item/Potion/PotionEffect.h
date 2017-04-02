@@ -17,6 +17,9 @@ public:
     int getGold() override;
     Info getInfo() override;
     void getDamage(double damage) override;
+    void attack(std::string dir, std::shared_ptr<Player>pc) override;
+    void setHealth(double h) override;
+    void update_message(std::string s) override;
 };
 
 

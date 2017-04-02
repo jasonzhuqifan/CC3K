@@ -39,3 +39,15 @@ Info PotionEffect::getInfo() {
 void PotionEffect::getDamage(double damage) {
     pc->getDamage(damage);
 }
+
+void PotionEffect::attack(std::string dir, std::shared_ptr<Player>npc) {
+    pc->attack(dir, npc);
+}
+
+void PotionEffect::setHealth(double h) {
+    pc->setHealth(h);
+}
+
+void PotionEffect::update_message(std::string s) {
+    pc->update_message(s);
+}

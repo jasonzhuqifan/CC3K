@@ -7,5 +7,6 @@ double BAEffect::getAttack() {
 }
 
 std::string BAEffect::getActionMessage() {
-    return pc->getActionMessage().append("Player uses potion. Atk increases.");
+    std::string message = "Player uses potion. Atk increases.";
+    return pc->update_message(message);
 }

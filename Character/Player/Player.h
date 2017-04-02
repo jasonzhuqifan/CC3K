@@ -36,11 +36,11 @@ public:
     virtual void attackIt(std::shared_ptr<Merchant> e, std::shared_ptr<Player>pc);
     virtual void attackIt(std::shared_ptr<Orc> e, std::shared_ptr<Player>pc);
     
-    void update_message(std::string s);
+    virtual void update_message(std::string s);
     void update_enemy(Enemy *e);
     bool ismagnify();
     bool isautoheal();
-    void setHealth(double h);
+    virtual void setHealth(double h);
     virtual void getDamage(double damage);
     virtual void move(std::string dir);
     virtual std::string getRace();
