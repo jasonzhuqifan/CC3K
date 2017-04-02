@@ -17,11 +17,11 @@ Vampire::Vampire(){
     playerRace = "Vampire";
 }
 
-void Vampire::attackIt(std::shared_ptr<Halfling> e){
+void Vampire::attackIt(std::shared_ptr<Halfling> e, std::shared_ptr<Player>pc){
     int miss = rand()%2+1;
     if(miss == 1){
         double d = e->getDefence();
-        double damage = ceil((100/(100+d)) * getAttack());
+        double damage = ceil((100/(100+d)) * pc->getAttack());
          e->updateDamage(damage);
         update_message("PC deals ");
         update_message(std::to_string(damage));
@@ -36,9 +36,9 @@ void Vampire::attackIt(std::shared_ptr<Halfling> e){
     check_dead(e);
 }
 
-void Vampire::attackIt(std::shared_ptr<Dwarf> e){
+void Vampire::attackIt(std::shared_ptr<Dwarf> e, std::shared_ptr<Player>pc){
     double d = e->getDefence();
-    double damage = ceil((100/(100+d)) * getAttack());
+    double damage = ceil((100/(100+d)) * pc->getAttack());
      e->updateDamage(damage);
     update_message("PC deals ");
     update_message(std::to_string(damage));
@@ -49,9 +49,9 @@ void Vampire::attackIt(std::shared_ptr<Dwarf> e){
     HP = HP - 5;
     check_dead(e);
 }
-void Vampire::attackIt(std::shared_ptr<Dragon> e){
+void Vampire::attackIt(std::shared_ptr<Dragon> e, std::shared_ptr<Player>pc){
     double d = e->getDefence();
-    double damage = ceil((100/(100+d)) * getAttack());
+    double damage = ceil((100/(100+d)) * pc->getAttack());
      e->updateDamage(damage);
     update_message("PC deals ");
     update_message(std::to_string(damage));
@@ -64,9 +64,9 @@ void Vampire::attackIt(std::shared_ptr<Dragon> e){
      HP = HP + 5;
     check_dead(e);
 }
-void Vampire::attackIt(std::shared_ptr<Elf> e){
+void Vampire::attackIt(std::shared_ptr<Elf> e, std::shared_ptr<Player>pc){
     double d = e->getDefence();
-    double damage = ceil((100/(100+d)) * getAttack());
+    double damage = ceil((100/(100+d)) * pc->getAttack());
      e->updateDamage(damage);
     update_message("PC deals ");
     update_message(std::to_string(damage));
@@ -79,9 +79,9 @@ void Vampire::attackIt(std::shared_ptr<Elf> e){
     HP = HP + 5;
     check_dead(e);
 }
-void Vampire::attackIt(std::shared_ptr<Human> e){
+void Vampire::attackIt(std::shared_ptr<Human> e, std::shared_ptr<Player>pc){
     double d = e->getDefence();
-    double damage = ceil((100/(100+d)) * getAttack());
+    double damage = ceil((100/(100+d)) * pc->getAttack());
      e->updateDamage(damage);
     update_message("PC deals ");
     update_message(std::to_string(damage));
@@ -94,9 +94,9 @@ void Vampire::attackIt(std::shared_ptr<Human> e){
      HP = HP + 5;
     check_dead(e);
 }
-void Vampire::attackIt(std::shared_ptr<Merchant> e){
+void Vampire::attackIt(std::shared_ptr<Merchant> e, std::shared_ptr<Player>pc){
     double d = e->getDefence();
-    double damage = ceil((100/(100+d)) * getAttack());
+    double damage = ceil((100/(100+d)) * pc->getAttack());
     update_message("PC deals ");
     update_message(std::to_string(damage));
     update_message(" damage to Merchant and gains 5 HP");
@@ -110,9 +110,9 @@ void Vampire::attackIt(std::shared_ptr<Merchant> e){
      HP = HP + 5;
     check_dead(e);
 }
-void Vampire::attackIt(std::shared_ptr<Orc> e){
+void Vampire::attackIt(std::shared_ptr<Orc> e, std::shared_ptr<Player>pc){
     double d = e->getDefence();
-    double damage = ceil((100/(100+d)) * getAttack());
+    double damage = ceil((100/(100+d)) * pc->getAttack());
     e->updateDamage(damage);
     update_message("PC deals ");
     update_message(std::to_string(damage));
