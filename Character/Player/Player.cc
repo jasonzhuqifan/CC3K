@@ -158,7 +158,7 @@ void Player::setHealth(double h){
         ActionMessage.append("Player uses potion. Heal "+to_string(MaxHP-h)+" HP");
     }else{
         HP = h;
-        ActionMessage.append("Player uses potion. Heal "+to_string(h)+" HP");
+        ActionMessage.append("Player uses potion. Heal "+to_string(10)+" HP");
     }
     if(HP <= 0){
         //THROW SOMETHING! YOU FUCKED UP!
@@ -166,9 +166,13 @@ void Player::setHealth(double h){
 }
 void Player::getDamage(double damage){
     HP -= damage;
-    ActionMessage.append(" deals ");
-    ActionMessage.append(to_string(damage));
-    ActionMessage.append(" to PC. ");
+    if(damage ==0){
+        ActionMessage.append(" deals ");
+        ActionMessage.append(to_string(damage));
+        ActionMessage.append(" to PC. ");
+    } else{
+        update_message(" Miss an attack");
+    }
     if(HP <= 0){
         // THROW SOMETHING! YOU FUCKED UP!
     }
