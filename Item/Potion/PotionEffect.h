@@ -26,6 +26,8 @@ public:
     bool hasReachedShairs() override;
     bool hasDead() override;
     int goUpstairs() override;
+    void memorizePotion(std::string s) override;
+    bool knowPotion(std::string s) override;
 };
 
 

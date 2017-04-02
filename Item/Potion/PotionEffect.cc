@@ -75,3 +75,11 @@ bool PotionEffect::hasDead() {
 int PotionEffect::goUpstairs() {
     return pc->goUpstairs();
 }
+
+void PotionEffect::memorizePotion(std::string s) {
+    pc->memorizePotion(s);
+}
+
+bool PotionEffect::knowPotion(std::string s) {
+    return pc->knowPotion(s);
+}

@@ -61,8 +61,8 @@ public:
     virtual bool hasReachedShairs();
     virtual bool hasDead();
     virtual int goUpstairs();
-    void memorizePotion(std::string s);
-    bool knowPotion(std::string s);
+    virtual void memorizePotion(std::string s);
+    virtual bool knowPotion(std::string s);
 };
 
 #endif
