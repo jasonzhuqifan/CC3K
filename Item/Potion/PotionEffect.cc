@@ -59,3 +59,11 @@ std::string PotionEffect::getActionMessage() {
 std::shared_ptr<Player> PotionEffect::getTrue() {
     return pc->getTrue();
 }
+
+bool PotionEffect::hasReachedShairs() {
+    return pc->hasReachedShairs();
+}
+
+int PotionEffect::goUpstairs() {
+    return pc->goUpstairs();
+}
