@@ -35,32 +35,32 @@ void Player::move(string dir){
     int c = currentCol;
     if(dir == "no"){
         r--;
-        update_message("Player moves North");
+        update_message("Player moves North ");
     }else if(dir == "so"){
         r++;
-        update_message("Player moves South");
+        update_message("Player moves South ");
     }else if(dir == "ea"){
         c++;
-        update_message("Player moves East");
+        update_message("Player moves East ");
     }else if(dir == "we"){
         c--;
-        update_message("Player moves West");
+        update_message("Player moves West ");
     }else if(dir == "ne"){
         r--;
         c++;
-        update_message("Player moves NorthEast");
+        update_message("Player moves NorthEast ");
     }else if(dir == "nw"){
         r--;
         c--;
-        update_message("Player moves NorthWest");
+        update_message("Player moves NorthWest ");
     }else if(dir == "se"){
         r++;
         c++;
-        update_message("Player moves SouthEast");
+        update_message("Player moves SouthEast ");
     }else if(dir == "sw"){
         r++;
         c--;
-        update_message("Player moves SouthWest");
+        update_message("Player moves SouthWest ");
     }
     
     
@@ -76,7 +76,7 @@ void Player::move(string dir){
         gold += g->getGold();
         shared_ptr<FloorTile> f = make_shared<FloorTile>();
         (*gO)[r][c] = f;
-        ActionMessage.append(" and picks up ");
+        ActionMessage.append("and picks up ");
         ActionMessage.append(to_string(g->getGoldCount()));
         if(g->getObjType() == GridObjectType::smallGold){
             ActionMessage.append(" small Gold");
