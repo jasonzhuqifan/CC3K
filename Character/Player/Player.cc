@@ -731,6 +731,8 @@ void Player::attack(std::string dir, std::shared_ptr<Player>pc){
     if((*gO)[r][c]->getObjType() == GridObjectType::Enemy){
         shared_ptr<Enemy> e = dynamic_pointer_cast<Enemy>((*gO)[r][c]);
         attackIt(e, pc);
+    }else{
+         this->notifyObservers(SubscriptionType::All);
     }
 }
 
@@ -750,8 +752,7 @@ void Player::attackIt(std::shared_ptr<Enemy> e, std::shared_ptr<Player>pc){
     }else if(dynamic_pointer_cast<Orc>(e)){
         attackIt(dynamic_pointer_cast<Orc>(e), pc);
     }
-    update_message(". ");
-    this->notifyObservers(SubscriptionType::All);
+     this->notifyObservers(SubscriptionType::All);
 }
 
 void Player::attackIt(std::shared_ptr<Dwarf> e, std::shared_ptr<Player>pc) {
