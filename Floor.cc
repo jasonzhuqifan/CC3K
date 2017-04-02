@@ -300,6 +300,7 @@ void Floor::placePlayer(shared_ptr<Character> pc){
     pc->setPos(y, x);
     td->spawn(x, y, '@');
     pc->attatch(td);
+    dynamic_pointer_cast<Player>(pc)->update_message("Player Character has spawned!");
 }
 
 shared_ptr<Cell> Floor::createCell(char c){
