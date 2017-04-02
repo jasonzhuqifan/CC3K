@@ -20,6 +20,12 @@ class Player : public Character, public std::enable_shared_from_this<Player> {
     bool onDoor = false;
     bool onPassage = false;
     bool onDragonHoard = false;
+    bool usedBA = false;
+    bool usedBD = false;
+    bool usedWA = false;
+    bool usedWD = false;
+    bool usedRH = false;
+    bool usedPH = false;
 protected:
     std::string ActionMessage;
     int floorNum = 1;
@@ -55,6 +61,8 @@ public:
     virtual bool hasReachedShairs();
     virtual bool hasDead();
     virtual int goUpstairs();
+    void memorizePotion(std::string s);
+    bool knowPotion(std::string s);
 };
 
 #endif

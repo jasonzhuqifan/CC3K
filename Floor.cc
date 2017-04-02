@@ -427,7 +427,30 @@ shared_ptr<Player> Floor::use(shared_ptr<Player> pc, std::string dir){
     shared_ptr<Potion> p = dynamic_pointer_cast<Potion>(gO[potionRow][potionCol]);
     if (p) {
         gO[info.currentRow][info.currentCol] = pc;
-        if(!p->hasTried()) p->setTried();
+        string potionType;
+        switch (p->getObjType()) {
+            case GridObjectType::BA:
+                potionType = "BA";
+                break;
+            case GridObjectType::BD:
+                potionType = "BD";
+                break;
+            case GridObjectType::WA:
+                potionType = "WA";
+                break;
+            case GridObjectType::WD:
+                potionType = "WD";
+                break;
+            case GridObjectType::RH:
+                potionType = "RH";
+                break;
+            case GridObjectType::PH:
+                potionType = "PH";
+                break;
+            default:
+                break;
+        }
+        if(!pc->knowPotion(potionType)) pc->memorizePotion(potionType);
         if(pc->hasDead()) return pc;
         p->notifyObservers(SubscriptionType::All);
         shared_ptr<FloorTile> g = make_shared<FloorTile>();

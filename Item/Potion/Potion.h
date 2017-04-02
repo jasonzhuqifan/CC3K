@@ -6,12 +6,9 @@
 #include "GridObjectType.h"
 
 class Potion : public Item{
-    bool tried;
 public:
     ObstacleType getObsType() override;
     virtual ~Potion() = 0;
-    bool hasTried();
-    void setTried();
 };
 
 #endif

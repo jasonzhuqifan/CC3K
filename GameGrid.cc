@@ -33,9 +33,9 @@ void GameGrid::move(string dir){
             win();
         }
     }
-    else if (pc->hasDead()) {
-        lose();
-    }
+//    else if (pc->hasDead()) {
+//        lose();
+//    }
     else {
         cout << *l;
         pc->PrintMessages();

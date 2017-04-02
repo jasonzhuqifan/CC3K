@@ -83,7 +83,30 @@ void Player::move(string dir){
        (*gO)[r+1][c]->getObjType() == GridObjectType::WA ||
        (*gO)[r+1][c]->getObjType() == GridObjectType::RH){
         shared_ptr<Potion> p = dynamic_pointer_cast<Potion>((*gO)[r+1][c]);
-        if(p->hasTried()){
+        string potionType;
+        switch (p->getObjType()) {
+            case GridObjectType::BA:
+                potionType = "BA";
+                break;
+            case GridObjectType::BD:
+                potionType = "BD";
+                break;
+            case GridObjectType::WA:
+                potionType = "WA";
+                break;
+            case GridObjectType::WD:
+                potionType = "WD";
+                break;
+            case GridObjectType::RH:
+                potionType = "RH";
+                break;
+            case GridObjectType::PH:
+                potionType = "PH";
+                break;
+            default:
+                break;
+        }
+        if(knowPotion(potionType)){
             update_message("and see a ");
             switch(p->getObjType()){
                 case GridObjectType::BA:
@@ -119,7 +142,30 @@ void Player::move(string dir){
         (*gO)[r-1][c]->getObjType() == GridObjectType::WA ||
         (*gO)[r-1][c]->getObjType() == GridObjectType::RH){
         shared_ptr<Potion> p = dynamic_pointer_cast<Potion>((*gO)[r-1][c]);
-        if(p->hasTried()){
+        string potionType;
+        switch (p->getObjType()) {
+            case GridObjectType::BA:
+                potionType = "BA";
+                break;
+            case GridObjectType::BD:
+                potionType = "BD";
+                break;
+            case GridObjectType::WA:
+                potionType = "WA";
+                break;
+            case GridObjectType::WD:
+                potionType = "WD";
+                break;
+            case GridObjectType::RH:
+                potionType = "RH";
+                break;
+            case GridObjectType::PH:
+                potionType = "PH";
+                break;
+            default:
+                break;
+        }
+        if(knowPotion(potionType)){
             update_message("and see a ");
             switch(p->getObjType()){
                 case GridObjectType::BA:
@@ -155,7 +201,30 @@ void Player::move(string dir){
         (*gO)[r][c+1]->getObjType() == GridObjectType::WA ||
         (*gO)[r][c+1]->getObjType() == GridObjectType::RH){
         shared_ptr<Potion> p = dynamic_pointer_cast<Potion>((*gO)[r][c+1]);
-        if(p->hasTried()){
+        string potionType;
+        switch (p->getObjType()) {
+            case GridObjectType::BA:
+                potionType = "BA";
+                break;
+            case GridObjectType::BD:
+                potionType = "BD";
+                break;
+            case GridObjectType::WA:
+                potionType = "WA";
+                break;
+            case GridObjectType::WD:
+                potionType = "WD";
+                break;
+            case GridObjectType::RH:
+                potionType = "RH";
+                break;
+            case GridObjectType::PH:
+                potionType = "PH";
+                break;
+            default:
+                break;
+        }
+        if(knowPotion(potionType)){
             update_message("and see a ");
             switch(p->getObjType()){
                 case GridObjectType::BA:
@@ -191,7 +260,30 @@ void Player::move(string dir){
         (*gO)[r][c-1]->getObjType() == GridObjectType::WA ||
         (*gO)[r][c-1]->getObjType() == GridObjectType::RH){
         shared_ptr<Potion> p = dynamic_pointer_cast<Potion>((*gO)[r][c-1]);
-        if(p->hasTried()){
+        string potionType;
+        switch (p->getObjType()) {
+            case GridObjectType::BA:
+                potionType = "BA";
+                break;
+            case GridObjectType::BD:
+                potionType = "BD";
+                break;
+            case GridObjectType::WA:
+                potionType = "WA";
+                break;
+            case GridObjectType::WD:
+                potionType = "WD";
+                break;
+            case GridObjectType::RH:
+                potionType = "RH";
+                break;
+            case GridObjectType::PH:
+                potionType = "PH";
+                break;
+            default:
+                break;
+        }
+        if(knowPotion(potionType)){
             update_message("and see a ");
             switch(p->getObjType()){
                 case GridObjectType::BA:
@@ -227,7 +319,30 @@ void Player::move(string dir){
        (*gO)[r+1][c+1]->getObjType() == GridObjectType::WA ||
        (*gO)[r+1][c+1]->getObjType() == GridObjectType::RH){
         shared_ptr<Potion> p = dynamic_pointer_cast<Potion>((*gO)[r+1][c+1]);
-        if(p->hasTried()){
+        string potionType;
+        switch (p->getObjType()) {
+            case GridObjectType::BA:
+                potionType = "BA";
+                break;
+            case GridObjectType::BD:
+                potionType = "BD";
+                break;
+            case GridObjectType::WA:
+                potionType = "WA";
+                break;
+            case GridObjectType::WD:
+                potionType = "WD";
+                break;
+            case GridObjectType::RH:
+                potionType = "RH";
+                break;
+            case GridObjectType::PH:
+                potionType = "PH";
+                break;
+            default:
+                break;
+        }
+        if(knowPotion(potionType)){
             update_message("and see a ");
             switch(p->getObjType()){
                 case GridObjectType::BA:
@@ -263,7 +378,30 @@ void Player::move(string dir){
        (*gO)[r-1][c+1]->getObjType() == GridObjectType::WA ||
        (*gO)[r-1][c+1]->getObjType() == GridObjectType::RH){
         shared_ptr<Potion> p = dynamic_pointer_cast<Potion>((*gO)[r-1][c+1]);
-        if(p->hasTried()){
+        string potionType;
+        switch (p->getObjType()) {
+            case GridObjectType::BA:
+                potionType = "BA";
+                break;
+            case GridObjectType::BD:
+                potionType = "BD";
+                break;
+            case GridObjectType::WA:
+                potionType = "WA";
+                break;
+            case GridObjectType::WD:
+                potionType = "WD";
+                break;
+            case GridObjectType::RH:
+                potionType = "RH";
+                break;
+            case GridObjectType::PH:
+                potionType = "PH";
+                break;
+            default:
+                break;
+        }
+        if(knowPotion(potionType)){
             update_message("and see a ");
             switch(p->getObjType()){
                 case GridObjectType::BA:
@@ -299,7 +437,30 @@ void Player::move(string dir){
        (*gO)[r-1][c-1]->getObjType() == GridObjectType::WA ||
        (*gO)[r-1][c-1]->getObjType() == GridObjectType::RH){
         shared_ptr<Potion> p = dynamic_pointer_cast<Potion>((*gO)[r-1][c-1]);
-        if(p->hasTried()){
+        string potionType;
+        switch (p->getObjType()) {
+            case GridObjectType::BA:
+                potionType = "BA";
+                break;
+            case GridObjectType::BD:
+                potionType = "BD";
+                break;
+            case GridObjectType::WA:
+                potionType = "WA";
+                break;
+            case GridObjectType::WD:
+                potionType = "WD";
+                break;
+            case GridObjectType::RH:
+                potionType = "RH";
+                break;
+            case GridObjectType::PH:
+                potionType = "PH";
+                break;
+            default:
+                break;
+        }
+        if(knowPotion(potionType)){
             update_message("and see a ");
             switch(p->getObjType()){
                 case GridObjectType::BA:
@@ -335,7 +496,30 @@ void Player::move(string dir){
        (*gO)[r+1][c-1]->getObjType() == GridObjectType::WA ||
        (*gO)[r+1][c-1]->getObjType() == GridObjectType::RH){
         shared_ptr<Potion> p = dynamic_pointer_cast<Potion>((*gO)[r+1][c-1]);
-        if(p->hasTried()){
+        string potionType;
+        switch (p->getObjType()) {
+            case GridObjectType::BA:
+                potionType = "BA";
+                break;
+            case GridObjectType::BD:
+                potionType = "BD";
+                break;
+            case GridObjectType::WA:
+                potionType = "WA";
+                break;
+            case GridObjectType::WD:
+                potionType = "WD";
+                break;
+            case GridObjectType::RH:
+                potionType = "RH";
+                break;
+            case GridObjectType::PH:
+                potionType = "PH";
+                break;
+            default:
+                break;
+        }
+        if(knowPotion(potionType)){
             update_message("and see a ");
             switch(p->getObjType()){
                 case GridObjectType::BA:
@@ -473,14 +657,25 @@ string Player::getRace() {
 
 void Player::setHealth(double h){
     if(MaxHP == -1){
+        if (h > HP) {
+            ActionMessage.append("Player uses potion. Heal "+to_string(10)+" HP");
+        }
+        else {
+            ActionMessage.append("Player uses potion. Poison -"+to_string(10)+" HP");
+        }
         HP = h;
-        ActionMessage.append("Player uses potion. Heal "+to_string(10)+" HP");
+        
     }else if(h >= MaxHP){
         HP = MaxHP;
-        ActionMessage.append("Player uses potion. Heal "+to_string(MaxHP-HP)+" HP");
+        ActionMessage.append("Player uses potion. HP restored to max");
     }else{
+        if (h > HP) {
+            ActionMessage.append("Player uses potion. Heal "+to_string(10)+" HP");
+        }
+        else {
+            ActionMessage.append("Player uses potion. Poison -"+to_string(10)+" HP");
+        }
         HP = h;
-        ActionMessage.append("Player uses potion. Heal "+to_string(10)+" HP");
     }
     if(HP <= 0){
         isDead = true;
@@ -785,4 +980,22 @@ int Player::goUpstairs() {
     reachStairs = false;
     floorNum++;
     return floorNum;
+}
+
+void Player::memorizePotion(std::string s) {
+    if (s == "BA") usedBA = true;
+    else if (s == "BD") usedBD = true;
+    else if (s == "WA") usedWA = true;
+    else if (s == "WD") usedWD = true;
+    else if (s == "RH") usedRH = true;
+    else if (s == "PH") usedPH = true;
+}
+
+bool Player::knowPotion(std::string s) {
+    if (s == "BA") return usedBA;
+    else if (s == "BD") return usedBD;
+    else if (s == "WA") return usedWA;
+    else if (s == "WD") return usedWD;
+    else if (s == "RH") return usedRH;
+    else return usedPH;
 }
