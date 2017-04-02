@@ -388,7 +388,7 @@ shared_ptr<Player> Floor::use(shared_ptr<Player> pc, std::string dir){
         potionCol--;
     }
     shared_ptr<Player> tempPc = pc;
-    pc->ActionMessage = "";
+    pc->emptyMessage();
     switch (gO[potionRow][potionCol]->getObjType()) {
         case GridObjectType::BA:
             pc = make_shared<BAEffect>(tempPc);
@@ -417,6 +417,7 @@ shared_ptr<Player> Floor::use(shared_ptr<Player> pc, std::string dir){
     }
     shared_ptr<Potion> p = dynamic_pointer_cast<Potion>(gO[potionRow][potionCol]);
     if (p) {
+        gO[info.currentRow][info.currentCol] = pc;
         if(!p->hasTried()) p->setTried();
         p->notifyObservers(SubscriptionType::All);
         shared_ptr<FloorTile> g = make_shared<FloorTile>();

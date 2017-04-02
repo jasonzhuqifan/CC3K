@@ -419,3 +419,7 @@ void Player::PrintMessages(){
     cout << "Def: " << getDefence() << endl;
     cout << "Action: " << getActionMessage() <<endl;
 }
+
+std::shared_ptr<Player> Player::getTrue() {
+    return shared_from_this();
+}

@@ -20,6 +20,8 @@ public:
     void attack(std::string dir, std::shared_ptr<Player>pc) override;
     void setHealth(double h) override;
     void update_message(std::string s) override;
+    std::string getActionMessage() override;
+    std::shared_ptr<Player> getTrue() override;
 };
 
 

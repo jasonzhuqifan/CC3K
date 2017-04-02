@@ -6,6 +6,3 @@ double BDEffect::getDefence() {
     return pc->getDefence() + 5;
 }
 
-std::string BDEffect::getActionMessage() {
-    return pc->getActionMessage().append("Player uses potion. Def increases.");
-}

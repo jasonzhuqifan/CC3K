@@ -7,7 +7,6 @@ class WAEffect : public PotionEffect{
 public:
     WAEffect(std::shared_ptr<Player> pc);
     double getAttack() override;
-    std::string getActionMessage() override;
 };
 
 #endif

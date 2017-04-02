@@ -14,7 +14,7 @@ class Merchant;
 class Orc;
 
 
-class Player : public Character{
+class Player : public Character, public std::enable_shared_from_this<Player> {
     bool reachStairs = false;
     bool onDoor = false;
     bool onPassage = false;
@@ -49,6 +49,7 @@ public:
     void PrintMessages();
     void emptyMessage();
     GridObjectType getObjType() override;
+    virtual std::shared_ptr<Player> getTrue();
 };
 
 #endif

@@ -118,25 +118,25 @@ void Enemy::move(){  //if enemy is stuck, you fucked up!
 
 void Enemy::attack(shared_ptr<Player> pc){
     pc->update_enemy(this);
-    if(dynamic_pointer_cast<Drow>(pc)){
-        attack(dynamic_pointer_cast<Drow>(pc));
-    }else if(dynamic_pointer_cast<Goblin>(pc)){
-        attack(dynamic_pointer_cast<Goblin>(pc));
+    double def = pc->getDefence();
+    if(dynamic_pointer_cast<Drow>(pc->getTrue())){
+        attack(dynamic_pointer_cast<Drow>(pc->getTrue(),def));
     }
-    else if(dynamic_pointer_cast<Drow>(pc)){
-        attack(dynamic_pointer_cast<Drow>(pc));
+    else if(dynamic_pointer_cast<Goblin>(pc->getTrue())){
+        attack(dynamic_pointer_cast<Goblin>(pc->getTrue(),def));
     }
-    else if(dynamic_pointer_cast<Shade>(pc)){
-        attack(dynamic_pointer_cast<Shade>(pc));
+    else if(dynamic_pointer_cast<Shade>(pc->getTrue())){
+        attack(dynamic_pointer_cast<Shade>(pc->getTrue(),def));
     }
-    else if(dynamic_pointer_cast<Troll>(pc)){
-        attack(dynamic_pointer_cast<Troll>(pc));
-    }else if(dynamic_pointer_cast<Vampire>(pc)){
-        attack(dynamic_pointer_cast<Vampire>(pc));
+    else if(dynamic_pointer_cast<Troll>(pc->getTrue())){
+        attack(dynamic_pointer_cast<Troll>(pc->getTrue(),def));
+    }
+    else if(dynamic_pointer_cast<Vampire>(pc->getTrue())){
+        attack(dynamic_pointer_cast<Vampire>(pc->getTrue(),def));
     }
 }
-void Enemy::attack(std::shared_ptr<Drow> pc){
-    double d = pc->getDefence();
+void Enemy::attack(std::shared_ptr<Drow> pc, double def){
+    double d = def;
     double damage = 0;
     int miss = rand()%2+1;
     if (miss == 1){
@@ -144,18 +144,8 @@ void Enemy::attack(std::shared_ptr<Drow> pc){
     }
     pc->getDamage(damage);
 }
-void Enemy::attack(std::shared_ptr<Goblin> pc){
-    double d = pc->getDefence();
-    double damage = 0;
-    int miss = rand()%2+1;
-    if (miss == 1){
-        damage = ceil((100/(100+d)) * this->Atk);
-    }
-    pc->getDamage(damage);
-
-}
-void Enemy::attack(std::shared_ptr<Shade> pc){
-    double d = pc->getDefence();
+void Enemy::attack(std::shared_ptr<Goblin> pc, double def){
+    double d = def;
     double damage = 0;
     int miss = rand()%2+1;
     if (miss == 1){
@@ -164,8 +154,18 @@ void Enemy::attack(std::shared_ptr<Shade> pc){
     pc->getDamage(damage);
 
 }
-void Enemy::attack(std::shared_ptr<Troll> pc){
-    double d = pc->getDefence();
+void Enemy::attack(std::shared_ptr<Shade> pc, double def){
+    double d = def;
+    double damage = 0;
+    int miss = rand()%2+1;
+    if (miss == 1){
+        damage = ceil((100/(100+d)) * this->Atk);
+    }
+    pc->getDamage(damage);
+
+}
+void Enemy::attack(std::shared_ptr<Troll> pc, double def){
+    double d = def;
     double damage = 0;
     int miss = rand()%2+1;
     if (miss == 1){
@@ -173,8 +173,8 @@ void Enemy::attack(std::shared_ptr<Troll> pc){
     }
     pc->getDamage(damage);
 }
-void Enemy::attack(std::shared_ptr<Vampire> pc){
-    double d = pc->getDefence();
+void Enemy::attack(std::shared_ptr<Vampire> pc, double def){
+    double d = def;
     double damage = 0;
     int miss = rand()%2+1;
     if (miss == 1){

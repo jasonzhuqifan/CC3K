@@ -51,3 +51,11 @@ void PotionEffect::setHealth(double h) {
 void PotionEffect::update_message(std::string s) {
     pc->update_message(s);
 }
+
+std::string PotionEffect::getActionMessage() {
+    return pc->getActionMessage();
+}
+
+std::shared_ptr<Player> PotionEffect::getTrue() {
+    return pc->getTrue();
+}
