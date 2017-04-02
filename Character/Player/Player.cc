@@ -65,7 +65,8 @@ void Player::move(string dir){
     
     
     if((*gO)[r][c]->getObjType() == GridObjectType::StairWay){
-        reachStairs = true; //HOW TO REACH NEWXT FLOOR
+        reachStairs = true;
+        return;
     }
     cout << endl << r << " " << c << endl;
     if((*gO)[r][c]->getObjType() == GridObjectType::smallGold ||
@@ -422,4 +423,12 @@ void Player::PrintMessages(){
 
 std::shared_ptr<Player> Player::getTrue() {
     return shared_from_this();
+}
+
+bool Player::hasReachedShairs() {
+    return reachStairs;
+}
+
+void Player::goUpstairs() {
+    floorNum++;
 }

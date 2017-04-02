@@ -50,6 +50,8 @@ public:
     void emptyMessage();
     GridObjectType getObjType() override;
     virtual std::shared_ptr<Player> getTrue();
+    bool hasReachedShairs();
+    void goUpstairs();
 };
 
 #endif

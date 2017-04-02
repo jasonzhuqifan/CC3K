@@ -27,6 +27,11 @@ void GameGrid::init(){
 
 void GameGrid::move(string dir){
     pc->move(dir);
+    if (pc->hasReachedShairs()) {
+        pc = pc->getTrue();
+        pc->goUpstairs();
+        init();
+    }
 }
 
 void GameGrid::use(string dir) {
