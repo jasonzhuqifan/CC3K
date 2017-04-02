@@ -12,7 +12,7 @@ void Enemy::updateDamage(double damage){
     HP = HP - damage;
     if(HP <= 0){
         Dead = true;
-        notifyObservers(SubscriptionType::displayOnly);
+       // notifyObservers(SubscriptionType::displayOnly);
     }
 }
 
@@ -137,47 +137,50 @@ void Enemy::attack(shared_ptr<Player> pc){
 }
 void Enemy::attack(std::shared_ptr<Drow> pc){
     double d = pc->getDefence();
-    double damage = ceil((100/100+d) * this->Atk);
+    double damage = 0;
     int miss = rand()%2+1;
     if (miss == 1){
-        pc->getDamage(damage);
+        damage = ceil((100/100+d) * this->Atk);
     }
-
+    pc->getDamage(damage);
 }
 void Enemy::attack(std::shared_ptr<Goblin> pc){
     double d = pc->getDefence();
-    double damage = ceil((100/(100+d)) * this->Atk);
+    double damage = 0;
     int miss = rand()%2+1;
     if (miss == 1){
-        pc->getDamage(damage);
+        damage = ceil((100/100+d) * this->Atk);
     }
+    pc->getDamage(damage);
 
 }
 void Enemy::attack(std::shared_ptr<Shade> pc){
     double d = pc->getDefence();
-    double damage = ceil((100/(100+d)) * this->Atk);
+    double damage = 0;
     int miss = rand()%2+1;
     if (miss == 1){
-        pc->getDamage(damage);
+        damage = ceil((100/100+d) * this->Atk);
     }
+    pc->getDamage(damage);
 
 }
 void Enemy::attack(std::shared_ptr<Troll> pc){
     double d = pc->getDefence();
-    double damage = ceil((100/(100+d)) * this->Atk);
+    double damage = 0;
     int miss = rand()%2+1;
     if (miss == 1){
-        pc->getDamage(damage);
+        damage = ceil((100/100+d) * this->Atk);
     }
-
+    pc->getDamage(damage);
 }
 void Enemy::attack(std::shared_ptr<Vampire> pc){
     double d = pc->getDefence();
-    double damage = ceil((100/(100+d)) * this->Atk);
+    double damage = 0;
     int miss = rand()%2+1;
     if (miss == 1){
-        pc->getDamage(damage);
+        damage = ceil((100/100+d) * this->Atk);
     }
+    pc->getDamage(damage);
 
 }
 void Enemy::setNeutral(){

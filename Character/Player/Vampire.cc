@@ -24,7 +24,10 @@ void Vampire::attackIt(std::shared_ptr<Halfling> e){
         double damage = ceil((100/(100+d)) * getAttack());
         update_message("PC deals ");
         update_message(std::to_string(damage));
-        update_message(" damage to Halfling and gains 5 HP. ");
+        update_message(" damage to Halfling and gains 5 HP");
+        update_message("(");
+        update_message(std::to_string(e->getHP()));
+        update_message(")");
         e->updateDamage(damage);
         HP = HP + 5;
     }
@@ -36,7 +39,10 @@ void Vampire::attackIt(std::shared_ptr<Dwarf> e){
     double damage = ceil((100/(100+d)) * getAttack());
     update_message("PC deals ");
     update_message(std::to_string(damage));
-    update_message(" damage to Dwarf and gains 5 HP. ");
+    update_message(" damage to Dwarf and gains 5 HP");
+    update_message("(");
+    update_message(std::to_string(e->getHP()));
+    update_message(")");
     e->updateDamage(damage);
     HP = HP - 5;
     check_dead(e);
@@ -46,7 +52,10 @@ void Vampire::attackIt(std::shared_ptr<Dragon> e){
     double damage = ceil((100/(100+d)) * getAttack());
     update_message("PC deals ");
     update_message(std::to_string(damage));
-    update_message(" damage to Dragon and gains 5 HP. ");
+    update_message(" damage to Dragon and gains 5 HP");
+    update_message("(");
+    update_message(std::to_string(e->getHP()));
+    update_message(")");
     e->updateDamage(damage);
      HP = HP + 5;
     check_dead(e);
@@ -56,7 +65,10 @@ void Vampire::attackIt(std::shared_ptr<Elf> e){
     double damage = ceil((100/(100+d)) * getAttack());
     update_message("PC deals ");
     update_message(std::to_string(damage));
-    update_message(" damage to Elf and gains 5 HP. ");
+    update_message(" damage to Elf and gains 5 HP");
+    update_message("(");
+    update_message(std::to_string(e->getHP()));
+    update_message(")");
     e->updateDamage(damage);
     HP = HP + 5;
     check_dead(e);
@@ -66,7 +78,10 @@ void Vampire::attackIt(std::shared_ptr<Human> e){
     double damage = ceil((100/(100+d)) * getAttack());
     update_message("PC deals ");
     update_message(std::to_string(damage));
-    update_message(" damage to Human and gains 5 HP. ");
+    update_message(" damage to Human and gains 5 HP");
+    update_message("(");
+    update_message(std::to_string(e->getHP()));
+    update_message(")");
     e->updateDamage(damage);
      HP = HP + 5;
     check_dead(e);
@@ -76,7 +91,10 @@ void Vampire::attackIt(std::shared_ptr<Merchant> e){
     double damage = ceil((100/(100+d)) * getAttack());
     update_message("PC deals ");
     update_message(std::to_string(damage));
-    update_message(" damage to Merchant and gains 5 HP. ");
+    update_message(" damage to Merchant and gains 5 HP");
+    update_message("(");
+    update_message(std::to_string(e->getHP()));
+    update_message(")");
     e->updateDamage(damage);
     e->setNeutral();
      HP = HP + 5;
@@ -87,7 +105,10 @@ void Vampire::attackIt(std::shared_ptr<Orc> e){
     double damage = ceil((100/(100+d)) * getAttack());
     update_message("PC deals ");
     update_message(std::to_string(damage));
-    update_message(" damage to Orc and gains 5 HP. ");
+    update_message(" damage to Orc and gains 5 HP");
+    update_message("(");
+    update_message(std::to_string(e->getHP()));
+    update_message(")");
     e->updateDamage(damage);
     HP = HP + 5;
     check_dead(e);

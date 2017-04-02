@@ -165,7 +165,7 @@ void Player::setHealth(double h){
     }
 }
 void Player::getDamage(double damage){
-    HP -= damage;
+    HP = HP - damage;
     if(damage !=0){
         ActionMessage.append(" deals ");
         ActionMessage.append(to_string(damage));
@@ -229,6 +229,7 @@ void Player::attackIt(std::shared_ptr<Enemy> e){
     }else if(dynamic_pointer_cast<Orc>(e)){
         attackIt(dynamic_pointer_cast<Orc>(e));
     }
+    update_message(". ");
     this->notifyObservers(SubscriptionType::All);
 }
 
@@ -237,7 +238,10 @@ void Player::attackIt(std::shared_ptr<Dwarf> e) {
     double damage = ceil((100/(100+d)) * getAttack());
     update_message("PC deals ");
     update_message(to_string(damage));
-    update_message(" damage to Dwarf");
+    update_message(" damage to Dwarf ");
+    update_message("(");
+    update_message(std::to_string(e->getHP()));
+    update_message(")");
     e->updateDamage(damage);
     check_dead(e);
 }
@@ -248,6 +252,9 @@ void Player::attackIt(std::shared_ptr<Dragon> e) {
     update_message("PC deals ");
     update_message(to_string(damage));
     update_message(" damage to Dragon");
+    update_message("(");
+    update_message(std::to_string(e->getHP()));
+    update_message(")");
     e->updateDamage(damage);
     check_dead(e);
 }
@@ -258,6 +265,9 @@ void Player::attackIt(std::shared_ptr<Elf> e) {
     update_message("PC deals ");
     update_message(to_string(damage));
     update_message(" damage to Elf");
+    update_message("(");
+    update_message(std::to_string(e->getHP()));
+    update_message(")");
     e->updateDamage(damage);
     check_dead(e);
 }
@@ -268,6 +278,9 @@ void Player::attackIt(std::shared_ptr<Halfling> e) {
     update_message("PC deals ");
     update_message(to_string(damage));
     update_message(" damage to Hafling");
+    update_message("(");
+    update_message(std::to_string(e->getHP()));
+    update_message(")");
     e->updateDamage(damage);
     check_dead(e);
 }
@@ -278,6 +291,9 @@ void Player::attackIt(std::shared_ptr<Human> e) {
     update_message("PC deals ");
     update_message(to_string(damage));
     update_message(" damage to Human");
+    update_message("(");
+    update_message(std::to_string(e->getHP()));
+    update_message(")");
     e->updateDamage(damage);
     check_dead(e);
 }
@@ -288,6 +304,9 @@ void Player::attackIt(std::shared_ptr<Merchant> e) {
     update_message("PC deals ");
     update_message(to_string(damage));
     update_message(" damage to Merchant");
+    update_message("(");
+    update_message(std::to_string(e->getHP()));
+    update_message(")");
     e->updateDamage(damage);
     check_dead(e);
 }
@@ -298,6 +317,9 @@ void Player::attackIt(std::shared_ptr<Orc> e) {
     update_message("PC deals ");
     update_message(to_string(damage));
     update_message(" damage to Orc");
+    update_message("(");
+    update_message(std::to_string(e->getHP()));
+    update_message(")");
     e->updateDamage(damage);
     check_dead(e);
 }
