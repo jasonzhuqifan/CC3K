@@ -20,11 +20,11 @@ protected:
     bool stationary = false;
 public:
     virtual void attack(std::shared_ptr<Player> pc);
-    virtual void attack(std::shared_ptr<Drow> pc);
-    virtual void attack(std::shared_ptr<Goblin> pc);
-    virtual void attack(std::shared_ptr<Shade> pc);
-    virtual void attack(std::shared_ptr<Troll> pc);
-    virtual void attack(std::shared_ptr<Vampire> pc);
+    virtual void attack(std::shared_ptr<Drow> pc, double true_def);
+    virtual void attack(std::shared_ptr<Goblin> pc, double true_def);
+    virtual void attack(std::shared_ptr<Shade> pc, double true_def);
+    virtual void attack(std::shared_ptr<Troll> pc, double true_def);
+    virtual void attack(std::shared_ptr<Vampire> pc, double true_def);
     void setNeutral();
     bool isDead();
     int dropgold();

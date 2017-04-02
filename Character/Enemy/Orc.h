@@ -14,7 +14,7 @@
 class Orc : public Enemy{
 public:
     Orc();
-    void attack(std::shared_ptr<Goblin> pc) override;
+    void attack(std::shared_ptr<Goblin> pc, double true_def) override;
     ~Orc();
 };
 
