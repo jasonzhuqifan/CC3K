@@ -374,6 +374,7 @@ void Player::move(string dir){
        (*gO)[r][c]->getObjType() == GridObjectType::dragonHoard || onDragonHoard == true){
         if(dynamic_pointer_cast<Gold>((*gO)[r][c])){
             shared_ptr<Gold> g = dynamic_pointer_cast<Gold>((*gO)[r][c]);
+            g->setPos(r, c);
             g->notifyObservers(SubscriptionType::displayOnly);
             if(g->canPickUp()){
                 onDragonHoard = true;
