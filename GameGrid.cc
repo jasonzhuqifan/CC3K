@@ -29,12 +29,15 @@ void GameGrid::move(string dir){
     pc->move(dir);
     if (pc->hasReachedShairs()) {
         pc = pc->getTrue();
-        if(pc->goUpstairs() > 5) {
+        if(pc->goUpstairs() > 1) {
             win();
         }
     }
-    if(pc->hasDead()) {
+    else if (pc->hasDead()) {
         lose();
+    }
+    else {
+        cout << l;
     }
 }
 
@@ -43,12 +46,18 @@ void GameGrid::use(string dir) {
     if(pc->hasDead()) {
         lose();
     }
+    else {
+        cout << l;
+    }
 }
 
 void GameGrid::attack(string dir){
     pc->attack(dir,pc);
     if(pc->hasDead()) {
         lose();
+    }
+    else {
+        cout << l;
     }
 }
 
@@ -71,11 +80,11 @@ void GameGrid::freeze(){
 //    delete l;
 //}
 
-ostream &operator<<(std::ostream &out, const GameGrid &g){
-    out << *(g.l);
-    g.pc->PrintMessages();
-    return out;
-}
+//ostream &operator<<(std::ostream &out, const GameGrid &g){
+//    out << *(g.l);
+//    g.pc->PrintMessages();
+//    return out;
+//}
 
 void GameGrid::win() {
     printWin();
