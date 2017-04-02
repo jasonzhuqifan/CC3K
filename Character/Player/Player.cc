@@ -366,48 +366,51 @@ void Player::move(string dir){
     }
     
 //*********************************************************************************************************************************
-
-    
-    if(onDragonHoard){
-        shared_ptr<DragonHoard> g = make_shared<DragonHoard>();
-        (*gO)[r][c] = g;
-        g->setPos(r, c);
-        g->attatch(dynamic_pointer_cast<Observer>(TD));
-        g->notifyObservers(SubscriptionType::displayOnly);
-        onDragonHoard = false;
-    }
-    
+//gold pick up
+   
     if((*gO)[r][c]->getObjType() == GridObjectType::smallGold ||
        (*gO)[r][c]->getObjType() == GridObjectType::normalGold ||
        (*gO)[r][c]->getObjType() == GridObjectType::merchantHoard ||
-       (*gO)[r][c]->getObjType() == GridObjectType::dragonHoard){
-        shared_ptr<Gold> g = dynamic_pointer_cast<Gold>((*gO)[r][c]);
-        g->notifyObservers(SubscriptionType::displayOnly);
-        if(g->canPickUp()){
-            onDragonHoard = true;
-            shared_ptr<FloorTile> f = make_shared<FloorTile>();
-            (*gO)[r][c] = f;
-             f->setPos(r, c);
-            
-        }else{
-            gold += g->getGold();
-            shared_ptr<FloorTile> f = make_shared<FloorTile>();
-            (*gO)[r][c] = f;
-            f->setPos(r, c);
-            ActionMessage.append("and picks up ");
-            ActionMessage.append(to_string(g->getGoldCount()));
-            if(g->getObjType() == GridObjectType::smallGold){
-                ActionMessage.append(" small Gold");
-            } else if(g->getObjType() == GridObjectType::normalGold){
-                ActionMessage.append(" normal Gold");
-            }else if(g->getObjType() == GridObjectType::merchantHoard){
-                ActionMessage.append(" merchant Hoard");
-            }else if(g->getObjType() == GridObjectType::dragonHoard){
-                ActionMessage.append(" dragon Hoard");
+       (*gO)[r][c]->getObjType() == GridObjectType::dragonHoard || onDragonHoard == true){
+        if(dynamic_pointer_cast<Gold>((*gO)[r][c])){
+            shared_ptr<Gold> g = dynamic_pointer_cast<Gold>((*gO)[r][c]);
+            g->notifyObservers(SubscriptionType::displayOnly);
+            if(g->canPickUp()){
+                onDragonHoard = true;
+                shared_ptr<FloorTile> f = make_shared<FloorTile>();
+                (*gO)[r][c] = f;
+                f->setPos(r, c);
+                f->attatch(TD);
+            }else{
+                gold += g->getGold();
+                shared_ptr<FloorTile> f = make_shared<FloorTile>();
+                (*gO)[r][c] = f;
+                f->setPos(r, c);
+                ActionMessage.append("and picks up ");
+                ActionMessage.append(to_string(g->getGoldCount()));
+                if(g->getObjType() == GridObjectType::smallGold){
+                    ActionMessage.append(" small Gold");
+                } else if(g->getObjType() == GridObjectType::normalGold){
+                    ActionMessage.append(" normal Gold");
+                }else if(g->getObjType() == GridObjectType::merchantHoard){
+                    ActionMessage.append(" merchant Hoard");
+                }else if(g->getObjType() == GridObjectType::dragonHoard){
+                    ActionMessage.append(" dragon Hoard");
+                }
             }
+        }else{
+            shared_ptr<DragonHoard> g = make_shared<DragonHoard>();
+            (*gO)[r][c] = g;
+            g->setPos(r, c);
+            g->attatch(dynamic_pointer_cast<Observer>(TD));
+            g->notifyObservers(SubscriptionType::displayOnly);
+            //onDragonHoard = false; //多call了一次display所以又换回去了, 加条件可解决
         }
+       
     }
-    
+
+//*********************************************************************************************************************************
+// gold pickup done
     
     if((*gO)[r][c]->getObsType() != ObstacleType::BolckAll){
         shared_ptr<GridObjects> origin = (*gO)[r][c];
