@@ -453,7 +453,7 @@ void Player::setHealth(double h){
         ActionMessage.append("Player uses potion. Heal "+to_string(10)+" HP");
     }
     if(HP <= 0){
-        //THROW SOMETHING! YOU FUCKED UP!
+        
     }
 }
 void Player::getDamage(double damage){

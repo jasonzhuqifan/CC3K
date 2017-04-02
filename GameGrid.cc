@@ -29,6 +29,9 @@ void GameGrid::move(string dir){
     pc->move(dir);
     if (pc->hasReachedShairs()) {
         pc = pc->getTrue();
+//        if(pc->goUpstairs() > 5) {
+//            win();
+//        }
         pc->goUpstairs();
         init();
     }
