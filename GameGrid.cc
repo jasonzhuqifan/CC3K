@@ -110,9 +110,9 @@ void GameGrid::printStart() {
     cout << "3K       3K            3K  3K  3K" << endl;
     cout << "C3       C3            C3  C3  C3" << endl;
     cout << "CC3KCC3  CC3KCC3   CC3KCC  CC  CC3" << endl;
-    cout << "KCC3KCC  KCC3KCC  3KCC3KC  KC   CC" << endl << endl;
-    cout << "Welcome to CC3K produced by Yinong Wang, Raymond Tan, and Qifan Zhu." << endl;
-    cout << "To start the game, choose a race: s, d, v, g, t" << endl;
+    cout << "KCC3KCC  KCC3KCC  3KCC3KC  KC   CC" << endl << endl << endl;
+    cout << "Welcome to CC3K produced by Yinong Wang, Raymond Tan, and Qifan Zhu." << endl << endl;
+    cout << "To start the game, choose a race: s, d, v, g, t" << endl << endl;
 }
 
 void GameGrid::printWin() {
@@ -137,7 +137,7 @@ void GameGrid::printWin() {
     cout << "   WI    UU   YO  WW   OU        WI   UW   YO  WW  YO   IN" << endl;
     cout << "   YO    INYOU W  NYOU WI        YOU WINYOUW   WY  WW   OU" << endl;
     cout << "   W     OU WINY  U WINYO         WINYOU WIW   UU  NY   WI" << endl << endl;
-    cout << "Press r to restart the game" << endl;
+    cout << "Press r to restart the game" << endl << endl;
 }
 
 void GameGrid::printLose() {
@@ -151,5 +151,5 @@ void GameGrid::printLose() {
     cout << "ME   ER   ME  VE  GA   OV   AM   O            GA   OV    AME     RG       ER  ME" << endl;
     cout << "GAME OV  RGA E O  ER   E    RG  ME OVER       ERGAME     RGA     VERGAME  OV  GA" << endl;
     cout << "ERGAMEE  VER AME  OV   AM   VE  GAME O        OVERGAM    VER      OVERG   E    RG" << endl << endl;
-    cout << "Press r to restart the game" << endl;
+    cout << "Press r to restart the game" << endl << endl;
 }

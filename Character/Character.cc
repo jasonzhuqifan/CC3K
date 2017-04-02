@@ -1,5 +1,7 @@
 #include "Character.h"
 
+Character::Character() : gold(0) {}
+
 double Character::getHP(){
     return HP;
 }

@@ -17,6 +17,7 @@ protected:
     int gold;
     
 public:
+    Character();
     virtual double getMaxHP();
     virtual double getHP();
     virtual double getAttack();
