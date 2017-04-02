@@ -17,3 +17,7 @@ ObstacleType Gold::getObsType(){
 bool Gold::canPickUp(){
     return isGuarded;
 }
+
+void Gold::setGuarded(){
+    isGuarded = false;
+}

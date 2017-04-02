@@ -18,6 +18,7 @@ class Player : public Character, public std::enable_shared_from_this<Player> {
     bool reachStairs = false;
     bool onDoor = false;
     bool onPassage = false;
+    bool onDragonHoard = false;
 protected:
     std::string ActionMessage;
     int floorNum = 1;

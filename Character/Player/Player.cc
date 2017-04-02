@@ -20,6 +20,7 @@
 #include "Merchant.h"
 #include "Dragon.h"
 #include "Dwarf.h"
+#include "DragonHoard.h"
 
 using namespace std;
 
@@ -359,6 +360,14 @@ void Player::move(string dir){
 //*********************************************************************************************************************************
 
     
+    if(onDragonHoard){
+        shared_ptr<DragonHoard> g = make_shared<DragonHoard>();
+        (*gO)[r][c] = g;
+        g->setPos(r, c);
+        g->attatch(dynamic_pointer_cast<Observer>(TD));
+        g->notifyObservers(SubscriptionType::displayOnly);
+        onDragonHoard = false;
+    }
     
     if((*gO)[r][c]->getObjType() == GridObjectType::smallGold ||
        (*gO)[r][c]->getObjType() == GridObjectType::normalGold ||
@@ -366,24 +375,28 @@ void Player::move(string dir){
        (*gO)[r][c]->getObjType() == GridObjectType::smallGold){
         shared_ptr<Gold> g = dynamic_pointer_cast<Gold>((*gO)[r][c]);
         if(!g->canPickUp()){
-            //on dragon
-        }
-        gold += g->getGold();
-        shared_ptr<FloorTile> f = make_shared<FloorTile>();
-        (*gO)[r][c] = f;
-        ActionMessage.append("and picks up ");
-        ActionMessage.append(to_string(g->getGoldCount()));
-        if(g->getObjType() == GridObjectType::smallGold){
-            ActionMessage.append(" small Gold");
-        } else if(g->getObjType() == GridObjectType::normalGold){
-            ActionMessage.append(" normal Gold");
-        }else if(g->getObjType() == GridObjectType::merchantHoard){
-            ActionMessage.append(" merchant Hoard");
-        }else if(g->getObjType() == GridObjectType::dragonHoard){
-            ActionMessage.append(" dragon Hoard");
+            onDragonHoard = true;
+            shared_ptr<FloorTile> f = make_shared<FloorTile>();
+            (*gO)[r][c] = f;
+             f->setPos(r, c);
+        }else{
+            gold += g->getGold();
+            shared_ptr<FloorTile> f = make_shared<FloorTile>();
+            (*gO)[r][c] = f;
+            f->setPos(r, c);
+            ActionMessage.append("and picks up ");
+            ActionMessage.append(to_string(g->getGoldCount()));
+            if(g->getObjType() == GridObjectType::smallGold){
+                ActionMessage.append(" small Gold");
+            } else if(g->getObjType() == GridObjectType::normalGold){
+                ActionMessage.append(" normal Gold");
+            }else if(g->getObjType() == GridObjectType::merchantHoard){
+                ActionMessage.append(" merchant Hoard");
+            }else if(g->getObjType() == GridObjectType::dragonHoard){
+                ActionMessage.append(" dragon Hoard");
+            }
         }
         g->notifyObservers(SubscriptionType::displayOnly);
-        
     }
     
     
@@ -660,6 +673,33 @@ void Player::check_dead(shared_ptr<Enemy> e){
         }
         if(steal){
             gold = gold + 5;
+        }
+        if(dynamic_pointer_cast<Dragon>(e)){
+            if((*gO)[r+1][c]->getObjType() == GridObjectType::dragonHoard){
+                shared_ptr<Gold> g = dynamic_pointer_cast<Gold>((*gO)[r+1][c]);
+                g->setGuarded();
+            }else if((*gO)[r-1][c]->getObjType() == GridObjectType::dragonHoard){
+                shared_ptr<Gold> g = dynamic_pointer_cast<Gold>((*gO)[r-1][c]);
+                g->setGuarded();
+            }else if((*gO)[r+1][c+1]->getObjType() == GridObjectType::dragonHoard){
+                shared_ptr<Gold> g = dynamic_pointer_cast<Gold>((*gO)[r+1][c+1]);
+                g->setGuarded();
+            }else if((*gO)[r-1][c+1]->getObjType() == GridObjectType::dragonHoard){
+                shared_ptr<Gold> g = dynamic_pointer_cast<Gold>((*gO)[r-1][c+1]);
+                g->setGuarded();
+            }else if((*gO)[r][c+1]->getObjType() == GridObjectType::dragonHoard){
+                shared_ptr<Gold> g = dynamic_pointer_cast<Gold>((*gO)[r][c+1]);
+                g->setGuarded();
+            }else if((*gO)[r][c-1]->getObjType() == GridObjectType::dragonHoard){
+                shared_ptr<Gold> g = dynamic_pointer_cast<Gold>((*gO)[r][c-1]);
+                g->setGuarded();
+            }else if((*gO)[r+1][c-1]->getObjType() == GridObjectType::dragonHoard){
+                shared_ptr<Gold> g = dynamic_pointer_cast<Gold>((*gO)[r+1][c-1]);
+                g->setGuarded();
+            }else if((*gO)[r-1][c-1]->getObjType() == GridObjectType::dragonHoard){
+                shared_ptr<Gold> g = dynamic_pointer_cast<Gold>((*gO)[r-1][c-1]);
+                g->setGuarded();
+            }
         }
         detach(e);
     }

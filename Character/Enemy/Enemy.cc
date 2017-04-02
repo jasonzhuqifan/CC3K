@@ -12,7 +12,7 @@ void Enemy::updateDamage(double damage){
     HP = HP - damage;
     if(HP <= 0){
         Dead = true;
-       // notifyObservers(SubscriptionType::displayOnly);
+        
     }
 }
 

@@ -14,6 +14,7 @@ public:
     ObstacleType getObsType() override;
     int getGold();
     int getGoldCount();
+    void setGuarded();
 };
 
 #endif 
