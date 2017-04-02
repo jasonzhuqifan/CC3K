@@ -32,16 +32,24 @@ void GameGrid::move(string dir){
         if(pc->goUpstairs() > 5) {
             win();
         }
-        init();
+    }
+    if(pc->hasDead()) {
+        lose();
     }
 }
 
 void GameGrid::use(string dir) {
     pc = l->use(pc, dir);
+    if(pc->hasDead()) {
+        lose();
+    }
 }
 
 void GameGrid::attack(string dir){
     pc->attack(dir,pc);
+    if(pc->hasDead()) {
+        lose();
+    }
 }
 
 void GameGrid::setRace(char race){
@@ -71,6 +79,10 @@ ostream &operator<<(std::ostream &out, const GameGrid &g){
 
 void GameGrid::win() {
     printWin();
+}
+
+void GameGrid::lose() {
+    printLose();
 }
 
 void GameGrid::printStart() {

@@ -428,6 +428,7 @@ shared_ptr<Player> Floor::use(shared_ptr<Player> pc, std::string dir){
     if (p) {
         gO[info.currentRow][info.currentCol] = pc;
         if(!p->hasTried()) p->setTried();
+        if(pc->hasDead()) return pc;
         p->notifyObservers(SubscriptionType::All);
         shared_ptr<FloorTile> g = make_shared<FloorTile>();
         gO[potionRow][potionCol] = g;

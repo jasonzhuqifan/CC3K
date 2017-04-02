@@ -64,6 +64,10 @@ bool PotionEffect::hasReachedShairs() {
     return pc->hasReachedShairs();
 }
 
+bool PotionEffect::hasDead() {
+    return pc->hasDead();
+}
+
 int PotionEffect::goUpstairs() {
     return pc->goUpstairs();
 }

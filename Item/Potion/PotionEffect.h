@@ -23,6 +23,7 @@ public:
     std::string getActionMessage() override;
     std::shared_ptr<Player> getTrue() override;
     bool hasReachedShairs() override;
+    bool hasDead() override;
     int goUpstairs() override;
 };
 
