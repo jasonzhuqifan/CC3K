@@ -14,11 +14,11 @@ Troll::Troll(){
     playerRace = "Troll";
 }
 
-void Troll::attackIt(std::shared_ptr<Halfling> e){
+void Troll::attackIt(std::shared_ptr<Halfling> e, std::shared_ptr<Player>pc){
     int miss = rand()%2+1;
     if(miss == 1){
         double d = e->getDefence();
-        double damage = ceil((100/(100+d)) * getAttack());
+        double damage = ceil((100/(100+d)) * pc->getAttack());
         update_message("PC deals ");
         update_message(std::to_string(static_cast<int>(damage)));
         update_message(" damage to Halfling");
@@ -34,9 +34,9 @@ void Troll::attackIt(std::shared_ptr<Halfling> e){
     }
     check_dead(e);
 }
-void Troll::attackIt(std::shared_ptr<Merchant> e){
+void Troll::attackIt(std::shared_ptr<Merchant> e, std::shared_ptr<Player>pc){
     double d = e->getDefence();
-    double damage = ceil((100/(100+d)) * getAttack());
+    double damage = ceil((100/(100+d)) * pc->getAttack());
     e->updateDamage(damage);
     update_message("PC deals ");
     update_message(std::to_string(static_cast<int>(damage)));
