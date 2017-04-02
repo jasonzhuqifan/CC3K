@@ -52,16 +52,16 @@ void TextDisplay::notify(Subject &notifier){
               type == GridObjectType::WD ||
               type == GridObjectType::WA ||
               type == GridObjectType::RH){ //if notifier is potion
+        theDisplay[cr][cc] = '.';
+    } else if(type == GridObjectType::smallGold ||
+              type == GridObjectType::normalGold ||
+              type == GridObjectType::merchantHoard ||
+              type == GridObjectType::dragonHoard){ //Gold not consider Dragon Hoard yet!
         if(theDisplay[cr][cc] == 'G'){
             theDisplay[cr][cc] = '.';
         } else{
             theDisplay[cr][cc] = 'G';
         }
-    } else if(type == GridObjectType::smallGold ||
-              type == GridObjectType::normalGold ||
-              type == GridObjectType::merchantHoard ||
-              type == GridObjectType::dragonHoard){ //Gold not consider Dragon Hoard yet!
-        theDisplay[cr][cc] = '.';
     } else if(type == GridObjectType::Door){
         theDisplay[cr][cc] = '+';
     } else if(type == GridObjectType::Passage){
