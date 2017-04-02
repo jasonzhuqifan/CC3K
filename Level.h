@@ -22,7 +22,7 @@ public:
     virtual std::shared_ptr<Cell> createCell(char type) =0;
     virtual void placeEnemy(std::shared_ptr<Character> pc) = 0;
     virtual void placePotion() = 0;
-    virtual void placeGold() = 0;
+    virtual void placeGold(std::shared_ptr<Character> pc) = 0;
     virtual void placeStair() = 0;
     virtual void placePlayer(std::shared_ptr<Character> pc) = 0;
     virtual void setFrozen() = 0;

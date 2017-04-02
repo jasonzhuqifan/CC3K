@@ -45,7 +45,7 @@ private:
     
     void placeEnemy(std::shared_ptr<Character> pc) override;
     void placePotion() override;
-    void placeGold() override;
+    void placeGold(std::shared_ptr<Character> pc) override;
     void placeStair() override;
     void placePlayer(std::shared_ptr<Character> pc) override;
     template <typename T>

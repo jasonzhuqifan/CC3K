@@ -176,7 +176,7 @@ void Floor::placePotion(){
     }
 }
 
-void Floor::placeGold(){
+void Floor::placeGold(shared_ptr<Character> pc){
     pair<int,int> pos;
     shared_ptr<Gold> spawnGold = NULL;
     shared_ptr<Dragon> spawnDragon = NULL;
@@ -186,6 +186,7 @@ void Floor::placeGold(){
         if (spawnRate == 1){//Dragon Hoard
             spawnGold = make_shared<DragonHoard>();
             spawnDragon = make_shared<Dragon>();
+            pc->attatch(newEnemy);
             pos = spawnItem(spawnGold,'G');
             int y = pos.first;
             int x = pos.second;
@@ -337,7 +338,7 @@ void Floor::init(shared_ptr<Character> pc){
     placePlayer(pc);
     placeStair();
     placePotion();
-    placeGold();
+    placeGold(pc);
     placeEnemy(pc);
        //shared_ptr<vector<vector<shared_ptr<GridObjects>>>> map = make_shared<vector<vector<shared_ptr<GridObjects>>>>(gO);
     pc->setMap(&gO);
