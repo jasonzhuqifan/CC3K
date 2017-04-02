@@ -21,9 +21,11 @@ public:
     void attack(std::string dir);
     void setRace(char race);
     void freeze();
-//    void clearGrid();
-//    ~GameGrid();
     friend std::ostream &operator<<(std::ostream &out, const GameGrid &g);
+    void win();
+    void printStart();
+    void printWin();
+    void printLose();
 };
 
 #endif
