@@ -140,7 +140,7 @@ void Enemy::attack(std::shared_ptr<Drow> pc){
     double damage = 0;
     int miss = rand()%2+1;
     if (miss == 1){
-        damage = ceil((100/100+d) * this->Atk);
+        damage = ceil((100/(100+d)) * this->Atk);
     }
     pc->getDamage(damage);
 }
@@ -149,7 +149,7 @@ void Enemy::attack(std::shared_ptr<Goblin> pc){
     double damage = 0;
     int miss = rand()%2+1;
     if (miss == 1){
-        damage = ceil((100/100+d) * this->Atk);
+        damage = ceil((100/(100+d)) * this->Atk);
     }
     pc->getDamage(damage);
 
@@ -159,7 +159,7 @@ void Enemy::attack(std::shared_ptr<Shade> pc){
     double damage = 0;
     int miss = rand()%2+1;
     if (miss == 1){
-        damage = ceil((100/100+d) * this->Atk);
+        damage = ceil((100/(100+d)) * this->Atk);
     }
     pc->getDamage(damage);
 
@@ -169,7 +169,7 @@ void Enemy::attack(std::shared_ptr<Troll> pc){
     double damage = 0;
     int miss = rand()%2+1;
     if (miss == 1){
-        damage = ceil((100/100+d) * this->Atk);
+        damage = ceil((100/(100+d)) * this->Atk);
     }
     pc->getDamage(damage);
 }
@@ -178,7 +178,7 @@ void Enemy::attack(std::shared_ptr<Vampire> pc){
     double damage = 0;
     int miss = rand()%2+1;
     if (miss == 1){
-        damage = ceil((100/100+d) * this->Atk);
+        damage = ceil((100/(100+d)) * this->Atk);
     }
     pc->getDamage(damage);
 

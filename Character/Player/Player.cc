@@ -242,7 +242,7 @@ void Player::attackIt(std::shared_ptr<Dwarf> e) {
     update_message("(");
     update_message(std::to_string(e->getHP()));
     update_message(")");
-    e->updateDamage(damage);
+    e->updateDamage(dynamic_cast<int>(damage));
     check_dead(e);
 }
 
@@ -330,24 +330,28 @@ void Player::check_dead(shared_ptr<Enemy> e){
         int c = f.currentCol;
         int r = f.currentRow;
         if(e->dropgold() == 2){
-            shared_ptr<Normal> g = make_shared<Normal>(2);
-            g->attatch(TD);
-            (*gO)[r][c] = g;
-            g->notifyObservers(SubscriptionType::displayOnly);
+            shared_ptr<Normal> n = make_shared<Normal>(2);
+            n->attatch(TD);
+            n->setPos(r, c);
+            (*gO)[r][c] = n;
+            n->notifyObservers(SubscriptionType::displayOnly);
         }else if(e->dropgold() == 4){
-            shared_ptr<MerchantHoard> g = make_shared<MerchantHoard>();
-            g->attatch(TD);
-            (*gO)[r][c] = g;
-            g->notifyObservers(SubscriptionType::displayOnly);
+            shared_ptr<MerchantHoard> m = make_shared<MerchantHoard>();
+            m->attatch(TD);
+            m->setPos(r, c);
+            (*gO)[r][c] = m;
+            m->notifyObservers(SubscriptionType::displayOnly);
         }else{
-            shared_ptr<FloorTile> g = make_shared<FloorTile>();
-            g->attatch(TD);
-            (*gO)[r][c] = g;
-            g->notifyObservers(SubscriptionType::displayOnly);
+            shared_ptr<FloorTile> f = make_shared<FloorTile>();
+            f->attatch(TD);
+             f->setPos(r, c);
+            (*gO)[r][c] = f;
+            f->notifyObservers(SubscriptionType::displayOnly);
         }
         if(steal){
             gold = gold + 5;
         }
+        detach(e);
     }
 
 }
