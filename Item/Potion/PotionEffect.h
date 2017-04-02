@@ -16,6 +16,7 @@ public:
     std::string getRace() override;
     int getGold() override;
     Info getInfo() override;
+    void getDamage(double damage) override;
 };
 
 

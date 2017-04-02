@@ -35,3 +35,7 @@ int PotionEffect::getGold() {
 Info PotionEffect::getInfo() {
     return pc->getInfo();
 }
+
+void PotionEffect::getDamage(double damage) {
+    pc->getDamage(damage);
+}
