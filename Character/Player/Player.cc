@@ -166,7 +166,7 @@ void Player::setHealth(double h){
 }
 void Player::getDamage(double damage){
     HP -= damage;
-    if(damage ==0){
+    if(damage !=0){
         ActionMessage.append(" deals ");
         ActionMessage.append(to_string(damage));
         ActionMessage.append(" to PC. ");
