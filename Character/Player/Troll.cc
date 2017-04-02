@@ -22,10 +22,13 @@ void Troll::attackIt(std::shared_ptr<Halfling> e){
         update_message("PC deals ");
         update_message(std::to_string(damage));
         update_message(" damage to Halfling");
+        e->updateDamage(damage);
         update_message("(");
         update_message(std::to_string(e->getHP()));
+        update_message("/");
+        update_message(std::to_string(e->getMaxHP()));
         update_message(")");
-        e->updateDamage(damage);
+
     }else{
         update_message("PC misses attack to Halfing. ");
     }
@@ -40,6 +43,8 @@ void Troll::attackIt(std::shared_ptr<Merchant> e){
     update_message(" damage to Merchant");
     update_message("(");
     update_message(std::to_string(e->getHP()));
+    update_message("/");
+    update_message(std::to_string(e->getMaxHP()));
     update_message(")");
     e->setNeutral();
     check_dead(e);

@@ -92,10 +92,12 @@ void Vampire::attackIt(std::shared_ptr<Merchant> e){
     update_message("PC deals ");
     update_message(std::to_string(damage));
     update_message(" damage to Merchant and gains 5 HP");
+    e->updateDamage(damage);
     update_message("(");
     update_message(std::to_string(e->getHP()));
+    update_message("/");
+    update_message(std::to_string(e->getMaxHP()));
     update_message(")");
-    e->updateDamage(damage);
     e->setNeutral();
      HP = HP + 5;
     check_dead(e);
@@ -106,10 +108,12 @@ void Vampire::attackIt(std::shared_ptr<Orc> e){
     update_message("PC deals ");
     update_message(std::to_string(damage));
     update_message(" damage to Orc and gains 5 HP");
+    e->updateDamage(damage);
     update_message("(");
     update_message(std::to_string(e->getHP()));
+    update_message("/");
+    update_message(std::to_string(e->getMaxHP()));
     update_message(")");
-    e->updateDamage(damage);
     HP = HP + 5;
     check_dead(e);
 }

@@ -21,6 +21,8 @@ void Shade::attackIt(std::shared_ptr<Halfling> e){
         update_message(" damage to Halfling");
         update_message("(");
         update_message(std::to_string(e->getHP()));
+        update_message("/");
+        update_message(std::to_string(e->getMaxHP()));
         update_message(").");
         e->updateDamage(damage);
     }else{
@@ -38,6 +40,8 @@ void Shade::attackIt(std::shared_ptr<Merchant> e){
     update_message(" damage to Merchant. ");
     update_message("(");
     update_message(std::to_string(e->getHP()));
+    update_message("/");
+    update_message(std::to_string(e->getMaxHP()));
     update_message(")");
     e->updateDamage(damage);
     e->setNeutral();

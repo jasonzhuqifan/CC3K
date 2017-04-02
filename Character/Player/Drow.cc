@@ -20,6 +20,14 @@ void Drow::attackIt(std::shared_ptr<Halfling> e){
         double d = e->getDefence();
         double damage = ceil((100/(100+d)) * getAttack());
         e->updateDamage(damage);
+        update_message("PC deals ");
+        update_message(to_string(damage));
+        update_message(" damage to Halfling");
+        update_message("(");
+        update_message(std::to_string(e->getHP()));
+        update_message("/");
+        update_message(std::to_string(e->getMaxHP()));
+        update_message(")");
     }
     check_dead(e);
 }
@@ -28,6 +36,14 @@ void Drow::attackIt(std::shared_ptr<Merchant> e){
     double d = e->getDefence();
     double damage = ceil((100/(100+d)) * getAttack());
     e->updateDamage(damage);
+    update_message("PC deals ");
+    update_message(to_string(damage));
+    update_message(" damage to Merchant");
+    update_message("(");
+    update_message(std::to_string(e->getHP()));
+    update_message("/");
+    update_message(std::to_string(e->getMaxHP()));
+    update_message(")");
     e->setNeutral();
     check_dead(e);
 }
