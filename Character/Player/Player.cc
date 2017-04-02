@@ -404,7 +404,7 @@ void Player::move(string dir){
             g->setPos(r, c);
             g->attatch(dynamic_pointer_cast<Observer>(TD));
             g->notifyObservers(SubscriptionType::displayOnly);
-            //onDragonHoard = false; //多call了一次display所以又换回去了, 加条件可解决
+            onDragonHoard = false; //多call了一次display所以又换回去了, 加条件可解决
         }
        
     }
