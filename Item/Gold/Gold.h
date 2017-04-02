@@ -7,7 +7,7 @@ class Gold : public Item{
     int amount;
     int count;
 protected:
-    bool isGuarded;
+    bool isGuarded = false;
 public:
     bool canPickUp();
     Gold(int amount, int count);
