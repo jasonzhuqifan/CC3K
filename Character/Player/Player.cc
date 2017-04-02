@@ -110,29 +110,29 @@ void Player::move(string dir){
             update_message("and see a ");
             switch(p->getObjType()){
                 case GridObjectType::BA:
-                    update_message("BA, a potion that will increase attack");
+                    update_message("BA, a potion that will increase attack. ");
                     break;
                 case GridObjectType::BD:
-                    update_message("BD, a potion that will increase defence");
+                    update_message("BD, a potion that will increase defence. ");
                     break;
                 case GridObjectType::PH:
-                    update_message("PH, a potion that will decrease health");
+                    update_message("PH, a potion that will decrease health. ");
                     break;
                 case GridObjectType::RH:
-                    update_message("RH, a potion that will increase health");
+                    update_message("RH, a potion that will increase health. ");
                     break;
                 case GridObjectType::WA:
-                    update_message("WA, a potion that will decrease attack");
+                    update_message("WA, a potion that will decrease attack. ");
                     break;
                 case GridObjectType::WD:
-                    update_message("WD, a potion that will decrease defence");
+                    update_message("WD, a potion that will decrease defence. ");
                     break;
                 default:
                     break;
             }
             update_message(" potion");
         }else{
-            update_message("and see an unknown potion");
+            update_message("and see an unknown potion. ");
         }
     }
     if((*gO)[r-1][c]->getObjType() == GridObjectType::BA ||
@@ -169,29 +169,29 @@ void Player::move(string dir){
             update_message("and see a ");
             switch(p->getObjType()){
                 case GridObjectType::BA:
-                    update_message("BA, a potion that will increase attack");
+                    update_message("BA, a potion that will increase attack. ");
                     break;
                 case GridObjectType::BD:
-                    update_message("BD, a potion that will increase defence");
+                    update_message("BD, a potion that will increase defence. ");
                     break;
                 case GridObjectType::PH:
-                    update_message("PH, a potion that will decrease health");
+                    update_message("PH, a potion that will decrease health. ");
                     break;
                 case GridObjectType::RH:
-                    update_message("RH, a potion that will increase health");
+                    update_message("RH, a potion that will increase health. ");
                     break;
                 case GridObjectType::WA:
-                    update_message("WA, a potion that will decrease attack");
+                    update_message("WA, a potion that will decrease attack. ");
                     break;
                 case GridObjectType::WD:
-                    update_message("WD, a potion that will decrease defence");
+                    update_message("WD, a potion that will decrease defence. ");
                     break;
                 default:
                     break;
             }
             update_message(" potion");
         }else{
-            update_message("and see an unknown potion");
+            update_message("and see an unknown potion. ");
         }
     }
     if((*gO)[r][c+1]->getObjType() == GridObjectType::BA ||
@@ -228,29 +228,29 @@ void Player::move(string dir){
             update_message("and see a ");
             switch(p->getObjType()){
                 case GridObjectType::BA:
-                    update_message("BA, a potion that will increase attack");
+                    update_message("BA, a potion that will increase attack. ");
                     break;
                 case GridObjectType::BD:
-                    update_message("BD, a potion that will increase defence");
+                    update_message("BD, a potion that will increase defence. ");
                     break;
                 case GridObjectType::PH:
-                    update_message("PH, a potion that will decrease health");
+                    update_message("PH, a potion that will decrease health. ");
                     break;
                 case GridObjectType::RH:
-                    update_message("RH, a potion that will increase health");
+                    update_message("RH, a potion that will increase health. ");
                     break;
                 case GridObjectType::WA:
-                    update_message("WA, a potion that will decrease attack");
+                    update_message("WA, a potion that will decrease attack. ");
                     break;
                 case GridObjectType::WD:
-                    update_message("WD, a potion that will decrease defence");
+                    update_message("WD, a potion that will decrease defence. ");
                     break;
                 default:
                     break;
             }
             update_message(" potion");
         }else{
-            update_message("and see an unknown potion");
+            update_message("and see an unknown potion. ");
         }
     }
     if((*gO)[r][c-1]->getObjType() == GridObjectType::BA ||
@@ -287,29 +287,29 @@ void Player::move(string dir){
             update_message("and see a ");
             switch(p->getObjType()){
                 case GridObjectType::BA:
-                    update_message("BA, a potion that will increase attack");
+                    update_message("BA, a potion that will increase attack. ");
                     break;
                 case GridObjectType::BD:
-                    update_message("BD, a potion that will increase defence");
+                    update_message("BD, a potion that will increase defence. ");
                     break;
                 case GridObjectType::PH:
-                    update_message("PH, a potion that will decrease health");
+                    update_message("PH, a potion that will decrease health. ");
                     break;
                 case GridObjectType::RH:
-                    update_message("RH, a potion that will increase health");
+                    update_message("RH, a potion that will increase health. ");
                     break;
                 case GridObjectType::WA:
-                    update_message("WA, a potion that will decrease attack");
+                    update_message("WA, a potion that will decrease attack. ");
                     break;
                 case GridObjectType::WD:
-                    update_message("WD, a potion that will decrease defence");
+                    update_message("WD, a potion that will decrease defence. ");
                     break;
                 default:
                     break;
             }
             update_message(" potion");
         }else{
-            update_message("and see an unknown potion");
+            update_message("and see an unknown potion. ");
         }
     }
     if((*gO)[r+1][c+1]->getObjType() == GridObjectType::BA ||
@@ -346,29 +346,29 @@ void Player::move(string dir){
             update_message("and see a ");
             switch(p->getObjType()){
                 case GridObjectType::BA:
-                    update_message("BA, a potion that will increase attack");
+                    update_message("BA, a potion that will increase attack. ");
                     break;
                 case GridObjectType::BD:
-                    update_message("BD, a potion that will increase defence");
+                    update_message("BD, a potion that will increase defence. ");
                     break;
                 case GridObjectType::PH:
-                    update_message("PH, a potion that will decrease health");
+                    update_message("PH, a potion that will decrease health. ");
                     break;
                 case GridObjectType::RH:
-                    update_message("RH, a potion that will increase health");
+                    update_message("RH, a potion that will increase health. ");
                     break;
                 case GridObjectType::WA:
-                    update_message("WA, a potion that will decrease attack");
+                    update_message("WA, a potion that will decrease attack. ");
                     break;
                 case GridObjectType::WD:
-                    update_message("WD, a potion that will decrease defence");
+                    update_message("WD, a potion that will decrease defence. ");
                     break;
                 default:
                     break;
             }
             update_message(" potion");
         }else{
-            update_message("and see an unknown potion");
+            update_message("and see an unknown potion. ");
         }
     }
     if((*gO)[r-1][c+1]->getObjType() == GridObjectType::BA ||
@@ -405,29 +405,29 @@ void Player::move(string dir){
             update_message("and see a ");
             switch(p->getObjType()){
                 case GridObjectType::BA:
-                    update_message("BA, a potion that will increase attack");
+                    update_message("BA, a potion that will increase attack. ");
                     break;
                 case GridObjectType::BD:
-                    update_message("BD, a potion that will increase defence");
+                    update_message("BD, a potion that will increase defence. ");
                     break;
                 case GridObjectType::PH:
-                    update_message("PH, a potion that will decrease health");
+                    update_message("PH, a potion that will decrease health. ");
                     break;
                 case GridObjectType::RH:
-                    update_message("RH, a potion that will increase health");
+                    update_message("RH, a potion that will increase health. ");
                     break;
                 case GridObjectType::WA:
-                    update_message("WA, a potion that will decrease attack");
+                    update_message("WA, a potion that will decrease attack. ");
                     break;
                 case GridObjectType::WD:
-                    update_message("WD, a potion that will decrease defence");
+                    update_message("WD, a potion that will decrease defence. ");
                     break;
                 default:
                     break;
             }
             update_message(" potion");
         }else{
-            update_message("and see an unknown potion");
+            update_message("and see an unknown potion. ");
         }
     }
     if((*gO)[r-1][c-1]->getObjType() == GridObjectType::BA ||
@@ -464,29 +464,29 @@ void Player::move(string dir){
             update_message("and see a ");
             switch(p->getObjType()){
                 case GridObjectType::BA:
-                    update_message("BA, a potion that will increase attack");
+                    update_message("BA, a potion that will increase attack. ");
                     break;
                 case GridObjectType::BD:
-                    update_message("BD, a potion that will increase defence");
+                    update_message("BD, a potion that will increase defence. ");
                     break;
                 case GridObjectType::PH:
-                    update_message("PH, a potion that will decrease health");
+                    update_message("PH, a potion that will decrease health. ");
                     break;
                 case GridObjectType::RH:
-                    update_message("RH, a potion that will increase health");
+                    update_message("RH, a potion that will increase health. ");
                     break;
                 case GridObjectType::WA:
-                    update_message("WA, a potion that will decrease attack");
+                    update_message("WA, a potion that will decrease attack. ");
                     break;
                 case GridObjectType::WD:
-                    update_message("WD, a potion that will decrease defence");
+                    update_message("WD, a potion that will decrease defence. ");
                     break;
                 default:
                     break;
             }
             update_message(" potion");
         }else{
-            update_message("and see an unknown potion");
+            update_message("and see an unknown potion. ");
         }
     }
     if((*gO)[r+1][c-1]->getObjType() == GridObjectType::BA ||
@@ -523,29 +523,29 @@ void Player::move(string dir){
             update_message("and see a ");
             switch(p->getObjType()){
                 case GridObjectType::BA:
-                    update_message("BA, a potion that will increase attack");
+                    update_message("BA, a potion that will increase attack. ");
                     break;
                 case GridObjectType::BD:
-                    update_message("BD, a potion that will increase defence");
+                    update_message("BD, a potion that will increase defence. ");
                     break;
                 case GridObjectType::PH:
-                    update_message("PH, a potion that will decrease health");
+                    update_message("PH, a potion that will decrease health. ");
                     break;
                 case GridObjectType::RH:
-                    update_message("RH, a potion that will increase health");
+                    update_message("RH, a potion that will increase health. ");
                     break;
                 case GridObjectType::WA:
-                    update_message("WA, a potion that will decrease attack");
+                    update_message("WA, a potion that will decrease attack. ");
                     break;
                 case GridObjectType::WD:
-                    update_message("WD, a potion that will decrease defence");
+                    update_message("WD, a potion that will decrease defence. ");
                     break;
                 default:
                     break;
             }
             update_message(" potion");
         }else{
-            update_message("and see an unknown potion");
+            update_message("and see an unknown potion. ");
         }
     }
     
