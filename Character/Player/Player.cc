@@ -171,7 +171,7 @@ void Player::getDamage(double damage){
         update_message(to_string(static_cast<int>(damage)));
         update_message(" to PC. ");
     } else{
-        update_message(" Miss an attack");
+        update_message(" Miss an attack. ");
     }
     if(HP <= 0){
         // THROW SOMETHING! YOU FUCKED UP!
