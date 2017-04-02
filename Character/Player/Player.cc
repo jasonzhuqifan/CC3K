@@ -243,7 +243,7 @@ void Player::attackIt(std::shared_ptr<Dwarf> e) {
     update_message("(");
     update_message(std::to_string(static_cast<int>(e->getHP())));
     update_message("/");
-    update_message(std::to_string(e->getMaxHP()));
+    update_message(std::to_string(static_cast<int>(e->getMaxHP())));
     update_message(")");
     check_dead(e);
 }
@@ -258,7 +258,7 @@ void Player::attackIt(std::shared_ptr<Dragon> e) {
     update_message("(");
     update_message(std::to_string(static_cast<int>(e->getHP())));
     update_message("/");
-    update_message(std::to_string(e->getMaxHP()));
+    update_message(std::to_string(static_cast<int>(e->getMaxHP())));
     update_message(")");
     check_dead(e);
 }
@@ -273,7 +273,7 @@ void Player::attackIt(std::shared_ptr<Elf> e) {
     update_message("(");
     update_message(std::to_string(static_cast<int>(e->getHP())));
     update_message("/");
-    update_message(std::to_string(e->getMaxHP()));
+    update_message(std::to_string(static_cast<int>(e->getMaxHP())));
     update_message(")");
     check_dead(e);
 }
@@ -288,7 +288,7 @@ void Player::attackIt(std::shared_ptr<Halfling> e) {
     update_message("(");
     update_message(std::to_string(static_cast<int>(e->getHP())));
     update_message("/");
-    update_message(std::to_string(e->getMaxHP()));
+    update_message(std::to_string(static_cast<int>(e->getMaxHP())));
     update_message(")");
     check_dead(e);
 }
@@ -303,7 +303,7 @@ void Player::attackIt(std::shared_ptr<Human> e) {
     update_message("(");
     update_message(std::to_string(static_cast<int>(e->getHP())));
     update_message("/");
-    update_message(std::to_string(e->getMaxHP()));
+    update_message(std::to_string(static_cast<int>(e->getMaxHP())));
     update_message(")");
     check_dead(e);
 }
@@ -318,7 +318,7 @@ void Player::attackIt(std::shared_ptr<Merchant> e) {
     update_message("(");
     update_message(std::to_string(static_cast<int>(e->getHP())));
     update_message("/");
-    update_message(std::to_string(e->getMaxHP()));
+    update_message(std::to_string(static_cast<int>(e->getMaxHP())));
     update_message(")");
     check_dead(e);
 }
@@ -333,7 +333,7 @@ void Player::attackIt(std::shared_ptr<Orc> e) {
     update_message("(");
     update_message(std::to_string(static_cast<int>(e->getHP())));
     update_message("/");
-    update_message(std::to_string(e->getMaxHP()));
+    update_message(std::to_string(static_cast<int>(e->getMaxHP())));
     update_message(")");
     check_dead(e);
 }

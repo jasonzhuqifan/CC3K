@@ -26,7 +26,7 @@ void Troll::attackIt(std::shared_ptr<Halfling> e){
         update_message("(");
         update_message(std::to_string(static_cast<int>(e->getHP())));
         update_message("/");
-        update_message(std::to_string(e->getMaxHP()));
+        update_message(std::to_string(static_cast<int>(e->getMaxHP())));
         update_message(")");
 
     }else{
@@ -44,7 +44,7 @@ void Troll::attackIt(std::shared_ptr<Merchant> e){
     update_message("(");
     update_message(std::to_string(static_cast<int>(e->getHP())));
     update_message("/");
-    update_message(std::to_string(e->getMaxHP()));
+    update_message(std::to_string(static_cast<int>(e->getMaxHP())));
     update_message(")");
     e->setNeutral();
     check_dead(e);
