@@ -47,6 +47,7 @@ public:
     virtual std::string getActionMessage();
     void check_dead(std::shared_ptr<Enemy> e);
     void PrintMessages();
+    void emptyMessage();
     GridObjectType getObjType() override;
 };
 

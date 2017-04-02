@@ -384,6 +384,10 @@ std::string Player::getActionMessage() {
     return ActionMessage;
 }
 
+void Player::emptyMessage(){
+    ActionMessage = "";
+}
+
 void Player::update_enemy(Enemy *e){
     if(dynamic_cast<Dwarf*>(e)){
         update_message("Dwarf");
