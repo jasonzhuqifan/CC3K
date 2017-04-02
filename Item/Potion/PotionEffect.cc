@@ -56,6 +56,10 @@ std::string PotionEffect::getActionMessage() {
     return pc->getActionMessage();
 }
 
+void PotionEffect::emptyMessage() {
+    pc->emptyMessage();
+}
+
 std::shared_ptr<Player> PotionEffect::getTrue() {
     return pc->getTrue();
 }

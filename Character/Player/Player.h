@@ -55,7 +55,7 @@ public:
     virtual std::string getActionMessage();
     void check_dead(std::shared_ptr<Enemy> e);
     void PrintMessages();
-    void emptyMessage();
+    virtual void emptyMessage();
     GridObjectType getObjType() override;
     virtual std::shared_ptr<Player> getTrue();
     virtual bool hasReachedShairs();

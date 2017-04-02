@@ -21,6 +21,7 @@ public:
     void setHealth(double h) override;
     void update_message(std::string s) override;
     std::string getActionMessage() override;
+    void emptyMessage() override;
     std::shared_ptr<Player> getTrue() override;
     bool hasReachedShairs() override;
     bool hasDead() override;
