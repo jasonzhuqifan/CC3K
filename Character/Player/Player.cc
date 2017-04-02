@@ -110,12 +110,13 @@ void Player::move(string dir){
         }else{
             update_message("and see an unknown potion");
         }
-    }else if((*gO)[r-1][c]->getObjType() == GridObjectType::BA ||
-            (*gO)[r-1][c]->getObjType() == GridObjectType::BD ||
-            (*gO)[r-1][c]->getObjType() == GridObjectType::PH ||
-            (*gO)[r-1][c]->getObjType() == GridObjectType::WD ||
-            (*gO)[r-1][c]->getObjType() == GridObjectType::WA ||
-            (*gO)[r-1][c]->getObjType() == GridObjectType::RH){
+    }
+    if((*gO)[r-1][c]->getObjType() == GridObjectType::BA ||
+        (*gO)[r-1][c]->getObjType() == GridObjectType::BD ||
+        (*gO)[r-1][c]->getObjType() == GridObjectType::PH ||
+        (*gO)[r-1][c]->getObjType() == GridObjectType::WD ||
+        (*gO)[r-1][c]->getObjType() == GridObjectType::WA ||
+        (*gO)[r-1][c]->getObjType() == GridObjectType::RH){
         shared_ptr<Potion> p = dynamic_pointer_cast<Potion>((*gO)[r-1][c]);
         if(p->hasTried()){
             update_message("and see a ");
@@ -145,12 +146,13 @@ void Player::move(string dir){
         }else{
             update_message("and see an unknown potion");
         }
-    }else if((*gO)[r][c+1]->getObjType() == GridObjectType::BA ||
-             (*gO)[r][c+1]->getObjType() == GridObjectType::BD ||
-             (*gO)[r][c+1]->getObjType() == GridObjectType::PH ||
-             (*gO)[r][c+1]->getObjType() == GridObjectType::WD ||
-             (*gO)[r][c+1]->getObjType() == GridObjectType::WA ||
-             (*gO)[r][c+1]->getObjType() == GridObjectType::RH){
+    }
+    if((*gO)[r][c+1]->getObjType() == GridObjectType::BA ||
+        (*gO)[r][c+1]->getObjType() == GridObjectType::BD ||
+        (*gO)[r][c+1]->getObjType() == GridObjectType::PH ||
+        (*gO)[r][c+1]->getObjType() == GridObjectType::WD ||
+        (*gO)[r][c+1]->getObjType() == GridObjectType::WA ||
+        (*gO)[r][c+1]->getObjType() == GridObjectType::RH){
         shared_ptr<Potion> p = dynamic_pointer_cast<Potion>((*gO)[r][c+1]);
         if(p->hasTried()){
             update_message("and see a ");
@@ -180,12 +182,13 @@ void Player::move(string dir){
         }else{
             update_message("and see an unknown potion");
         }
-    }else if((*gO)[r][c-1]->getObjType() == GridObjectType::BA ||
-             (*gO)[r][c-1]->getObjType() == GridObjectType::BD ||
-             (*gO)[r][c-1]->getObjType() == GridObjectType::PH ||
-             (*gO)[r][c-1]->getObjType() == GridObjectType::WD ||
-             (*gO)[r][c-1]->getObjType() == GridObjectType::WA ||
-             (*gO)[r][c-1]->getObjType() == GridObjectType::RH){
+    }
+    if((*gO)[r][c-1]->getObjType() == GridObjectType::BA ||
+        (*gO)[r][c-1]->getObjType() == GridObjectType::BD ||
+        (*gO)[r][c-1]->getObjType() == GridObjectType::PH ||
+        (*gO)[r][c-1]->getObjType() == GridObjectType::WD ||
+        (*gO)[r][c-1]->getObjType() == GridObjectType::WA ||
+        (*gO)[r][c-1]->getObjType() == GridObjectType::RH){
         shared_ptr<Potion> p = dynamic_pointer_cast<Potion>((*gO)[r][c-1]);
         if(p->hasTried()){
             update_message("and see a ");
@@ -215,12 +218,13 @@ void Player::move(string dir){
         }else{
             update_message("and see an unknown potion");
         }
-    }else if((*gO)[r+1][c+1]->getObjType() == GridObjectType::BA ||
-             (*gO)[r+1][c+1]->getObjType() == GridObjectType::BD ||
-             (*gO)[r+1][c+1]->getObjType() == GridObjectType::PH ||
-             (*gO)[r+1][c+1]->getObjType() == GridObjectType::WD ||
-             (*gO)[r+1][c+1]->getObjType() == GridObjectType::WA ||
-             (*gO)[r+1][c+1]->getObjType() == GridObjectType::RH){
+    }
+    if((*gO)[r+1][c+1]->getObjType() == GridObjectType::BA ||
+       (*gO)[r+1][c+1]->getObjType() == GridObjectType::BD ||
+       (*gO)[r+1][c+1]->getObjType() == GridObjectType::PH ||
+       (*gO)[r+1][c+1]->getObjType() == GridObjectType::WD ||
+       (*gO)[r+1][c+1]->getObjType() == GridObjectType::WA ||
+       (*gO)[r+1][c+1]->getObjType() == GridObjectType::RH){
         shared_ptr<Potion> p = dynamic_pointer_cast<Potion>((*gO)[r+1][c+1]);
         if(p->hasTried()){
             update_message("and see a ");
@@ -250,12 +254,13 @@ void Player::move(string dir){
         }else{
             update_message("and see an unknown potion");
         }
-    }else if((*gO)[r-1][c+1]->getObjType() == GridObjectType::BA ||
-             (*gO)[r-1][c+1]->getObjType() == GridObjectType::BD ||
-             (*gO)[r-1][c+1]->getObjType() == GridObjectType::PH ||
-             (*gO)[r-1][c+1]->getObjType() == GridObjectType::WD ||
-             (*gO)[r-1][c+1]->getObjType() == GridObjectType::WA ||
-             (*gO)[r-1][c+1]->getObjType() == GridObjectType::RH){
+    }
+    if((*gO)[r-1][c+1]->getObjType() == GridObjectType::BA ||
+       (*gO)[r-1][c+1]->getObjType() == GridObjectType::BD ||
+       (*gO)[r-1][c+1]->getObjType() == GridObjectType::PH ||
+       (*gO)[r-1][c+1]->getObjType() == GridObjectType::WD ||
+       (*gO)[r-1][c+1]->getObjType() == GridObjectType::WA ||
+       (*gO)[r-1][c+1]->getObjType() == GridObjectType::RH){
         shared_ptr<Potion> p = dynamic_pointer_cast<Potion>((*gO)[r-1][c+1]);
         if(p->hasTried()){
             update_message("and see a ");
@@ -285,12 +290,13 @@ void Player::move(string dir){
         }else{
             update_message("and see an unknown potion");
         }
-    }else if((*gO)[r-1][c-1]->getObjType() == GridObjectType::BA ||
-             (*gO)[r-1][c-1]->getObjType() == GridObjectType::BD ||
-             (*gO)[r-1][c-1]->getObjType() == GridObjectType::PH ||
-             (*gO)[r-1][c-1]->getObjType() == GridObjectType::WD ||
-             (*gO)[r-1][c-1]->getObjType() == GridObjectType::WA ||
-             (*gO)[r-1][c-1]->getObjType() == GridObjectType::RH){
+    }
+    if((*gO)[r-1][c-1]->getObjType() == GridObjectType::BA ||
+       (*gO)[r-1][c-1]->getObjType() == GridObjectType::BD ||
+       (*gO)[r-1][c-1]->getObjType() == GridObjectType::PH ||
+       (*gO)[r-1][c-1]->getObjType() == GridObjectType::WD ||
+       (*gO)[r-1][c-1]->getObjType() == GridObjectType::WA ||
+       (*gO)[r-1][c-1]->getObjType() == GridObjectType::RH){
         shared_ptr<Potion> p = dynamic_pointer_cast<Potion>((*gO)[r-1][c-1]);
         if(p->hasTried()){
             update_message("and see a ");
@@ -320,12 +326,13 @@ void Player::move(string dir){
         }else{
             update_message("and see an unknown potion");
         }
-    }else if((*gO)[r+1][c-1]->getObjType() == GridObjectType::BA ||
-             (*gO)[r+1][c-1]->getObjType() == GridObjectType::BD ||
-             (*gO)[r+1][c-1]->getObjType() == GridObjectType::PH ||
-             (*gO)[r+1][c-1]->getObjType() == GridObjectType::WD ||
-             (*gO)[r+1][c-1]->getObjType() == GridObjectType::WA ||
-             (*gO)[r+1][c-1]->getObjType() == GridObjectType::RH){
+    }
+    if((*gO)[r+1][c-1]->getObjType() == GridObjectType::BA ||
+       (*gO)[r+1][c-1]->getObjType() == GridObjectType::BD ||
+       (*gO)[r+1][c-1]->getObjType() == GridObjectType::PH ||
+       (*gO)[r+1][c-1]->getObjType() == GridObjectType::WD ||
+       (*gO)[r+1][c-1]->getObjType() == GridObjectType::WA ||
+       (*gO)[r+1][c-1]->getObjType() == GridObjectType::RH){
         shared_ptr<Potion> p = dynamic_pointer_cast<Potion>((*gO)[r+1][c-1]);
         if(p->hasTried()){
             update_message("and see a ");
@@ -374,11 +381,13 @@ void Player::move(string dir){
        (*gO)[r][c]->getObjType() == GridObjectType::merchantHoard ||
        (*gO)[r][c]->getObjType() == GridObjectType::smallGold){
         shared_ptr<Gold> g = dynamic_pointer_cast<Gold>((*gO)[r][c]);
+        g->notifyObservers(SubscriptionType::displayOnly);
         if(!g->canPickUp()){
             onDragonHoard = true;
             shared_ptr<FloorTile> f = make_shared<FloorTile>();
             (*gO)[r][c] = f;
              f->setPos(r, c);
+            
         }else{
             gold += g->getGold();
             shared_ptr<FloorTile> f = make_shared<FloorTile>();
@@ -396,7 +405,6 @@ void Player::move(string dir){
                 ActionMessage.append(" dragon Hoard");
             }
         }
-        g->notifyObservers(SubscriptionType::displayOnly);
     }
     
     
@@ -441,9 +449,9 @@ void Player::move(string dir){
             onDoor = false;
         }
         
-        shared_ptr<GridObjects> g = (*gO)[r][c];
+        shared_ptr<GridObjects> go = (*gO)[r][c];
         (*gO)[r][c] = (*gO)[previousRow][previousCol];
-        (*gO)[previousRow][previousCol] = g;
+        (*gO)[previousRow][previousCol] = go;
         currentRow = r;
         currentCol = c;
     }else{
