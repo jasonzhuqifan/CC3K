@@ -68,6 +68,7 @@ void Player::move(string dir){
     
     if((*gO)[r][c]->getObjType() == GridObjectType::StairWay){
         reachStairs = true;
+        clearObservers();
         return;
     }
     
@@ -478,9 +479,10 @@ void Player::setHealth(double h){
         ActionMessage.append("Player uses potion. Heal "+to_string(10)+" HP");
     }
     if(HP <= 0){
-        
+        isDead = true;
     }
 }
+
 void Player::getDamage(double damage){
     HP = HP - damage;
     if(damage !=0){
@@ -491,10 +493,13 @@ void Player::getDamage(double damage){
         update_message(" Miss an attack. ");
     }
     if(HP <= 0){
-        // THROW SOMETHING! YOU FUCKED UP!
+        isDead = true;
     }
 }
 
+bool Player::hasDead() {
+    return isDead;
+}
 
 void Player::attack(std::string dir, std::shared_ptr<Player>pc){
     ActionMessage = "";
@@ -773,6 +778,7 @@ bool Player::hasReachedShairs() {
 }
 
 int Player::goUpstairs() {
+    reachStairs = false;
     floorNum++;
     return floorNum;
 }

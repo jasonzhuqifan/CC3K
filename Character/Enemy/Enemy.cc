@@ -55,7 +55,8 @@ void Enemy::move(){  //if enemy is stuck, you fucked up!
     int r = currentRow;
     int c = currentCol;
     int direction;
-    while(true){
+    int tries = 0;
+    while(tries++ < 100){
         direction = rand()%8+1;
         if(direction == 1 && (*gO)[r-1][c]->getObsType() == ObstacleType::BlockNone){ // north
             shared_ptr<GridObjects> g = (*gO)[r][c];

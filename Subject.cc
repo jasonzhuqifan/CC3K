@@ -47,5 +47,6 @@ void Subject::notifyObservers(SubscriptionType t){
     }
 }
 
-
-
+void Subject::clearObservers() {
+    observers.clear();
+}

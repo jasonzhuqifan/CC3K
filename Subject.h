@@ -18,6 +18,7 @@ public:
     void notifyObservers(SubscriptionType t);
     virtual Info getInfo() = 0;
     virtual ~Subject() = default;
+    void clearObservers();
 };
 
 #endif 

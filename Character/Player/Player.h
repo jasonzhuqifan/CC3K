@@ -16,6 +16,7 @@ class Orc;
 
 class Player : public Character, public std::enable_shared_from_this<Player> {
     bool reachStairs = false;
+    bool isDead = false;
     bool onDoor = false;
     bool onPassage = false;
     bool onDragonHoard = false;
@@ -52,6 +53,7 @@ public:
     GridObjectType getObjType() override;
     virtual std::shared_ptr<Player> getTrue();
     virtual bool hasReachedShairs();
+    virtual bool hasDead();
     virtual int goUpstairs();
 };
 

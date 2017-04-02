@@ -29,10 +29,9 @@ void GameGrid::move(string dir){
     pc->move(dir);
     if (pc->hasReachedShairs()) {
         pc = pc->getTrue();
-//        if(pc->goUpstairs() > 5) {
-//            win();
-//        }
-        pc->goUpstairs();
+        if(pc->goUpstairs() > 5) {
+            win();
+        }
         init();
     }
 }
@@ -71,8 +70,7 @@ ostream &operator<<(std::ostream &out, const GameGrid &g){
 }
 
 void GameGrid::win() {
-    printStart();
-    init();
+    printWin();
 }
 
 void GameGrid::printStart() {
@@ -116,8 +114,6 @@ void GameGrid::printWin() {
 }
 
 void GameGrid::printLose() {
-    
-    
     cout << "ERGAMEE    RGA    OVERGAMEEEVV  GAME OV       OVERGAM   O   GA    OVERGA  E OVERG" << endl;
     cout << "OVERGAM    VER    E OVERGAEEOO  ERGAME        E OVERG  ME   ER   ME OVE   AME OVE" << endl;
     cout << "E          COV    AM   VE   ME  OV            AM   VE   AM  OV   GA       RG    O" << endl;
@@ -127,6 +123,6 @@ void GameGrid::printLose() {
     cout << "O    GA   O  ER   ME   ER   E   VE            ME   ER    E OV    AM       GA   O" << endl;
     cout << "ME   ER   ME  VE  GA   OV   AM   O            GA   OV    AME     RG       ER  ME" << endl;
     cout << "GAME OV  RGA E O  ER   E    RG  ME OVER       ERGAME     RGA     VERGAME  OV  GA" << endl;
-    cout << "ERGAMEE  VER AME  OV   AM   VE  GAME O        OVERGAM    VER      OVERG   E    RG" << endl;
-    
+    cout << "ERGAMEE  VER AME  OV   AM   VE  GAME O        OVERGAM    VER      OVERG   E    RG" << endl << endl;
+    cout << "Press r to restart the game" << endl;
 }
