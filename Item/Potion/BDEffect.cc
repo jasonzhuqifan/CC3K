@@ -3,6 +3,6 @@
 BDEffect::BDEffect(std::shared_ptr<Player> pc) : PotionEffect(pc) {};
 
 double BDEffect::getDefence() {
-    return pc->getDefence() + 5;
+    return pc->getDefence() + ((pc->ismagnify()) ? 7.5 : 5);
 }
 
