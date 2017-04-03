@@ -11,16 +11,16 @@ int main() {
     try {
         while (true) {
             cin >> cmd;
-            if (cmd == "no" || cmd == "so" || cmd == "ea" || cmd == "we" ||
-                cmd == "ne" || cmd == "nw" || cmd == "se" || cmd == "sw" ) {
+            if ((cmd == "no" || cmd == "so" || cmd == "ea" || cmd == "we" ||
+                cmd == "ne" || cmd == "nw" || cmd == "se" || cmd == "sw") && raceSet) {
                 g.move(cmd);
             }
-            else if (cmd == "u") {
+            else if (cmd == "u" && raceSet) {
                 string dir;
                 cin >> dir;
                 g.use(dir);
             }
-            else if (cmd == "a") {
+            else if (cmd == "a" && raceSet) {
                 string dir;
                 cin >> dir;
                 g.attack(dir);
@@ -35,10 +35,10 @@ int main() {
                     raceSet = true;
                 }
             }
-            else if (cmd == "f") {
+            else if (cmd == "f" && raceSet) {
                 g.freeze();
             }
-            else if (cmd == "r") {
+            else if (cmd == "r" && raceSet) {
                 raceSet = false;
                 g.init();
                 cout << "Game Restarted" << endl << endl;
@@ -48,8 +48,13 @@ int main() {
                 break;
             }
             else {
-                cout << "Invalid Input" << endl;
-                g.printInstruction();
+                if (raceSet) {
+                    cout << "Invalid Input" << endl;
+                    g.printInstruction();
+                } else {
+                    cout << "Choose A Race to Start Game" << endl;
+                    g.printRaces();
+                }
             }
         }
     }
