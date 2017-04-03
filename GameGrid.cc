@@ -124,15 +124,7 @@ void GameGrid::printStart() {
     cout << "               •Vampire(v) -- Steal HP" << endl;
     cout << "               •Troll(t) -- Self-Healing" << endl;
     cout << "               •Goblin(g) -- Steal Gold" << endl << endl;
-    cout << "            |----------------------------------------|" << endl;
-    cout << "            | Instruction:                           |" << endl;
-    cout << "            |   Move: <dir>(no,so,ea,we,ne,nw,se,sw) |" << endl;
-    cout << "            |   Use Item: u <dir>                    |" << endl;
-    cout << "            |   Attack Enemy: a <dir>                |" << endl;
-    cout << "            |   Freeze Enemy: f                      |" << endl;
-    cout << "            |   Restart Game: r                      |" << endl;
-    cout << "            |   Quit Game: q                         |" << endl;
-    cout << "            |----------------------------------------|" << endl;
+    printInstruction();
 }
 
 void GameGrid::printWin() {
@@ -180,4 +172,16 @@ int GameGrid::calcScore() {
         return pc->getGold()*1.5;
     }
     return pc->getGold();
+}
+
+void GameGrid::printInstruction() {
+    cout << "            |----------------------------------------|" << endl;
+    cout << "            | Instruction:                           |" << endl;
+    cout << "            |   Move: <dir>(no,so,ea,we,ne,nw,se,sw) |" << endl;
+    cout << "            |   Use Item: u <dir>                    |" << endl;
+    cout << "            |   Attack Enemy: a <dir>                |" << endl;
+    cout << "            |   Freeze Enemy: f                      |" << endl;
+    cout << "            |   Restart Game: r                      |" << endl;
+    cout << "            |   Quit Game: q                         |" << endl;
+    cout << "            |----------------------------------------|" << endl << endl;
 }

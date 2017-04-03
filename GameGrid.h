@@ -28,6 +28,7 @@ public:
     void printStart();
     void printWin();
     void printLose();
+    void printInstruction();
     int calcScore();
 };
 

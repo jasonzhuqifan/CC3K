@@ -7,7 +7,6 @@ int main() {
     string cmd, aux;
     GameGrid g;
     bool raceSet = false;
-    bool gameEnd = false;
     g.printStart();
     try {
         while (true) {
@@ -26,9 +25,8 @@ int main() {
                 cin >> dir;
                 g.attack(dir);
             }
-            else if (cmd.front() == 's' || cmd.front() == 'd' ||
-                     cmd.front() == 'v' || cmd.front() == 'g' ||
-                     cmd.front() == 't') {
+            else if (cmd == "s" || cmd == "d" || cmd == "v" ||
+                     cmd == "g" || cmd == "t") {
                 if (raceSet) {
                     cout << endl << "Race has been set. Restart(r) to play with new race" << endl;
                 }
@@ -48,6 +46,10 @@ int main() {
             }
             else if (cmd == "q") {
                 break;
+            }
+            else {
+                cout << "Invalid Input" << endl;
+                g.printInstruction();
             }
         }
     }
