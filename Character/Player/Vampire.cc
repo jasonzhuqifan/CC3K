@@ -10,7 +10,7 @@
 using namespace std;
 
 Vampire::Vampire(){
-    HP = 120;
+    HP = 50;
     Atk = 25;
     Def = 25;
     MaxHP = -1;
