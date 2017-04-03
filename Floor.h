@@ -28,6 +28,8 @@ class Floor : public Level{
 protected:
     std::vector<std::vector<std::shared_ptr<GridObjects>>> gO;
     int enemyFrozen;
+    int dargonHoardx;
+    int dragonHoardy;
 private:
     int playerInRoom;
     std::shared_ptr<Chamber> c;

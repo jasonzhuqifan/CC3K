@@ -49,6 +49,9 @@ using namespace std;
 Floor::Floor(){
     c = make_shared<Chamber>();
     playerInRoom = -1;
+    dargonHoardx = 0;
+    dragonHoardy = 0;
+    
 }
 
 Floor::~Floor(){}
@@ -138,8 +141,8 @@ void Floor::placeEnemy(shared_ptr<Character> pc){
         gO[y][x] = newEnemy;
         pc->attatch(newEnemy);
         newEnemy->attatch(td);
-        td->spawn(x, y, type);
         newEnemy->setPos(y, x);
+        td->spawn(x, y, type);
     }
 }
 
@@ -191,6 +194,7 @@ void Floor::placeGold(shared_ptr<Character> pc){
             spawnDragon->setMap(&gO);
             int y = pos.first;
             int x = pos.second;
+            spawnDragon->setDragonHoard(x, y);
             //0 1 2
             //3 G 4
             //5 6 7

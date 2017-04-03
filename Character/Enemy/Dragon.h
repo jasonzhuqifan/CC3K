@@ -12,9 +12,12 @@
 #include "Enemy.h"
 
 class Dragon : public Enemy{
+    int dragonHoardx;
+    int dragonHoardy;
 public:
     Dragon();
     ~Dragon();
+    void setDragonHoard(int x,int y);
 };
 
 #endif /* Dragon_hpp */
