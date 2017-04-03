@@ -1067,6 +1067,8 @@ void Player::update_enemy(Enemy *e){
         update_message("Merchant");
     }else if(dynamic_cast<Orc*>(e)){
         update_message("Orc");
+    }else if(dynamic_cast<Nomair*>(e)){
+        update_message("Nomair");
     }
 }
 
