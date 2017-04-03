@@ -60,7 +60,6 @@ public:
     Floor();
     void init(std::shared_ptr<Character> pc);
     void clearFloor();
-    void setFrozen() override;
     ~Floor();
 };
 
