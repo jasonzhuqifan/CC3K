@@ -48,7 +48,9 @@ void Enemy::notify(Subject &notifier){
         shared_ptr<Player> p = dynamic_pointer_cast<Player>((*gO)[r][c-1]);
         attack(p);
     }else if(stationary){
-        shared_ptr<Dragon> d = shared_from_this();
+        
+        shared_ptr<Enemy> e = shared_from_this();
+        shared_ptr<Dragon> d = dynamic_pointer_cast<Dragon>(e);
         int hoardC = d->getDragonHoardC();
         int hoardR = d->getDragonHoardR();
         if((*gO)[hoardR-1][hoardC]->getObjType() == GridObjectType::Player){
@@ -75,8 +77,6 @@ void Enemy::notify(Subject &notifier){
         }else if((*gO)[hoardR][hoardC-1]->getObjType() == GridObjectType::Player){
             shared_ptr<Player> p = dynamic_pointer_cast<Player>((*gO)[hoardR][hoardC-1]);
             attack(p);
-        }else{
-            move();
         }
     }else if(!stationary){
         move();
