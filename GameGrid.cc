@@ -120,13 +120,6 @@ void GameGrid::printStart() {
     cout << "               KCC3KCC  KCC3KCC  3KCC3KC  KC   CC" << endl << endl;
     cout << "                                   Copyright© University of Waterloo"  << endl << endl;
     cout << "Welcome to CC3K produced by Yinong Wang, Raymond Tan, and Qifan Zhu." << endl << endl;
-    cout << "               To start the game, choose a race: " << endl << endl;
-    cout << "               •Shade(s) -- Score Bonus" << endl;
-    cout << "               •Drow(d) -- Potion Effect Magnified" << endl;
-    cout << "               •Vampire(v) -- Steal HP" << endl;
-    cout << "               •Troll(t) -- Self-Healing" << endl;
-    cout << "               •Goblin(g) -- Steal Gold" << endl;
-     cout << "               •Student(x) -- Steal Gold" << endl << endl;
     printRaces();
     printInstruction();
 }
