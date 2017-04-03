@@ -426,6 +426,7 @@ shared_ptr<Player> Floor::use(shared_ptr<Player> pc, std::string dir){
             pc->setHealth(pc->getHP()-10);
             break;
         default:
+             pc->update_message("There does not exist a potion!");
             break;
     }
     shared_ptr<Potion> p = dynamic_pointer_cast<Potion>(gO[potionRow][potionCol]);
