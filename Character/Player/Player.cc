@@ -655,7 +655,8 @@ void Player::move(string dir){
         currentRow = r;
         currentCol = c;
     }else{
-        ActionMessage="";
+        emptyMessage();
+        update_message("Invalid move! ");
     }
     this->notifyObservers(SubscriptionType::All);
     previousRow = currentRow;
