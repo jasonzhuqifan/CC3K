@@ -590,6 +590,17 @@ void Player::move(string dir){
                    gold += g->getGold();
                     shared_ptr<DragonHoard> g = make_shared<DragonHoard>();
                     (*gO)[r][c] = g;
+                    ActionMessage.append("and picks up ");
+                    ActionMessage.append(to_string(g->getGoldCount()));
+                    if(g->getObjType() == GridObjectType::smallGold){
+                        ActionMessage.append(" small Gold. ");
+                    } else if(g->getObjType() == GridObjectType::normalGold){
+                        ActionMessage.append(" normal Gold. ");
+                    }else if(g->getObjType() == GridObjectType::merchantHoard){
+                        ActionMessage.append(" merchant Hoard. ");
+                    }else if(g->getObjType() == GridObjectType::dragonHoard){
+                        ActionMessage.append(" dragon Hoard. s");
+                    }
                     g->setPos(r, c);
                     g->attatch(dynamic_pointer_cast<Observer>(TD));
                     g->notifyObservers(SubscriptionType::displayOnly);
