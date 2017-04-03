@@ -697,7 +697,7 @@ void Player::getDamage(double damage){
 }
 
 bool Player::hasDead() {
-    return isDead;
+    return false;
 }
 
 void Player::attack(std::string dir, std::shared_ptr<Player>pc){
@@ -883,6 +883,14 @@ void Player::check_dead(shared_ptr<Enemy> e){
              f->setPos(r, c);
             (*gO)[r][c] = f;
             f->notifyObservers(SubscriptionType::displayOnly);
+            if(!dynamic_pointer_cast<Dragon>(e)){
+            int x = rand()%2+1;
+            if(x == 1){
+                gold = gold + 1;
+            }else{
+                gold = gold +2;
+            }
+            }
         }
         if(steal){
             gold = gold + 5;
