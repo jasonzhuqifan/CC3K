@@ -25,3 +25,4 @@ void Nomair::attack(std::shared_ptr<Student> pc, double true_def){
     }
     pc->getDamage(damage);
 }
+Nomair::~Nomair(){};

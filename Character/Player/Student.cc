@@ -71,3 +71,5 @@ void Student::attackIt(std::shared_ptr<Merchant> e, std::shared_ptr<Player>pc){
     e->setNeutral();
     check_dead(e);
 }
+
+Student::~Student(){};
