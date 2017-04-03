@@ -947,10 +947,10 @@ void Player::check_dead(shared_ptr<Enemy> e){
             int x = rand()%2+1;
             if(x == 1){
                 gold = gold + 1;
-                update_message("PC gets a small pief of gold. ");
+                update_message("PC gets a small pile of gold. ");
             }else{
                 gold = gold +2;
-                update_message("PC gets a normal pief of gold. ");
+                update_message("PC gets a normal pile of gold. ");
             }
             }
         }
@@ -982,6 +982,10 @@ void Player::check_dead(shared_ptr<Enemy> e){
             }else if((*gO)[r-1][c-1]->getObjType() == GridObjectType::dragonHoard){
                 shared_ptr<Gold> g = dynamic_pointer_cast<Gold>((*gO)[r-1][c-1]);
                 g->setGuarded();
+            }else{
+                onDragonHoard = false;
+                gold = gold + 6;
+                update_message("PC gets a Dragon Hoard");
             }
         }
         detach(e);
