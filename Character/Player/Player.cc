@@ -576,13 +576,13 @@ void Player::move(string dir){
                 ActionMessage.append("and picks up ");
                 ActionMessage.append(to_string(g->getGoldCount()));
                 if(g->getObjType() == GridObjectType::smallGold){
-                    ActionMessage.append(" small Gold");
+                    ActionMessage.append(" small Gold. ");
                 } else if(g->getObjType() == GridObjectType::normalGold){
-                    ActionMessage.append(" normal Gold");
+                    ActionMessage.append(" normal Gold. ");
                 }else if(g->getObjType() == GridObjectType::merchantHoard){
-                    ActionMessage.append(" merchant Hoard");
+                    ActionMessage.append(" merchant Hoard. ");
                 }else if(g->getObjType() == GridObjectType::dragonHoard){
-                    ActionMessage.append(" dragon Hoard");
+                    ActionMessage.append(" dragon Hoard. s");
                 }
                 }else{
                    gold += g->getGold();
@@ -985,7 +985,7 @@ void Player::check_dead(shared_ptr<Enemy> e){
             }else{
                 onDragonHoard = false;
                 gold = gold + 6;
-                update_message("PC gets a Dragon Hoard");
+                update_message("PC gets a Dragon Hoard. ");
             }
         }
         detach(e);
