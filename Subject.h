@@ -1,6 +1,7 @@
 #ifndef Subject_hpp
 #define Subject_hpp
 #include <vector>
+#include <memory>
 #include "SubscriptionType.h"
 #include <string>
 

@@ -10,7 +10,7 @@
 #include "Door.h"
 #include "Passages.h"
 #include "Info.h"
-#include "TextDisplay.h"
+#include "textDisplay.h"
 #include "Potion.h"
 
 #include "Human.h"
