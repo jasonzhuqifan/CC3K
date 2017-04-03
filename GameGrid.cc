@@ -185,6 +185,8 @@ void GameGrid::printInstruction() {
     cout << "            |   Freeze Enemy: f                      |" << endl;
     cout << "            |   Restart Game: r                      |" << endl;
     cout << "            |   Quit Game: q                         |" << endl;
+    cout << "            |   Command Control: c                   |" << endl;
+    cout << "            |   WASD Easy Control: e                 |" << endl;
     cout << "            |----------------------------------------|" << endl << endl;
 }
 
