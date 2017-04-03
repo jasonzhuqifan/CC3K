@@ -4,7 +4,10 @@
 #include "Shade.h"
 #include "Troll.h"
 #include "Vampire.h"
+
+#ifdef Bonus
 #include "Student.h"
+#endif
 
 #include "Level.h"
 #include "Player.h"
@@ -77,7 +80,9 @@ void GameGrid::setRace(char race){
         case 'v': pc = make_shared<Vampire>(); break;
         case 'g': pc = make_shared<Goblin>(); break;
         case 't': pc = make_shared<Troll>(); break;
+#ifdef Bonus
         case 'x' : pc = make_shared<Student>(); break;
+#endif
         default: throw "unknown race"; break;
     }
     init();
@@ -126,7 +131,7 @@ void GameGrid::printStart() {
     cout << "               •Vampire(v) -- Steal HP" << endl;
     cout << "               •Troll(t) -- Self-Healing" << endl;
     cout << "               •Goblin(g) -- Steal Gold" << endl;
-     cout << "               •Student(x) -- Steal Gold" << endl << endl;
+    cout << "               •Student(x) -- Afraid of Nomair" << endl << endl;
     printRaces();
     printInstruction();
 }
@@ -197,5 +202,5 @@ void GameGrid::printRaces() {
     cout << "               •Vampire(v) -- Steal HP" << endl;
     cout << "               •Troll(t) -- Self-Healing" << endl;
     cout << "               •Goblin(g) -- Steal Gold" << endl;
-    cout << "               •Student(x) -- Steal Gold" << endl << endl;
+    cout << "               •Student(x) -- Afraid of Nomair" << endl << endl;
 }

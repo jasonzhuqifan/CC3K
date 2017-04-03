@@ -21,7 +21,10 @@
 #include "Merchant.h"
 #include "Dragon.h"
 #include "Dwarf.h"
+
+#ifdef Bonus
 #include "Nomair.h"
+#endif
 
 #include "Small.h"
 #include "Normal.h"
@@ -113,11 +116,12 @@ shared_ptr<Enemy> Floor::createEnemy(char *type){
         spawnEnemy = make_shared<Merchant>();
         *type = 'M';
     }
+#ifdef Bonus
     else{//Nomair
         spawnEnemy = make_shared<Nomair>();
         *type = 'N';
-        
     }
+#endif
     //shared_ptr<vector<vector<shared_ptr<GridObjects>>>> map = make_shared<vector<vector<shared_ptr<GridObjects>>>>(gO);
     spawnEnemy->setMap(&gO);
     return spawnEnemy;

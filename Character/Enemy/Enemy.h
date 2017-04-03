@@ -26,7 +26,9 @@ public:
     virtual void attack(std::shared_ptr<Shade> pc, double true_def);
     virtual void attack(std::shared_ptr<Troll> pc, double true_def);
     virtual void attack(std::shared_ptr<Vampire> pc, double true_def);
+#ifdef Bonus
     virtual void attack(std::shared_ptr<Student> pc, double true_def);
+#endif
     void setNeutral();
     bool isDead();
     int dropgold();

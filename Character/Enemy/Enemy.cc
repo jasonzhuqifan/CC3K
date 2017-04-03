@@ -4,7 +4,11 @@
 #include "Drow.h"
 #include "Vampire.h"
 #include "Shade.h"
+
+#ifdef Bonus
 #include "Student.h"
+#endif
+
 #include "Goblin.h"
 #include "Troll.h"
 #include "Dragon.h"
@@ -85,7 +89,84 @@ void Enemy::notify(Subject &notifier){
         move(pc_r, pc_c);
     }
 }
+#ifndef Bonus
+void Enemy::move(int pc_r, int pc_c){
+    int r = currentRow;
+    int c = currentCol;
+    int direction;
+    int tries = 0;
+    while(tries++ < 100){
+        direction = rand()%8+1;
+        if(direction == 1 && (*gO)[r-1][c]->getObsType() == ObstacleType::BlockNone){ // north
+            shared_ptr<GridObjects> g = (*gO)[r][c];
+            (*gO)[r][c] = (*gO)[r-1][c];
+            (*gO)[r-1][c] = g;
+            currentRow -= 1;
+            this->notifyObservers(SubscriptionType::displayOnly);
+            break;
+        } else if(direction == 2 && (*gO)[r+1][c]->getObsType() == ObstacleType::BlockNone){ //south
+            shared_ptr<GridObjects> g = (*gO)[r][c];
+            (*gO)[r][c] = (*gO)[r+1][c];
+            (*gO)[r+1][c] = g;
+            currentRow += 1;
+            this->notifyObservers(SubscriptionType::displayOnly);
+            break;
+        } else if(direction == 3 && (*gO)[r-1][c+1]->getObsType() == ObstacleType::BlockNone){ //northeast
+            shared_ptr<GridObjects> g = (*gO)[r][c];
+            (*gO)[r][c] = (*gO)[r-1][c+1];
+            (*gO)[r-1][c+1] = g;
+            currentRow -= 1;
+            currentCol += 1;
+            this->notifyObservers(SubscriptionType::displayOnly);
+            break;
+        } else if(direction == 4 && (*gO)[r-1][c-1]->getObsType() == ObstacleType::BlockNone){ //northwest
+            shared_ptr<GridObjects> g = (*gO)[r][c];
+            (*gO)[r][c] = (*gO)[r-1][c-1];
+            (*gO)[r-1][c-1] = g;
+            currentRow -= 1;
+            currentCol -= 1;
+            this->notifyObservers(SubscriptionType::displayOnly);
+            break;
+        } else if(direction == 5 && (*gO)[r+1][c+1]->getObsType() == ObstacleType::BlockNone){//southeast
+            shared_ptr<GridObjects> g = (*gO)[r][c];
+            (*gO)[r][c] = (*gO)[r+1][c+1];
+            (*gO)[r+1][c+1] = g;
+            currentRow += 1;
+            currentCol += 1;
+            this->notifyObservers(SubscriptionType::displayOnly);
+            break;
+        } else if(direction == 6 && (*gO)[r+1][c-1]->getObsType() == ObstacleType::BlockNone){//southwest
+            shared_ptr<GridObjects> g = (*gO)[r][c];
+            (*gO)[r][c] = (*gO)[r+1][c-1];
+            (*gO)[r+1][c-1] = g;
+            currentRow += 1;
+            currentCol -= 1;
+            this->notifyObservers(SubscriptionType::displayOnly);
+            break;
+        } else if(direction == 7 && (*gO)[r][c+1]->getObsType() == ObstacleType::BlockNone){//east
+            shared_ptr<GridObjects>g = (*gO)[r][c];
+            (*gO)[r][c] = (*gO)[r][c+1];
+            (*gO)[r][c+1] = g;
+            currentCol += 1;
+            this->notifyObservers(SubscriptionType::displayOnly);
+            break;
+        } else if(direction == 8 && (*gO)[r][c-1]->getObsType() == ObstacleType::BlockNone){//west
+            shared_ptr<GridObjects>g = (*gO)[r][c];
+            (*gO)[r][c] = (*gO)[r][c-1];
+            (*gO)[r][c-1] = g;
+            currentCol -= 1;
+            this->notifyObservers(SubscriptionType::displayOnly);
+            break;
+        }
+    }
+    previousCol = currentCol;
+    previousRow = currentRow;
+}
 
+#endif
+
+
+#ifdef Bonus
 void Enemy::move(int pc_r, int pc_c){
     int r = currentRow;
     int c = currentCol;
@@ -342,6 +423,9 @@ void Enemy::move(int pc_r, int pc_c){
     previousCol = currentCol;
     previousRow = currentRow;
 }
+#endif
+
+
 
 void Enemy::attack(shared_ptr<Player> pc){
     pc->update_enemy(this);
@@ -360,9 +444,12 @@ void Enemy::attack(shared_ptr<Player> pc){
     }
     else if(dynamic_pointer_cast<Vampire>(pc->getTrue())){
         attack(dynamic_pointer_cast<Vampire>(pc->getTrue()),def);
-    }else if(dynamic_pointer_cast<Student>(pc->getTrue())){
+    }
+#ifdef Bonus
+    else if(dynamic_pointer_cast<Student>(pc->getTrue())){
         attack(dynamic_pointer_cast<Student>(pc->getTrue()),def);
     }
+#endif
 }
 void Enemy::attack(std::shared_ptr<Drow> pc, double def){
     double d = def;
@@ -412,6 +499,7 @@ void Enemy::attack(std::shared_ptr<Vampire> pc, double def){
     pc->getDamage(damage);
 
 }
+#ifdef Bonus
 void Enemy::attack(std::shared_ptr<Student> pc, double def){
     double d = def;
     double damage = 0;
@@ -422,6 +510,7 @@ void Enemy::attack(std::shared_ptr<Student> pc, double def){
     pc->getDamage(damage);
     
 }
+#endif
 void Enemy::setNeutral(){
     isneutral = false;
 }
