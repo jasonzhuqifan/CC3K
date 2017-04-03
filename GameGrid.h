@@ -24,6 +24,7 @@ public:
     friend std::ostream &operator<<(std::ostream &out, const GameGrid &g);
     void win();
     void lose();
+    void quit();
     void printStart();
     void printWin();
     void printLose();

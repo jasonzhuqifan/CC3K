@@ -123,6 +123,13 @@ void GameGrid::printStart() {
     cout << "Vampire(v) -- Steal HP" << endl;
     cout << "Trol -- Self-Healing" << endl;
     cout << "Goblin -- Steal Gold" << endl << endl;
+    cout << "Instruction:" << endl;
+    cout << "Move: <dir>(no,so,ea,we,ne,nw,se,sw)" << endl;
+    cout << "Use Item: u <dir>" << endl;
+    cout << "Attack Enemy: a <dir>" << endl;
+    cout << "Freeze Enemy: f" << endl;
+    cout << "Restart Game: r" << endl;
+    cout << "Quit Game: q" << endl;
 }
 
 void GameGrid::printWin() {
@@ -151,15 +158,15 @@ void GameGrid::printWin() {
 }
 
 void GameGrid::printLose() {
-    cout << "ERGAMEE    RGA    OVERGAMEEEVV  GAME OV       OVERGAM   O   GA    OVERGA  E OVERG" << endl;
-    cout << "OVERGAM    VER    E OVERGAEEOO  ERGAME        E OVERG  ME   ER   ME OVE   AME OVE" << endl;
-    cout << "E          COV    AM   VE   ME  OV            AM   VE   AM  OV   GA       RG    O" << endl;
-    cout << "AM         MEOO   RG    O   GA  E             RG    O   RG ME    ER       VE   ME" << endl;
-    cout << "RG  EOO   RGAME   VE   ME   ER  AME OV        VE   ME   VE GA    OVERGA    O ERGA" << endl;
-    cout << "VE  AME   VE GA    O   GA   OV  RGAME          O   GA    OVER    E OVER   ME OVER" << endl;
-    cout << "O    GA   O  ER   ME   ER   E   VE            ME   ER    E OV    AM       GA   O" << endl;
-    cout << "ME   ER   ME  VE  GA   OV   AM   O            GA   OV    AME     RG       ER  ME" << endl;
-    cout << "GAME OV  RGA E O  ER   E    RG  ME OVER       ERGAME     RGA     VERGAME  OV  GA" << endl;
-    cout << "ERGAMEE  VER AME  OV   AM   VE  GAME O        OVERGAM    VER      OVERG   E    RG" << endl << endl;
+    cout << "ERGAMEE    RGA    OVERGAMEEEVV  GAMEEOV       OVERGAM  OO    GA    OVERGA  E OVERG" << endl;
+    cout << "OVERGAM    VER    EEOVERGAEEOO  ERGAME        EEOVERG  ME    ER   ME OVE   AME OVE" << endl;
+    cout << "EE         COV    AM   VE   ME  OV            AM   VE  AM    OV   GA       RG    O" << endl;
+    cout << "AM         MEOO   RG   OO   GA  EE            RG    O   RG  ME    ER       VE   ME" << endl;
+    cout << "RG  EOO   RGAME   VE   ME   ER  AMEOV         VE   ME   VE  GA    OVERGA   OERGA" << endl;
+    cout << "VE  AME   VE GA   OO   GA   OV  RGAME         OO   GA   EE  ER    E OVER   ME OVER" << endl;
+    cout << "OO   GA   O  ER   ME   ER   EE  VE            ME   ER    E  O     AM       GA   O" << endl;
+    cout << "ME   ER   ME  VE  GA   OV   AM  EO            GA   OV    A  E     RG       ER   ME" << endl;
+    cout << "GAME OV  RGA  EO  ER   EE   RG  MEEOVER       ERGAMEE    RRAA     VERGAME  OV   GA" << endl;
+    cout << "ERGAMEE  VER  ME  OV   AM   VE  GAMEEOE       OVERGAM     ER       OVERG   E     RG" << endl << endl;
     cout << "Press r to restart the game" << endl << endl;
 }
