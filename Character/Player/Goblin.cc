@@ -28,7 +28,7 @@ void Goblin::attackIt(std::shared_ptr<Halfling> e, std::shared_ptr<Player>pc){
         update_message(std::to_string(static_cast<int>(e->getMaxHP())));
         update_message(")");
         }else{
-            update_message("Halfling has been slayed by PC. ");        }
+            update_message("Halfling has been slain by PC. ");        }
     }
     check_dead(e);
 }
@@ -47,7 +47,7 @@ void Goblin::attackIt(std::shared_ptr<Merchant> e, std::shared_ptr<Player>pc){
     update_message(std::to_string(static_cast<int>(e->getMaxHP())));
     update_message(")");
     }else{
-        update_message("Merchant has been slayed by PC. ");
+        update_message("Merchant has been slain by PC. ");
     }
     e->setNeutral();
     check_dead(e);
