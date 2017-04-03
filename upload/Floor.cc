@@ -23,6 +23,7 @@
 #include "Dwarf.h"
 #include "Nomair.h"
 
+
 #include "Small.h"
 #include "Normal.h"
 #include "DragonHoard.h"
@@ -116,7 +117,6 @@ shared_ptr<Enemy> Floor::createEnemy(char *type){
     else{//Nomair
         spawnEnemy = make_shared<Nomair>();
         *type = 'N';
-        
     }
     //shared_ptr<vector<vector<shared_ptr<GridObjects>>>> map = make_shared<vector<vector<shared_ptr<GridObjects>>>>(gO);
     spawnEnemy->setMap(&gO);

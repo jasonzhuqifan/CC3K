@@ -5,6 +5,8 @@
 #include "Vampire.h"
 #include "Shade.h"
 #include "Student.h"
+
+
 #include "Goblin.h"
 #include "Troll.h"
 #include "Dragon.h"
@@ -85,6 +87,8 @@ void Enemy::notify(Subject &notifier){
         move(pc_r, pc_c);
     }
 }
+
+
 
 void Enemy::move(int pc_r, int pc_c){
     int r = currentRow;
@@ -343,6 +347,9 @@ void Enemy::move(int pc_r, int pc_c){
     previousRow = currentRow;
 }
 
+
+
+
 void Enemy::attack(shared_ptr<Player> pc){
     pc->update_enemy(this);
     double def = pc->getDefence();
@@ -360,7 +367,8 @@ void Enemy::attack(shared_ptr<Player> pc){
     }
     else if(dynamic_pointer_cast<Vampire>(pc->getTrue())){
         attack(dynamic_pointer_cast<Vampire>(pc->getTrue()),def);
-    }else if(dynamic_pointer_cast<Student>(pc->getTrue())){
+    }
+    else if(dynamic_pointer_cast<Student>(pc->getTrue())){
         attack(dynamic_pointer_cast<Student>(pc->getTrue()),def);
     }
 }
@@ -412,6 +420,7 @@ void Enemy::attack(std::shared_ptr<Vampire> pc, double def){
     pc->getDamage(damage);
 
 }
+
 void Enemy::attack(std::shared_ptr<Student> pc, double def){
     double d = def;
     double damage = 0;

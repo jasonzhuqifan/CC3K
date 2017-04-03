@@ -791,7 +791,8 @@ void Player::attackIt(std::shared_ptr<Enemy> e, std::shared_ptr<Player>pc){
         attackIt(dynamic_pointer_cast<Merchant>(e), pc);
     }else if(dynamic_pointer_cast<Orc>(e)){
         attackIt(dynamic_pointer_cast<Orc>(e), pc);
-    }else if(dynamic_pointer_cast<Nomair>(e)){
+    }
+    else if(dynamic_pointer_cast<Nomair>(e)){
         attackIt(dynamic_pointer_cast<Nomair>(e), pc);
     }
     if(!enemyFrozen){
@@ -800,7 +801,6 @@ void Player::attackIt(std::shared_ptr<Enemy> e, std::shared_ptr<Player>pc){
         this->notifyObservers(SubscriptionType::displayOnly);
     }
 }
-
 
 void Player::attackIt(std::shared_ptr<Nomair> e, std::shared_ptr<Player>pc){
     double d = e->getDefence();
@@ -1078,7 +1078,8 @@ void Player::update_enemy(Enemy *e){
         update_message("Merchant");
     }else if(dynamic_cast<Orc*>(e)){
         update_message("Orc");
-    }else if(dynamic_cast<Nomair*>(e)){
+    }
+    else if(dynamic_cast<Nomair*>(e)){
         update_message("Nomair");
     }
 }
