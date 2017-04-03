@@ -33,7 +33,7 @@ void GameGrid::move(string dir){
     pc->move(dir);
     if (pc->hasReachedShairs()) {
         pc = pc->getTrue();
-        if(pc->goUpstairs() > 2) {
+        if(pc->goUpstairs() > 5) {
             win();
         }
         else {
@@ -125,6 +125,7 @@ void GameGrid::printStart() {
     cout << "               KCC3KCC  KCC3KCC  3KCC3KC  KC   CC" << endl << endl;
     cout << "                                   Copyright© University of Waterloo"  << endl << endl;
     cout << "Welcome to CC3K produced by Yinong Wang, Raymond Tan, and Qifan Zhu." << endl << endl;
+<<<<<<< HEAD
     cout << "               To start the game, choose a race: " << endl << endl;
     cout << "               •Shade(s) -- Score Bonus" << endl;
     cout << "               •Drow(d) -- Potion Effect Magnified" << endl;
@@ -132,6 +133,8 @@ void GameGrid::printStart() {
     cout << "               •Troll(t) -- Self-Healing" << endl;
     cout << "               •Goblin(g) -- Steal Gold" << endl;
     cout << "               •Student(x) -- Afraid of Nomair" << endl << endl;
+=======
+>>>>>>> origin/master
     printRaces();
     printInstruction();
 }

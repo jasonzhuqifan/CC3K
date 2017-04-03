@@ -2,6 +2,7 @@
 #define Chamber_hpp
 
 #include <vector>
+#include <memory>
 #include <fstream>
 
 

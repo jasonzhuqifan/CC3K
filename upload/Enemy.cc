@@ -19,11 +19,13 @@ void Enemy::updateDamage(double damage){
 }
 
 void Enemy::notify(Subject &notifier){
-//    Info f = getInfo();
+    Info f = notifier.getInfo();
+    int pc_r = f.currentRow;
+    int pc_c = f.currentCol;
     int r = currentRow;
     int c = currentCol;
     if(isneutral){
-        move();
+        move(pc_r, pc_c);
     }else if((*gO)[r-1][c]->getObjType() == GridObjectType::Player){
         shared_ptr<Player> p = dynamic_pointer_cast<Player>((*gO)[r-1][c]);
         attack(p);
@@ -80,72 +82,263 @@ void Enemy::notify(Subject &notifier){
             attack(p);
         }
     }else if(!stationary){
-        move();
+        move(pc_r, pc_c);
     }
 }
 
-void Enemy::move(){
+void Enemy::move(int pc_r, int pc_c){
     int r = currentRow;
     int c = currentCol;
+    int diff_r = r - pc_r;
+    int diff_c = c - pc_c;
     int direction;
-    int tries = 0;
-    while(tries++ < 100){
-        direction = rand()%8+1;
-        if(direction == 1 && (*gO)[r-1][c]->getObsType() == ObstacleType::BlockNone){ // north
-            shared_ptr<GridObjects> g = (*gO)[r][c];
-            (*gO)[r][c] = (*gO)[r-1][c];
-            (*gO)[r-1][c] = g;
-            currentRow -= 1;
-            break;
-        } else if(direction == 2 && (*gO)[r+1][c]->getObsType() == ObstacleType::BlockNone){ //south
-            shared_ptr<GridObjects> g = (*gO)[r][c];
-            (*gO)[r][c] = (*gO)[r+1][c];
-            (*gO)[r+1][c] = g;
-            currentRow += 1;
-            break;
-        } else if(direction == 3 && (*gO)[r-1][c+1]->getObsType() == ObstacleType::BlockNone){ //northeast
-            shared_ptr<GridObjects> g = (*gO)[r][c];
-            (*gO)[r][c] = (*gO)[r-1][c+1];
-            (*gO)[r-1][c+1] = g;
-            currentRow -= 1;
-            currentCol += 1;
-            break;
-        } else if(direction == 4 && (*gO)[r-1][c-1]->getObsType() == ObstacleType::BlockNone){ //northwest
-            shared_ptr<GridObjects> g = (*gO)[r][c];
-            (*gO)[r][c] = (*gO)[r-1][c-1];
-            (*gO)[r-1][c-1] = g;
-            currentRow -= 1;
-            currentCol -= 1;
-            break;
-        } else if(direction == 5 && (*gO)[r+1][c+1]->getObsType() == ObstacleType::BlockNone){//southeast
-            shared_ptr<GridObjects> g = (*gO)[r][c];
-            (*gO)[r][c] = (*gO)[r+1][c+1];
-            (*gO)[r+1][c+1] = g;
-            currentRow += 1;
-            currentCol += 1;
-            break;
-        } else if(direction == 6 && (*gO)[r+1][c-1]->getObsType() == ObstacleType::BlockNone){//southwest
-            shared_ptr<GridObjects> g = (*gO)[r][c];
-            (*gO)[r][c] = (*gO)[r+1][c-1];
-            (*gO)[r+1][c-1] = g;
-            currentRow += 1;
-            currentCol -= 1;
-            break;
-        } else if(direction == 7 && (*gO)[r][c+1]->getObsType() == ObstacleType::BlockNone){//east
-            shared_ptr<GridObjects>g = (*gO)[r][c];
-            (*gO)[r][c] = (*gO)[r][c+1];
-            (*gO)[r][c+1] = g;
-            currentCol += 1;
-            break;
-        } else if(direction == 8 && (*gO)[r][c-1]->getObsType() == ObstacleType::BlockNone){//west
-            shared_ptr<GridObjects>g = (*gO)[r][c];
-            (*gO)[r][c] = (*gO)[r][c-1];
-            (*gO)[r][c-1] = g;
-            currentCol -= 1;
-            break;
+    if(diff_r <= 3 && diff_r >= -3 && diff_c <= 3 && diff_c >= -3 && !isneutral){
+        if(diff_c == 0){ //diffc == 0
+            if(diff_r < 0){
+                if((*gO)[r+1][c]->getObsType() == ObstacleType::BlockNone){ //south
+                    shared_ptr<GridObjects> g = (*gO)[r][c];
+                    (*gO)[r][c] = (*gO)[r+1][c];
+                    (*gO)[r+1][c] = g;
+                    currentRow += 1;
+                    this->notifyObservers(SubscriptionType::displayOnly);
+                }else if((*gO)[r+1][c+1]->getObsType() == ObstacleType::BlockNone){//southeast
+                    shared_ptr<GridObjects> g = (*gO)[r][c];
+                    (*gO)[r][c] = (*gO)[r+1][c+1];
+                    (*gO)[r+1][c+1] = g;
+                    currentRow += 1;
+                    currentCol += 1;
+                     this->notifyObservers(SubscriptionType::displayOnly);
+                } else if((*gO)[r+1][c-1]->getObsType() == ObstacleType::BlockNone){//southwest
+                    shared_ptr<GridObjects> g = (*gO)[r][c];
+                    (*gO)[r][c] = (*gO)[r+1][c-1];
+                    (*gO)[r+1][c-1] = g;
+                    currentRow += 1;
+                    currentCol -= 1;
+                     this->notifyObservers(SubscriptionType::displayOnly);
+                }
+            }else{
+                if((*gO)[r-1][c]->getObsType() == ObstacleType::BlockNone){ // north
+                    shared_ptr<GridObjects> g = (*gO)[r][c];
+                    (*gO)[r][c] = (*gO)[r-1][c];
+                    (*gO)[r-1][c] = g;
+                    currentRow -= 1;
+                     this->notifyObservers(SubscriptionType::displayOnly);
+                } else if((*gO)[r-1][c+1]->getObsType() == ObstacleType::BlockNone){ //northeast
+                    shared_ptr<GridObjects> g = (*gO)[r][c];
+                    (*gO)[r][c] = (*gO)[r-1][c+1];
+                    (*gO)[r-1][c+1] = g;
+                    currentRow -= 1;
+                    currentCol += 1;
+                     this->notifyObservers(SubscriptionType::displayOnly);
+                } else if( (*gO)[r-1][c-1]->getObsType() == ObstacleType::BlockNone){ //northwest
+                    shared_ptr<GridObjects> g = (*gO)[r][c];
+                    (*gO)[r][c] = (*gO)[r-1][c-1];
+                    (*gO)[r-1][c-1] = g;
+                    currentRow -= 1;
+                    currentCol -= 1;
+                     this->notifyObservers(SubscriptionType::displayOnly);
+                }
+            }
+        }else if(diff_c > 0){ //diffc > 0
+            if(diff_r == 0){
+                if((*gO)[r][c-1]->getObsType() == ObstacleType::BlockNone){//west
+                    shared_ptr<GridObjects>g = (*gO)[r][c];
+                    (*gO)[r][c] = (*gO)[r][c-1];
+                    (*gO)[r][c-1] = g;
+                    currentCol -= 1;
+                     this->notifyObservers(SubscriptionType::displayOnly);
+                }else if((*gO)[r-1][c-1]->getObsType() == ObstacleType::BlockNone){ //northwest
+                    shared_ptr<GridObjects> g = (*gO)[r][c];
+                    (*gO)[r][c] = (*gO)[r-1][c-1];
+                    (*gO)[r-1][c-1] = g;
+                    currentRow -= 1;
+                    currentCol -= 1;
+                     this->notifyObservers(SubscriptionType::displayOnly);
+                }else if((*gO)[r+1][c-1]->getObsType() == ObstacleType::BlockNone){//southwest
+                    shared_ptr<GridObjects> g = (*gO)[r][c];
+                    (*gO)[r][c] = (*gO)[r+1][c-1];
+                    (*gO)[r+1][c-1] = g;
+                    currentRow += 1;
+                    currentCol -= 1;
+                     this->notifyObservers(SubscriptionType::displayOnly);
+                }
+            }else if(diff_r > 0){
+                if((*gO)[r-1][c-1]->getObsType() == ObstacleType::BlockNone){ //northwest
+                    shared_ptr<GridObjects> g = (*gO)[r][c];
+                    (*gO)[r][c] = (*gO)[r-1][c-1];
+                    (*gO)[r-1][c-1] = g;
+                    currentRow -= 1;
+                    currentCol -= 1;
+                     this->notifyObservers(SubscriptionType::displayOnly);
+                }else if((*gO)[r][c-1]->getObsType() == ObstacleType::BlockNone){//west
+                    shared_ptr<GridObjects>g = (*gO)[r][c];
+                    (*gO)[r][c] = (*gO)[r][c-1];
+                    (*gO)[r][c-1] = g;
+                    currentCol -= 1;
+                     this->notifyObservers(SubscriptionType::displayOnly);
+                }else if((*gO)[r-1][c]->getObsType() == ObstacleType::BlockNone){ // north
+                    shared_ptr<GridObjects> g = (*gO)[r][c];
+                    (*gO)[r][c] = (*gO)[r-1][c];
+                    (*gO)[r-1][c] = g;
+                    currentRow -= 1;
+                     this->notifyObservers(SubscriptionType::displayOnly);
+                }
+            }else{
+                if((*gO)[r+1][c-1]->getObsType() == ObstacleType::BlockNone){//southwest
+                    shared_ptr<GridObjects> g = (*gO)[r][c];
+                    (*gO)[r][c] = (*gO)[r+1][c-1];
+                    (*gO)[r+1][c-1] = g;
+                    currentRow += 1;
+                    currentCol -= 1;
+                     this->notifyObservers(SubscriptionType::displayOnly);
+                }else if((*gO)[r][c-1]->getObsType() == ObstacleType::BlockNone){//west
+                    shared_ptr<GridObjects>g = (*gO)[r][c];
+                    (*gO)[r][c] = (*gO)[r][c-1];
+                    (*gO)[r][c-1] = g;
+                    currentCol -= 1;
+                     this->notifyObservers(SubscriptionType::displayOnly);
+                }else if((*gO)[r+1][c]->getObsType() == ObstacleType::BlockNone){ //south
+                    shared_ptr<GridObjects> g = (*gO)[r][c];
+                    (*gO)[r][c] = (*gO)[r+1][c];
+                    (*gO)[r+1][c] = g;
+                    currentRow += 1;
+                     this->notifyObservers(SubscriptionType::displayOnly);
+                }
+            }
+        }else{ // diffc < 0
+            if(diff_r == 0){
+                if((*gO)[r][c+1]->getObsType() == ObstacleType::BlockNone){//east
+                    shared_ptr<GridObjects>g = (*gO)[r][c];
+                    (*gO)[r][c] = (*gO)[r][c+1];
+                    (*gO)[r][c+1] = g;
+                    currentCol += 1;
+                     this->notifyObservers(SubscriptionType::displayOnly);
+                }else if((*gO)[r+1][c+1]->getObsType() == ObstacleType::BlockNone){//southeast
+                    shared_ptr<GridObjects> g = (*gO)[r][c];
+                    (*gO)[r][c] = (*gO)[r+1][c+1];
+                    (*gO)[r+1][c+1] = g;
+                    currentRow += 1;
+                    currentCol += 1;
+                     this->notifyObservers(SubscriptionType::displayOnly);
+                }else if((*gO)[r-1][c+1]->getObsType() == ObstacleType::BlockNone){ //northeast
+                    shared_ptr<GridObjects> g = (*gO)[r][c];
+                    (*gO)[r][c] = (*gO)[r-1][c+1];
+                    (*gO)[r-1][c+1] = g;
+                    currentRow -= 1;
+                    currentCol += 1;
+                     this->notifyObservers(SubscriptionType::displayOnly);
+                }
+            }else if(diff_r > 0){
+                if((*gO)[r-1][c+1]->getObsType() == ObstacleType::BlockNone){ //northeast
+                    shared_ptr<GridObjects> g = (*gO)[r][c];
+                    (*gO)[r][c] = (*gO)[r-1][c+1];
+                    (*gO)[r-1][c+1] = g;
+                    currentRow -= 1;
+                    currentCol += 1;
+                     this->notifyObservers(SubscriptionType::displayOnly);
+                }else if((*gO)[r][c+1]->getObsType() == ObstacleType::BlockNone){//east
+                    shared_ptr<GridObjects>g = (*gO)[r][c];
+                    (*gO)[r][c] = (*gO)[r][c+1];
+                    (*gO)[r][c+1] = g;
+                    currentCol += 1;
+                     this->notifyObservers(SubscriptionType::displayOnly);
+                }else if((*gO)[r-1][c]->getObsType() == ObstacleType::BlockNone){ // north
+                    shared_ptr<GridObjects> g = (*gO)[r][c];
+                    (*gO)[r][c] = (*gO)[r-1][c];
+                    (*gO)[r-1][c] = g;
+                    currentRow -= 1;
+                     this->notifyObservers(SubscriptionType::displayOnly);
+                }
+            }else{
+                if((*gO)[r+1][c+1]->getObsType() == ObstacleType::BlockNone){//southeast
+                    shared_ptr<GridObjects> g = (*gO)[r][c];
+                    (*gO)[r][c] = (*gO)[r+1][c+1];
+                    (*gO)[r+1][c+1] = g;
+                    currentRow += 1;
+                    currentCol += 1;
+                     this->notifyObservers(SubscriptionType::displayOnly);
+                }else if((*gO)[r][c+1]->getObsType() == ObstacleType::BlockNone){//east
+                    shared_ptr<GridObjects>g = (*gO)[r][c];
+                    (*gO)[r][c] = (*gO)[r][c+1];
+                    (*gO)[r][c+1] = g;
+                    currentCol += 1;
+                     this->notifyObservers(SubscriptionType::displayOnly);
+                }else if((*gO)[r+1][c]->getObsType() == ObstacleType::BlockNone){ //south
+                    shared_ptr<GridObjects> g = (*gO)[r][c];
+                    (*gO)[r][c] = (*gO)[r+1][c];
+                    (*gO)[r+1][c] = g;
+                    currentRow += 1;
+                     this->notifyObservers(SubscriptionType::displayOnly);
+                }
+            }
+        }
+    }else{
+        int tries = 0;
+        while(tries++ < 100){
+            direction = rand()%8+1;
+            if(direction == 1 && (*gO)[r-1][c]->getObsType() == ObstacleType::BlockNone){ // north
+                shared_ptr<GridObjects> g = (*gO)[r][c];
+                (*gO)[r][c] = (*gO)[r-1][c];
+                (*gO)[r-1][c] = g;
+                currentRow -= 1;
+                 this->notifyObservers(SubscriptionType::displayOnly);
+                break;
+            } else if(direction == 2 && (*gO)[r+1][c]->getObsType() == ObstacleType::BlockNone){ //south
+                shared_ptr<GridObjects> g = (*gO)[r][c];
+                (*gO)[r][c] = (*gO)[r+1][c];
+                (*gO)[r+1][c] = g;
+                currentRow += 1;
+                 this->notifyObservers(SubscriptionType::displayOnly);
+                break;
+            } else if(direction == 3 && (*gO)[r-1][c+1]->getObsType() == ObstacleType::BlockNone){ //northeast
+                shared_ptr<GridObjects> g = (*gO)[r][c];
+                (*gO)[r][c] = (*gO)[r-1][c+1];
+                (*gO)[r-1][c+1] = g;
+                currentRow -= 1;
+                currentCol += 1;
+                 this->notifyObservers(SubscriptionType::displayOnly);
+                break;
+            } else if(direction == 4 && (*gO)[r-1][c-1]->getObsType() == ObstacleType::BlockNone){ //northwest
+                shared_ptr<GridObjects> g = (*gO)[r][c];
+                (*gO)[r][c] = (*gO)[r-1][c-1];
+                (*gO)[r-1][c-1] = g;
+                currentRow -= 1;
+                currentCol -= 1;
+                 this->notifyObservers(SubscriptionType::displayOnly);
+                break;
+            } else if(direction == 5 && (*gO)[r+1][c+1]->getObsType() == ObstacleType::BlockNone){//southeast
+                shared_ptr<GridObjects> g = (*gO)[r][c];
+                (*gO)[r][c] = (*gO)[r+1][c+1];
+                (*gO)[r+1][c+1] = g;
+                currentRow += 1;
+                currentCol += 1;
+                 this->notifyObservers(SubscriptionType::displayOnly);
+                break;
+            } else if(direction == 6 && (*gO)[r+1][c-1]->getObsType() == ObstacleType::BlockNone){//southwest
+                shared_ptr<GridObjects> g = (*gO)[r][c];
+                (*gO)[r][c] = (*gO)[r+1][c-1];
+                (*gO)[r+1][c-1] = g;
+                currentRow += 1;
+                currentCol -= 1;
+                 this->notifyObservers(SubscriptionType::displayOnly);
+                break;
+            } else if(direction == 7 && (*gO)[r][c+1]->getObsType() == ObstacleType::BlockNone){//east
+                shared_ptr<GridObjects>g = (*gO)[r][c];
+                (*gO)[r][c] = (*gO)[r][c+1];
+                (*gO)[r][c+1] = g;
+                currentCol += 1;
+                 this->notifyObservers(SubscriptionType::displayOnly);
+                break;
+            } else if(direction == 8 && (*gO)[r][c-1]->getObsType() == ObstacleType::BlockNone){//west
+                shared_ptr<GridObjects>g = (*gO)[r][c];
+                (*gO)[r][c] = (*gO)[r][c-1];
+                (*gO)[r][c-1] = g;
+                currentCol -= 1;
+                this->notifyObservers(SubscriptionType::displayOnly);
+                break;
+            }
         }
     }
-    this->notifyObservers(SubscriptionType::displayOnly);
     previousCol = currentCol;
     previousRow = currentRow;
 }

@@ -2,6 +2,7 @@
 #define GameGrid_hpp
 
 #include <iostream>
+#include <memory>
 
 class Level;
 class Player;
@@ -29,6 +30,7 @@ public:
     void printWin();
     void printLose();
     void printInstruction();
+    void printRaces();
     int calcScore();
 };
 
