@@ -74,6 +74,7 @@ void Player::move(string dir){
     
     if((*gO)[r][c]->getObjType() == GridObjectType::StairWay){
         reachStairs = true;
+        emptyMessage();
         clearObservers();
         return;
     }
