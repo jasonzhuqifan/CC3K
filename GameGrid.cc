@@ -32,6 +32,11 @@ void GameGrid::move(string dir){
         if(pc->goUpstairs() > 5) {
             win();
         }
+        else {
+            init();
+            cout << *l;
+            pc->PrintMessages();
+        }
     }
     else if (pc->hasDead()) {
         lose();
