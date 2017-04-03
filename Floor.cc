@@ -452,13 +452,11 @@ shared_ptr<Player> Floor::use(shared_ptr<Player> pc, std::string dir){
         }
         if(!pc->knowPotion(potionType)) pc->memorizePotion(potionType);
         if(pc->hasDead()) return pc;
-        p->notifyObservers(SubscriptionType::All);
+        p->notifyObservers(SubscriptionType::displayOnly);
         shared_ptr<FloorTile> g = make_shared<FloorTile>();
         gO[potionRow][potionCol] = g;
     }
-    else {
-        pc->notifyObservers(SubscriptionType::All);
-    }
+    pc->notifyObservers(SubscriptionType::All);
     return pc;
 }
 
