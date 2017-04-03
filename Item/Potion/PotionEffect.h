@@ -29,6 +29,7 @@ public:
     void memorizePotion(std::string s) override;
     bool knowPotion(std::string s) override;
     int getFloorNum() override;
+    bool ismagnify() override;
 };
 
 

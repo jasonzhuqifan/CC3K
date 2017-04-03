@@ -87,3 +87,7 @@ bool PotionEffect::knowPotion(std::string s) {
 int PotionEffect::getFloorNum() {
     return pc->getFloorNum();
 }
+
+bool PotionEffect::ismagnify() {
+    return pc->ismagnify();
+}

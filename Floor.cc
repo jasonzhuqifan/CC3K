@@ -420,10 +420,10 @@ shared_ptr<Player> Floor::use(shared_ptr<Player> pc, std::string dir){
             pc->update_message("Player uses potion. Def decreases.");
             break;
         case GridObjectType::RH:
-            pc->setHealth(pc->getHP()+10);
+            pc->setHealth(pc->getHP()+((pc->ismagnify()) ? 15 : 10));
             break;
         case GridObjectType::PH:
-            pc->setHealth(pc->getHP()-10);
+            pc->setHealth(pc->getHP()-((pc->ismagnify()) ? 15 : 10));
             break;
         default:
              pc->update_message("There does not exist a potion!");

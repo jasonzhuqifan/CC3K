@@ -46,7 +46,7 @@ public:
     
     virtual void update_message(std::string s);
     void update_enemy(Enemy *e);
-    bool ismagnify();
+    virtual bool ismagnify();
     bool isautoheal();
     virtual void setHealth(double h);
     virtual void getDamage(double damage);
