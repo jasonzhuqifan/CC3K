@@ -21,6 +21,7 @@
 #include "Dragon.h"
 #include "Dwarf.h"
 #include "DragonHoard.h"
+#include "Nomair.h"
 
 using namespace std;
 
@@ -779,12 +780,35 @@ void Player::attackIt(std::shared_ptr<Enemy> e, std::shared_ptr<Player>pc){
         attackIt(dynamic_pointer_cast<Merchant>(e), pc);
     }else if(dynamic_pointer_cast<Orc>(e)){
         attackIt(dynamic_pointer_cast<Orc>(e), pc);
+    }else if(dynamic_pointer_cast<Nomair>(e)){
+        attackIt(dynamic_pointer_cast<Nomair>(e), pc);
     }
     if(!enemyFrozen){
         this->notifyObservers(SubscriptionType::All);
     }else{
         this->notifyObservers(SubscriptionType::displayOnly);
     }
+}
+
+
+void Player::attackIt(std::shared_ptr<Nomair> e, std::shared_ptr<Player>pc){
+    double d = e->getDefence();
+    double damage = ceil((100/(100+d)) * pc->getAttack());
+    e->updateDamage(static_cast<int>(damage));
+    if (!e->isDead()) {
+        update_message("PC deals ");
+        update_message(to_string(static_cast<int>(damage)));
+        update_message(" damage to Nomair ");
+        update_message("(");
+        update_message(std::to_string(static_cast<int>(e->getHP())));
+        update_message("/");
+        update_message(std::to_string(static_cast<int>(e->getMaxHP())));
+        update_message(")");
+    }
+    else {
+        update_message("Nomair went to prepare for final. ");
+    }
+    check_dead(e);
 }
 
 void Player::attackIt(std::shared_ptr<Dwarf> e, std::shared_ptr<Player>pc) {

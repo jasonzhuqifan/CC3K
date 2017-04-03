@@ -4,6 +4,7 @@
 #include "Drow.h"
 #include "Vampire.h"
 #include "Shade.h"
+#include "Student.h"
 #include "Goblin.h"
 #include "Troll.h"
 #include "Dragon.h"
@@ -166,6 +167,8 @@ void Enemy::attack(shared_ptr<Player> pc){
     }
     else if(dynamic_pointer_cast<Vampire>(pc->getTrue())){
         attack(dynamic_pointer_cast<Vampire>(pc->getTrue()),def);
+    }else if(dynamic_pointer_cast<Student>(pc->getTrue())){
+        attack(dynamic_pointer_cast<Student>(pc->getTrue()),def);
     }
 }
 void Enemy::attack(std::shared_ptr<Drow> pc, double def){
@@ -215,6 +218,16 @@ void Enemy::attack(std::shared_ptr<Vampire> pc, double def){
     }
     pc->getDamage(damage);
 
+}
+void Enemy::attack(std::shared_ptr<Student> pc, double def){
+    double d = def;
+    double damage = 0;
+    int miss = rand()%2+1;
+    if (miss == 1){
+        damage = ceil((100/(100+d)) * this->Atk);
+    }
+    pc->getDamage(damage);
+    
 }
 void Enemy::setNeutral(){
     isneutral = false;

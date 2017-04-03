@@ -10,6 +10,7 @@ class Goblin;
 class Shade;
 class Troll;
 class Vampire;
+class Student;
 
 class Enemy : public Character, public Observer, public std::enable_shared_from_this<Enemy>{
 private:
@@ -25,6 +26,7 @@ public:
     virtual void attack(std::shared_ptr<Shade> pc, double true_def);
     virtual void attack(std::shared_ptr<Troll> pc, double true_def);
     virtual void attack(std::shared_ptr<Vampire> pc, double true_def);
+    virtual void attack(std::shared_ptr<Student> pc, double true_def);
     void setNeutral();
     bool isDead();
     int dropgold();

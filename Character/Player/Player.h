@@ -12,6 +12,7 @@ class Halfling;
 class Human;
 class Merchant;
 class Orc;
+class Nomair;
 
 
 class Player : public Character, public std::enable_shared_from_this<Player> {
@@ -45,6 +46,7 @@ public:
     virtual void attackIt(std::shared_ptr<Human> e, std::shared_ptr<Player>pc);
     virtual void attackIt(std::shared_ptr<Merchant> e, std::shared_ptr<Player>pc);
     virtual void attackIt(std::shared_ptr<Orc> e, std::shared_ptr<Player>pc);
+    virtual void attackIt(std::shared_ptr<Nomair> e, std::shared_ptr<Player>pc);
     
     virtual void update_message(std::string s);
     void update_enemy(Enemy *e);
