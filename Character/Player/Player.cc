@@ -555,7 +555,8 @@ void Player::move(string dir){
     if((*gO)[r][c]->getObjType() == GridObjectType::smallGold ||
        (*gO)[r][c]->getObjType() == GridObjectType::normalGold ||
        (*gO)[r][c]->getObjType() == GridObjectType::merchantHoard ||
-       (*gO)[r][c]->getObjType() == GridObjectType::dragonHoard || onDragonHoard == true){
+       (*gO)[r][c]->getObjType() == GridObjectType::dragonHoard ||
+       (onDragonHoard == true && (*gO)[r][c]->getObsType() != ObstacleType::BolckAll)){
         if(dynamic_pointer_cast<Gold>((*gO)[r][c])){
             shared_ptr<Gold> g = dynamic_pointer_cast<Gold>((*gO)[r][c]);
             g->setPos(r, c);
@@ -567,6 +568,7 @@ void Player::move(string dir){
                 f->setPos(r, c);
                 f->attatch(TD);
             }else{
+                if(!onDragonHoard){
                 gold += g->getGold();
                 shared_ptr<FloorTile> f = make_shared<FloorTile>();
                 (*gO)[r][c] = f;
@@ -582,6 +584,15 @@ void Player::move(string dir){
                 }else if(g->getObjType() == GridObjectType::dragonHoard){
                     ActionMessage.append(" dragon Hoard");
                 }
+                }else{
+                   gold += g->getGold();
+                    shared_ptr<DragonHoard> g = make_shared<DragonHoard>();
+                    (*gO)[r][c] = g;
+                    g->setPos(r, c);
+                    g->attatch(dynamic_pointer_cast<Observer>(TD));
+                    g->notifyObservers(SubscriptionType::displayOnly);
+                    onDragonHoard = false;
+                }
             }
         }else{
             shared_ptr<DragonHoard> g = make_shared<DragonHoard>();
@@ -589,7 +600,7 @@ void Player::move(string dir){
             g->setPos(r, c);
             g->attatch(dynamic_pointer_cast<Observer>(TD));
             g->notifyObservers(SubscriptionType::displayOnly);
-            onDragonHoard = false; //多call了一次display所以又换回去了, 加条件可解决
+            onDragonHoard = false;
         }
        
     }
