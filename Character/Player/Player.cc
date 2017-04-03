@@ -750,6 +750,7 @@ void Player::attack(std::string dir, std::shared_ptr<Player>pc){
         attackIt(e, pc);
     }else{
          this->notifyObservers(SubscriptionType::All);
+        update_message("There does not exist an enemy. ");
     }
 }
 
