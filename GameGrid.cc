@@ -4,10 +4,7 @@
 #include "Shade.h"
 #include "Troll.h"
 #include "Vampire.h"
-
-#ifdef Bonus
 #include "Student.h"
-#endif
 
 #include "Level.h"
 #include "Player.h"
@@ -80,9 +77,7 @@ void GameGrid::setRace(char race){
         case 'v': pc = make_shared<Vampire>(); break;
         case 'g': pc = make_shared<Goblin>(); break;
         case 't': pc = make_shared<Troll>(); break;
-#ifdef Bonus
         case 'x' : pc = make_shared<Student>(); break;
-#endif
         default: throw "unknown race"; break;
     }
     init();

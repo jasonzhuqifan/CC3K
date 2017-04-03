@@ -21,10 +21,8 @@
 #include "Dragon.h"
 #include "Dwarf.h"
 #include "DragonHoard.h"
-
-#ifdef Bonus
 #include "Nomair.h"
-#endif
+
 using namespace std;
 
 GridObjectType Player::getObjType(){
@@ -794,11 +792,9 @@ void Player::attackIt(std::shared_ptr<Enemy> e, std::shared_ptr<Player>pc){
     }else if(dynamic_pointer_cast<Orc>(e)){
         attackIt(dynamic_pointer_cast<Orc>(e), pc);
     }
-#ifdef Bonus
     else if(dynamic_pointer_cast<Nomair>(e)){
         attackIt(dynamic_pointer_cast<Nomair>(e), pc);
     }
-#endif
     if(!enemyFrozen){
         this->notifyObservers(SubscriptionType::All);
     }else{
@@ -806,7 +802,6 @@ void Player::attackIt(std::shared_ptr<Enemy> e, std::shared_ptr<Player>pc){
     }
 }
 
-#ifdef Bonus
 void Player::attackIt(std::shared_ptr<Nomair> e, std::shared_ptr<Player>pc){
     double d = e->getDefence();
     double damage = ceil((100/(100+d)) * pc->getAttack());
@@ -826,7 +821,6 @@ void Player::attackIt(std::shared_ptr<Nomair> e, std::shared_ptr<Player>pc){
     }
     check_dead(e);
 }
-#endif
 
 void Player::attackIt(std::shared_ptr<Dwarf> e, std::shared_ptr<Player>pc) {
     double d = e->getDefence();
@@ -1085,11 +1079,9 @@ void Player::update_enemy(Enemy *e){
     }else if(dynamic_cast<Orc*>(e)){
         update_message("Orc");
     }
-#ifdef Bonus
     else if(dynamic_cast<Nomair*>(e)){
         update_message("Nomair");
     }
-#endif
 }
 
 void Player::update_message(string s){
