@@ -584,7 +584,7 @@ void Player::move(string dir){
                 }else if(g->getObjType() == GridObjectType::merchantHoard){
                     ActionMessage.append(" merchant Hoard. ");
                 }else if(g->getObjType() == GridObjectType::dragonHoard){
-                    ActionMessage.append(" dragon Hoard. s");
+                    ActionMessage.append(" dragon Hoard. ");
                 }
                 }else{
                    gold += g->getGold();
@@ -599,7 +599,7 @@ void Player::move(string dir){
                     }else if(g->getObjType() == GridObjectType::merchantHoard){
                         ActionMessage.append(" merchant Hoard. ");
                     }else if(g->getObjType() == GridObjectType::dragonHoard){
-                        ActionMessage.append(" dragon Hoard. s");
+                        ActionMessage.append(" dragon Hoard. ");
                     }
                     g->setPos(r, c);
                     g->attatch(dynamic_pointer_cast<Observer>(TD));
