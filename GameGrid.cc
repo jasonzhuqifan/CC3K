@@ -119,7 +119,7 @@ void GameGrid::printStart() {
     cout << "                                   Copyright© University of Waterloo"  << endl << endl;
     cout << "Welcome to CC3K produced by Yinong Wang, Raymond Tan, and Qifan Zhu." << endl << endl;
     cout << "               To start the game, choose a race: " << endl << endl;
-    cout << "               •Shade(s) -- Default Race" << endl;
+    cout << "               •Shade(s) -- Score Bonus" << endl;
     cout << "               •Drow(d) -- Potion Effect Magnified" << endl;
     cout << "               •Vampire(v) -- Steal HP" << endl;
     cout << "               •Trol -- Self-Healing" << endl;
@@ -157,6 +157,7 @@ void GameGrid::printWin() {
     cout << "   WI    UU   YO  WW   OU        WI   UW   YO  WW  YO   IN" << endl;
     cout << "   YO    INYOU W  NYOU WI        YOU WINYOUW   WY  WW   OU" << endl;
     cout << "   W     OU WINY  U WINYO         WINYOU WIW   UU  NY   WI" << endl << endl;
+    cout << "Your score is: " << calcScore() << endl << endl;
     cout << "Press r to restart the game" << endl << endl;
 }
 
@@ -172,4 +173,11 @@ void GameGrid::printLose() {
     cout << "GAME OV  RGA  EO  ER   EE   RG  MEEOVER       ERGAMEE    RRAA     VERGAME  OV   GA" << endl;
     cout << "ERGAMEE  VER  ME  OV   AM   VE  GAMEEOE       OVERGAM     ER       OVERG   E     RG" << endl << endl;
     cout << "Press r to restart the game" << endl << endl;
+}
+
+int GameGrid::calcScore() {
+    if(dynamic_pointer_cast<Shade>(pc)) {
+        return pc->getGold()*1.5;
+    }
+    return pc->getGold();
 }
