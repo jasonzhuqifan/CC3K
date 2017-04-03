@@ -876,6 +876,9 @@ void Player::attackIt(std::shared_ptr<Merchant> e, std::shared_ptr<Player>pc) {
     }
 
     check_dead(e);
+    if(e->isDead()){
+        
+    }
 }
 
 void Player::attackIt(std::shared_ptr<Orc> e, std::shared_ptr<Player>pc) {

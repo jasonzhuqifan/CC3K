@@ -20,6 +20,7 @@ void Drow::attackIt(std::shared_ptr<Halfling> e, std::shared_ptr<Player>pc){
         double d = e->getDefence();
         double damage = ceil((100/(100+d)) * pc->getAttack());
         e->updateDamage(damage);
+        if(!e->isDead()){
         update_message("PC deals ");
         update_message(to_string(static_cast<int>(damage)));
         update_message(" damage to Halfling");
@@ -28,6 +29,9 @@ void Drow::attackIt(std::shared_ptr<Halfling> e, std::shared_ptr<Player>pc){
         update_message("/");
         update_message(std::to_string(static_cast<int>(e->getMaxHP())));
         update_message(")");
+        } else{
+            update_message("Halfling has been slayed by PC. ");
+        }
     }
     check_dead(e);
 }
@@ -36,6 +40,7 @@ void Drow::attackIt(std::shared_ptr<Merchant> e, std::shared_ptr<Player>pc){
     double d = e->getDefence();
     double damage = ceil((100/(100+d)) * pc->getAttack());
     e->updateDamage(damage);
+    if(!e->isDead()){
     update_message("PC deals ");
     update_message(to_string(static_cast<int>(damage)));
     update_message(" damage to Merchant");
@@ -44,6 +49,9 @@ void Drow::attackIt(std::shared_ptr<Merchant> e, std::shared_ptr<Player>pc){
     update_message("/");
     update_message(std::to_string(static_cast<int>(e->getMaxHP())));
     update_message(")");
+    }else{
+        update_message("Merchant has been slayed by PC. ");
+    }
     e->setNeutral();
     check_dead(e);
 }
