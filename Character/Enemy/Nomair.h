@@ -4,6 +4,7 @@
 #include "Enemy.h"
 
 class Nomair : public Enemy{
+public:
     Nomair();
     ~Nomair();
     void attack(std::shared_ptr<Student> pc, double true_def) override;
