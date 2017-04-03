@@ -933,12 +933,14 @@ void Player::check_dead(shared_ptr<Enemy> e){
             n->attatch(TD);
             n->setPos(r, c);
             (*gO)[r][c] = n;
+            update_message("Merchant drops two piles of Normal Gold");
             n->notifyObservers(SubscriptionType::displayOnly);
         }else if(e->dropgold() == 4){
             shared_ptr<MerchantHoard> m = make_shared<MerchantHoard>();
             m->attatch(TD);
             m->setPos(r, c);
             (*gO)[r][c] = m;
+            update_message("Merchant drops a pile of Merchant Hoard ");
             m->notifyObservers(SubscriptionType::displayOnly);
         }else{
             shared_ptr<FloorTile> f = make_shared<FloorTile>();
