@@ -83,3 +83,7 @@ void PotionEffect::memorizePotion(std::string s) {
 bool PotionEffect::knowPotion(std::string s) {
     return pc->knowPotion(s);
 }
+
+int PotionEffect::getFloorNum() {
+    return pc->getFloorNum();
+}

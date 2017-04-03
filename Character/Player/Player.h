@@ -63,6 +63,7 @@ public:
     virtual int goUpstairs();
     virtual void memorizePotion(std::string s);
     virtual bool knowPotion(std::string s);
+    virtual int getFloorNum();
 };
 
 #endif

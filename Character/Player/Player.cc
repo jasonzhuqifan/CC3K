@@ -1032,7 +1032,7 @@ void Player::PrintMessages(){
     cout << "Race: " << getRace() << " ";
     cout << "Gold: " << getGold();
     cout << "                                             ";
-    cout << "Floor: " << floorNum << endl;
+    cout << "Floor: " << getFloorNum() << endl;
     cout << "HP: " << getHP() << endl;
     cout << "Atk: " << getAttack() << endl;
     cout << "Def: " << getDefence() << endl;
@@ -1069,4 +1069,8 @@ bool Player::knowPotion(std::string s) {
     else if (s == "WD") return usedWD;
     else if (s == "RH") return usedRH;
     else return usedPH;
+}
+
+int Player::getFloorNum() {
+    return floorNum;
 }
