@@ -125,8 +125,8 @@ void GameGrid::printStart() {
     cout << "               •Drow(d) -- Potion Effect Magnified" << endl;
     cout << "               •Vampire(v) -- Steal HP" << endl;
     cout << "               •Troll(t) -- Self-Healing" << endl;
-    cout << "               •Goblin(g) -- Steal Gold" << endl << endl;
-     cout << "              •Student(x) -- Steal Gold" << endl << endl;
+    cout << "               •Goblin(g) -- Steal Gold" << endl;
+     cout << "               •Student(x) -- Steal Gold" << endl << endl;
     printInstruction();
 }
 
