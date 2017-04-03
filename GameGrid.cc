@@ -106,30 +106,32 @@ void GameGrid::lose() {
 }
 
 void GameGrid::printStart() {
-    cout << "CC3KCC3  CC3KCC3  KCC3KCC  CC  CC3" << endl;
-    cout << "KCC3KCC  KCC3KCC   KCC3KC  KC  KC" << endl;
-    cout << "3K       3K            3K  3K C3K" << endl;
-    cout << "C3       C3            C3  C3 CC" << endl;
-    cout << "CC       CC         C3KCC  CCKC" << endl;
-    cout << "KC       KC         CC3KC  KC 3K" << endl;
-    cout << "3K       3K            3K  3K  3K" << endl;
-    cout << "C3       C3            C3  C3  C3" << endl;
-    cout << "CC3KCC3  CC3KCC3   CC3KCC  CC  CC3" << endl;
-    cout << "KCC3KCC  KCC3KCC  3KCC3KC  KC   CC" << endl << endl << endl;
+    cout << "               CC3KCC3  CC3KCC3  KCC3KCC  CC  CC3" << endl;
+    cout << "               KCC3KCC  KCC3KCC   KCC3KC  KC  KC" << endl;
+    cout << "               3K       3K            3K  3K C3K" << endl;
+    cout << "               C3       C3            C3  C3 CC" << endl;
+    cout << "               CC       CC         C3KCC  CCKC" << endl;
+    cout << "               KC       KC         CC3KC  KC 3K" << endl;
+    cout << "               3K       3K            3K  3K  3K" << endl;
+    cout << "               C3       C3            C3  C3  C3" << endl;
+    cout << "               CC3KCC3  CC3KCC3   CC3KCC  CC  CC3" << endl;
+    cout << "               KCC3KCC  KCC3KCC  3KCC3KC  KC   CC" << endl << endl << endl;
     cout << "Welcome to CC3K produced by Yinong Wang, Raymond Tan, and Qifan Zhu." << endl << endl;
-    cout << "To start the game, choose a race: " << endl << endl;
-    cout << "Shade(s) -- Default Race" << endl;
-    cout << "Drow(d) -- Potion Effect Magnified" << endl;
-    cout << "Vampire(v) -- Steal HP" << endl;
-    cout << "Trol -- Self-Healing" << endl;
-    cout << "Goblin -- Steal Gold" << endl << endl;
-    cout << "Instruction:" << endl;
-    cout << "Move: <dir>(no,so,ea,we,ne,nw,se,sw)" << endl;
-    cout << "Use Item: u <dir>" << endl;
-    cout << "Attack Enemy: a <dir>" << endl;
-    cout << "Freeze Enemy: f" << endl;
-    cout << "Restart Game: r" << endl;
-    cout << "Quit Game: q" << endl;
+    cout << "               To start the game, choose a race: " << endl << endl;
+    cout << "               •Shade(s) -- Default Race" << endl;
+    cout << "               •Drow(d) -- Potion Effect Magnified" << endl;
+    cout << "               •Vampire(v) -- Steal HP" << endl;
+    cout << "               •Trol -- Self-Healing" << endl;
+    cout << "               •Goblin -- Steal Gold" << endl << endl;
+    cout << "            |----------------------------------------|" << endl;
+    cout << "            | Instruction:                           |" << endl;
+    cout << "            |   Move: <dir>(no,so,ea,we,ne,nw,se,sw) |" << endl;
+    cout << "            |   Use Item: u <dir>                    |" << endl;
+    cout << "            |   Attack Enemy: a <dir>                |" << endl;
+    cout << "            |   Freeze Enemy: f                      |" << endl;
+    cout << "            |   Restart Game: r                      |" << endl;
+    cout << "            |   Quit Game: q                         |" << endl;
+    cout << "            |----------------------------------------|" << endl;
 }
 
 void GameGrid::printWin() {
