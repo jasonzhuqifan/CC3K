@@ -1056,6 +1056,7 @@ bool Player::hasReachedShairs() {
 int Player::goUpstairs() {
     reachStairs = false;
     floorNum++;
+    update_message("Player Enters Floor " + to_string(floorNum) + ". ");
     return floorNum;
 }
 
