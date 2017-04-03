@@ -659,7 +659,11 @@ void Player::move(string dir){
         emptyMessage();
         update_message("Invalid move! ");
     }
-    this->notifyObservers(SubscriptionType::All);
+    if(!enemyFrozen){
+        this->notifyObservers(SubscriptionType::All);
+    }else{
+        this->notifyObservers(SubscriptionType::displayOnly);
+    }
     previousRow = currentRow;
     previousCol = currentCol;
 }
@@ -751,7 +755,11 @@ void Player::attack(std::string dir, std::shared_ptr<Player>pc){
         shared_ptr<Enemy> e = dynamic_pointer_cast<Enemy>((*gO)[r][c]);
         attackIt(e, pc);
     }else{
-         this->notifyObservers(SubscriptionType::All);
+        if(!enemyFrozen){
+            this->notifyObservers(SubscriptionType::All);
+        }else{
+            this->notifyObservers(SubscriptionType::displayOnly);
+        }
         update_message("There does not exist an enemy. ");
     }
 }
@@ -772,7 +780,11 @@ void Player::attackIt(std::shared_ptr<Enemy> e, std::shared_ptr<Player>pc){
     }else if(dynamic_pointer_cast<Orc>(e)){
         attackIt(dynamic_pointer_cast<Orc>(e), pc);
     }
-     this->notifyObservers(SubscriptionType::All);
+    if(!enemyFrozen){
+        this->notifyObservers(SubscriptionType::All);
+    }else{
+        this->notifyObservers(SubscriptionType::displayOnly);
+    }
 }
 
 void Player::attackIt(std::shared_ptr<Dwarf> e, std::shared_ptr<Player>pc) {
@@ -1081,6 +1093,13 @@ bool Player::knowPotion(std::string s) {
     else return usedPH;
 }
 
+void Player::setFrozen(){
+    if(enemyFrozen){
+        enemyFrozen = false;
+    }else{
+        enemyFrozen = true;
+    }
+}
 int Player::getFloorNum() {
     return floorNum;
 }

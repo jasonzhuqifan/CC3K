@@ -27,6 +27,7 @@ class Player : public Character, public std::enable_shared_from_this<Player> {
     bool usedRH = false;
     bool usedPH = false;
 protected:
+    bool enemyFrozen = false;
     std::string ActionMessage;
     int floorNum = 1;
     std::string playerRace;
@@ -34,6 +35,7 @@ protected:
     bool steal = false;
     bool autoheal = false;
 public:
+    void setFrozen();
     virtual void attack(std::string dir, std::shared_ptr<Player>pc);
     virtual void attackIt(std::shared_ptr<Enemy> e, std::shared_ptr<Player>pc);
     virtual void attackIt(std::shared_ptr<Dwarf> e, std::shared_ptr<Player>pc);
