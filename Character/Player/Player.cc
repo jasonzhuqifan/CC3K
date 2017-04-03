@@ -708,7 +708,7 @@ void Player::getDamage(double damage){
 }
 
 bool Player::hasDead() {
-    return false;
+    return isDead;
 }
 
 void Player::attack(std::string dir, std::shared_ptr<Player>pc){
