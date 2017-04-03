@@ -84,7 +84,7 @@ void GameGrid::setRace(char race){
 }
 
 void GameGrid::freeze(){
-    l->setFrozen();
+    pc->setFrozen();
 }
 
 //void GameGrid::clearGrid(){

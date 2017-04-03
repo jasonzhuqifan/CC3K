@@ -371,10 +371,6 @@ void Floor::clearFloor(){
     gO.clear();
 }
 
-void Floor::setFrozen(){
-    enemyFrozen = true;
-}
-
 shared_ptr<Player> Floor::use(shared_ptr<Player> pc, std::string dir){
     Info info = pc->getInfo();
     int potionRow = info.currentRow;

@@ -91,3 +91,7 @@ int PotionEffect::getFloorNum() {
 bool PotionEffect::ismagnify() {
     return pc->ismagnify();
 }
+
+bool PotionEffect::setFrozen() {
+    return pc->setFrozen();
+}
