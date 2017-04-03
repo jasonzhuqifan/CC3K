@@ -21,6 +21,7 @@
 #include "Merchant.h"
 #include "Dragon.h"
 #include "Dwarf.h"
+#include "Nomair.h"
 
 #include "Small.h"
 #include "Normal.h"
@@ -85,7 +86,8 @@ pair<int, int> Floor::spawnItem(T itemType,char type){
 
 
 shared_ptr<Enemy> Floor::createEnemy(char *type){
-    int spawnRate = rand()%18+1; //random number from 1 to 18
+    //int spawnRate = rand()%18+1; //random number from 1 to 18
+    int spawnRate = rand()%21+1;
     shared_ptr<Enemy> spawnEnemy = NULL;
     if(spawnRate >=1 && spawnRate <= 4){//Human
         spawnEnemy = make_shared<Human>();
@@ -107,9 +109,14 @@ shared_ptr<Enemy> Floor::createEnemy(char *type){
         spawnEnemy = make_shared<Orc>();
         *type = 'O';
     }
-    else{//Merchant
+    else if(spawnRate >= 18 && spawnRate <= 19){//Merchant
         spawnEnemy = make_shared<Merchant>();
         *type = 'M';
+    }
+    else{//Nomair
+        spawnEnemy = make_shared<Nomair>();
+        *type = 'N';
+        
     }
     //shared_ptr<vector<vector<shared_ptr<GridObjects>>>> map = make_shared<vector<vector<shared_ptr<GridObjects>>>>(gO);
     spawnEnemy->setMap(&gO);
@@ -195,6 +202,7 @@ void Floor::placeGold(shared_ptr<Character> pc){
             int y = pos.first;
             int x = pos.second;
             spawnDragon->setDragonHoard(x, y);
+            
             //0 1 2
             //3 G 4
             //5 6 7

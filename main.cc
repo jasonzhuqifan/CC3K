@@ -26,7 +26,7 @@ int main() {
                 g.attack(dir);
             }
             else if (cmd == "s" || cmd == "d" || cmd == "v" ||
-                     cmd == "g" || cmd == "t") {
+                     cmd == "g" || cmd == "t" || cmd == "x") {
                 if (raceSet) {
                     cout << endl << "Race has been set. Restart(r) to play with new race" << endl;
                 }

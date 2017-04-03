@@ -12,6 +12,10 @@ Student::Student(){
     playerRace = "Student";
 }
 
+Student::~Student(){
+    
+}
+
 void Student::attackIt(std::shared_ptr<Nomair> e, std::shared_ptr<Player>pc){
     double d = e->getDefence();
     double damage = ceil((100/(100+d)) * pc->getAttack() * 0.5);
@@ -72,4 +76,3 @@ void Student::attackIt(std::shared_ptr<Merchant> e, std::shared_ptr<Player>pc){
     check_dead(e);
 }
 
-Student::~Student(){};
