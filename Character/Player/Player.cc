@@ -31,7 +31,13 @@ GridObjectType Player::getObjType(){
 void Player::move(string dir){
     ActionMessage = "";
     if(autoheal){
-        HP += 5;
+        if(HP + 5 >= 120){
+            HP = 120;
+            update_message("Already reach MaxHP. ");
+        }else{
+            HP = HP + 5;
+            update_message("Gain HP by 5. ");
+        }
     }
     int r = currentRow;
     int c = currentCol;
@@ -704,7 +710,13 @@ void Player::attack(std::string dir, std::shared_ptr<Player>pc){
     int r = currentRow;
     int c = currentCol;
     if(autoheal){
-        HP += 5;
+        if(HP + 5 >= 120){
+            HP = 120;
+            update_message("Already reach MaxHP. ");
+        }else{
+            HP = HP + 5;
+            update_message("Gain HP by 5. ");
+        }
     }
     if(dir == "no"){
         r--;
