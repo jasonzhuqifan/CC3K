@@ -29,7 +29,7 @@ void GameGrid::move(string dir){
     pc->move(dir);
     if (pc->hasReachedShairs()) {
         pc = pc->getTrue();
-        if(pc->goUpstairs() > 1) {
+        if(pc->goUpstairs() > 5) {
             win();
         }
     }
