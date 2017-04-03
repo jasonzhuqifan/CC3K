@@ -2,7 +2,7 @@
 #define textDisplay_hpp
 
 #include <iostream>
-#include "observer.h"
+#include "Observer.h"
 #include <vector>
 #include <string>
 

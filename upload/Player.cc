@@ -10,7 +10,7 @@
 #include "Door.h"
 #include "Passages.h"
 #include "Info.h"
-#include "TextDisplay.h"
+#include "textDisplay.h"
 #include "Potion.h"
 
 #include "Human.h"
@@ -584,12 +584,23 @@ void Player::move(string dir){
                 }else if(g->getObjType() == GridObjectType::merchantHoard){
                     ActionMessage.append(" merchant Hoard. ");
                 }else if(g->getObjType() == GridObjectType::dragonHoard){
-                    ActionMessage.append(" dragon Hoard. s");
+                    ActionMessage.append(" dragon Hoard. ");
                 }
                 }else{
                    gold += g->getGold();
                     shared_ptr<DragonHoard> g = make_shared<DragonHoard>();
                     (*gO)[r][c] = g;
+                    ActionMessage.append("and picks up ");
+                    ActionMessage.append(to_string(g->getGoldCount()));
+                    if(g->getObjType() == GridObjectType::smallGold){
+                        ActionMessage.append(" small Gold. ");
+                    } else if(g->getObjType() == GridObjectType::normalGold){
+                        ActionMessage.append(" normal Gold. ");
+                    }else if(g->getObjType() == GridObjectType::merchantHoard){
+                        ActionMessage.append(" merchant Hoard. ");
+                    }else if(g->getObjType() == GridObjectType::dragonHoard){
+                        ActionMessage.append(" dragon Hoard. ");
+                    }
                     g->setPos(r, c);
                     g->attatch(dynamic_pointer_cast<Observer>(TD));
                     g->notifyObservers(SubscriptionType::displayOnly);

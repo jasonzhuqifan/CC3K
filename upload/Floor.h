@@ -10,6 +10,7 @@
 #define Floor_hpp
 
 #include <vector>
+#include <memory>
 #include "Level.h"
 #include "Chamber.h"
 

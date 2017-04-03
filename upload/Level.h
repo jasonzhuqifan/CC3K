@@ -2,6 +2,7 @@
 #define Level_hpp
 
 #include <iostream>
+#include <memory>
 
 class Character;
 class Player;

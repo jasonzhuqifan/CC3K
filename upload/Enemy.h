@@ -14,7 +14,7 @@ class Student;
 
 class Enemy : public Character, public Observer, public std::enable_shared_from_this<Enemy>{
 private:
-    void move();
+    void move(int pc_r, int pc_c);
 protected:
     bool Dead = false;
     bool isneutral = false;
