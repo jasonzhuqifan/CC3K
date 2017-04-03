@@ -122,8 +122,8 @@ void GameGrid::printStart() {
     cout << "               •Shade(s) -- Score Bonus" << endl;
     cout << "               •Drow(d) -- Potion Effect Magnified" << endl;
     cout << "               •Vampire(v) -- Steal HP" << endl;
-    cout << "               •Trol -- Self-Healing" << endl;
-    cout << "               •Goblin -- Steal Gold" << endl << endl;
+    cout << "               •Troll(t) -- Self-Healing" << endl;
+    cout << "               •Goblin(g) -- Steal Gold" << endl << endl;
     cout << "            |----------------------------------------|" << endl;
     cout << "            | Instruction:                           |" << endl;
     cout << "            |   Move: <dir>(no,so,ea,we,ne,nw,se,sw) |" << endl;
