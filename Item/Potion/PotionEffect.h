@@ -30,7 +30,7 @@ public:
     bool knowPotion(std::string s) override;
     int getFloorNum() override;
     bool ismagnify() override;
-    bool setFrozen() override;
+    void setFrozen() override;
 };
 
 

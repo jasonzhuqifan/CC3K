@@ -92,6 +92,6 @@ bool PotionEffect::ismagnify() {
     return pc->ismagnify();
 }
 
-bool PotionEffect::setFrozen() {
-    return pc->setFrozen();
+void PotionEffect::setFrozen() {
+     pc->setFrozen();
 }
