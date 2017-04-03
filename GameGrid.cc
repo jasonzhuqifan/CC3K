@@ -115,7 +115,8 @@ void GameGrid::printStart() {
     cout << "               3K       3K            3K  3K  3K" << endl;
     cout << "               C3       C3            C3  C3  C3" << endl;
     cout << "               CC3KCC3  CC3KCC3   CC3KCC  CC  CC3" << endl;
-    cout << "               KCC3KCC  KCC3KCC  3KCC3KC  KC   CC" << endl << endl << endl;
+    cout << "               KCC3KCC  KCC3KCC  3KCC3KC  KC   CC" << endl << endl;
+    cout << "                                   Copyright© University of Waterloo"  << endl << endl;
     cout << "Welcome to CC3K produced by Yinong Wang, Raymond Tan, and Qifan Zhu." << endl << endl;
     cout << "               To start the game, choose a race: " << endl << endl;
     cout << "               •Shade(s) -- Default Race" << endl;

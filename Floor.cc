@@ -460,7 +460,7 @@ shared_ptr<Player> Floor::use(shared_ptr<Player> pc, std::string dir){
         shared_ptr<FloorTile> g = make_shared<FloorTile>();
         gO[potionRow][potionCol] = g;
     }
-    pc->notifyObservers(SubscriptionType::All);
+    pc->getTrue()->notifyObservers(SubscriptionType::All);
     return pc;
 }
 
