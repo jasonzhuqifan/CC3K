@@ -10,8 +10,9 @@ class Goblin;
 class Shade;
 class Troll;
 class Vampire;
+class Dragon;
 
-class Enemy : public Character, public Observer{
+class Enemy : public Character, public Observer, public std::enable_shared_from_this<Dragon>{
 private:
     void move();
 protected:

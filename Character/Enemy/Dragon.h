@@ -18,6 +18,8 @@ public:
     Dragon();
     ~Dragon();
     void setDragonHoard(int x,int y);
+    int getDragonHoardC();
+    int getDragonHoardR();
 };
 
 #endif /* Dragon_hpp */

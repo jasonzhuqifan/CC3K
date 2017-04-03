@@ -6,6 +6,7 @@
 #include "Shade.h"
 #include "Goblin.h"
 #include "Troll.h"
+#include "Dragon.h"
 using namespace std;
 
 void Enemy::updateDamage(double damage){
@@ -46,12 +47,43 @@ void Enemy::notify(Subject &notifier){
     }else if((*gO)[r][c-1]->getObjType() == GridObjectType::Player){
         shared_ptr<Player> p = dynamic_pointer_cast<Player>((*gO)[r][c-1]);
         attack(p);
+    }else if(stationary){
+        shared_ptr<Dragon> d = shared_from_this();
+        int hoardC = d->getDragonHoardC();
+        int hoardR = d->getDragonHoardR();
+        if((*gO)[hoardR-1][hoardC]->getObjType() == GridObjectType::Player){
+            shared_ptr<Player> p = dynamic_pointer_cast<Player>((*gO)[hoardR-1][hoardC]);
+            attack(p);
+        }else if((*gO)[hoardR+1][hoardC]->getObjType() == GridObjectType::Player){
+            shared_ptr<Player> p = dynamic_pointer_cast<Player>((*gO)[hoardR+1][hoardC]);
+            attack(p);
+        }else if((*gO)[hoardR-1][hoardC+1]->getObjType() == GridObjectType::Player){
+            shared_ptr<Player> p = dynamic_pointer_cast<Player>((*gO)[hoardR-1][hoardC+1]);
+            attack(p);
+        }else if((*gO)[hoardR-1][hoardC-1]->getObjType() == GridObjectType::Player){
+            shared_ptr<Player> p = dynamic_pointer_cast<Player>((*gO)[hoardR-1][hoardC-1]);
+            attack(p);
+        }else if((*gO)[hoardR+1][hoardC+1]->getObjType() == GridObjectType::Player){
+            shared_ptr<Player> p = dynamic_pointer_cast<Player>((*gO)[hoardR+1][hoardC+1]);
+            attack(p);
+        }else if((*gO)[hoardR+1][hoardC-1]->getObjType() == GridObjectType::Player){
+            shared_ptr<Player> p = dynamic_pointer_cast<Player>((*gO)[hoardR+1][hoardC-1]);
+            attack(p);
+        }else if((*gO)[hoardR][hoardC+1]->getObjType() == GridObjectType::Player){
+            shared_ptr<Player> p = dynamic_pointer_cast<Player>((*gO)[hoardR][hoardC+1]);
+            attack(p);
+        }else if((*gO)[hoardR][hoardC-1]->getObjType() == GridObjectType::Player){
+            shared_ptr<Player> p = dynamic_pointer_cast<Player>((*gO)[hoardR][hoardC-1]);
+            attack(p);
+        }else{
+            move();
+        }
     }else if(!stationary){
         move();
     }
 }
 
-void Enemy::move(){  //if enemy is stuck, you fucked up!
+void Enemy::move(){
     int r = currentRow;
     int c = currentCol;
     int direction;

@@ -136,7 +136,6 @@ void Player::move(string dir){
                 default:
                     break;
             }
-            update_message(" potion");
         }else{
             update_message("and see an unknown potion. ");
         }
@@ -195,7 +194,6 @@ void Player::move(string dir){
                 default:
                     break;
             }
-            update_message(" potion");
         }else{
             update_message("and see an unknown potion. ");
         }
@@ -254,7 +252,6 @@ void Player::move(string dir){
                 default:
                     break;
             }
-            update_message(" potion");
         }else{
             update_message("and see an unknown potion. ");
         }
@@ -313,7 +310,6 @@ void Player::move(string dir){
                 default:
                     break;
             }
-            update_message(" potion");
         }else{
             update_message("and see an unknown potion. ");
         }
@@ -372,7 +368,6 @@ void Player::move(string dir){
                 default:
                     break;
             }
-            update_message(" potion");
         }else{
             update_message("and see an unknown potion. ");
         }
