@@ -55,7 +55,6 @@ private:
     //returns the position of the item when item spawns.
     
     
-    
 public:
     std::shared_ptr<Player> use(std::shared_ptr<Player> pc, std::string dir) override;
     Floor();
