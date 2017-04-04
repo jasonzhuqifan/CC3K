@@ -979,7 +979,7 @@ void Player::check_dead(shared_ptr<Enemy> e){
             n->attatch(TD);
             n->setPos(r, c);
             (*gO)[r][c] = n;
-            update_message("Merchant drops two piles of Normal Gold. ");
+            update_message("Human drops two piles of Normal Gold. ");
             n->notifyObservers(SubscriptionType::displayOnly);
         }else if(e->dropgold() == 4){
             shared_ptr<MerchantHoard> m = make_shared<MerchantHoard>();
