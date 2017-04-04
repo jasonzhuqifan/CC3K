@@ -95,3 +95,7 @@ bool PotionEffect::ismagnify() {
 void PotionEffect::setFrozen() {
      pc->setFrozen();
 }
+
+bool PotionEffect::getFrozenStat() {
+    return pc->getFrozenStat();
+}

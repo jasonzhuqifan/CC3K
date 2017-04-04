@@ -1140,6 +1140,11 @@ void Player::setFrozen(){
         enemyFrozen = true;
     }
 }
+
+bool Player::getFrozenStat() {
+    return enemyFrozen;
+}
+
 int Player::getFloorNum() {
     return floorNum;
 }

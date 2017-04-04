@@ -36,6 +36,7 @@ protected:
     bool autoheal = false;
 public:
     virtual void setFrozen();
+    virtual bool getFrozenStat();
     virtual void attack(std::string dir, std::shared_ptr<Player>pc);
     virtual void attackIt(std::shared_ptr<Enemy> e, std::shared_ptr<Player>pc);
     virtual void attackIt(std::shared_ptr<Dwarf> e, std::shared_ptr<Player>pc);

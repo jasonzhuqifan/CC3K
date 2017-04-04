@@ -31,6 +31,7 @@ public:
     int getFloorNum() override;
     bool ismagnify() override;
     void setFrozen() override;
+    bool getFrozenStat() override;
 };
 
 
