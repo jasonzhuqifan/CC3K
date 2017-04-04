@@ -128,6 +128,7 @@ int main() {
                 g.attack(dir);
             }
             else if (cmd == "f" && raceSet) {
+                cout << "Toggle Freeze" << endl;
                 g.freeze();
             }
             else if (cmd == "r" && raceSet) {

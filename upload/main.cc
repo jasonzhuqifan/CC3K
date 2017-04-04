@@ -27,11 +27,11 @@ int main() {
             }
             
             if (cmd == "e" ) {
-                cout << "WASD Control Enabled" << endl;
+                cout << endl << "WASD Control Enabled" << endl << endl;
                 wasd = true;
             }
             else if (cmd == "c" ) {
-                cout << "WASD Control Disabled" << endl;
+                cout << endl << "WASD Control Disabled" << endl << endl;
                 wasd = false;
             }
             else if (!raceSet && (cmd == "s" || cmd == "d" || cmd == "v" ||
@@ -66,6 +66,7 @@ int main() {
             else if (cmd == "u" && raceSet) {
                 string dir;
                 if(wasd) {
+                    cout << "Please enter a direction for using" << endl;
                     initscr();
                     cbreak();
                     noecho();
@@ -97,6 +98,7 @@ int main() {
             else if ((cmd == "a" || cmd == "i") && raceSet) {
                 string dir;
                 if(wasd) {
+                    cout << "Please enter a direction for attacking" << endl;
                     initscr();
                     cbreak();
                     noecho();
