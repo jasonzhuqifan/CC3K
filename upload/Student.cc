@@ -31,7 +31,7 @@ void Student::attackIt(std::shared_ptr<Nomair> e, std::shared_ptr<Player>pc){
         update_message(")");
     }
     else {
-        update_message("Dwarf has been slain by PC. ");
+        update_message("Nomair went to prepare for final. ");
     }
     check_dead(e);
 }
