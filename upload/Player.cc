@@ -1107,6 +1107,9 @@ bool Player::hasReachedShairs() {
 
 int Player::goUpstairs() {
     reachStairs = false;
+    onDoor = false;
+    onPassage = false;
+    onDragonHoard = false;
     floorNum++;
     update_message("Player Enters Floor " + to_string(floorNum) + ". ");
     return floorNum;
