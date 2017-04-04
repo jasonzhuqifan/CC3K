@@ -1475,7 +1475,7 @@
 											"containerExtending": false,
 											"left": 2109,
 											"top": 1295,
-											"width": 124,
+											"width": 158,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
@@ -1547,7 +1547,7 @@
 									"containerExtending": false,
 									"left": 2104,
 									"top": 1288,
-									"width": 134,
+									"width": 168,
 									"height": 25,
 									"autoResize": false,
 									"stereotypeLabel": {
@@ -1583,7 +1583,7 @@
 									"containerExtending": false,
 									"left": 2104,
 									"top": 1313,
-									"width": 134,
+									"width": 168,
 									"height": 10,
 									"autoResize": false
 								},
@@ -1617,11 +1617,11 @@
 											"containerExtending": false,
 											"left": 2109,
 											"top": 1328,
-											"width": 124,
+											"width": 158,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "+getHP(): int",
+											"text": "+setFrozen()",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -1646,11 +1646,11 @@
 											"containerExtending": false,
 											"left": 2109,
 											"top": 1343,
-											"width": 124,
+											"width": 158,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "+getAttack(): int",
+											"text": "+attack(int, Player*)",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -1675,11 +1675,11 @@
 											"containerExtending": false,
 											"left": 2109,
 											"top": 1358,
-											"width": 124,
+											"width": 158,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "+getDefence(): int",
+											"text": "+attackIt(Enemy*, Player*)",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -1704,23 +1704,23 @@
 											"containerExtending": false,
 											"left": 2109,
 											"top": 1373,
-											"width": 124,
+											"width": 158,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "+getMaxHP(): int",
+											"text": "+attackIt(Dwarf*, Player*)",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5,
 											"wordWrap": false
 										},
 										{
 											"_type": "UMLOperationView",
-											"_id": "AAAAAAFbAWIKCeWz5Ew=",
+											"_id": "AAAAAAFbNliflzSjpTk=",
 											"_parent": {
 												"$ref": "AAAAAAFa9/n+0fHQyq0="
 											},
 											"model": {
-												"$ref": "AAAAAAFbAWIJ7uWwy0c="
+												"$ref": "AAAAAAFbNlifUzSgU80="
 											},
 											"visible": true,
 											"enabled": true,
@@ -1733,52 +1733,52 @@
 											"containerExtending": false,
 											"left": 2109,
 											"top": 1388,
-											"width": 124,
+											"width": 158,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "+getGold(): int",
+											"text": "+attackIt(Dragon*, Player*)",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5,
 											"wordWrap": false
 										},
 										{
 											"_type": "UMLOperationView",
-											"_id": "AAAAAAFbAzHVdFKqwcE=",
+											"_id": "AAAAAAFbNli1eDVBrwM=",
 											"_parent": {
 												"$ref": "AAAAAAFa9/n+0fHQyq0="
 											},
 											"model": {
-												"$ref": "AAAAAAFbAzHVWVKnD3E="
+												"$ref": "AAAAAAFbNli1NzU+VQE="
 											},
 											"visible": true,
 											"enabled": true,
 											"lineColor": "#000000",
 											"fillColor": "#ffffff",
 											"fontColor": "#000000",
-											"font": "Arial;13;2",
+											"font": "Arial;13;0",
 											"showShadow": true,
 											"containerChangeable": false,
 											"containerExtending": false,
 											"left": 2109,
 											"top": 1403,
-											"width": 124,
+											"width": 158,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "+attack(string)",
+											"text": "+attackIt(Elf*, Player*)",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5,
 											"wordWrap": false
 										},
 										{
 											"_type": "UMLOperationView",
-											"_id": "AAAAAAFbAzqd2mYUY0s=",
+											"_id": "AAAAAAFbNljkpjYKI+c=",
 											"_parent": {
 												"$ref": "AAAAAAFa9/n+0fHQyq0="
 											},
 											"model": {
-												"$ref": "AAAAAAFbAzqdvGYRplA="
+												"$ref": "AAAAAAFbNljkZTYHUBk="
 											},
 											"visible": true,
 											"enabled": true,
@@ -1791,23 +1791,23 @@
 											"containerExtending": false,
 											"left": 2109,
 											"top": 1418,
-											"width": 124,
+											"width": 158,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "+move(string)",
+											"text": "+attackIt(Halfling*, Player*)",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5,
 											"wordWrap": false
 										},
 										{
 											"_type": "UMLOperationView",
-											"_id": "AAAAAAFbA1/buJTSP74=",
+											"_id": "AAAAAAFbNlkQijaomII=",
 											"_parent": {
 												"$ref": "AAAAAAFa9/n+0fHQyq0="
 											},
 											"model": {
-												"$ref": "AAAAAAFbA1/blJTPSwo="
+												"$ref": "AAAAAAFbNlkQRjalU/U="
 											},
 											"visible": true,
 											"enabled": true,
@@ -1820,40 +1820,11 @@
 											"containerExtending": false,
 											"left": 2109,
 											"top": 1433,
-											"width": 124,
+											"width": 158,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "+use(string)",
-											"horizontalAlignment": 0,
-											"verticalAlignment": 5,
-											"wordWrap": false
-										},
-										{
-											"_type": "UMLOperationView",
-											"_id": "AAAAAAFbA5lPNQKdg+4=",
-											"_parent": {
-												"$ref": "AAAAAAFa9/n+0fHQyq0="
-											},
-											"model": {
-												"$ref": "AAAAAAFbA5lPEwKazOE="
-											},
-											"visible": true,
-											"enabled": true,
-											"lineColor": "#000000",
-											"fillColor": "#ffffff",
-											"fontColor": "#000000",
-											"font": "Arial;13;0",
-											"showShadow": true,
-											"containerChangeable": false,
-											"containerExtending": false,
-											"left": 2109,
-											"top": 1448,
-											"width": 124,
-											"height": 13,
-											"autoResize": false,
-											"underline": false,
-											"text": "+reachStairs(): bool",
+											"text": "+attackIt(Human*, Player*)",
 											"horizontalAlignment": 0,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -1870,8 +1841,8 @@
 									"containerExtending": false,
 									"left": 2104,
 									"top": 1323,
-									"width": 134,
-									"height": 143,
+									"width": 168,
+									"height": 128,
 									"autoResize": false
 								},
 								{
@@ -1934,7 +1905,7 @@
 							"containerExtending": false,
 							"left": 2104,
 							"top": 1288,
-							"width": 134,
+							"width": 168,
 							"height": 193,
 							"autoResize": false,
 							"stereotypeDisplay": "label",
@@ -23610,7 +23581,7 @@
 								"$ref": "AAAAAAFbFXeotBSkvBs="
 							},
 							"lineStyle": 0,
-							"points": "744:1952;744:2064;2448:2064;2448:1384;2237:1384",
+							"points": "744:1952;744:2064;2448:2064;2448:1384;2271:1384",
 							"stereotypeDisplay": "label",
 							"showVisibility": true,
 							"showProperty": true,
@@ -23755,7 +23726,7 @@
 									"showShadow": true,
 									"containerChangeable": false,
 									"containerExtending": false,
-									"left": 2262,
+									"left": 2296,
 									"top": 1363,
 									"width": 0,
 									"height": 13,
@@ -23789,7 +23760,7 @@
 									"showShadow": true,
 									"containerChangeable": false,
 									"containerExtending": false,
-									"left": 2265,
+									"left": 2299,
 									"top": 1349,
 									"width": 0,
 									"height": 13,
@@ -23823,7 +23794,7 @@
 									"showShadow": true,
 									"containerChangeable": false,
 									"containerExtending": false,
-									"left": 2258,
+									"left": 2292,
 									"top": 1390,
 									"width": 0,
 									"height": 13,
@@ -24006,7 +23977,7 @@
 								"$ref": "AAAAAAFa9/n+0PHJkqI="
 							},
 							"lineStyle": 0,
-							"points": "2237:1384;2488:1384;2488:2096;712:2096;712:1952",
+							"points": "2271:1384;2488:1384;2488:2096;712:2096;712:1952",
 							"stereotypeDisplay": "label",
 							"showVisibility": true,
 							"showProperty": true,
@@ -24319,8 +24290,13 @@
 									"showShadow": true,
 									"containerChangeable": false,
 									"containerExtending": false,
+<<<<<<< Updated upstream
 									"left": 2262,
 									"top": 1371,
+=======
+									"left": 2296,
+									"top": 1363,
+>>>>>>> Stashed changes
 									"width": 0,
 									"height": 13,
 									"autoResize": false,
@@ -24353,8 +24329,13 @@
 									"showShadow": true,
 									"containerChangeable": false,
 									"containerExtending": false,
+<<<<<<< Updated upstream
 									"left": 2265,
 									"top": 1357,
+=======
+									"left": 2299,
+									"top": 1349,
+>>>>>>> Stashed changes
 									"width": 0,
 									"height": 13,
 									"autoResize": false,
@@ -24387,8 +24368,13 @@
 									"showShadow": true,
 									"containerChangeable": false,
 									"containerExtending": false,
+<<<<<<< Updated upstream
 									"left": 2258,
 									"top": 1398,
+=======
+									"left": 2292,
+									"top": 1390,
+>>>>>>> Stashed changes
 									"width": 0,
 									"height": 13,
 									"autoResize": false,
@@ -24570,7 +24556,11 @@
 								"$ref": "AAAAAAFa9/n+0PHJkqI="
 							},
 							"lineStyle": 0,
+<<<<<<< Updated upstream
 							"points": "2237:1392;2544:1392;2544:2136;360:2136;360:320;1240:320",
+=======
+							"points": "2271:1384;2528:1384;2528:2128;344:2128;344:312;1240:312",
+>>>>>>> Stashed changes
 							"stereotypeDisplay": "label",
 							"showVisibility": true,
 							"showProperty": true,
@@ -28360,27 +28350,10 @@
 							"_parent": {
 								"$ref": "AAAAAAFa9/n+z/HHW/o="
 							},
-							"name": "getHP",
+							"name": "setFrozen",
 							"visibility": "public",
 							"isStatic": false,
 							"isLeaf": false,
-							"parameters": [
-								{
-									"_type": "UMLParameter",
-									"_id": "AAAAAAFbDeXQtdkvc0c=",
-									"_parent": {
-										"$ref": "AAAAAAFbAWFFW9/6hFs="
-									},
-									"visibility": "public",
-									"isStatic": false,
-									"isLeaf": false,
-									"type": "int",
-									"isReadOnly": false,
-									"isOrdered": false,
-									"isUnique": false,
-									"direction": "return"
-								}
-							],
 							"concurrency": "sequential",
 							"isQuery": false,
 							"isAbstract": false
@@ -28391,25 +28364,42 @@
 							"_parent": {
 								"$ref": "AAAAAAFa9/n+z/HHW/o="
 							},
-							"name": "getAttack",
+							"name": "attack",
 							"visibility": "public",
 							"isStatic": false,
 							"isLeaf": false,
 							"parameters": [
 								{
 									"_type": "UMLParameter",
-									"_id": "AAAAAAFbDeXeTdnaZKk=",
+									"_id": "AAAAAAFbNlekJDBKud8=",
 									"_parent": {
 										"$ref": "AAAAAAFbAWFdKeAtomI="
 									},
+									"name": "int",
 									"visibility": "public",
 									"isStatic": false,
 									"isLeaf": false,
-									"type": "int",
+									"type": "",
 									"isReadOnly": false,
 									"isOrdered": false,
 									"isUnique": false,
-									"direction": "return"
+									"direction": "in"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAFbNlekJTBLZxs=",
+									"_parent": {
+										"$ref": "AAAAAAFbAWFdKeAtomI="
+									},
+									"name": "Player*",
+									"visibility": "public",
+									"isStatic": false,
+									"isLeaf": false,
+									"type": "",
+									"isReadOnly": false,
+									"isOrdered": false,
+									"isUnique": false,
+									"direction": "in"
 								}
 							],
 							"concurrency": "sequential",
@@ -28422,25 +28412,42 @@
 							"_parent": {
 								"$ref": "AAAAAAFa9/n+z/HHW/o="
 							},
-							"name": "getDefence",
+							"name": "attackIt",
 							"visibility": "public",
 							"isStatic": false,
 							"isLeaf": false,
 							"parameters": [
 								{
 									"_type": "UMLParameter",
-									"_id": "AAAAAAFbDeXm2tqFX2o=",
+									"_id": "AAAAAAFbNlg9jzHMA6A=",
 									"_parent": {
 										"$ref": "AAAAAAFbAWFgiOBgtZM="
 									},
+									"name": "Enemy*",
 									"visibility": "public",
 									"isStatic": false,
 									"isLeaf": false,
-									"type": "int",
+									"type": "",
 									"isReadOnly": false,
 									"isOrdered": false,
 									"isUnique": false,
-									"direction": "return"
+									"direction": "in"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAFbNlg9jzHNAw4=",
+									"_parent": {
+										"$ref": "AAAAAAFbAWFgiOBgtZM="
+									},
+									"name": "Player*",
+									"visibility": "public",
+									"isStatic": false,
+									"isLeaf": false,
+									"type": "",
+									"isReadOnly": false,
+									"isOrdered": false,
+									"isUnique": false,
+									"direction": "in"
 								}
 							],
 							"concurrency": "sequential",
@@ -28453,84 +28460,36 @@
 							"_parent": {
 								"$ref": "AAAAAAFa9/n+z/HHW/o="
 							},
-							"name": "getMaxHP",
+							"name": "attackIt",
 							"visibility": "public",
 							"isStatic": false,
 							"isLeaf": false,
 							"parameters": [
 								{
 									"_type": "UMLParameter",
-									"_id": "AAAAAAFbDeXuQdswaLw=",
+									"_id": "AAAAAAFbNliAbjQcCXE=",
 									"_parent": {
 										"$ref": "AAAAAAFbAWIGFeV9Lhc="
 									},
+									"name": "Dwarf*",
 									"visibility": "public",
 									"isStatic": false,
 									"isLeaf": false,
-									"type": "int",
 									"isReadOnly": false,
 									"isOrdered": false,
 									"isUnique": false,
-									"direction": "return"
-								}
-							],
-							"concurrency": "sequential",
-							"isQuery": false,
-							"isAbstract": false
-						},
-						{
-							"_type": "UMLOperation",
-							"_id": "AAAAAAFbAWIJ7uWwy0c=",
-							"_parent": {
-								"$ref": "AAAAAAFa9/n+z/HHW/o="
-							},
-							"name": "getGold",
-							"visibility": "public",
-							"isStatic": false,
-							"isLeaf": false,
-							"parameters": [
+									"direction": "in"
+								},
 								{
 									"_type": "UMLParameter",
-									"_id": "AAAAAAFbDeX2rtvbbJQ=",
+									"_id": "AAAAAAFbNliAbjQd80k=",
 									"_parent": {
-										"$ref": "AAAAAAFbAWIJ7uWwy0c="
+										"$ref": "AAAAAAFbAWIGFeV9Lhc="
 									},
+									"name": "Player*",
 									"visibility": "public",
 									"isStatic": false,
 									"isLeaf": false,
-									"type": "int",
-									"isReadOnly": false,
-									"isOrdered": false,
-									"isUnique": false,
-									"direction": "return"
-								}
-							],
-							"concurrency": "sequential",
-							"isQuery": false,
-							"isAbstract": false
-						},
-						{
-							"_type": "UMLOperation",
-							"_id": "AAAAAAFbAzHVWVKnD3E=",
-							"_parent": {
-								"$ref": "AAAAAAFa9/n+z/HHW/o="
-							},
-							"name": "attack",
-							"visibility": "public",
-							"isStatic": false,
-							"isLeaf": false,
-							"parameters": [
-								{
-									"_type": "UMLParameter",
-									"_id": "AAAAAAFbAzHkElLqvV8=",
-									"_parent": {
-										"$ref": "AAAAAAFbAzHVWVKnD3E="
-									},
-									"name": "string",
-									"visibility": "public",
-									"isStatic": false,
-									"isLeaf": false,
-									"type": "",
 									"isReadOnly": false,
 									"isOrdered": false,
 									"isUnique": false,
@@ -28539,26 +28498,42 @@
 							],
 							"concurrency": "sequential",
 							"isQuery": false,
-							"isAbstract": true
+							"isAbstract": false
 						},
 						{
 							"_type": "UMLOperation",
-							"_id": "AAAAAAFbAzqdvGYRplA=",
+							"_id": "AAAAAAFbNlifUzSgU80=",
 							"_parent": {
 								"$ref": "AAAAAAFa9/n+z/HHW/o="
 							},
-							"name": "move",
+							"name": "attackIt",
 							"visibility": "public",
 							"isStatic": false,
 							"isLeaf": false,
 							"parameters": [
 								{
 									"_type": "UMLParameter",
-									"_id": "AAAAAAFbAzrmsmZUEjc=",
+									"_id": "AAAAAAFbNliz/jTmc0g=",
 									"_parent": {
-										"$ref": "AAAAAAFbAzqdvGYRplA="
+										"$ref": "AAAAAAFbNlifUzSgU80="
 									},
-									"name": "string",
+									"name": "Dragon*",
+									"visibility": "public",
+									"isStatic": false,
+									"isLeaf": false,
+									"type": "",
+									"isReadOnly": false,
+									"isOrdered": false,
+									"isUnique": false,
+									"direction": "in"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAFbNliz/zTnpmk=",
+									"_parent": {
+										"$ref": "AAAAAAFbNlifUzSgU80="
+									},
+									"name": "Player*",
 									"visibility": "public",
 									"isStatic": false,
 									"isLeaf": false,
@@ -28575,22 +28550,84 @@
 						},
 						{
 							"_type": "UMLOperation",
-							"_id": "AAAAAAFbA1/blJTPSwo=",
+							"_id": "AAAAAAFbNli1NzU+VQE=",
 							"_parent": {
 								"$ref": "AAAAAAFa9/n+z/HHW/o="
 							},
-							"name": "use",
+							"name": "attackIt",
 							"visibility": "public",
 							"isStatic": false,
 							"isLeaf": false,
 							"parameters": [
 								{
 									"_type": "UMLParameter",
-									"_id": "AAAAAAFbA1/7BpUDT0Q=",
+									"_id": "AAAAAAFbNljC3DWEAMA=",
 									"_parent": {
-										"$ref": "AAAAAAFbA1/blJTPSwo="
+										"$ref": "AAAAAAFbNli1NzU+VQE="
 									},
-									"name": "string",
+									"name": "Elf*",
+									"visibility": "public",
+									"isStatic": false,
+									"isLeaf": false,
+									"isReadOnly": false,
+									"isOrdered": false,
+									"isUnique": false,
+									"direction": "in"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAFbNljC3DWFoX4=",
+									"_parent": {
+										"$ref": "AAAAAAFbNli1NzU+VQE="
+									},
+									"name": "Player*",
+									"visibility": "public",
+									"isStatic": false,
+									"isLeaf": false,
+									"isReadOnly": false,
+									"isOrdered": false,
+									"isUnique": false,
+									"direction": "in"
+								}
+							],
+							"concurrency": "sequential",
+							"isQuery": false,
+							"isAbstract": false
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAFbNljkZTYHUBk=",
+							"_parent": {
+								"$ref": "AAAAAAFa9/n+z/HHW/o="
+							},
+							"name": "attackIt",
+							"visibility": "public",
+							"isStatic": false,
+							"isLeaf": false,
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAFbNlkPETZN8V8=",
+									"_parent": {
+										"$ref": "AAAAAAFbNljkZTYHUBk="
+									},
+									"name": "Halfling*",
+									"visibility": "public",
+									"isStatic": false,
+									"isLeaf": false,
+									"type": "",
+									"isReadOnly": false,
+									"isOrdered": false,
+									"isUnique": false,
+									"direction": "in"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAFbNlkPETZOA80=",
+									"_parent": {
+										"$ref": "AAAAAAFbNljkZTYHUBk="
+									},
+									"name": "Player*",
 									"visibility": "public",
 									"isStatic": false,
 									"isLeaf": false,
@@ -28607,29 +28644,46 @@
 						},
 						{
 							"_type": "UMLOperation",
-							"_id": "AAAAAAFbA5lPEwKazOE=",
+							"_id": "AAAAAAFbNlkQRjalU/U=",
 							"_parent": {
 								"$ref": "AAAAAAFa9/n+z/HHW/o="
 							},
-							"name": "reachStairs",
+							"name": "attackIt",
 							"visibility": "public",
 							"isStatic": false,
 							"isLeaf": false,
 							"parameters": [
 								{
 									"_type": "UMLParameter",
-									"_id": "AAAAAAFbA5mfkALOytw=",
+									"_id": "AAAAAAFbNmJIOzbrgTQ=",
 									"_parent": {
-										"$ref": "AAAAAAFbA5lPEwKazOE="
+										"$ref": "AAAAAAFbNlkQRjalU/U="
 									},
+									"name": "Human*",
 									"visibility": "public",
 									"isStatic": false,
 									"isLeaf": false,
-									"type": "bool",
+									"type": "",
 									"isReadOnly": false,
 									"isOrdered": false,
 									"isUnique": false,
-									"direction": "return"
+									"direction": "in"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAFbNmJIPDbseIY=",
+									"_parent": {
+										"$ref": "AAAAAAFbNlkQRjalU/U="
+									},
+									"name": "Player*",
+									"visibility": "public",
+									"isStatic": false,
+									"isLeaf": false,
+									"type": "",
+									"isReadOnly": false,
+									"isOrdered": false,
+									"isUnique": false,
+									"direction": "in"
 								}
 							],
 							"concurrency": "sequential",
