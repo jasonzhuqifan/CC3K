@@ -5,10 +5,10 @@ OBJECTS = main.o Item.o BDEffect.o PotionEffect.o WAEffect.o BAEffect.o WDEffect
 DEPENDS = ${OBJECTS:.o=.d}
 
 ${EXEC}: ${OBJECTS}
-${CXX} ${CXXFLAGS} ${OBJECTS} -o ${EXEC} -lncurses
+	${CXX} ${CXXFLAGS} ${OBJECTS} -o ${EXEC} -lncurses
 
 -include ${DEPENDS}
 
 clean:
-rm ${OBJECTS} ${EXEC} ${DEPENDS}
+	rm ${OBJECTS} ${EXEC} ${DEPENDS}
 .PHONY: clean
