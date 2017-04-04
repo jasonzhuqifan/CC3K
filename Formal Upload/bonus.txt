@@ -1,0 +1,31 @@
+Extra Credit Features:
+
+
+
+WASD Control
+Description:
+WASD Control allows client to use WASD input(no nned to type command floowed by the enter key).
+
+
+
+Shared Pointer
+Description:
+CC3k is wriiten withoud using explictly meomery allocation and deallocation.
+
+
+
+Additional Character
+Description:
+Player can choose Student.
+Nomair is an Enemy.
+Effects:
+
+Nomair has 10% chance to make 4 times critical damage to Student, 20% chance to make 3 times critical damage to Student, 30% possibiity to make 2 times critical damage to Student.
+
+Student can only make 50% damage to Nomair
+
+
+
+AI for Enemy:
+Descrption:
+Enemy have the ability to purse player within the range of 3 block radius.
