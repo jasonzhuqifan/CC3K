@@ -36,6 +36,8 @@ void Vampire::attackIt(std::shared_ptr<Halfling> e, std::shared_ptr<Player>pc){
         }else{
             update_message("Halfling has been slain by PC. ");
         }
+    }else{
+        update_message("PC misses attack to Halfing. ");
     }
     check_dead(e);
 }
